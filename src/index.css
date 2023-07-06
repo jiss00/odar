@@ -1,0 +1,142 @@
+@font-face {
+  font-family: 'MBC1961gulim';
+  src: url('./fonts/MBC1961gulim.ttf') format('truetype');
+}
+
+@font-face {
+font-family: 'Pretendard';
+src: url('./fonts/Pretendard-ExtraBold.otf') format('truetype');
+}
+
+.statebar{
+display: flex;
+width: 193px;
+height: 15px;
+margin-top: 90px;
+margin-left: 98px;
+border-radius: 10px;
+background-color: rgba(171, 171, 171, 0.5);
+}
+
+/* .statebar_inner{
+width: 96.5px;
+height: 15px;
+border-radius: 10px;
+background: rgba(162, 192, 138, 1);
+} */
+
+.titleWrap{
+margin-top: 90px;
+margin-bottom: 20px;
+font-family: "MBC1961gulim";
+font-size: 48px;
+font-weight: 400;
+line-height: 20px;
+text-align: center;
+color: rgba(162, 192, 138, 1);
+
+}
+.signFlex{
+text-align: left;
+}
+
+.id{
+margin-top: 70px;
+
+}
+
+.inputTitle{
+font-family: "Pretendard";
+display: flex;
+margin-left: 30px;
+font-size: 18px;
+line-height: 24px;
+font-weight: 600;
+/* margin-left: 20px; */
+color: rgba(92, 92, 92, 1);
+}
+
+.inputWrap{
+margin: 0 auto;
+width: 280px;
+display: flex;
+border-radius: 18px;
+padding: 16px;
+margin-top: 8px;
+margin-bottom: 20px;
+background-color: white;
+border: 2.5px solid rgba(91, 142, 49, 1);
+}
+
+.input{
+width: 100%;
+outline: none;
+border: none;
+height: 17px;
+font-size: 20px;
+font-weight: 400;
+
+}
+
+input::placeholder {
+font-family: "Pretendard";
+font-size: 18px;
+color: rgba(217, 217, 217, 1);
+font-style: Pretendard;
+}
+
+.bottomButton{
+font-family: "Pretendard";
+width: 310px;
+height: 66px;
+border-radius: 10px;
+
+font-weight: 800;
+font-size: 24px;
+line-height: 20px;
+border: none;
+background-color: rgba(162, 192, 138, 1);
+color: rgba(92, 92, 92, 1);
+
+margin:auto;
+display:block;
+}
+
+.Search{
+font-family: "Pretendard";
+display: flex;
+margin-top: 1em;
+}
+
+.idSearch{
+font-size: 16px;
+margin-left: 2em;
+box-sizing: border-box;
+font-weight: 800;
+color: rgba(217, 217, 217, 1);
+}
+
+.bar{
+font-size: 16px;
+margin-left: 0.5em;
+box-sizing: border-box;
+font-weight: 800;
+color: rgba(217, 217, 217, 1);
+}
+
+.pwSearch{
+font-size: 16px;
+margin-left: 0.5em;
+box-sizing: border-box;
+font-weight: 800;
+color: rgba(217, 217, 217, 1);
+}
+
+.SignUp{
+margin-left: 3em;
+font-size: 20px;
+box-sizing: border-box;
+font-weight: 800;
+color: rgba(91, 142, 49, 1);
+
+}

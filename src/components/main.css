@@ -1,0 +1,58 @@
+.titleWrap{
+    position: absolute;
+    width: 126px;
+    height: 20px;
+    margin-top: 118px;
+    margin-left: 132px;
+
+    font-family: "MBC1961gulim";
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: rgba(162, 192, 138, 1);
+    }
+
+.box{
+    display: flex;
+    justify-content: center;
+}
+
+.main_employment{
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    margin-top: 220px;
+    padding: 86px 46px 86px 46px;
+    border-radius: 30px;
+    gap: 8px;
+    background: rgba(162, 192, 138, 1);
+
+    font-family: "Pretendard";
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+
+}
+
+.main_Recruitment{
+    position: absolute;
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    margin-top: 480px;
+    padding: 86px 46px 86px 46px;
+    border-radius: 30px;
+    gap: 8px;
+    background: rgba(237, 241, 213, 1);
+
+    font-family: "Pretendard";
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+}
