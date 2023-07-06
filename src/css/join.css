@@ -1,0 +1,46 @@
+.top_bar{
+  position: fixed;
+  width : 193px;
+  height : 15px;
+  border-radius: 15px;
+  background-color: #ABABAB80;
+  top : 83px;
+  left : 99px;
+}
+
+.auth{
+  display :none;
+}
+.search{
+  position: fixed;
+  top : 154px;
+  left : 330px;
+  cursor: pointer;
+  display: block;
+}
+.search_input{
+  width: 330px;
+  height: 31px;
+  position: fixed;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 30px;
+  top : 149px;
+  left : 30px;
+  display: none;
+  border-radius: 10px;
+  border: solid 1px #5B8E31;
+  font-size: 17px;
+}
+
+.footer div{
+  cursor: pointer;
+}
+
+.sub_div2{
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr;
+  font-size: 12px;
+  font-weight: 800;
+}
