@@ -2,7 +2,7 @@
 import styled , {css} from 'styled-components';
 import {useState} from 'react';
 import { useEffect } from 'react';
-import StyledSection from './StyledSection';
+import StyledSection from '../components/StyledSection';
 
 
 const StyledHr = styled.hr`

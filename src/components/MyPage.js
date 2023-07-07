@@ -3,13 +3,16 @@ import styled , {css} from 'styled-components';
 import {useState} from 'react';
 import { useEffect } from 'react';
 import StyledSection from './StyledSection';
-import StyledHr from './StyledHr';
+import StyledHr from '../css/StyledHr';
 import StyledSpan from './StyledSpan';
 import grandFather from './grandFather.png';
 
-import "./MyPage.css"
+import "../css/MyPage.css"
 
 function MyPage(){
+    const apply = () =>{
+        window.location.href = 'http://localhost:3000/detail';
+    }
     return (
         <div>
             <section className = "head">
@@ -63,7 +66,7 @@ function MyPage(){
                     고객 지원
                 </div>
                 <div className = "footer_body">
-                    <div className = "item_footer_list">
+                    <div onClick ={apply}className = "item_footer_list">
                         <span className = "item_footer_write">지원내역</span>
                         <button className = "item_footer_btn">
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,4 +1,4 @@
-import './FindingPass.css';
+import '../css/FindingPass.css';
 
 import {useState} from 'react';
 import { useEffect } from 'react';

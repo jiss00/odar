@@ -1,10 +1,9 @@
-
 import styled , {css} from 'styled-components';
 import {useState} from 'react';
 import { useEffect } from 'react';
 import StyledSection from './StyledSection';
 import StyledSpan from './StyledSpan';
-
+import Top from './Top';
 
 
 const StyledDiv = styled.div`
@@ -69,7 +68,7 @@ function JobDetail(){
 
     return (
         <div>
-            <header>취업 상세</header>
+            <Top text ='취업상세'></Top>
             <StyledSection type="1">
                 <StyledDiv type = "head">
                     <StyledSpan type = "recruitment">모집중</StyledSpan>

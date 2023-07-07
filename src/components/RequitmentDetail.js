@@ -1,9 +1,10 @@
-
 import styled , {css} from 'styled-components';
 import {useState} from 'react';
 import { useEffect } from 'react';
 import StyledSection from './StyledSection';
 import StyledSpan from './StyledSpan';
+import Top from './Top';
+
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -75,7 +76,7 @@ function RequitmentDetail(){
 
     return (
         <div>
-            {/* <header>채용 상세</header> */}
+            <Top text ='채용상세'></Top>
             <StyledSection type="1">
                 <StyledDiv type = "head">
                     <StyledSpan type = "recruitment">모집중</StyledSpan>
