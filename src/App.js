@@ -7,6 +7,7 @@ import Main from './component/Main/Main';
 import MyInfo from './component/MyInfo/Inquiry';
 import Withdrawl from './component/MyInfo/Withdrawal';
 import Modify from './component/MyInfo/Modify';
+import Recruitmentinfo from './component/Main/Recruitmentinfo';
 
 function App() {
   return (
@@ -22,7 +23,6 @@ function App() {
       </Routes>
     </BrowserRouter>
     </>
-  );
+  )
 }
-
 export default App;
