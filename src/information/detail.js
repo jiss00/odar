@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 import {useState} from 'react';
 import Bar from './bar';
-import Text from './text';
+import Text from './text'; 
+import backImage from './back.png';
 function Detail(){
+  function onclick(){
+    window.location.href = 'http://localhost:3000/myPage';
+  }
 
   return(
     <>
       <Text text='지원내역'></Text>
+      <img style={{position : 'fixed',top:'67px', left:'54px'}} onClick={onclick} alt="back" src={backImage} />
       <div style={{marginTop : '180px'}}>
       <Bar 
       text='진주시 요양원 조리원 모집'

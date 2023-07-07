@@ -34,7 +34,7 @@ function Recruiting(props){
   cursor : pointer;
 `
   return(
-    <div>
+    <div onClick={props.func}>
       <MainDiv>{props.text}</MainDiv>
       <SubDiv>모집중</SubDiv>
 
