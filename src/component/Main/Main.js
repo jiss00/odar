@@ -1,6 +1,6 @@
 import React from "react"
 import './main.css';
-import MainTop from "./MainTop";
+import Top from "../../information/Top";
 
 export default function Main(){
 
@@ -11,7 +11,7 @@ export default function Main(){
                 <div className="main_employment">채용정보</div>
                 <div className="main_Recruitment">취업지원</div>
             </div>
-            <MainTop></MainTop>
+            <Top></Top>
         </div>
         
 

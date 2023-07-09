@@ -24,11 +24,11 @@ function Login(props) {
                 <ui className='nav-menu-items' onClick={showSidebar}>
                     <img className="close" alt="close" src={closeImage} />
                     <ui className='top'>
-                        <li className='topHome'>홈</li>
+                        <li className='topHome'>로그인</li>
                         <div className="topBarHome"></div>
-                        <li className='topLogin'>로그인</li>
+                        <li className='topLogin'>내정보</li>
                         <div className="topBarLogin"></div>
-                        <li className='topMyInfo'>내정보</li>
+                        <li className='topMyInfo'>알림</li>
                         <div className="topBarMyInfo"></div>
                     </ui>
                 </ui>
