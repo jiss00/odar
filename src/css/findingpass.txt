@@ -1,0 +1,189 @@
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+.screen {
+  /* color : yellow; */
+  /* width : 50vw; */
+  /* vw : 반응형 기준 사용 */
+  width: 390px;
+  height: 884px;
+  text-align: center;
+  position:fixed;
+}
+
+/* 상태 바 */
+.state_bar {
+  position:fixed;
+  box-sizing: border-box;
+  top: 85px;
+  left: 98px;
+  border-radius: 10px;
+
+  display: flex;
+  background: rgba(171, 171, 171, 0.5);
+  width: 193px;
+  height: 15px;
+
+}
+
+.state_bar_inner {
+  
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: rgba(162, 192, 138, 1);
+  height: 15px;
+  width: 64.3px;
+}
+
+.pass_find {
+  position:fixed;
+  color: rgba(92, 92, 92, 1);
+  /* Pretendard :  글꼴 웹폰트 적용 방법 */
+  font-family: Pretendard;
+  margin : 0px 0px 0px 0px;
+  width: 174px;
+  height: 20px;
+  top: 129px;
+  left: 108px;
+  
+  
+  font-size: 32px;
+
+}
+
+/* 아이디 */
+.id_id{
+  position:fixed;
+  color: rgba(92, 92, 92, 1);
+  font-family: Pretendard;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+  width: 63px;
+  height: 20px;
+
+  top: 198px;
+  left: 31px;
+
+
+}
+
+
+.timer {
+  position:fixed;
+  top: 336px;
+  left : 230px;
+  width: 60px;
+  height: 20px;
+  
+  color: rgba(255, 0, 0, 1);
+
+  font-family: Pretendard;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+  
+}
+
+
+.btn_all {
+  color: rgba(142, 139, 139, 1);
+  background-color: rgba(162, 192, 138, 1);
+  width: 70px;
+  height: 50px;
+  border-radius: 10px;
+  border: 0px;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: center;
+
+
+}
+
+#btn_success{
+  position: fixed;
+  width: 335px;
+  height: 75px;
+  top: 703px;
+  left: 32px;
+  padding: 23px 134px 23px 134px;
+  gap: 8px;
+  background: rgba(162, 192, 138, 1);
+}
+
+
+.input_all {
+  border: 2px solid rgba(91, 142, 49, 1);
+  border-radius: 10px;
+  width: 250px;
+  height: 50px;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-weight: 800;
+  /* line-height: 20px; */
+  /* letter-spacing: 0px; */
+  text-align: center;
+  border-radius: 20px;
+  
+}
+
+#phone_number {
+  position: fixed;
+  top: 254px;
+  left: 32px;
+}
+
+#certification_number {
+  position: fixed;
+  top: 318px;
+  left: 32px;
+  text-align:center
+}
+
+/* 인증, 완료 버튼 */
+#btn_phone{
+  position: fixed;
+  color: black;
+  top: 254px;
+  left: 297px;
+}
+
+#btn_certification{
+  position: fixed;
+  top: 318px;
+  left: 297px;
+}
+
+
+
+
+
+/* .FindingID .Modal */
+ #modal_success {
+  position: fixed;
+  width: 314px;
+  height: 24px;
+  top: 402px;
+  left: 18px;
+  padding: 8px 21px 7px 20px;
+  border-radius: 20px;
+
+  background: rgba(237, 241, 213, 1);
+
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  
+
+}
