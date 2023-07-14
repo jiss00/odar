@@ -1,10 +1,15 @@
+.parent {
+    display: flex;
+    justify-content: center; /* 가로 축 가운데 정렬 */
+    align-items: center; /* 세로 축 가운데 정렬 */
+  }
+  
 .titleWrap{
     position: absolute;
     width: 126px;
     height: 20px;
     top: 118px;
-    left: 132px;
-
+    
     font-family: "MBC1961gulim";
     font-size: 48px;
     font-weight: 400;
@@ -14,27 +19,19 @@
     color: rgba(162, 192, 138, 1);
     }
 
-.box{
-    display: flex;
-    justify-content: center;
-}
 
 .main_employment{
     position: absolute;
     width: 200px;
     height: 40px;
     top: 220px;
-    left:55px;
     padding: 86px 46px 86px 46px;
     border-radius: 30px;
-    gap: 8px;
     background: rgba(162, 192, 138, 1);
 
     font-family: "Pretendard";
     font-size: 32px;
     font-weight: 800;
-    line-height: 20px;
-    letter-spacing: 0px;
     text-align: center;
 
 }
@@ -44,16 +41,39 @@
     width: 200px;
     height: 40px;
     top: 480px;
-    left: 55px;
     padding: 86px 46px 86px 46px;
     border-radius: 30px;
-    gap: 8px;
     background: rgba(237, 241, 213, 1);
 
     font-family: "Pretendard";
     font-size: 32px;
     font-weight: 800;
-    line-height: 20px;
-    letter-spacing: 0px;
     text-align: center;
+}
+
+@media (min-width: 1024px) {
+
+    .titleWrap{
+        width: 157px;
+        height: 20px;
+        top: 221px;
+        font-size: 60px;
+
+    }
+    
+    .main_employment{
+        position: absolute;
+        width: 300px;
+        height: 48px;
+        top: 323px;
+        font-size: 36px;
+    }
+    
+    .main_Recruitment{
+        position: absolute;
+        width: 300px;
+        height: 48px;
+        top: 583px;
+        font-size: 36px;
+    }
 }
