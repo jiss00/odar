@@ -2,188 +2,240 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 
+/* 반응형 웹 */
+/* 모니터 기준 */
+
 .screen {
-  /* color : yellow; */
-  /* width : 50vw; */
-  /* vw : 반응형 기준 사용 */
-  width: 390px;
-  height: 884px;
-  text-align: center;
-  position:fixed;
-}
+    box-sizing: border-box;
+    position: relative;
+    flex-direction: column;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 
-/* 상태 바 */
-.state_bar {
-  position:fixed;
-  box-sizing: border-box;
-  top: 85px;
-  left: 98px;
-  border-radius: 10px;
+  }
 
-  display: flex;
-  background: rgba(171, 171, 171, 0.5);
-  width: 193px;
-  height: 15px;
+  /* 상태 바 */
+    .state_bar {
+      /* 부모 기준 위치 */
+        position: absolute;
+        top: 7%;
+        
+        border-radius: 10px;  
+        /* width: 193; */
+        width: 60vw;
+        height: 15px; 
+        display: flex;
+        background: rgba(171, 171, 171, 0.5);
+    
+    }
 
-}
+    
+  .state_bar_inner {
+    
+    
+    border-radius: 10px;
+    background: rgba(162, 192, 138, 1);
+    height: 15px;
+    width: 64.3px;
+  }
 
-.state_bar_inner {
+  /* 아이디찾기 */
+  .id_find {
+    position: absolute;
+    color: rgba(92, 92, 92, 1);
+    /* Pretendard :  글꼴 웹폰트 적용 방법 */
+    font-family: Pretendard;
+    top : 9vh;
+    align-items: left;
+    
+    margin: 30px 0px;
+    font-family: Pretendard;
+    font-size:32px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+    
+  }
+
+  .body{
+    position:absolute;
+    top:20vh;
+    width: 350px;
+    height: 200px;
+
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+
+  }
   
-  box-sizing: border-box;
-  border-radius: 10px;
-  background: rgba(162, 192, 138, 1);
-  height: 15px;
-  width: 64.3px;
-}
+  /* 휴대폰 번호 */
+  .phone_number_name{
+    position: absolute;
+    color: rgba(92, 92, 92, 1);
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
 
-.pass_find {
-  position:fixed;
-  color: rgba(92, 92, 92, 1);
-  /* Pretendard :  글꼴 웹폰트 적용 방법 */
-  font-family: Pretendard;
-  margin : 0px 0px 0px 0px;
-  width: 174px;
-  height: 20px;
-  top: 129px;
-  left: 108px;
+    
+
+    margin: 0px 0px 0px 0px;
+    left: 0;
+    /* padding-right: 60%; */
+
+  }
   
+  /* 타이머 */
+  .timer {
+    position:absolute;
+
+    right: 30%;
+    padding-top: 20px;
+    color: rgba(255, 0, 0, 1);
+
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+      
+  }
+
+
+  .btn_all {
+    color: rgba(142, 139, 139, 1);
+    background-color: rgba(162, 192, 138, 1);
+    width: 70px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+
+    margin: 5px 10px;
+  }
+
   
-  font-size: 32px;
+  #btn_certification{
+    margin-top: 0px;
+    /* margin-right: 0px; */
+  }
+  /* 제일 밑 완료 */
+  #btn_success{
+    position: absolute;
+    width: 335px;
+    height: 75px;
+    margin-top: 80vh;
+    
+    gap: 8px;
+    background: rgba(162, 192, 138, 1);
 
-}
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+    
 
-/* 아이디 */
-.id_id{
-  position:fixed;
-  color: rgba(92, 92, 92, 1);
-  font-family: Pretendard;
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 20px;
-  letter-spacing: 0px;
-  text-align: center;
-  width: 63px;
-  height: 20px;
+  }
 
-  top: 198px;
-  left: 31px;
+  /* 휴대폰번호 input */
+  #phone_number {
+    position: relative;
+    text-align:center;
+    width: 250px;
+    height: 50px;
+    border: 2px solid #5B8E31;
+    border-radius: 20px;
 
+  }
 
-}
+  /* 인증번호 input */
+  #certification_number {
+    position: relative;
+    text-align:center;
+    width: 250px;
+    height: 50px;
+    border: 2px solid #5B8E31;
+    border-radius: 20px;
+    
 
+  }
 
-.timer {
-  position:fixed;
-  top: 336px;
-  left : 230px;
-  width: 60px;
-  height: 20px;
+  .input_all {
+    border: 2px solid rgba(91, 142, 49, 1);
+    border-radius: 10px;
+    width: 250px;
+    height: 50px;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 800;
+    /* line-height: 20px; */
+    /* letter-spacing: 0px; */
+    text-align: center;
+    border-radius: 20px;
+    
+  }
   
-  color: rgba(255, 0, 0, 1);
+  /* 휴대번호 적는 섹션 */
+  .input_section1{
+    margin-top: 40px;
 
-  font-family: Pretendard;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0px;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  /* 인증번호 적는 섹션 */
+  .input_section2{
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: center;
+  }
+
+
+
+  /* .FindingID .Modal */
+  /* /*  해당 번호로 인증번호가 전송되었습니다! */
+  #modal_success {
+    position: absolute;
+    box-sizing: border-box;
+    margin-top:180px;
+    width: 355px;
+    height: 39px;
+    padding: 8px 21px 7px 20px;
+    border-radius: 20px;
+
+    background: rgba(237, 241, 213, 1);
+
   
-}
+    font-family: Pretendard;
+    /* font-size: */
+    font-weight: 800;
+    
+    letter-spacing: 0em;
+    text-align: center;
+    
+    
+    
+    
 
-
-.btn_all {
-  color: rgba(142, 139, 139, 1);
-  background-color: rgba(162, 192, 138, 1);
-  width: 70px;
-  height: 50px;
-  border-radius: 10px;
-  border: 0px;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 20px;
-  letter-spacing: 0px;
-  text-align: center;
-
-
-}
-
-#btn_success{
-  position: fixed;
-  width: 335px;
-  height: 75px;
-  top: 703px;
-  left: 32px;
-  padding: 23px 134px 23px 134px;
-  gap: 8px;
-  background: rgba(162, 192, 138, 1);
-}
-
-
-.input_all {
-  border: 2px solid rgba(91, 142, 49, 1);
-  border-radius: 10px;
-  width: 250px;
-  height: 50px;
-  font-family: Pretendard;
-  font-size: 24px;
-  font-weight: 800;
-  /* line-height: 20px; */
-  /* letter-spacing: 0px; */
-  text-align: center;
-  border-radius: 20px;
-  
-}
-
-#phone_number {
-  position: fixed;
-  top: 254px;
-  left: 32px;
-}
-
-#certification_number {
-  position: fixed;
-  top: 318px;
-  left: 32px;
-  text-align:center
-}
-
-/* 인증, 완료 버튼 */
-#btn_phone{
-  position: fixed;
-  color: black;
-  top: 254px;
-  left: 297px;
-}
-
-#btn_certification{
-  position: fixed;
-  top: 318px;
-  left: 297px;
-}
-
-
-
-
-
-/* .FindingID .Modal */
- #modal_success {
-  position: fixed;
-  width: 314px;
-  height: 24px;
-  top: 402px;
-  left: 18px;
-  padding: 8px 21px 7px 20px;
-  border-radius: 20px;
-
-  background: rgba(237, 241, 213, 1);
-
-  font-family: Pretendard;
-  font-size: 20px;
-  font-weight: 800;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: center;
-  
-
-}
+  }

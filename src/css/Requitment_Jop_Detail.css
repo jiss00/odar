@@ -1,0 +1,343 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+
+/* 전체 화면 */
+.screen_requitment_detail{
+    box-sizing: border-box;
+    /* 현재 위치 기준 */
+    position: relative;
+    flex-direction: column;
+    /* text-align: center; */
+    display: flex;
+
+    /* justify -content ( 가로축 - 중심축 ) */
+    justify-content: center;
+
+    /* align-items ( 세로축 - 교차축 ) */
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* 처음 연두 박스 */
+.body_1_detail{
+    box-sizing: border-box;
+    width: 330px;
+    height: 166px;
+    padding: 20px 20px;
+
+    border: 3px solid #A2C08A;
+    background: linear-gradient(0deg, #EDF1D5, #EDF1D5);
+    border-radius: 15px;
+    
+    display: flex;
+    flex-direction: column;
+        /* justify -content ( 가로축 - 중심축 ) */
+    /* justify-content: center; */
+    /* align-items ( 세로축 - 교차축 ) */
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+
+/* 모집중, 진주시 요양원 조리원 모집 */
+.body_1_title_detail{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    justify-items: center;
+    /* column-gap: 20px; */
+}
+
+/* 모집중 */
+
+.title_item1_detail{
+    box-sizing: border-box;
+    width: 60px;
+    height: 30px;
+    /* 텍스트의 높이를 컨테이너 높이와 동일하게, 세로 가운대정렬 */
+    line-height: 30px;
+    color: white;
+    background-color: #5B8E31;
+    border-radius: 10px;
+    padding-top:5px;
+
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+
+
+}
+
+/* 진주시 요양원 조리원 모집 */
+.title_item2_detail{
+    height: 30px;
+    
+
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: center;
+
+}
+
+/* 선 */
+.body_1_hr_detail{
+    box-sizing: border-box;
+    width: 283px;
+    color: #D9D9D9;
+    border: 1px solid #D9D9D9;
+
+}
+
+
+/* 월급, 근무 시간 */
+.body_1_list_detail{
+    display: grid;
+    width:100%;
+    height: 100%;
+    grid-template-rows: 1fr 1fr;
+
+    align-items: center;
+    justify-items: center;
+
+}
+
+/* 그 안에 요소 하나하나 */
+.list_item_detail{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr 2fr 3fr;
+    align-items: center;
+    justify-items: center;
+
+}
+
+/* 월급, 원, 근무시간, 주 텍스트 */
+.list_item_text_detail{
+    font-family: Pretendard;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #5C5C5C;
+    
+}
+
+
+/* ----------상세 설명 -------------*/
+.body_2_detail{
+    box-sizing: border-box;
+    width: 330px;
+    height: 425px;
+    padding: 20px 25px;
+    margin-bottom: 15px;
+    border-radius: 15px;
+    background-color: white;
+    border: 3px solid #A2C08A;
+
+}
+
+/* 상세 설명 텍스트 */
+.detail_text{
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+
+/* --------------전확 모양, 지원하기-------------- */
+.footer_detail{
+    width: 330px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    /* justify -content ( 가로축 - 중심축 ) */
+    justify-content: space-between;
+    /* align-items ( 세로축 - 교차축 ) */
+    align-items: center;
+
+}
+
+/* 전화기 모양 */
+.btn_call{
+    width: 119px;
+    height: 50px;
+    padding: 12px 0px 13px 0px;
+    border-radius: 15px;
+    border: 3px;
+    background-color: #EDF1D5;
+    border: 3px solid #A2C08A;
+}
+
+/* 지원하기 */
+.btn_apply{
+    width: 200px;
+    height: 50px;
+    padding: 15px 69px 15px 68px;
+    border-radius: 15px;
+    border : 0px;
+    background-color: #5B8E31;
+
+
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+
+
+}
+
+
+/* ----------------------------------------------------반응형 웹-------------------------------------------------- */
+/* 모니터 기준 */
+@media (min-width: 1024px) {
+
+
+
+    /* 처음 연두 박스 */
+    .body_1_detail{
+        width: 1008px;
+        height: 158px;
+
+        margin-bottom: 20px;
+    }
+
+    .body_1_title_detail{
+        grid-template-columns: 30% 40%;
+    }
+
+    /* 모집중 */
+
+    .title_item1_detail{
+
+        width: 80px;
+        height: 40px;
+        /* 텍스트의 높이를 컨테이너 높이와 동일하게, 세로 가운대정렬 */
+        padding: 0;
+        font-size: 20px;
+        line-height: 40px;
+
+
+
+    }
+
+    /* 진주시 요양원 조리원 모집 */
+    .title_item2_detail{
+        font-size: 22px;
+
+
+    }
+
+    /* 선 */
+    .body_1_hr_detail{
+        width: 980px;
+
+
+    }
+
+
+    /* 월급, 근무 시간 */
+    .body_1_list_detail{
+        box-sizing: border-box;
+        width:70%;
+        height: 100%;
+
+        padding-top: 20px;
+        grid-template-columns: 1fr 1fr;
+       
+        align-items: center;
+
+    }
+
+    /* 그 안에 요소 하나하나 */
+    .list_item_detail{
+        
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr 1fr 3fr;
+        align-items: center;
+        justify-items: center;
+
+    }
+
+    /* 월급, 원, 근무시간, 주 텍스트 */
+    .list_item_text_detail{
+        font-size: 16px;
+        font-weight: 800;
+        line-height: 16px;
+        
+    }
+
+
+    /* ----------상세 설명 -------------*/
+    .body_2_detail{
+        width: 1008px;
+        height: 430px;
+        padding: 40px 25px;
+        margin-bottom: 20px;
+
+    }
+
+    /* 상세 설명 텍스트 */
+    .detail_text{
+        font-size: 18px;
+
+    }
+
+
+    /* --------------전확 모양, 지원하기-------------- */
+    .footer_detail{
+        width: 1008px;
+        height: 60px;
+        display: flex;
+
+
+    }
+
+    /* 전화기 모양 */
+    .btn_call{
+        box-sizing: border-box;
+        width: 256px;
+        height: 60px;
+        padding: 15px 0px 15px 0px;
+        align-items: center;
+    }
+
+    /* 지원하기 */
+    .btn_apply{
+        width: 730px;
+        height: 60px;
+        padding: 15px 69px 15px 68px;
+        border-radius: 15px;
+        border : 0px;
+        background-color: #5B8E31;
+
+
+        font-size: 22px;
+        line-height: 22px;
+
+
+
+    }
+
+
+}

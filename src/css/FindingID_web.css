@@ -4,14 +4,14 @@
 
 /* 반응형 웹 */
 /* 모니터 기준 */
-
+@media (min-width: 1024px) {
 	.screen {
-    box-sizing: border-box;
     position: relative;
+    /* background-color: #5B8E31; */
+
     flex-direction: column;
     text-align: center;
     display: flex;
-    justify-content: center;
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -22,11 +22,10 @@
     .state_bar {
       /* 부모 기준 위치 */
         position: absolute;
-        top: 7%;
-        
+        top: 8vh;
+        box-sizing: border-box;
         border-radius: 10px;  
-        /* width: 193; */
-        width: 60vw;
+        width: 915px;
         height: 15px; 
         display: flex;
         background: rgba(171, 171, 171, 0.5);
@@ -36,7 +35,7 @@
     
   .state_bar_inner {
     
-    
+    box-sizing: border-box;
     border-radius: 10px;
     background: rgba(162, 192, 138, 1);
     height: 15px;
@@ -49,50 +48,48 @@
     color: rgba(92, 92, 92, 1);
     /* Pretendard :  글꼴 웹폰트 적용 방법 */
     font-family: Pretendard;
-    top : 9vh;
-    align-items: left;
+    top : 15vh;
     
-    margin: 30px 0px;
+    margin: 0px 0px;
     font-family: Pretendard;
-    font-size:32px;
+    font-size: 52px;
     font-weight: 800;
     line-height: 20px;
     letter-spacing: 0px;
     text-align: center;
-    
   }
 
   .body{
     position:absolute;
-    top:30vh;
-    width: 350px;
-    height: 200px;
+    top:20vh;
+    width: 500px;
+    height: 300px;
 
+    
     
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
-
+    
 
   }
-  
   /* 휴대폰 번호 */
   .phone_number_name{
     position: absolute;
     color: rgba(92, 92, 92, 1);
     font-family: Pretendard;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 800;
     line-height: 20px;
     letter-spacing: 0px;
     text-align: center;
+    align-items: center;
+  
 
     
-
-    margin: 0px 0px 0px 0px;
-    left: 0;
-    /* padding-right: 60%; */
+    margin-left:20px;
+    left:0;
 
   }
   
@@ -129,49 +126,43 @@
     text-align: center;
 
     margin: 5px 10px;
+
   }
 
-  
-  #btn_certification{
-    margin-top: 0px;
-    /* margin-right: 0px; */
-  }
   /* 제일 밑 완료 */
   #btn_success{
     position: absolute;
-    width: 335px;
-    height: 75px;
+    width: 440px;
+    height: 90px;
     margin-top: 80vh;
-    
+    padding: 23px 134px 23px 134px;
     gap: 8px;
     background: rgba(162, 192, 138, 1);
 
     font-family: Inter;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 700;
-    line-height: 29px;
+    line-height: 44px;
     letter-spacing: 0em;
     text-align: center;
-    
 
   }
 
-  /* 휴대폰번호 input */
+  
   #phone_number {
     position: relative;
     text-align:center;
-    width: 250px;
+    width: 350px;
     height: 50px;
     border: 2px solid #5B8E31;
     border-radius: 20px;
-
+    margin: 0px 0px;
   }
 
-  /* 인증번호 input */
   #certification_number {
     position: relative;
     text-align:center;
-    width: 250px;
+    width: 350px;
     height: 50px;
     border: 2px solid #5B8E31;
     border-radius: 20px;
@@ -179,24 +170,11 @@
 
   }
 
-  .input_all {
-    border: 2px solid rgba(91, 142, 49, 1);
-    border-radius: 10px;
-    width: 250px;
-    height: 50px;
-    font-family: Pretendard;
-    font-size: 24px;
-    font-weight: 800;
-    /* line-height: 20px; */
-    /* letter-spacing: 0px; */
-    text-align: center;
-    border-radius: 20px;
-    
-  }
-  
   /* 휴대번호 적는 섹션 */
   .input_section1{
     margin-top: 40px;
+    text-align: center;
+    width: 500px;
 
     display: flex;
     justify-content: center;
@@ -206,7 +184,7 @@
   /* 인증번호 적는 섹션 */
   .input_section2{
     margin-top: 10px;
-
+    width: 500px;
     display: flex;
     justify-content: center;
   }
@@ -217,9 +195,9 @@
   /* /*  해당 번호로 인증번호가 전송되었습니다! */
   #modal_success {
     position: absolute;
-    box-sizing: border-box;
+    
     margin-top:180px;
-    width: 355px;
+    width: 440px;
     height: 39px;
     padding: 8px 21px 7px 20px;
     border-radius: 20px;
@@ -228,14 +206,16 @@
 
   
     font-family: Pretendard;
-    /* font-size: */
+    font-size: 20px;
     font-weight: 800;
-    
+    line-height: 24px;
     letter-spacing: 0em;
     text-align: center;
     
     
-    
-    
 
   }
+
+
+
+}
