@@ -10,7 +10,7 @@ import Top from './Top';
 // props : 부모가 자식에게 state 물려주기.
 
 
-import '../css/RequitmentDetail.css';
+import '../css/Requitment_Jop_Detail.css';
 
 function RequitmentDetail(){
 
