@@ -75,7 +75,7 @@ function RequitmentDetail(){
     }
 
     return (
-        <div>
+        <div className="screen_requitment_detail">
             <Top text ='채용상세'></Top>
             <StyledSection type="1">
                 <StyledDiv type = "head">
