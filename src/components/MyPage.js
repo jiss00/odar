@@ -14,12 +14,12 @@ function MyPage(){
         window.location.href = 'http://localhost:3000/detail';
     }
     return (
-        <div>
+        <div className = "screen_my_page">
             <section className = "head">
-                <span className = "item_title"> 내 정보</span>
+                <div className = "item_title"> 내 정보</div>
                 <button className = "item_exit"> 
-                    <svg width="30" height="25" viewBox="0 0 30 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.25 21.875C5.5625 21.875 4.97375 21.6708 4.48375 21.2625C3.99375 20.8542 3.74917 20.3639 3.75 19.7917V5.20833C3.75 4.63542 3.995 4.14479 4.485 3.73646C4.975 3.32813 5.56334 3.12431 6.25 3.125H15V5.20833H6.25V19.7917H15V21.875H6.25ZM20 17.7083L18.2813 16.1979L21.4688 13.5417H11.25V11.4583H21.4688L18.2813 8.80208L20 7.29167L26.25 12.5L20 17.7083Z" fill="#5B8E31"/>
+                    <svg width="35" height="30" viewBox="0 0 35 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 30V19.4118H21V30H29.75V15.8824H35L17.5 0L0 15.8824H5.25V30H14Z" fill="#5B8E31"/>
                     </svg>
                 </button>
 
