@@ -1,5 +1,5 @@
 import '../css/FindingPass.css';
-
+import '../css/FindingPass_web.css';
 import {useState} from 'react';
 import { useEffect } from 'react';
 import Input_pw from '../component/Join/Input/Input_pw';
@@ -69,10 +69,10 @@ function FindingPass(){
       <div className='state_bar'>
         <span className = 'state_bar_inner'></span>
       </div>
-      <h2 className="pass_find">비밀번호 찾기</h2>
-      <div>
-        <h3 className="id_id">아이디</h3>
-        <section>
+      <h2 className="id_find">비밀번호 찾기</h2>
+      <div className='body'>
+        <h3 className="phone_number_name">아이디</h3>
+        <section className='input_section1'>
           <input className="input_all" type="text" id="phone_number" placeholder="oooo@oooo" ></input>
           <button className= "btn_all" type="submit" id = "btn_phone" onClick={() => { checkModal(); }} >인증</button>
         </section>

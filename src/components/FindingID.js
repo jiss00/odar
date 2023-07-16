@@ -1,8 +1,10 @@
 import '../css/FindingID.css';
+import '../css/FindingID_web.css';
 // styled 컴포넌트 사용
 // import styled from 'styled-components';
 import {useState} from 'react';
 import { useEffect } from 'react';
+
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -71,20 +73,21 @@ function FindingID(){
         <span className = 'state_bar_inner'></span>
       </div>
       <h2 className = "id_find">아이디 찾기</h2>
-      <div>
+      <div className='body'>
         <h3 className ="phone_number_name">휴대폰 번호</h3>
-        <section>
+        <section className='input_section1'>
           <input className = "input_all" type="text" id="phone_number" placeholder="010-0000-0000"  maxLength={13}></input>
           <button className="btn_all" type="submit" id = "btn_phone" onClick={() => { checkModal(); }} >인증</button>
         </section>
-        <section>
+        <section className='input_section2'>
           <input className = "input_all" type="text" id="certification_number" placeholder="000000" maxLength={6} ></input>
           {modal === true ? <Timer></Timer> : <></>}
           <button className="btn_all" id = "btn_certification" type="submit">완료</button>
         </section>
-      </div>
-      {modal === true ? <Modal></Modal> : <></>}
+        {modal === true ? <Modal></Modal> : <></>}
       {/* {}를 쓰면 js 코드 쓸 수 있다. */}
+      </div>
+
       <button className="btn_all" id = "btn_success" >완료</button>
 
     </div>
