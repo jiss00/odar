@@ -12,7 +12,7 @@
     display: flex;
 
     /* justify -content ( 가로축 - 중심축 ) */
-    /* justify-content: center; */
+    justify-content: center;
 
     /* align-items ( 세로축 - 교차축 ) */
     align-items: center;
