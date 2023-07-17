@@ -10,6 +10,7 @@ font-size: 15px;
 @media screen and (min-width: 1024px){
   font-weight: 450;
   font-size: 18px;  
+  padding-top : 7px;
 }
 `
 const Triangle = styled.div`
@@ -23,6 +24,7 @@ margin-top : 8px;
 cursor : pointer;
 @media screen and (min-width: 1024px){
 margin-left:720px;
+margin-top : 12px;
 } 
 `
 const SubDiv = styled.div`
@@ -52,7 +54,7 @@ background-color : #A2C08A;
 @media screen and (min-width: 1024px){
   grid-template-columns: 255px 10px;
   width : 1004px;
-  height : 35px; 
+  height : 40px; 
 } 
 `
 const Sub_div1 = styled.div`

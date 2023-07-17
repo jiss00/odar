@@ -1,7 +1,11 @@
 import '../css/FindingPass.css';
-
+import '../css/FindingPass_web.css';
 import {useState} from 'react';
 import { useEffect } from 'react';
+import Input_pw from '../component/Join/Input/Input_pw';
+import Input_pwcheck from '../component/Join/Input/Input_pwcheck';
+import Text from '../component/Join/Text';
+import Text_small from '../component/Join/Text_small';
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -65,19 +69,24 @@ function FindingPass(){
       <div className='state_bar'>
         <span className = 'state_bar_inner'></span>
       </div>
-      <h2 className="pass_find">비밀번호 찾기</h2>
-      <div>
-        <h3 className="id_id">아이디</h3>
-        <section>
+      <h2 className="id_find">비밀번호 찾기</h2>
+      <div className='body'>
+        <h3 className="phone_number_name">아이디</h3>
+        <section className='input_section1'>
           <input className="input_all" type="text" id="phone_number" placeholder="oooo@oooo" ></input>
           <button className= "btn_all" type="submit" id = "btn_phone" onClick={() => { checkModal(); }} >인증</button>
         </section>
-        <section>
-          <input className="input_all" type="text" id="certification_number" placeholder="000000" maxLength={6} ></input>
-          {modal === true ? <Timer></Timer> : <></>}
-          <button className= "btn_all" id = "btn_certification" type="submit">완료</button>
-        </section>
+      
       </div>
+      <div className="pw__box"><Text width="110px">새 비밀번호</Text></div>
+          <Input_pw type="password" placeholder=" 비밀번호를 입력해주세요."  />
+          <Text_small 대소문자>대문자 · 소문자</Text_small>
+          <Text_small 숫자>숫자</Text_small>
+          <Text_small 특수문자>특수문자</Text_small>
+
+      <div className="pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
+        <Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." />
+
       {/* {modal === true ? <Modal></Modal> : <></>} */}
       {/* {}를 쓰면 js 코드 쓸 수 있다. */}
       <button className= "btn_all" id = "btn_success" >완료</button>

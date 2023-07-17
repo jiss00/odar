@@ -1,26 +1,54 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+
+
+
+
+/* 전체 화면 */
+.screen_my_page{
+    box-sizing: border-box;
+    position: relative;
+    flex-direction: column;
+    /* text-align: center; */
+    display: flex;
+
+    /* justify -content ( 가로축 - 중심축 ) */
+    /* justify-content: center; */
+
+    /* align-items ( 세로축 - 교차축 ) */
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
 
 
 .head {
     /* 원래 자기자신 기준 위치 */
-    position: relative;
-    height: 152px;
+    position: absolute;
+    width:100vw;
+    height: 10vh;
     display : flex;
     flex-direction: row;
     /* 수평 정렬 */
     justify-content: center;
     /* 수직 정렬 */
     align-items : center;
+    margin-top: 5vh;
 }
 
 
+/* 내 정보 */
 .item_title{ 
     /* background-color: aqua; */
     /* 부모 요소 기준 */
     position : absolute;
     border-radius: 15px;
     border: 3px;
+    color: #A2C08A;
 
-    left: 150px;
+
+    /* left: 150px; */
     font-family: Pretendard;
     font-size: 32px;
     font-weight: 800;
@@ -29,11 +57,13 @@
     text-align: center;
 }
 
-
+/* 집 모양 */
 .item_exit{
     position : absolute;
-    top : 50px; 
-    left : 314px;
+    /* top : 50px;  */
+    /* left : 314px; */
+    right : 5vw;
+    padding-bottom: 20px;
     border: 0px;
     /* 배경 투명도 0 */
     background-color: rgba(0,0,0,0);
@@ -46,8 +76,9 @@
     position: absolute;
     width: 310px;
     height: 210px;
-    top: 152px;
-    left: 40px;
+    margin-top: 15vh;
+    margin-bottom: 3vh;
+    
     border-radius: 15px;
     /* text-align: center; */
 
@@ -57,20 +88,20 @@
     /* 그리드 레이아웃 */
     display: grid;
     /* 열의 배치 */
-    grid-template-columns: 90px 110px;
-    column-gap: 80px;
+    grid-template-columns: 150px 150px;
+    
+    /* 그리드 가운대정렬 */
+    place-items: center;
 }
 
 
 /* flex */
+/* 안법인 , 프로필 */
 .item_profile_1{
-    position: relative;
-    top: 44px;
-    left: 30px;
+    
     width:90px;
     height: 130px;
     
-
     display: flex;
     /* 칸 넘어가면 세로로 */
     flex-wrap: wrap;
@@ -78,8 +109,9 @@
     flex-direction: column;
 }
 
+/* 이미지 */
 .item_image{
-    position : relative;
+    
     width: 90px;
     height: 90px;
     padding: 5px;
@@ -90,8 +122,8 @@
     
 }
 
+/* 안법인 */
 .item_name{
-    position: relative;
     top:5px;
 
     font-family: Inter;
@@ -104,13 +136,13 @@
 }
 
 
+/* 만 24세, 00동, 수정 */
 .item_profile_2{
-    /* 자신의 위치 기준 */
-    position : relative;
+
 
     width: 110px;
     height: 120px;
-    top : 55px;
+    padding-top: 10px;
     border-radius: 15px;
 
     display: flex;
@@ -118,9 +150,16 @@
     flex-wrap: wrap;
     /* 세로 방향으로 축의 방향 */
     flex-direction: column;
+    /* justify -content ( 가로축 - 중심축 ) */
+    justify-content: center;
+
+    /* align-items ( 세로축 - 교차축 ) */
+    align-items: center;
+
 
 }
 
+/* 만 24세 */
 .item_age {
     font-family: Pretendard;
     font-size: 24px;
@@ -132,6 +171,7 @@
 
 }
 
+/* 0 0 동 */
 .item_house {
     font-family: Pretendard;
     font-size: 24px;
@@ -144,12 +184,14 @@
 }
 
 .item_hr{
-    margin: 6px;
+    /* margin: 6px; */
     border: 0.5px solid rgba(171, 171, 171, 1);
+    width : 100%;
 }
 
+/* 수정 */
 .item_btn{
-    margin-left : 20px;
+    margin-top:5px;
     width: 71px;
     height: 34px;
    
@@ -169,19 +211,22 @@
 }
 
 
-/* 그리드 */
+/* 희망 직종, 오후2시~ 오후6시 그리드 */
 .body_2{
     position: absolute;
-    width: 268px;
+    width: 100vw;
     height: 121px;
-    top: 405px;
-    left: 40px;
+    margin-top:47vh;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    /* align-items ( 세로축 - 교차축 ) */
+    align-items: center;
 }
 
+/* 가방, 희망 직종 */
 .item_job{
     display: grid;
     gap: 0px 20px;
@@ -190,11 +235,13 @@
 
 }
 
+/* 가방 */
 .item_job_img{
     grid-area: img; 
 
 }
 
+/* 희망 직종 */
 .item_job_write{
     /* position: relative; */
     /* top: 13px; */
@@ -207,6 +254,8 @@
     line-height: 40px;
 }
 
+
+/* 시계, 오후 2시 ~ 오후 6시 */
 .item_time{
     display: grid;
     gap: 0px 20px;
@@ -216,12 +265,13 @@
 
 
 
-
+/* 시계 이미지 */
 .item_time_img{
     grid-area: img; 
 
 }
 
+/* 오후 2시 ~ 오후 6시 */
 .item_time_write{
     /* position: relative; */
     /* top: 13px; */
@@ -240,29 +290,41 @@
 .footer_hr {
     position: absolute;
     width: 310px;
-    top: 550px;
-    left: 40px;
+    top: 67vh;
 
     border: 1.5px solid rgba(205, 205, 205, 1); 
 }
 
-
+/* 고객지원, 지원내역, 문의하기, 로그아웃, 회원탈퇴 */
 .footer {
     position: absolute;
-    width: 350px;
+    /* margin-top: */
+    width: 100vw;
     height: 200px;
-    top: 580px;
+    top: 70vh;
     left: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    /* align-items ( 세로축 - 교차축 ) */
+    align-items: center;
+
 }
 
+/* 고객 지원 */
 .footer_head{
-    position: relative;
+    /* position: relative; */
+    text-align: center;
+    
     width: 90px;
     height: 28px;
-    left : 147px;
+    margin : 10px 0;
     border-radius: 20px;
     
-    background: rgba(162, 192, 138, 1);
+    background: #5B8E31;
+
 
     font-family: Pretendard;
     font-size: 16px;
@@ -276,11 +338,12 @@
 
 }
 
+/* 지원 내역, 문의하기, 로그아웃, 회원탈퇴 */
 .footer_body{
-    position: relative;
-    left : 63px; 
-    top : 30px;
-    width: 270px;
+       /* 그리드 가운대정렬 */
+    place-items: center;
+
+    width: 100vw;
     height: 200px;
 
     display: grid;
@@ -312,3 +375,120 @@
     text-align: right;
 }
 
+
+
+/* ----------------------------------------------------반응형 웹-------------------------------------------------- */
+/* 모니터 기준 */
+@media (min-width: 1024px) {
+
+    
+    /* 내 정보 */
+    .item_title{ 
+        font-family: Pretendard;
+        font-size: 52px;
+        font-weight: 800;
+        line-height: 20px;
+        letter-spacing: 0px;
+        text-align: center;
+
+    }
+    
+    /* 집 모양 */
+    .item_exit{
+        position : absolute;
+        width:40px;
+        height: 30px;
+        /* top : 50px;  */
+        /* left : 314px; */
+        right : 5vw;
+        padding-bottom: 20px;
+        border: 0px;
+        /* 배경 투명도 0 */
+        background-color: rgba(0,0,0,0);
+    }
+    
+    
+    
+    /* 그리드 */
+    .body_1{
+        margin-top : 20vh;
+        width: 400px;
+        height: 210px;
+
+    }
+    
+    .body_2{
+
+        margin-top:52vh;
+        
+    }
+    
+    /* footer */
+    
+    .footer_hr {
+        width: 50vw;
+    }
+    
+    
+    /* 고객 지원 */
+    .footer_head{
+        /* position: relative; */
+
+        width: 154.29px;
+        height: 150px;
+        font-family: Pretendard;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: 0em;
+        text-align: center;
+
+    
+    
+    }
+    
+    /* 지원 내역, 문의하기, 로그아웃, 회원탈퇴 */
+    .footer_body{
+           /* 그리드 가운대정렬 */
+        place-items: center;
+    
+        width: 50%;
+        height: 200px;
+    
+        display: grid;
+        grid-template-rows: 24px 24px 24px 24px;
+        gap: 20px;
+    }
+    
+    .item_footer_list{
+        width: 100%;
+        height: 24px;
+    
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+    
+    .item_footer_write{
+        
+        
+        font-family: Pretendard;
+        font-family: Pretendard;
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 26px;
+        letter-spacing: 0em;
+        text-align: left;
+        
+        color: #5C5C5C;
+   
+    }
+    
+    .item_footer_btn{
+        height: 20px;
+        color: #5C5C5C;
+        border : 0px;
+        text-align: right;
+    }
+    
+
+}

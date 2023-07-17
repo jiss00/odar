@@ -22,6 +22,7 @@ margin-top : 8px;
 cursor : pointer;
 @media screen and (min-width: 1024px){
 margin-left:655px;
+margin-top : 12px;
 } 
 `
 const SubDiv = styled.div`
