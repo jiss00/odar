@@ -8,11 +8,14 @@ display: grid;
 grid-template-columns: 20px 20px 20px 20px 20px 20px 20px ;
 width : 231px;
 height : 20px;
-position: fixed;
-top : 716px;
-left : 120px;
+margin-left : 120px;
+margin-top : 90px;
 font-weight: 550;
-font-size: 15px;`
+font-size: 15px;
+@media screen and (min-width: 1024px){
+  font-size:18px;
+  padding-left:250px;
+  }`
 function Footer() {
   const [current, setCurrent] = useState(null);
 
@@ -23,25 +26,43 @@ function Footer() {
 
   useEffect(() => {
     if (current) {
-      current.style.color = "#5B8E31";
-      current.style.fontSize = "18px";
+      if (window.innerWidth < 1024) {
+        current.style.color = "#5B8E31";
+        current.style.fontSize = "18px";
+      }
+      else {
+        current.style.color = "#5B8E31";
+        current.style.fontSize = "24px";
+      }
     }
   }, [current]);
   const onclick = (event) => {
     if (current !== null) {
-      current.style.color = "black";
-      current.style.fontSize = "15px";
+      if (window.innerWidth < 1024) {
+        current.style.color = "black";
+        current.style.fontSize = "15px";
+      }
+      else {
+        current.style.color = "black";
+        current.style.fontSize = "21px";
+      }
     }
     const newCurrent = event.target;
-    newCurrent.style.color = "#5B8E31";
-    newCurrent.style.fontSize = "18px";
+    if (window.innerWidth < 1024) {
+      newCurrent.style.color = "#5B8E31";
+      newCurrent.style.fontSize = "18px";
+    }
+    else {
+      newCurrent.style.color = "#5B8E31";
+      newCurrent.style.fontSize = "24px";
+    }
     setCurrent(newCurrent);
   };
 
   return (
     <div>
       <Div>
-        <div>{'<'}</div>
+        <div className='footer_1'>{'<'}</div>
         <div id='1' onClick={onclick}>1</div>
         <div id='2' onClick={onclick}>2</div>
         <div id='3' onClick={onclick}>3</div>

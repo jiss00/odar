@@ -1,31 +1,24 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.parent {
+  display: flex;
+  justify-content: center; /* 가로 축 가운데 정렬 */
+  align-items: center; /* 세로 축 가운데 정렬 */
 }
 
 .back{
   position: absolute;
   width: 25px;
   height: 25px;
-  margin-top: 67px;
-  margin-left: 54px;
+  margin-top: 161.5px;
+  margin-right: 257px;
   z-index: 1;
-}
+  } 
 
 .bars{
+  position: absolute;
   width: 25px;
   height: 20px;
-  margin-top: 70px;
-  margin-left: 314px;
+  margin-top: 160px;
+  margin-left: 262px;
   z-index: 1;
 }
 
@@ -38,7 +31,6 @@ code {
   width: 130px;
   height: 20px;
   top: 88px;
-  left: 136px;
   z-index: 1;
 
   font-family: Pretendard;
@@ -66,12 +58,6 @@ code {
 .nav-menu.active{
   position:absolute;
   display: block;
-  top:0;
-  left : 194px;
-  width: 196px;
-  height: 844px;
-  border-radius: 20px 0px 0px 20px;
-  background-color: rgba(255, 255, 255, 0.9);
   z-index: 1;
 }
 
@@ -142,4 +128,106 @@ code {
   margin-top: 386px;
   margin-left: 38px;
   border: 1.5px solid rgba(162, 192, 138, 1)
+}
+
+@media (min-width: 1024px) {
+  
+
+.back{
+  width: 40px;
+  height: 30px;
+  margin-top: 280px;
+  margin-right: 890px;
+  z-index: 1;
+  } 
+  
+.bars{
+  width: 40px;
+  height: 30px;
+  margin-top: 290.5px;
+  margin-left: 965px;
+  z-index: 1;
+}
+
+.bars.active{
+  display: none;
+}
+
+.topName{
+  width: 192px;
+  height: 20px;
+  top: 186px;
+  font-size: 52px;
+  line-height: 20px;
+}
+
+
+.nav-menu{
+  position:absolute;
+  top:0;
+  width: 720px;
+  height: 100%;
+  right: 0px;
+  border-radius: 20px 0px 0px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: none;
+  transition: 850ms;
+  z-index: 1;
+}
+
+.nav-menu.active{
+  position:absolute;
+  display: block;
+  z-index: 1;
+}
+
+.close{
+  width: 40px;
+  height: 30px;
+  margin-top: 129px;
+  margin-left: 460px;
+}
+
+.topHome{
+  width: 104px;
+  height: 20px;
+  margin-top: 308px;
+  margin-left: 154px;
+
+}
+
+.topLogin {
+  width: 104px;
+  height: 20px;
+  margin-top: 408px;
+  margin-left: 154px;
+}
+
+.topMyInfo{
+  width: 104px;
+  height: 20px;
+  margin-top: 508px;
+  margin-left: 154px;
+}
+
+.topBarHome{
+  width: 150px;
+  margin-top: 348px;
+  margin-left: 131px;
+  border: 2px solid rgba(162, 192, 138, 1)
+}
+
+.topBarLogin{
+  width: 150px;
+  top: 448px;
+  left: 131px;
+  border: 2px solid rgba(162, 192, 138, 1)
+}
+
+.topBarMyInfo{
+  width: 150px;
+  margin-top: 548px;
+  margin-left: 131px;
+  border: 2px solid rgba(162, 192, 138, 1)
+}
 }

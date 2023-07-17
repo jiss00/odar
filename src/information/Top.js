@@ -9,18 +9,17 @@ function Login(props) {
 
     const showSidebar = () => setSidebar(!sidebar)
 
-    return(
-        <div>
-            <img className="back" alt="back" src={backImage} />
-            <div className="topName">{props.text}</div>
+    return (
+        <div className='top1'>
+                <img className="back" alt="back" src={backImage} />
+                <div className="topName">{props.text}</div>
 
-            <img className={sidebar ? 'bars active': 'bars'} 
-                alt="bars" 
-                src={barsImage} 
-                onClick={showSidebar}
-            />
-
-            <nav className={sidebar ? 'nav-menu active': 'nav-menu'}>
+                <img className={sidebar ? 'bars active' : 'bars'}
+                    alt="bars"
+                    src={barsImage}
+                    onClick={showSidebar}
+                />
+            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                 <ui className='nav-menu-items' onClick={showSidebar}>
                     <img className="close" alt="close" src={closeImage} />
                     <ui className='top'>

@@ -14,9 +14,12 @@ const Div = styled.div`
 color:red;
 font-size: 18px;
 font-weight: 600;
-position: fixed;
-top: 603px;
-left : 220px;
+position:absolute;
+padding-left : 190px;
+padding-top : 11px;
+@media screen and (min-width: 1024px) {
+    padding-left : 290px;
+  }
 `
 function Timer() {
     const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
@@ -37,4 +40,4 @@ function Timer() {
         </Div>
                 )
 }
-                export default Timer
+export default Timer

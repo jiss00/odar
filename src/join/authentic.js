@@ -2,9 +2,6 @@ import styled from 'styled-components';
 import { useState } from 'react';
 function Auth(props){
   const Auth =styled.div`
-  top : ${props.top};
-  left :${props.left};
-  position: fixed;
   box-sizing: border-box;
   width: 70px;
   height: 50px;
@@ -15,10 +12,14 @@ function Auth(props){
   border-radius: 15px;
   text-align: center;
   padding-top: 8px;
+  @media screen and (min-width: 1024px) {
+    top : ${props.w_top};    
+    left : ${props.w_left};
+  }
   `
 
   return(
-    <Auth>{props.text}</Auth>
+    <Auth onClick = {props.func}>{props.text}</Auth>
   )
 }
 export default Auth

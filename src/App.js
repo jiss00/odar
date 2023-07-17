@@ -21,6 +21,7 @@ import Main from './component/Main/Main';
 import MyInfo from './component/MyInfo/Inquiry';
 import Withdrawl from './component/MyInfo/Withdrawal';
 import Modify from './component/MyInfo/Modify';
+import Alarm from "./information/alarm";
 import Recruitmentinfo from './component/Main/Recruitmentinfo';
 
 
@@ -44,6 +45,7 @@ function App(){
         <Route path="inquiry" element={<MyInfo/>}/> {/*문의하기*/} 
         <Route path="withdrawal" element={<Withdrawl/>}/> {/*회원탈퇴*/}
         <Route path="modify" element={<Modify/>}/> {/*내 정보 수정*/}
+        <Route path="alarm" element={<Alarm/>}/> {/*알림창*/}
       </Routes>
     </Router>
 

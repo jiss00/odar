@@ -1,25 +1,26 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-function TopBar(){
+function TopBar(props){
   const Container = styled.div`
-    position: fixed;
     width : 193px;
     height : 15px;
     border-radius: 15px;
     background-color: #ABABAB80;
-    top : 83px;
-    left : 99px;
+    margin-left:20%;
+    @media screen and (min-width: 1024px) {
+      width : 915px;
+      margin-left:0%;
+    }
+
   `
   const Progress = styled.div`
-    position: fixed;
     width : ${props => props.width};
     height : 15px;
     border-radius: 15px;
     transition: width 1s;
     background-color: #A2C08A;
-    top : 83px;
-    left : 99px;
+
   `  
   const [count,setCount] = useState(0);
   const addCount = () =>{

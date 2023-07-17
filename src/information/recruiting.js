@@ -1,25 +1,27 @@
 import styled from 'styled-components';
 function Recruiting(props){
   const MainDiv =styled.div`
-    top : ${props.top};
-    left : 30px;
-    position: fixed;
     box-sizing: border-box;
     border-radius: 10px;
     border : solid #D9D9D9 1px;
-    width : 330px;
+    width : 260px;
     height : 30px;
     font-size: 15px;
     font-weight: 400;
     padding-top : 4px;
-    padding-left : 100px;
+    padding-left : 30px;
     background-color: #EDF1D5;
     cursor : pointer;
+    @media screen and (min-width: 1024px) {
+      width : 840px;
+      height : 40px;
+      position:absolute
+      padding-left : 30px;
+      padding-top : 6px;
+      font-size: 16px;
+    }
   `
   const SubDiv = styled.div`
-  top : ${props.top};
-  left : 30px;
-  position: fixed;
   box-sizing: border-box;
   border-radius: 10px;
   border : solid #D9D9D9 1px;
@@ -32,12 +34,16 @@ function Recruiting(props){
   background-color: #5B8E31;
   color : white;
   cursor : pointer;
+  z-index:1;
+  @media screen and (min-width: 1024px) {
+    height : 40px;
+    padding-top : 6px;
+  }
 `
   return(
-    <div onClick={props.func}>
-      <MainDiv>{props.text}</MainDiv>
+    <div className='recruit'onClick={props.func}>
       <SubDiv>모집중</SubDiv>
-
+      <MainDiv>{props.text}</MainDiv>
     </div>
   )
 }

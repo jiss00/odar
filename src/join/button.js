@@ -5,8 +5,6 @@ function Button(props){
     auth[0].style.display = 'block';
   }
   const Button =styled.div`
-  top : ${props.top};
-  left :${props.left};
   box-sizing: border-box;
   background-color: #A2C08A;
   border-radius: 10px;
@@ -18,7 +16,9 @@ function Button(props){
   font-weight: 700;
   width: 335px;
   height:75px;
-  position: fixed;
+  @media screen and (min-width: 1024px) {
+    width : ${props.w_width};
+  }
   `
   return(
     <Button onClick={complete} >{props.text}</Button>

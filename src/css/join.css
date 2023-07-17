@@ -1,3 +1,15 @@
+.main{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box; 
+}
+.sub{
+  @media screen and (min-width: 1024px){
+    margin-left: 25%;
+    }
+}
 .top_bar{
   position: fixed;
   width : 193px;
@@ -12,11 +24,17 @@
   display :none;
 }
 .search{
-  position: fixed;
-  top : 154px;
-  left : 330px;
   cursor: pointer;
   display: block;
+  padding-left: 105px;
+  padding-top: 4px;
+  z-index: 1;
+  width: 20px;
+  @media screen and (min-width: 1024px){
+    padding-left: 660px;
+    margin-top: 3px;
+    width: 30px;
+    }
 }
 .search_input{
   width: 330px;
@@ -25,12 +43,16 @@
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 30px;
-  top : 149px;
-  left : 30px;
   display: none;
   border-radius: 10px;
   border: solid 1px #5B8E31;
-  font-size: 17px;
+  font-size: 17px;  
+  @media screen and (min-width: 1024px){
+    padding-left: 870px;
+    width: 330px;
+    height: 40px;
+    z-index: 1;
+    }
 }
 
 .footer div{
@@ -43,4 +65,41 @@
   grid-template-columns: 0.5fr 0.5fr 1fr;
   font-size: 12px;
   font-weight: 800;
+}
+.phone_number{
+  display: grid;
+  grid-template-columns: 250px 0px 70px;
+  grid-gap: 10px;
+  margin-top : 15px;
+  @media screen and (min-width: 1024px){
+  width: 440px;
+  display: grid;
+  grid-template-columns: 350px 0px 70px;
+  grid-gap: 20px;
+  }
+}
+.date{
+  display: grid;
+  grid-template-columns: 96px 23px 65px 23px 65px 23px;
+  grid-gap: 10px;
+  margin-top: 15px !important;
+  @media screen and (min-width: 1024px){
+  display: grid;
+  grid-template-columns: 140px 34px 77px 34px 77px 34px;
+  grid-gap: 10px;
+  }
+}
+.web_text{
+  margin-top: 50px;
+}
+.text{
+  color:#5C5C5C;
+  font-size: 20px;
+  font-weight: 550;
+  padding-top : 10px;
+  @media screen and (min-width: 1024px) {
+    font-weight : 800;
+    font-size : 36px;
+    padding-top: 0px;
+  } 
 }
