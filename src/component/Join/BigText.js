@@ -19,12 +19,12 @@ const StyledText = styled.span`
       margin-left:auto;
       top:0px;
       left:0px;
-      font-size: 36px;
-      width:440px;
+      font-size: 52px;
+      width:200px;
       }
 `;
 
-function Text({ children, fontSize, width } ) {
+function BigText({ children, fontSize, width } ) {
   return (
     <>
       <StyledText fontSize={fontSize} width={width}>{children}</StyledText>
@@ -32,4 +32,4 @@ function Text({ children, fontSize, width } ) {
   );
 }
 
-export default Text;
+export default BigText;

@@ -19,6 +19,20 @@ const StyledTitle = styled.input`
         color: #D9D9D9;
         font-weight: 400;
       }
+     
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    width: 800px;
+    height: 50px;
+    margin-right:auto;
+    margin-left:auto;
+    top:-335px;
+    left:0px;
+    ::placeholder {
+      font-size: 18px;
+    }
+    }
+  
 `;
 
 function Title({...props}) {

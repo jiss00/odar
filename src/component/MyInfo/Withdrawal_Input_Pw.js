@@ -20,6 +20,16 @@ const StyledInput = styled.input`
         color: #D9D9D9; 
         font-weight: 800;
     }
+    
+    @media all and (min-width: 1024px){	
+        position: relative; 
+        width: 360px;
+        height: 50px;
+        margin: 0px auto;
+        top: -100px;
+        left:0px;
+        }
+      
 `;
 
 const IconWrapper = styled.div`
@@ -29,6 +39,13 @@ const IconWrapper = styled.div`
     top: 469px;
     left: 301px;
     cursor: pointer;
+       
+    @media all and (min-width: 1024px){	
+        position: relative; 
+        margin: 0px auto;
+        top: -135px;
+        left:150px;
+        }
 `;
 
 const Icon = styled.div`

@@ -34,6 +34,19 @@ const StyledTexts = styled.span`
         css`
         left: ${props.left}px;
         `}
+ 
+  @media all and (min-width: 1024px){	
+  position: relative; 
+  width: 800px;
+  height: 57px;
+  margin-right:auto;
+  margin-left:auto;
+  top:-350px;
+  left:0px;
+  font-size:16px;
+  }
+
+        
 `;
 
 function Texts({fontsize,width, height, top, left, children}) {

@@ -10,6 +10,13 @@ const StyledBack = styled.img`
   top: 67px;
   left: 54px;
   z-index: 1;
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    width: 40px;
+    height: 30px;
+    left:100px;
+    margin: 0px auto;
+  }
 `;
 
 function Back() {

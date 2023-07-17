@@ -1,6 +1,13 @@
 import React from "react";
-import styled ,{ css }from "styled-components";
+import styled,{css}  from "styled-components";
 
+const Container = styled.div`
+display: flex;
+margin: 0 auto;
+width: 440px;
+`;
+
+// Text_small 컴포넌트 
 const StyledText = styled.span`
     display: flex;
     box-sizing: border-box;
@@ -21,11 +28,11 @@ const StyledText = styled.span`
         left: 30px;
         @media all and (min-width: 1024px){	
           position: relative; 
-          margin-right:10px;
+          margin-right:auto;
           margin-left:auto;
-          top:300px;
-          left:-160px;
-          width:74px;
+          top:372px;
+          left:0px;
+          width:440px;
           }
         `}
      ${(props) =>
@@ -36,10 +43,11 @@ const StyledText = styled.span`
         left: 30px;
         @media all and (min-width: 1024px){	
           position: relative; 
-          top:380px;
+          margin-right:auto;
+          margin-left:auto;
+          top:547px;
           left:0px;
-          width:100px;
-      }
+          }
         `} 
     ${(props) =>
         props.숫자 &&
@@ -49,10 +57,10 @@ const StyledText = styled.span`
         left: 177px;
         @media all and (min-width: 1024px){	
           position: relative; 
-        
-          top:380px;
+          margin-right:auto;
+          margin-left:auto;
+          top:547px;
           left:0px;
-          width:30px;
           }
         `}
      ${(props) =>
@@ -63,10 +71,10 @@ const StyledText = styled.span`
         left: 256px;
         @media all and (min-width: 1024px){	
           position: relative; 
-         
-          top:380px;
+          margin-right:auto;
+          margin-left:auto;
+          top:547px;
           left:0px;
-          width:60px;
           }
         `}        
 `;
@@ -79,4 +87,14 @@ function Text_small({ children, ...props } ) {
   );
 }
 
-export default Text_small;
+function JoinContainer() {
+  return (
+    <Container>  
+        <Text_small 대소문자>대문자 · 소문자</Text_small>
+        <Text_small 숫자>숫자</Text_small>
+        <Text_small 특수문자>특수문자</Text_small>   
+    </Container>
+  );
+}
+
+export default JoinContainer;

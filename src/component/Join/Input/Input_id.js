@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Text_small from "../Text_small";
+
+const JoinContainer1 = styled.div`
+display: flex;
+margin: 0 auto;
+width: 440px;
+`;
 
 const StyledInput = styled.input`
     display: flex;
@@ -18,6 +25,14 @@ const StyledInput = styled.input`
       color: #D9D9D9; 
       font-weight: 800;
     }
+    @media all and (min-width: 1024px){	
+      position: relative; 
+      margin-right:auto;
+      margin-left:auto;
+      top:280px;
+      left:0px;
+      width:440px;
+      }
 `;
 const Circlediv = styled.div`
   display: flex;
@@ -29,6 +44,13 @@ const Circlediv = styled.div`
   background-color: ${({ valid }) => (valid ? "#A2C08A" : "#FF0000")};
   left: 116px;
   top: 316px;
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-left:10px;
+    margin-right:auto;
+    top:300px;
+    left:-160px;
+    }
 `;
 function validateEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -45,7 +67,10 @@ function Input_id(props) {
   return (
     <>
       <StyledInput onChange={handleInputChange} {...props} />
+      <JoinContainer1>
+      <Text_small 이메일형식>이메일 형식</Text_small>
       <Circlediv valid={validEmail} />
+      </JoinContainer1>
     </>
   );
 }

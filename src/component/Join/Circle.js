@@ -15,6 +15,14 @@ position: absolute;
         css`
         top: 316px;
         left: 116px;
+        @media all and (min-width: 1024px){	
+          position: relative; 
+          margin-right:auto;
+          margin-left:auto;
+          top:372px;
+          left:0px;
+          width:440px;
+          }
         `}
  ${(props) =>
         props.대소문자 &&

@@ -16,6 +16,22 @@ const ButtonContainer = styled.div`
     css`
     top: ${props.top}px;
     `}
+
+  @media all and (min-width: 1024px) {
+    position: relative;
+    max-width: 67px;
+    max-height: 33px;
+    ${props =>
+      props.top &&
+      css`
+      top: ${props.top*0.01-500}px;
+      `}
+      left:0px;
+      margin: 0 auto;
+      margin-left: 22%; 
+      margin-right: 12%; 
+
+  }
 `;
 
 const Button = styled.div`

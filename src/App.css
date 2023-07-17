@@ -7,24 +7,52 @@
   position: absolute; 
   top: 133px;
   left: 139px;
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    margin-left:auto;
+    top:146px;
+    left:0px;
+    }
 }
 
 .id__box{
   position: absolute; 
   top: 198px;
   left: 30px;
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    margin-left:auto;
+    top:250px;
+    left:0px;
+    }
 }
 
 .pw__box{
   position: absolute; 
   top: 373px;
   left: 30px;
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    margin-left:auto;
+    top:350px;
+    left:0px;
+    }
 }
 
 .pwcheck__box{
   position: absolute; 
   top: 548px;
   left: 30px;
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    margin-left:auto;
+    top:450px;
+    left:0px;
+    }
 }
 
 
@@ -61,4 +89,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/*데스크탑*/
+
+/*태블릿*/
+@media all and (max-width: 1023px){
+}
+
+/*모바일*/
+@media all and (max-width: 390px){
+
 }

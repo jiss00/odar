@@ -19,6 +19,14 @@ const StyledInput = styled.input`
       color: #D9D9D9; 
       font-weight: 800;
     }
+    @media all and (min-width: 1024px){	
+        position: relative; 
+        margin-right:auto;
+        margin-left:auto;
+        top:480px;
+        left:0px;
+        width:440px;
+        }
 `;
 const IconWrapper = styled.div`
     display: flex;
@@ -29,6 +37,13 @@ const IconWrapper = styled.div`
     top: 608px;
     left: 324px;
     cursor: pointer;
+    @media all and (min-width: 1024px){	
+        position: relative; 
+        margin-right:auto;
+        margin-left:auto;
+        top:445px;
+        left:200px;
+        }
 `;
 function Input_pwcheck(props) {
   const [isPasswordVisible, setPasswordVisible] = useState(false); // 비밀번호 숨김/보임 상태

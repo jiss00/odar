@@ -19,6 +19,16 @@ const StyledInput = styled.input`
       color: #D9D9D9; 
       font-weight: 800;
     }
+
+    @media all and (min-width: 1024px){	
+      position: relative; 
+      width: 360px;
+      height: 50px;
+      margin: 0px auto;
+      top: -161px;
+      left:0px;
+      }
+    
 `;
 
 function Withdrawal_Input_Id(props) {

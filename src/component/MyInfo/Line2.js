@@ -10,17 +10,18 @@ const StyledLine = styled.div`
   height: 1px;
   border: 1px solid #D9D9D9;
   left: 45px;
-  top: 324px;
+  top:494px;
+
     @media all and (min-width: 1024px){	
       position: relative;
       width: 980px;
       margin: 0px auto;
-      top: -340px;
+      top: -290px;
       left: 0;
       } 
 `;
 
-function Line({top}) {
+function Line2({top}) {
   return (
     <div>
       <StyledLine top={top}/>
@@ -28,4 +29,4 @@ function Line({top}) {
   );
 };
 
-export default Line;
+export default Line2;

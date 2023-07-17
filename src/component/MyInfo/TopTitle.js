@@ -23,6 +23,18 @@ const StyledTopTitle = styled.span`
     letter-spacing: 0px;
     text-align: center;
     color: rgba(162, 192, 138, 1);
+
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    width: 250px;
+    height: 20px;
+    margin-right:auto;
+    margin-left:auto;
+    top:149px;
+    left:0px;
+    font-size: 52px;
+    text-align: center;
+    }
 `;
 
 function TopTitle({...props}) {

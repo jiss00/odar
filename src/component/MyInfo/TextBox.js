@@ -19,6 +19,19 @@ const StyledTextBox = styled.textarea`
     color: #D9D9D9;
     font-weight: 400;
   }
+
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    width: 800px;
+    height: 360px;
+    margin-right:auto;
+    margin-left:auto;
+    top:-320px;
+    left:0px;
+    ::placeholder {
+      font-size: 18px;
+    }
+    }
 `;
 
 function TextBox({ placeholder, ...props }) {

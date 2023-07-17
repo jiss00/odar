@@ -14,6 +14,15 @@ import Tilde from './Tilde';
 import AgreeButton from './AgreeButton';
 import TopTitle from './TopTitle';
 import Back from './Back';
+import Line2 from './Line2';
+import Line3 from './Line3';
+import Container1 from './Container1';
+import Container2 from './Container2';
+import Container3 from './Container3';
+import Container4 from './Container4';
+import Container5 from './Container5';
+import ModifyLongButton from './ModifyLongButton';
+import Container6 from './Container6';
 
 function Modify(){
     return(
@@ -25,35 +34,23 @@ function Modify(){
         <ProfileImage></ProfileImage>
         <ProfileButton></ProfileButton>
 
-        <Line top={324}></Line>
-        
-        <Texts fontsize={16} width={56} height={20} top={354} left={63} >희망직종</Texts>
-        <Selectbar></Selectbar>
-        <Texts fontsize={16} width={56} height={20} top={399} left={63} >희망요일</Texts>
-        <Day left={139} text="월"></Day>
-        <Day left={178.5} text="화"></Day>
-        <Day left={218} text="수"></Day>
-        <Day left={257.5} text="목"></Day>
-        <Day left={297} text="금"></Day>
-        <Texts fontsize={16} width={56} height={20} top={444} left={63} >희망시간</Texts>
-        <Time left={139}></Time>
-        <Tilde></Tilde>
-        <Time left={257}></Time>
-
-        <Line top={494}></Line>
+        <Line></Line>
        
-        <Texts fontsize={16} width={119} height={20} top={524} left={64} >채용정보 알림 동의</Texts>
-        <AgreeButton top={521}></AgreeButton>
-        <Texts fontsize={16} width={91} height={20} top={569} left={64} >위치 알림 동의</Texts>
-        <AgreeButton top={571}></AgreeButton>
+        <Container1></Container1>
+        <Container2></Container2>
+        <Container3></Container3>
 
-        <Line top={619}></Line>
-        
-        <Texts fontsize={16} width={56} height={20} top={649} left={66} >내 위치</Texts>
-        <Texts fontsize={16} width={132} height={20} top={649} left={183} >창원시 마산회원구</Texts>
+        <Line2></Line2>
+       
+        <Container4></Container4>
+        <Container5></Container5>
 
-        <LongButton 문의하기>적용</LongButton>
+        <Line3></Line3>
         
+        <Container6></Container6>
+
+       <ModifyLongButton></ModifyLongButton>
+    
         </div>
         </>
     )

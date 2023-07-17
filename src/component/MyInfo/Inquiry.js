@@ -7,11 +7,12 @@ import Title from './Title';
 import Texts from './Texts';
 import TextBox from './TextBox';
 import TopTitle from './TopTitle';
-
+import Back from './Back';
 function Inquiry(){
     return(
         <>
         <div>
+        <Back></Back>
         <TopTitle left={140}>문의하기</TopTitle>
         <Rectangle></Rectangle>
         <Texts fontsize={14} width={274} height={68} top={178} left={58}> 

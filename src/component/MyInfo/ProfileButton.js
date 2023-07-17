@@ -18,6 +18,28 @@ const StyledButton = styled.button`
   font-family: "Pretendard";
   font-weight: 400;
   text-align: center;  
+
+  @media all and (min-width: 1024px){	
+    position: relative;
+    width:  106px; 
+    height: 31px;
+    top:0;
+    left:0;
+    }
+  
+`;
+
+const ButtonWrapper = styled.div`
+  @media all and (min-width: 1024px) {
+    position: relative;
+    margin: 0 auto; /* 가로 중앙 정렬 */
+    width: 100%; /* 너비를 100%로 설정 */
+    max-width: 106px; /* 최대 너비를 110px로 제한 */
+    height: 100%;
+    max-height: 31px;
+    top: -350px;
+    left: 0;
+  }
 `;
 
 
@@ -32,9 +54,11 @@ const StyledButton = styled.button`
 
 function ProfileButton() {
     return (
+      <ButtonWrapper>
       <StyledButton>
         <ButtonText >프로필 변경</ButtonText>
       </StyledButton>
+      </ButtonWrapper>
     );
   }
 

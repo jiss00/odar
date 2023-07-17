@@ -5,13 +5,17 @@ import Rectangle from './Rectangle';
 import Texts from './Texts';
 import Withdrawal_Input_Id from './Withdrawal_Input_Id';
 import Withdrawal_Input_Pw from './Withdrawal_Input_Pw';
-import OxButton from './OxButton';
+import OButton from './OButton';
+import XButton from './XButton';
 import TopTitle from './TopTitle';
+import ButtonGroup from './OXButtonGroup';
+import Back from './Back';
 
 function Withdrawl(){
     return(
         <>
         <div>
+        <Back></Back>
         <TopTitle left={140}>회원탈퇴</TopTitle>
         <Rectangle></Rectangle>
         <Texts fontsize={15} width={274} height={144} top={182} left={58}>
@@ -21,8 +25,7 @@ function Withdrawl(){
         계정 탈퇴를 원하시면 아래 정보를 입력 후 탈퇴 버튼을 선택해주세요.</Texts>
         <Withdrawal_Input_Id type="email" placeholder=" 아이디를 입력해주세요."  ></Withdrawal_Input_Id>
         <Withdrawal_Input_Pw type="email" placeholder=" 비밀번호를 입력해주세요."  ></Withdrawal_Input_Pw>
-        <OxButton o>확인</OxButton>
-        <OxButton o={false}>취소</OxButton>
+        <ButtonGroup/>
         </div>
         </>
     )
