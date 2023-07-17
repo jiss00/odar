@@ -131,12 +131,16 @@
 }
 
 @media (min-width: 1024px) {
-  
+.parent {
+  display: flex;
+  justify-content: center; /* 가로 축 가운데 정렬 */
+  align-items: center; /* 세로 축 가운데 정렬 */
+}
 
 .back{
   width: 40px;
   height: 30px;
-  margin-top: 280px;
+  margin-top: 12em;
   margin-right: 890px;
   z-index: 1;
   } 
@@ -144,8 +148,8 @@
 .bars{
   width: 40px;
   height: 30px;
-  margin-top: 290.5px;
-  margin-left: 965px;
+  margin-top: 12em;
+  margin-left: 890px;
   z-index: 1;
 }
 
@@ -156,7 +160,7 @@
 .topName{
   width: 192px;
   height: 20px;
-  top: 186px;
+  margin-top: 1em;
   font-size: 52px;
   line-height: 20px;
 }
@@ -184,8 +188,8 @@
 .close{
   width: 40px;
   height: 30px;
-  margin-top: 129px;
-  margin-left: 460px;
+  margin-top: 5em;
+  margin-left: 24em;
 }
 
 .topHome{
