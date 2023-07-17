@@ -37,7 +37,8 @@ cursor : pointer;
 z-index:1;
 @media screen and (min-width: 1024px) {
   height : 40px;
-  padding-top : 6px;
+  padding-top : 8px;
+  padding-left:8px;
 }
 `
   return(

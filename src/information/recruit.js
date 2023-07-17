@@ -15,8 +15,10 @@ function Recruit() {
     window.location.href = 'http://localhost:3000/requirement';
   }
   return (
-      <div className="main">
+    <div>
       <Top text='채용정보'></Top>
+      <div className="main">
+        <div className="margin"></div>
         <div className="sort">
           <Sort text='마감날짜' ></Sort>
           <Sort text='거리순' ></Sort>
@@ -35,6 +37,7 @@ function Recruit() {
         <Complete text='진주시 요양원 조리원 모집'></Complete>
         <Footer></Footer>
       </div>
+    </div>
   )
 }
 export default Recruit;

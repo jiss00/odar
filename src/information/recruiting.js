@@ -38,6 +38,9 @@ function Recruiting(props){
   @media screen and (min-width: 1024px) {
     height : 40px;
     padding-top : 6px;
+    font-size: 16px;
+    padding-left:12px;
+
   }
 `
   return(

@@ -14,7 +14,8 @@ function Sort(props){
   cursor: pointer;
   padding-left:10px;
   @media screen and (min-width: 1024px){
-    padding-top:7px;
+    font-size:18px;
+    padding-top:5px;
     width : 104px;
     height : 40px; 
   } 
@@ -29,8 +30,8 @@ function Sort(props){
   margin-top:7px;
   margin-left:4px;
   @media screen and (min-width: 1024px){
-    padding-bottom:10px;
-    margin-top:11px;
+    margin-top:12px;
+    margin-left:10px;
   } 
   `
   return(

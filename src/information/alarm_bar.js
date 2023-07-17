@@ -34,6 +34,7 @@ border-radius : 10px;
 background-color:#EDF1D5;
 margin-left: 20px;
 @media screen and (min-width: 1024px){
+  padding-top : 25px;
   width : 1004px;
   height : 170px;
   font-size:20px;
@@ -53,7 +54,8 @@ background-color : #A2C08A;
 @media screen and (min-width: 1024px){
   grid-template-columns: 320px 10px;
   width : 1004px;
-  height : 40px; 
+  height : 40px;
+
 } 
 `
 

@@ -5,8 +5,8 @@
   display: grid;
   grid-template-columns : 98px 98px 150px;
   @media screen and (min-width: 1024px){
-    grid-template-columns : 106px 104px 750px;
-
+    grid-template-columns : 80px 80px 750px;
+    grid-gap : 40px;
   }
 }
 .main_detail{
@@ -26,6 +26,9 @@
   width:98px;
   display: grid;
   grid-template-columns: 71px 15px;
+  @media screen and (min-width: 1024px){
+    
+    }
 }
 .footer_1{
   font-weight: 550;
@@ -61,4 +64,9 @@
     padding-bottom: 50px;
 
     }  
+}
+.margin{
+  @media screen and (min-width: 1024px){
+    height: 150px;   
+  }
 }

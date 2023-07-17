@@ -5,10 +5,10 @@ box-sizing: border-box;
 text-align: center;  
 padding-top : 5px;
 color: black;
-font-weight: 550;
+font-weight: 450;
 font-size: 15px;
 @media screen and (min-width: 1024px){
-  font-weight: 600;
+  font-weight: 450;
   font-size: 18px;  
 }
 `
@@ -72,7 +72,8 @@ padding-top: 10px;
 display: grid;
 grid-template-columns: 0.5fr 0.5fr 1fr;
 font-size: 12px;
-font-weight: 800;
+font-weight: 600;
+color:#5C5C5C;
 @media screen and (min-width: 1024px){
   font-size:18px; 
 } 
@@ -90,6 +91,8 @@ height: 27px;
   width:75px;
   height: 34px;
   font-size : 20px;
+  box-sizing: border-box;
+  padding-top:2px;
 } `
 
 const Child2 = styled.div`

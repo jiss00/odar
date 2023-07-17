@@ -15,7 +15,7 @@ function Detail() {
         <Bar
           text='진주시 요양원 조리원 모집'
           text1='모집중'
-          text2='시니어 바리스타 자격증 과정'
+          text2='진주시 요양원 조리원 모집'
           text3='월급'
           text4='600,000원/월'
           text5='근무시간'
