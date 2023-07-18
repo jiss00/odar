@@ -3,7 +3,7 @@ import {useState} from 'react';
 import { useEffect } from 'react';
 import StyledSection from './StyledSection';
 import StyledSpan from './StyledSpan';
-import Top from './Top';
+import Top from '../information/Top';
 
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자

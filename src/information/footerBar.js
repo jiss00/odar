@@ -8,14 +8,15 @@ display: grid;
 grid-template-columns: 20px 20px 20px 20px 20px 20px 20px ;
 width : 231px;
 height : 20px;
-margin-left : 120px;
+margin-left : 170px;
 margin-top : 90px;
 font-weight: 550;
 font-size: 15px;
 @media screen and (min-width: 1024px){
   font-size:18px;
   padding-left:250px;
-  }`
+  }
+`
 function Footer() {
   const [current, setCurrent] = useState(null);
 
