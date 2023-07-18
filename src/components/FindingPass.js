@@ -1,8 +1,8 @@
 import '../css/FindingPass.css';
 import {useState} from 'react';
 import { useEffect } from 'react';
-import Input_pw from '../component/Join/Input/Input_pw';
-import Input_pwcheck from '../component/Join/Input/Input_pwcheck';
+import FindingPass_Input_pw from './FindingPass_Input_pw';
+import FindingPass_Input_pwcheck from './FindingPass_Input_pwcheck';
 import Text from '../component/Join/Text';
 import Text_small from '../component/Join/Text_small';
 // 띄우는거 : 대문자
@@ -79,17 +79,15 @@ function FindingPass(){
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
       </div>
 
-      <div className = "body_pass_pass">
+       {/*<div className = "body_pass_pass">
           새비밀번호 비밀번호확인
-      </div>
-      {/* <div className="pw__box"><Text width="110px">새 비밀번호</Text></div>
-          <Input_pw type="password" placeholder=" 비밀번호를 입력해주세요."  />
-          <Text_small 대소문자>대문자 · 소문자</Text_small>
-          <Text_small 숫자>숫자</Text_small>
-          <Text_small 특수문자>특수문자</Text_small>
+        </div> */}
 
-      <div className="pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
-        <Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." /> */}
+      <div className="findingpass__pw__box"><Text width="110px">새 비밀번호</Text></div>
+        <FindingPass_Input_pw type="password" placeholder=" 비밀번호를 입력해주세요."  />
+
+      <div className="findingpass__pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
+        <FindingPass_Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." />
 
 
       <button className= "btn_all_pass" id = "btn_success_pass" >완료</button>

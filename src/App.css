@@ -68,6 +68,39 @@
     }
 }
 
+.findingpass__pw__box{
+  position: relative; 
+  top: -20px;
+  right:115px;
+  margin-right:auto;
+  margin-left:auto;
+
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    margin-left:auto;
+    top:5px;
+    left:0px;
+    }
+}
+
+.findingpass__pwcheck__box{
+  position: relative; 
+  top: 20px;
+  right:90px;
+  margin-right:auto;
+  margin-left:auto;
+
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    margin-left:auto;
+    top:25px;
+    left:0px;
+    }
+}
+
+
 
 .App-logo {
   height: 40vmin;
