@@ -34,7 +34,7 @@ function RequitmentDetail(){
     return(
         <div className="screen_requitment_detail">
             
-            <div style={ {height:"166px"}}><Top text ='채용상세'></Top></div>
+            <div style={{ width:"100vw" , height: "20vh"}}><Top text ='채용상세'></Top></div>
             <section className="body_1_detail"> 
                 <div className="body_1_title_detail"> 
                     <span className="title_item1_detail">모집중</span>

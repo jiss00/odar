@@ -11,6 +11,7 @@ function Top(props) {
 
     return(
         <div className='parent'>
+
             <img className="back" alt="back" src={backImage} />
             <div className="topName">{props.text}</div>
 
