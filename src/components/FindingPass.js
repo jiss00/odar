@@ -1,5 +1,4 @@
 import '../css/FindingPass.css';
-import '../css/FindingPass_web.css';
 import {useState} from 'react';
 import { useEffect } from 'react';
 import Input_pw from '../component/Join/Input/Input_pw';
