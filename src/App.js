@@ -41,11 +41,11 @@ function App(){
         <Route path="/Jopdetail_1" element={<JobDetail />} />  {/*취업상세_1*/}
         {/* <Route path="/Jopdetail_2" element={<JobDetail2 />} />  취업상세_2 */}
         <Route path="/requirement" element={<RequitmentDetail />} />  {/*채용상세*/}
-        <Route path="login" element={<Login />} /> {/*로그인*/}
-        <Route path="inquiry" element={<MyInfo/>}/> {/*문의하기*/} 
-        <Route path="withdrawal" element={<Withdrawl/>}/> {/*회원탈퇴*/}
-        <Route path="modify" element={<Modify/>}/> {/*내 정보 수정*/}
-        <Route path="alarm" element={<Alarm/>}/> {/*알림창*/}
+        <Route path="/login" element={<Login />} /> {/*로그인*/}
+        <Route path="/inquiry" element={<MyInfo/>}/> {/*문의하기*/} 
+        <Route path="/withdrawal" element={<Withdrawl/>}/> {/*회원탈퇴*/}
+        <Route path="/modify" element={<Modify/>}/> {/*내 정보 수정*/}
+        <Route path="/alarm" element={<Alarm/>}/> {/*알림창*/}
       </Routes>
     </Router>
 
