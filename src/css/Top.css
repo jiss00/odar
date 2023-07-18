@@ -30,7 +30,7 @@
   position: absolute;
   width: 130px;
   height: 20px;
-  top: 88px;
+  padding-top: 20vh;
   z-index: 1;
 
   font-family: Pretendard;
@@ -161,6 +161,7 @@
   width: 192px;
   height: 20px;
   margin-top: 1em;
+  padding-top: 20%;
   font-size: 52px;
   line-height: 20px;
 }

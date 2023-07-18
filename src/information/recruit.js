@@ -12,7 +12,7 @@ import Top from './Top';
 
 function Recruit() {
   const detail_1 = () => {
-    window.location.href = 'http://localhost:3000/requirement';
+    window.location.href = 'http://localhost:3000/requitmentDetail';
   }
   return (
     <div>

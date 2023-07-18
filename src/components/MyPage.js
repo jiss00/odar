@@ -9,15 +9,26 @@ import grandFather from './grandFather.png';
 
 import "../css/MyPage.css"
 
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom'
+
+
 function MyPage(){
     const apply = () =>{
         window.location.href = 'http://localhost:3000/detail';
     }
+
+    let navigate = useNavigate();
+
+    const goMain = () => {
+        navigate('/');
+    }
+
+
     return (
         <div className = "screen_my_page">
             <section className = "head">
                 <div className = "item_title"> 내 정보</div>
-                <button className = "item_exit"> 
+                <button onClick = {goMain} className = "item_exit"> 
                     <svg width="35" height="30" viewBox="0 0 35 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 30V19.4118H21V30H29.75V15.8824H35L17.5 0L0 15.8824H5.25V30H14Z" fill="#5B8E31"/>
                     </svg>
