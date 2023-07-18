@@ -10,37 +10,21 @@ margin: 0 auto;
 const StyledTexts = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
+    width: 100%;
+    max-width:56px;
+    height: 20px;
+    margin-left:auto;
+    margin-right:5px;
+    top:-275px;
+    left:8px;
+
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
-    ${props =>
-        props.fontsize &&
-        css`
-          font-size: ${props.fontsize}px;
-        `}
-    ${props =>
-        props.width &&
-        css`
-          width: ${props.width}px;
-        `}
-     ${props =>
-        props.height &&
-        css`
-        height: ${props.height}px;
-        `}
-     ${props =>
-        props.top &&
-        css`
-        top: ${props.top}px;
-        `}
-     ${props =>
-        props.left &&
-        css`
-        left: ${props.left}px;
-        `}
+    font-size:16px;
  
   @media all and (min-width: 1024px){	
   position: relative; 
@@ -57,9 +41,9 @@ const StyledTexts = styled.span`
         
 `;
 
-function Texts({fontsize,width, height, top, left, children}) {
+function Texts({children}) {
     return (
-        <StyledTexts fontsize={fontsize} width={width} height={height} top={top} left={left}>
+        <StyledTexts>
             {children}
         </StyledTexts>
     );
@@ -71,19 +55,17 @@ function Texts({fontsize,width, height, top, left, children}) {
 const Styledtime = styled.div`
   display: flex;
   box-sizing: border-box;
-  position: absolute; 
+  position: relative; 
   align-items: center;
   width: 70px;
   height: 30px;
   border-radius: 20px;
   border: 0.8px solid #5B8E31;
   background-color: #FFFFFF;
-  top:439px;
- ${props =>
-    props.left &&
-    css`
-    left: ${props.left}px;
-    `}
+  top:0px;
+  left:3px;
+  
+
     
     @media all and (min-width: 1024px) {
       position: relative;
@@ -131,27 +113,38 @@ function Time({ left }) {
 const StyledTilde = styled.span`
   display: flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 16px;
   height: 20px;
   font-size: 25px;
   line-height: 20px;
   font-weight: 400;
   color: #5B8E31;
-  top:441px;
-  left:225px;  
+  top:3px;
+  left:0px;
+  margin-left:17px;
+  margin-right:17px;
   text-align: center;
   @media all and (min-width: 1024px) {
     position: relative;
     font-size: 40px;
     width: 26px; 
     top: -45px;
+    margin-left:0px;
+    margin-right:0px;
     left: 150px;
   }  
 `;
 
 const TimeWrapper = styled.div`
-    
+    position: relative;
+    width: 200px; 
+    height: 40px;
+    top: -280px;
+    margin-left:15px;
+    margin-right:auto;
+    display: flex; 
+
   @media all and (min-width: 1024px) {
     position: relative;
     width: 358px; 
@@ -172,8 +165,7 @@ function Tilde() {
 function Container3() {
   return (
     <Container>
-      <Texts fontsize={16} width={56} height={20} top={444} left={63} >
-      희망시간</Texts>
+      <Texts>희망시간</Texts>
       <TimeWrapper>
       <Time left={139}></Time>
       <Tilde></Tilde>

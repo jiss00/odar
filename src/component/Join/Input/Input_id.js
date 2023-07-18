@@ -5,20 +5,21 @@ import Text_small from "../Text_small";
 const JoinContainer1 = styled.div`
 display: flex;
 margin: 0 auto;
-width: 440px;
+width: 300px;
 `;
 
 const StyledInput = styled.input`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
     border-radius: 15px;
     font-size: 24px;
     border: 1.5px solid #5B8E31;
     width: 335px;
     height: 50px;
-    top: 242px;
-    left: 33px;
+    top: 130px;
+    margin:0 auto;
+    z-index:1;
     ::placeholder {
       font-family: "Pretendard";
       font-size: 24px; 
@@ -37,13 +38,16 @@ const StyledInput = styled.input`
 const Circlediv = styled.div`
   display: flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 23px;
   height: 23px;
   border-radius: 50%;
   background-color: ${({ valid }) => (valid ? "#A2C08A" : "#FF0000")};
-  left: 116px;
-  top: 316px;
+  margin-left:10px;
+  margin-right:auto;
+  top:154px;
+  left:-10px;
+  
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-left:10px;
@@ -68,8 +72,8 @@ function Input_id(props) {
     <>
       <StyledInput onChange={handleInputChange} {...props} />
       <JoinContainer1>
-      <Text_small 이메일형식>이메일 형식</Text_small>
-      <Circlediv valid={validEmail} />
+        <Text_small 이메일형식>이메일 형식</Text_small>
+        <Circlediv valid={validEmail} />
       </JoinContainer1>
     </>
   );

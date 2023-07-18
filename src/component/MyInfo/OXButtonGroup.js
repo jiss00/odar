@@ -9,10 +9,10 @@ const ButtonContainer = styled.div`
 const StyledButton = styled.button`
   display: flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 150px;
   height: 66px;
-  top: 701px;
+  top: -101px;
   left: ${props => (props.primary ? "40px" : "199px")};
   gap: 8px;
   border-radius: 10px;
@@ -25,7 +25,11 @@ const StyledButton = styled.button`
   font-family: "Pretendard";
   font-weight: 800;
   text-align: center;
-   
+  left:${props => (props.primary ? "-10px" : "10px")};
+  margin-left:${props => (props.primary ? "auto" : "0")};
+  margin-right:${props => (props.primary ? "0" : "auto")};
+  margin-bottom: 100px;
+  
   @media all and (min-width: 1024px) {
     position: relative;
     width: 100%;

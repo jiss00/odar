@@ -10,37 +10,21 @@ margin: 0 auto;
 const StyledTexts = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
+    width: 100%;
+    max-width:56px;
+    height: 20px;
+    margin-left:auto;
+    margin-right:5px;
+    top:-275px;
+    left:3px;
+
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
-    ${props =>
-        props.fontsize &&
-        css`
-          font-size: ${props.fontsize}px;
-        `}
-    ${props =>
-        props.width &&
-        css`
-          width: ${props.width}px;
-        `}
-     ${props =>
-        props.height &&
-        css`
-        height: ${props.height}px;
-        `}
-     ${props =>
-        props.top &&
-        css`
-        top: ${props.top}px;
-        `}
-     ${props =>
-        props.left &&
-        css`
-        left: ${props.left}px;
-        `}
+    font-size:16px;
  
   @media all and (min-width: 1024px){	
   position: relative; 
@@ -57,43 +41,43 @@ const StyledTexts = styled.span`
         
 `;
 
-function Texts({fontsize,width, height, top, left, children}) {
+function Texts({children}) {
     return (
-        <StyledTexts fontsize={fontsize} width={width} height={height} top={top} left={left}>
+        <StyledTexts>
             {children}
         </StyledTexts>
     );
 }
-
 
 // Circle 컴포넌트 
 
 const CircleWrapper = styled.div`
   display: flex;
   box-sizing: border-box;
-  position: absolute; 
+  position: relative; 
   align-items: center;
   justify-content: center;
-  width: 30px;
+  width: 20px;
   height: 30px;
   border-radius: 50%;
   border: 0.8px solid #5B8E31;
   background-color: #FFFFFF;
-  top:394px;
+  top:0px;
  ${props =>
     props.left &&
     css`
     left: ${props.left}px;
     `}
+
     @media all and (min-width: 1024px) {
     position: relative;
     width: 40px; 
-    height: 36.36px;
+    height: 40px;
     top: -10px;
     ${props =>
       props.left &&
       css`
-      left: ${props.left}px;
+      left: ${props.left*1.5+130}px;
       `};
   }
   
@@ -108,7 +92,14 @@ const CircleText = styled.span`
 `;
 
 const DayWrapper = styled.div`
-    
+   position: relative;
+    width: 200px; 
+    height: 40px;
+    top: -280px;
+    margin-left:5px;
+    margin-right:auto;
+    display: flex; 
+
   @media all and (min-width: 1024px) {
     position: relative;
     width: 358px; 
@@ -131,15 +122,17 @@ function Day({ left, text }) {
 function Container2() {
   return (
     <Container>
-      <Texts fontsize={16} width={56} height={20} top={399} left={63} >
+      <Texts >
         희망요일
       </Texts>
       <DayWrapper>
-      <Day left={139} text="월"></Day>
-      <Day left={178.5} text="화"></Day>
-      <Day left={218} text="수"></Day>
-      <Day left={257.5} text="목"></Day>
-      <Day left={297} text="금"></Day>
+      <Day left={8} text="월"></Day>
+      <Day left={16} text="화"></Day>
+      <Day left={24} text="수"></Day>
+      <Day left={32} text="목"></Day>
+      <Day left={40} text="금"></Day>
+      <Day left={48} text="토"></Day>
+      <Day left={56} text="일"></Day>
       </DayWrapper>        
     </Container>
   );

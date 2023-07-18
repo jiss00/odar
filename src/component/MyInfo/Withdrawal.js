@@ -18,7 +18,7 @@ function Withdrawl(){
         <Back></Back>
         <TopTitle left={140}>회원탈퇴</TopTitle>
         <Rectangle></Rectangle>
-        <Texts fontsize={15} width={274} height={144} top={182} left={58}>
+        <Texts fontsize={15} width={274} height={144} top={-345}>
         회원을 탈퇴하시겠습니까?<br/><br/>
         탈퇴할 경우 현재 아이디는 재사용 및 복구가 불가능합니다.
         탈퇴 후 회원정보 및 개인형 서비스 이용기록은 모두 삭제됩니다.<br/><br/>

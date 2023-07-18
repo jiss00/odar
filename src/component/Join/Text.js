@@ -4,7 +4,7 @@ import styled from "styled-components";
 const StyledText = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-size: ${(props) => props.fontSize || "24px"};
     font-weight: 800;
@@ -13,6 +13,9 @@ const StyledText = styled.span`
     color: #5C5C5C;
     width: ${(props) => props.width || "111px"};
     height: 20px;
+    margin-right:auto;
+    margin-left:auto;
+    
     @media all and (min-width: 1024px){	
       position: relative; 
       margin-right:auto;

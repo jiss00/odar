@@ -18,7 +18,7 @@ import FindingPass from './components/FindingPass';
 import Join from './component/Join/Join';
 import Login from './component/Login/Login';
 import Main from './component/Main/Main';
-import MyInfo from './component/MyInfo/Inquiry';
+import Inquiry from './component/MyInfo/Inquiry';
 import Withdrawl from './component/MyInfo/Withdrawal';
 import Modify from './component/MyInfo/Modify';
 import Alarm from "./information/alarm";
@@ -42,7 +42,7 @@ function App(){
         {/* <Route path="/Jopdetail_2" element={<JobDetail2 />} />  취업상세_2 */}
         <Route path="/requitmentDetail" element={<RequitmentDetail />} />  {/*채용상세*/}
         <Route path="/login" element={<Login />} /> {/*로그인*/}
-        <Route path="/myInfo" element={<MyInfo/>}/> {/*문의하기*/} 
+        <Route path="/inquiry" element={<Inquiry/>}/> {/*문의하기*/} 
         <Route path="/withdrawl" element={<Withdrawl/>}/> {/*회원탈퇴*/}
         <Route path="/modify" element={<Modify/>}/> {/*내 정보 수정*/}
         <Route path="/alarm" element={<Alarm/>}/> {/*알림창*/}

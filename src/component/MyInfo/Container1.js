@@ -10,37 +10,21 @@ margin: 0 auto;
 const StyledTexts = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
+    width: 100%;
+    max-width:56px;
+    height: 20px;
+    margin-left:auto;
+    margin-right:5px;
+    top:-285px;
+    left:0px;
+
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
-    ${props =>
-        props.fontsize &&
-        css`
-          font-size: ${props.fontsize}px;
-        `}
-    ${props =>
-        props.width &&
-        css`
-          width: ${props.width}px;
-        `}
-     ${props =>
-        props.height &&
-        css`
-        height: ${props.height}px;
-        `}
-     ${props =>
-        props.top &&
-        css`
-        top: ${props.top}px;
-        `}
-     ${props =>
-        props.left &&
-        css`
-        left: ${props.left}px;
-        `}
+    font-size:16px;
  
   @media all and (min-width: 1024px){	
   position: relative; 
@@ -57,9 +41,9 @@ const StyledTexts = styled.span`
         
 `;
 
-function Texts({fontsize,width, height, top, left, children}) {
+function Texts({children}) {
     return (
-        <StyledTexts fontsize={fontsize} width={width} height={height} top={top} left={left}>
+        <StyledTexts>
             {children}
         </StyledTexts>
     );
@@ -69,16 +53,17 @@ function Texts({fontsize,width, height, top, left, children}) {
 const MenuBar = styled.select`
   display: flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 188px;
   height: 30px;
-  top: 349px;
-  left: 139px;
+  top: 0px;
+  left: 0px;
   background-color: #FFFFFF;
   border-radius: 20px;
   border: 1px solid #5B8E31;
   font-size: 14px;
   color: #000000;
+
   @media all and (min-width: 1024px){	
     position: relative; 
 
@@ -93,6 +78,15 @@ const MenuBar = styled.select`
   /*react-select 나중에 시도해보자*/
 `;
 const MenuBarWrapper = styled.div`
+  position: relative;
+    width: 188px; 
+    height: 30px;
+    top: -293px;
+    left: 0;
+  
+    margin-left:10px;
+    margin-right:auto;
+
   @media all and (min-width: 1024px) {
     position: relative;
     width: 358px; 
@@ -125,7 +119,7 @@ function Selectbar() {
 function Container1() {
   return (
     <Container>
-      <Texts fontsize={16} width={56} height={20} top={354} left={63}>
+      <Texts>
         희망직종
       </Texts>
       <Selectbar />

@@ -4,17 +4,21 @@ import profileImage from './back.png'; // 상대 경로로 이미지 파일을 i
 
 const StyledBack = styled.img`
   box-sizing: border-box;
-  position: absolute;
+  display:flex;	
+
+  position: relative;
   width: 25px;
   height: 25px;
   top: 67px;
-  left: 54px;
-  z-index: 1;
-  @media all and (min-width: 1024px){	
+  left:-135px;
+  margin: 0px auto;
+
+  @media all and (min-width: 1024px){
+    display:flex;	
     position: relative; 
     width: 40px;
     height: 30px;
-    left:100px;
+    left:-480px;
     margin: 0px auto;
   }
 `;

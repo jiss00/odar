@@ -3,18 +3,19 @@ import styled,{css}  from "styled-components";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
+position: relative;
 display: flex;
-margin: 0 auto;
+margin-bottom: 30px;
 `;
 
 const StyledButton = styled.button`
   display:flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width:335px;
   height: 75px;
-  top: 707px;
-  left: 27px;
+  top: 350px;
+  margin: 0 auto;
   gap: 8px;
   padding: 25px 130px;
   border-radius: 10px;
@@ -27,8 +28,7 @@ const StyledButton = styled.button`
   font-family: "Pretendard";
   font-weight: 800;
   text-align: center;
-  
-margin-bottom: 20px; /* 여기에 마진 값 설정 */
+  margin-bottom: 30px;
 
   @media all and (min-width: 1024px){	
     position: relative; 

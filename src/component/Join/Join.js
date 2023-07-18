@@ -32,7 +32,7 @@ function Join(){
                     <Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." />
 
             <InputLongButton></InputLongButton>
-
+            
         </div>
         </>  
     )

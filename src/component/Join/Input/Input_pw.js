@@ -5,20 +5,27 @@ import Text_small from "../Text_small";
 
 const JoinContainer1 = styled.div`
 display: flex;
+position: relative; 
 margin: 0 auto;
-width: 440px;
+width: 300px;
+@media all and (min-width: 1024px){	
+  margin-right:auto;
+  margin-left:auto;
+  width:440px;
+  }
 `;
 const StyledInput = styled.input`
   display: flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   border-radius: 15px;
   font-size: 24px;
   border: 1.5px solid #5B8E31;
   width: 335px;
   height: 50px;
-  top: 417px;
-  left: 33px;
+  top: 220px;
+  margin:0 auto;
+
   ::placeholder {
     font-family: "Pretendard";
     font-size: 24px;
@@ -36,14 +43,17 @@ const StyledInput = styled.input`
 `;
 
 const IconWrapper = styled.div`
-  display: flex;
-  box-sizing: border-box;
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  top: 432px;
-  left: 324px;
-  cursor: pointer;
+    display: flex;
+    box-sizing: border-box;
+    position: relative; 
+    width: 24px;
+    height: 24px;
+    top: 185px;
+    left: 140px;
+    cursor: pointer;
+    margin-right:auto;
+    margin-left:auto;
+
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
@@ -56,7 +66,7 @@ const IconWrapper = styled.div`
 const Circlediv = styled.div`
   display: flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 23px;
   height: 23px;
   border-radius: 50%;
@@ -113,11 +123,11 @@ function Input_pw(props) {
 
       <JoinContainer1>
         <Text_small 대소문자>대문자 · 소문자</Text_small>
-        <Circlediv valid={validUpperCase} top="491px" left="138px" />
+        <Circlediv valid={validUpperCase} top="220px" left="0px" />
         <Text_small 숫자>숫자</Text_small>
-        <Circlediv valid={validNumber} top="491px" left="217px" />
+        <Circlediv valid={validNumber} top="220px" left="23px" />
         <Text_small 특수문자>특수문자</Text_small>   
-        <Circlediv valid={validSpecialCharacter} top="491px" left="324px" />
+        <Circlediv valid={validSpecialCharacter} top="220px" left="50px" />
       </JoinContainer1>
 
     </div>

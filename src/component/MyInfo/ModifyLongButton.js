@@ -10,11 +10,10 @@ margin: 0 auto;
 const StyledButton = styled.button`
   display:flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width:310px;
   height: 66px;
-  top: 704px;
-  left: 40px;
+  top: -150px;
   gap: 8px;
   padding: 25px 110px;
   border-radius: 10px;
@@ -27,6 +26,8 @@ const StyledButton = styled.button`
   font-family: "Pretendard";
   font-weight: 800;
   text-align: center;
+  margin-right:auto;
+  margin-left:auto;
   
   @media all and (min-width: 1024px){	
     position: relative; 
