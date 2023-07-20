@@ -204,7 +204,8 @@
   #modal_success_pass {
     /* position: absolute; */
     box-sizing: border-box;
-    margin-top : 20px;
+    margin-top : 10px;
+    margin-bottom: 20px;
     
     width: 355px;
     height: 39px;
@@ -232,7 +233,7 @@
 /*--------------- 반응형 웹 ------------------------ */
 @media (min-width: 1024px) {
   .screen_pass{
-    background-color: #c0eeff;
+    /* background-color: #c0eeff; */
   }
 /* 비밀번호 찾기 */
   .pass_find{
@@ -279,7 +280,8 @@
     width: 440px;
     height: 39px;
     width: 440px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 
   }
   
@@ -293,7 +295,7 @@
   .body_pass_pass{
     width:100vw;
     height: 900px;
-    background-color: aqua;
+    /* background-color: aqua; */
   }
 
 
