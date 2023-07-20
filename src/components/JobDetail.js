@@ -44,6 +44,7 @@ function RequitmentDetail(){
     }, []);
 
 
+    
     return(
         <div className="screen_requitment_detail">
             
