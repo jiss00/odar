@@ -1,5 +1,6 @@
 import React from 'react'
 import './login.css';
+import LoginPwCheck from './LoginPwCheck';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
@@ -38,8 +39,9 @@ export default function Login() {
                     </div>
                     <div className='signFlex'>
                         <div className='inputTitle'>비밀번호</div>
+
                         <div className='inputWrap'>
-                            <input className='input' placeholder= "비밀번호를 입력해주세요." />
+                            <LoginPwCheck placeholder= "비밀번호를 입력해주세요." />
                         </div>
                     </div>
                 </div>
