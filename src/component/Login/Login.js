@@ -1,7 +1,19 @@
 import React from 'react'
 import './login.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+    const Navigate = useNavigate();
+
+    const goToFindingId= () => {
+        Navigate("/findingId")
+    }
+    const goToFindingPass = () => {
+        Navigate("/findingPass")
+    }
+    const goToJoin = () => {
+        Navigate("/join")
+    }
     
     return (
         <div className='page'>
@@ -35,10 +47,10 @@ export default function Login() {
                         </button>
                     </div>
                     <div className='Search'>
-                        <div className='idSearch'>아이디찾기</div>
+                        <div className='idSearch' onClick={goToFindingId}>아이디찾기</div>
                         <div className='bar'>|</div>
-                        <div className='pwSearch'>비밀번호 찾기</div>
-                        <div className='SignUp'>회원가입</div>
+                        <div className='pwSearch' onClick={goToFindingPass}>비밀번호 찾기</div>
+                        <div className='SignUp' onClick={goToJoin}>회원가입</div>
                     </div>
                 </div>
             </div>
