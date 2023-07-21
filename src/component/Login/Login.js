@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 export default function Login() {
     const Navigate = useNavigate();
 
+    const goToHome= () => {
+        Navigate("/")
+    }
     const goToFindingId= () => {
         Navigate("/findingId")
     }
@@ -42,7 +45,7 @@ export default function Login() {
                 </div>
                     
                     <div>
-                        <button className='bottomButton'>
+                        <button className='bottomButton' onClick={goToHome}>
                             로그인
                         </button>
                     </div>
