@@ -5,7 +5,6 @@ import profileImage from './back.png'; // 상대 경로로 이미지 파일을 i
 const StyledBack = styled.img`
   box-sizing: border-box;
   display:flex;	
-
   position: relative;
   width: 25px;
   height: 25px;

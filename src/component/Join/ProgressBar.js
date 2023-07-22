@@ -9,7 +9,6 @@ const Shape = styled.div`
 
   width: 193px;
   height: 15px;
-  top: 100px;
   left:0px;
 
   border-radius: 10px;
@@ -19,14 +18,44 @@ const Shape = styled.div`
     position: relative; 
     margin-right:auto;
     margin-left:auto;
-    top:0;
     left:0px;
     width:915px;
     }
 `;
+const InnerShape = styled.div`
+  posiotion:relative;
+  margin-right:auto;
+  width: ${({ count }) => {
+    if (count === 3) return "192px";
+    if (count === 2) return "128px";
+    return count === 1 ? "64px" : "0px";
+  }};
+  height: 15px;
+  left:0px;
 
-function ProgressBar() {
-  return <Shape />;
+  border-radius: 10px;
+  background: rgba(162, 192, 138, 1);
+  
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    top:0;
+    left:0px;
+    width: ${({ count }) => {
+      if (count === 3) return "915px";
+      if (count === 2) return "610px";
+      return count === 1 ? "305px" : "0px";
+    }};
+  }
+`;
+
+function ProgressBar({ validEmail, validPassword, validPasswordCheck }) {
+  const count = [validEmail, validPassword, validPasswordCheck].filter(Boolean).length;
+
+  return( <Shape>
+      <InnerShape count={count}/>
+        </Shape>
+  );
 }
 
 export default  ProgressBar;

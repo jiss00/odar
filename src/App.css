@@ -6,11 +6,10 @@
 
 .join__box{
   position: relative; 
-  top: 50px;
+  top:50px;
   left:0px;
   margin-right:auto;
-  margin-left:auto;
-
+  margin-left:auto;;
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
@@ -22,7 +21,7 @@
 
 .id__box{
   position: relative; 
-  top: 100px;
+  top: 70px;
   right:130px;
   margin-right:auto;
   margin-left:auto;
@@ -38,7 +37,7 @@
 
 .pw__box{
   position: relative; 
-  top: 190px;
+  top: 155px;
   right:120px;
   margin-right:auto;
   margin-left:auto;
@@ -54,7 +53,7 @@
 
 .pwcheck__box{
   position: relative; 
-  top: 280px;
+  top: 235px;
   right:96px;
   margin-right:auto;
   margin-left:auto;

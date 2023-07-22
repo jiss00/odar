@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { PiEyeClosed, PiEye } from "react-icons/pi";
 import Text_small from "../Text_small";
+import ProgressBar from "../ProgressBar";
 
 const JoinContainer1 = styled.div`
 display: flex;
@@ -23,9 +24,9 @@ const StyledInput = styled.input`
   border: 1.5px solid #5B8E31;
   width: 335px;
   height: 50px;
-  top: 220px;
+  top: 190px;
   margin:0 auto;
-
+  z-index:1;
   ::placeholder {
     font-family: "Pretendard";
     font-size: 24px;
@@ -48,12 +49,13 @@ const IconWrapper = styled.div`
     position: relative; 
     width: 24px;
     height: 24px;
-    top: 185px;
+    top: 155px;
     left: 140px;
     cursor: pointer;
     margin-right:auto;
     margin-left:auto;
-
+    z-index:1;
+    
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
@@ -98,7 +100,10 @@ function validateSpecialCharacter(str) {
 }
 
 function Input_pw(props) {
+  const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
+
   const [isPasswordVisible, setPasswordVisible] = useState(false); // 비밀번호 숨김/보임 상태
+
   const [validUpperCase, setValidUpperCase] = useState(false); // 대소문자 유효성 검사 결과
   const [validNumber, setValidNumber] = useState(false); // 숫자 유효성 검사 결과
   const [validSpecialCharacter, setValidSpecialCharacter] = useState(false); // 특수문자 유효성 검사 결과
@@ -109,25 +114,39 @@ function Input_pw(props) {
 
   const handleInputChange = (event) => {
     const password = event.target.value;
-    setValidUpperCase(validateUpperCase(password));
-    setValidNumber(validateNumber(password));
-    setValidSpecialCharacter(validateSpecialCharacter(password));
-  };
+    const isValid1 =validateUpperCase(password);
+    const isValid2 =validateNumber(password);
+    const isValid3 =validateSpecialCharacter(password);
 
+    setValidUpperCase(isValid1);
+    setValidNumber(isValid2);
+    setValidSpecialCharacter(isValid3);
+
+    function isAllValid(isValid1,isValid2,isValid3) {
+      return isValid1 && isValid2 && isValid3;
+    };
+    
+    // 부모 컴포넌트로 변경된 값을 전달하는 부분
+    
+   onChange(isValid1 && isValid2 && isValid3); 
+
+  };
+  
   return (
     <div style={{ position: "relative" }}>
-      <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
+      
+      <StyledInput {...otherProps} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
       <IconWrapper onClick={handleClick}>
         {isPasswordVisible ? <PiEye size={24}/> : <PiEyeClosed size={24}/>}
       </IconWrapper>
 
       <JoinContainer1>
         <Text_small 대소문자>대문자 · 소문자</Text_small>
-        <Circlediv valid={validUpperCase} top="220px" left="0px" />
+        <Circlediv valid={validUpperCase} top="190px" left="0px" />
         <Text_small 숫자>숫자</Text_small>
-        <Circlediv valid={validNumber} top="220px" left="23px" />
+        <Circlediv valid={validNumber} top="190px" left="23px" />
         <Text_small 특수문자>특수문자</Text_small>   
-        <Circlediv valid={validSpecialCharacter} top="220px" left="50px" />
+        <Circlediv valid={validSpecialCharacter} top="190px" left="50px" />
       </JoinContainer1>
 
     </div>
