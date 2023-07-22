@@ -16,7 +16,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:48px;
-    top:-220px;
+    top:-210px;
     left:0px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -33,7 +33,7 @@ const StyledTexts = styled.span`
       height: 20px;
       margin-left:auto;
       margin-right:10px;
-      top:-230px;
+      top:-215px;
       left:-130px;
       font-size:20px;
       }  
@@ -61,14 +61,14 @@ const ButtonContainer = styled.div`
   border-radius: 50px;
   background-color: transparent;
   cursor: pointer;
-  top: -230px;
+  top: -220px;
   margin-left:30px;
   margin-right:auto;
   @media all and (min-width: 1024px) {
     position: relative;
     max-width: 67px;
     max-height: 33px;
-    top: -235px;
+    top: -225px;
     left:120px;
     margin-left:10px;
     margin-right:auto;
