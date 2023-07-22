@@ -4,6 +4,8 @@ import {
   Route,  //path의 경로에 렌더링 해줌
   Link //라우터에서 다른 라우터로 새로고침 필요 없이 갈 수 있게 해줌
 } from "react-router-dom";
+
+
 import Join1 from './join/join';
 import Recruit from './information/recruit';
 import Employment from './information/employment';
