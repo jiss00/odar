@@ -51,6 +51,9 @@ function Texts({children}) {
 
 // Selectbar 컴포넌트
 const MenuBar = styled.select`
+  font-family: 'Pretendard';
+  text-indent: 0.3em;
+
   display: flex;
   box-sizing: border-box;
   position: relative;
@@ -72,6 +75,9 @@ const MenuBar = styled.select`
  
     top: 0px;
     left:0px;
+
+    font-size: 15px;
+    text-indent: 1em;
    
     }
     
@@ -99,6 +105,7 @@ const MenuBarWrapper = styled.div`
   }
 `;
 const MenuItem = styled.option`
+  font-family: 'Pretendard';
   font-weight: 400;
 `;
 
@@ -106,11 +113,18 @@ function Selectbar() {
   return (
     <MenuBarWrapper>
     <MenuBar>
-      <MenuItem value=""></MenuItem>
-      <MenuItem value="1">Option 1</MenuItem>
-      <MenuItem value="2">Option 2</MenuItem>
-      <MenuItem value="3">Option 3</MenuItem>
-      <MenuItem value="4">Option 4</MenuItem>
+      <MenuItem value="1">직접입력</MenuItem>
+      <MenuItem value="2">경영/사무/금융/보험직</MenuItem>
+      <MenuItem value="3">연구직 및 공학기술직</MenuItem>
+      <MenuItem value="4">교육/법률/사회복지/경찰/소방직 및 군인</MenuItem>
+      <MenuItem value="5">보건/의료직</MenuItem>
+      <MenuItem value="6">예술/디자인/방송/스포츠직</MenuItem>
+      <MenuItem value="7">미용/여행/숙박/음식/경비/청소직</MenuItem>
+      <MenuItem value="8">영업/판매/운전/운송직</MenuItem>
+      <MenuItem value="9">건설/채굴직</MenuItem>
+      <MenuItem value="10">설치/정비/생산직</MenuItem>
+      <MenuItem value="11">농림어업직 </MenuItem>
+
     </MenuBar>
     </MenuBarWrapper>
   );
