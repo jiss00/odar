@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled,{css}  from "styled-components";
 
 const Container = styled.div`
@@ -80,6 +80,13 @@ const CircleWrapper = styled.div`
       left: ${props.left*1.5+130}px;
       `};
   }
+
+  cursor: pointer; /* 요일을 클릭할 수 있도록 커서를 포인터로 변경 */
+  ${(props) =>
+    props.active &&
+    css`
+      background-color: #A2C08A; /* 클릭한 요일의 배경 색상을 변경 */
+    `}
   
 `;
 
@@ -111,28 +118,63 @@ const DayWrapper = styled.div`
     display: flex; 
   }`
 
-function Day({ left, text }) {
+function Day({ left, text, onClick, isActive }) {
   return (
-    <CircleWrapper left={left}>
+    <CircleWrapper left={left} onClick={onClick} active={isActive}>
       <CircleText>{text}</CircleText>
     </CircleWrapper>
   );
 }
 
 function Container2() {
+  // 선택된 요일을 상태로 관리하기 위해 useState 훅 사용
+  const [selectedDay, setSelectedDay] = useState([]);
+
+const handleDayClick = (day) => {
+    if (selectedDay.includes(day)) {
+      // 이미 선택된 요일이면 선택 해제
+      setSelectedDay(selectedDay.filter((d) => d !== day));
+    } else {
+      // 새로운 요일 선택
+      setSelectedDay([...selectedDay, day]);
+    }
+  };
+
+
   return (
     <Container>
       <Texts >
         희망요일
       </Texts>
       <DayWrapper>
-      <Day left={8} text="월"></Day>
-      <Day left={16} text="화"></Day>
-      <Day left={24} text="수"></Day>
-      <Day left={32} text="목"></Day>
-      <Day left={40} text="금"></Day>
-      <Day left={48} text="토"></Day>
-      <Day left={56} text="일"></Day>
+      <Day left={8} text="월"
+       onClick={() => handleDayClick("월")}
+       isActive={selectedDay.includes("월")}
+     ></Day>
+      <Day left={16} text="화"
+      onClick={() => handleDayClick("화")}
+      isActive={selectedDay.includes("화")}
+      ></Day>
+      <Day left={24} text="수"
+      onClick={() => handleDayClick("수")}
+      isActive={selectedDay.includes("수")}
+      ></Day>
+      <Day left={32} text="목"
+      onClick={() => handleDayClick("목")}
+      isActive={selectedDay.includes("목")}
+      ></Day>
+      <Day left={40} text="금"
+      onClick={() => handleDayClick("금")}
+      isActive={selectedDay.includes("금")}
+      ></Day>
+      <Day left={48} text="토"
+      onClick={() => handleDayClick("토")}
+      isActive={selectedDay.includes("토")}
+      ></Day>
+      <Day left={56} text="일"
+      onClick={() => handleDayClick("일")}
+      isActive={selectedDay.includes("일")}
+      ></Day>
       </DayWrapper>        
     </Container>
   );

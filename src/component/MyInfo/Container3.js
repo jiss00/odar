@@ -64,9 +64,21 @@ const Styledtime = styled.div`
   background-color: #FFFFFF;
   top:0px;
   left:3px;
-  
 
-    
+  /* Add styles for the input element */
+  input {
+    font-family: 'Pretendard';
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 15px;
+    text-indent: 1.5em;
+    color: #5B8E31;
+  }
+
     @media all and (min-width: 1024px) {
       position: relative;
       width: 150px;
@@ -77,6 +89,11 @@ const Styledtime = styled.div`
         css`
         left: ${props.left*0.33+90}px;
         `}
+
+      input {
+        font-size: 20px;
+        text-indent: 4em;
+      }
     }
 `;
 
@@ -90,18 +107,36 @@ const ClockText = styled.span`
   font-weight: 800;
   color: #5B8E31;
   left:45px; 
+  
   @media all and (min-width: 1024px) {
     position: relative;
     font-size: 18px;
     width: 150px; 
     top: -3px;
     left: 110px;
-  } 
+    } 
 `;
 
 function Time({ left }) {
+  function handleOnInputChange(event) {
+    const maxlength = 2;
+    const inputValue = event.target.value;
+
+    // 입력된 값이 숫자가 아니거나 24 이하가 아닌 경우 빈 문자열로 변경
+    if (!/^\d*$/.test(inputValue) || parseInt(inputValue) > 24) {
+      event.target.value = '';
+      return;
+    }
+
+    // maxlength 이상 입력된 경우 maxlength로 제한
+    if (inputValue.length > maxlength) {
+      event.target.value = inputValue.substr(0, maxlength);
+    }
+  }
+
   return (
     <Styledtime left={left}>
+      <input type="number" onChange={handleOnInputChange} />
       <ClockText>시</ClockText>
     </Styledtime>
   );

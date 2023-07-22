@@ -3,11 +3,24 @@ import backImage from './back.png';
 import barsImage from './bars.png';
 import closeImage from './close.png';
 import '../css/Top.css';
+import { useNavigate } from 'react-router-dom';
 
 function Top(props) {
     const [sidebar, setSidebar] = useState(false)
 
     const showSidebar = () => setSidebar(!sidebar)
+
+    const Navigate = useNavigate();
+
+    const goToHome = () => {
+        Navigate("/")
+    }
+    const goToLogin = () => {
+        Navigate("/login")
+    }
+    const goToMyPage = () => {
+        Navigate("/myPage")
+    }
 
     return(
         <div className='parent'>
@@ -25,11 +38,11 @@ function Top(props) {
                 <ui className='nav-menu-items' onClick={showSidebar}>
                     <img className="close" alt="close" src={closeImage} />
                     <ui className='top'>
-                        <li className='topHome'>홈</li>
+                        <li className='topHome' onClick={goToHome}>홈</li>
                         <div className="topBarHome"></div>
-                        <li className='topLogin'>로그인</li>
+                        <li className='topLogin'onClick={goToLogin}>로그인</li>
                         <div className="topBarLogin"></div>
-                        <li className='topMyInfo'>내정보</li>
+                        <li className='topMyInfo'onClick={goToMyPage}>내정보</li>
                         <div className="topBarMyInfo"></div>
                     </ui>
                 </ui>
