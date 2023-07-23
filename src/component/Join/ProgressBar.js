@@ -32,6 +32,7 @@ const InnerShape = styled.div`
   }};
   height: 15px;
   left:0px;
+  transition: width 0.3s ease;
 
   border-radius: 10px;
   background: rgba(162, 192, 138, 1);
