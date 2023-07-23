@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled,{css}  from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -22,14 +22,24 @@ const StyledButton = styled.button`
   font-size: 24px;
   line-height: 20px;
   border: 1px solid lightgray;
-  background:#A2C08A;
-  color: #5C5C5C;
+  background: #5B8E31;
+  color: #000000;
   text-decoration: none;
   font-family: "Pretendard";
   font-weight: 800;
   text-align: center;
   margin-bottom: 30px;
 
+  /* 버튼이 비활성화된 상태에 대한 스타일 */
+  ${({ disabled }) =>
+    disabled &&
+    `
+    background:#A2C08A;
+    color: #5C5C5C;
+    pointer-events: none;
+    cursor: not-allowed;
+  `}
+  
   @media all and (min-width: 1024px){	
     position: relative; 
     top: 550px;
@@ -59,18 +69,19 @@ const StyledButton = styled.button`
       font-weight: 800;
       }
   `;
-  function LongButton({ children, to }) {
+  function LongButton({ children, to, disabled }) {
     return (
-      <StyledButton as={Link} to={to} >
+      <StyledButton as={Link} to={to} disabled={disabled}>
         <ButtonText >{children}</ButtonText>
       </StyledButton>
     );
   }
 
-function InputLongButton() {
-  return (
+  function InputLongButton({ validEmail, validPassword, validPasswordCheck }) {
+    const isButtonDisabled = !(validEmail && validPassword && validPasswordCheck);
+    return (
     <Container>        
-      <LongButton>다 음</LongButton>
+      <LongButton to="/join1" disabled={isButtonDisabled}>다 음</LongButton>
     </Container>
   );
 }
