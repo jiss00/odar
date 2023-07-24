@@ -11,7 +11,7 @@
     flex-direction: column;
     text-align: center;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -21,8 +21,10 @@
   /* 상태 바 */
     .state_bar {
       /* 부모 기준 위치 */
-        position: absolute;
-        top: 7%;
+        margin-top: 6vh;
+        margin-bottom: 3vh;
+        margin-left: auto;
+        margin-right: auto;
         
         border-radius: 10px;  
         /* width: 193; */
@@ -40,31 +42,33 @@
     border-radius: 10px;
     background: rgba(162, 192, 138, 1);
     height: 15px;
-    width: 64.3px;
+    width: 25vw;
   }
 
   /* 아이디찾기 */
   .id_find {
-    position: absolute;
+    margin : 0px 0px;
+    margin-bottom: 50px;
+    width: 100vw;
+    height: 100px;
     color: rgba(92, 92, 92, 1);
     /* Pretendard :  글꼴 웹폰트 적용 방법 */
     font-family: Pretendard;
-    top : 9vh;
     align-items: left;
     
-    margin: 30px 0px;
+
     font-family: Pretendard;
     font-size:32px;
     font-weight: 800;
-    line-height: 20px;
+    line-height: 100px;
     letter-spacing: 0px;
     text-align: center;
     
   }
 
+  /* 아이디 찾기 바디 */
   .body{
-    position:absolute;
-    top:30vh;
+
     width: 350px;
     height: 200px;
 
@@ -73,13 +77,13 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    justify-content: center;
 
 
   }
   
   /* 휴대폰 번호 */
   .phone_number_name{
-    position: absolute;
     color: rgba(92, 92, 92, 1);
     font-family: Pretendard;
     font-size: 24px;
@@ -87,12 +91,11 @@
     line-height: 20px;
     letter-spacing: 0px;
     text-align: center;
+    padding-right: 60%;
 
     
 
     margin: 0px 0px 0px 0px;
-    left: 0;
-    /* padding-right: 60%; */
 
   }
   
@@ -100,7 +103,7 @@
   .timer {
     position:absolute;
 
-    right: 30%;
+    padding-right: 10px;
     padding-top: 20px;
     color: rgba(255, 0, 0, 1);
 
@@ -130,21 +133,40 @@
 
     margin: 5px 10px;
   }
+/* 인증, 완료 성공 버튼 */
+  .btn_all_yes{
+    color: black;
+    background-color: rgba(162, 192, 138, 1);
+    width: 70px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+
+    margin: 5px 10px;
+    
+  }
 
   
-  #btn_certification{
-    margin-top: 0px;
-    /* margin-right: 0px; */
-  }
   /* 제일 밑 완료 */
-  #btn_success{
-    position: absolute;
+  .btn_success{
+
     width: 335px;
     height: 75px;
-    margin-top: 80vh;
-    
+    margin-top: 240px;
+    margin-bottom: 40px;
+
+
     gap: 8px;
+    border-radius: 10px;
+    border: 0px;
     background: rgba(162, 192, 138, 1);
+    color: rgba(142, 139, 139, 1);
 
     font-family: Inter;
     font-size: 24px;
@@ -156,28 +178,32 @@
 
   }
 
-  /* 휴대폰번호 input */
-  #phone_number {
-    position: relative;
-    text-align:center;
-    width: 250px;
-    height: 50px;
-    border: 2px solid #5B8E31;
-    border-radius: 20px;
+    /* 제일 밑 완료 클리어*/
+    .btn_success_yes{
 
-  }
+      width: 335px;
+      height: 75px;
 
-  /* 인증번호 input */
-  #certification_number {
-    position: relative;
-    text-align:center;
-    width: 250px;
-    height: 50px;
-    border: 2px solid #5B8E31;
-    border-radius: 20px;
-    
+      margin-top: 240px;
+      margin-bottom: 40px;
 
-  }
+  
+      gap: 8px;
+      border-radius: 10px;
+      border: 0px;
+      background-color: #5B8E31;
+      color: black;
+  
+      font-family: Inter;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 29px;
+      letter-spacing: 0em;
+      text-align: center;
+    }
+
+
+
 
   .input_all {
     border: 2px solid rgba(91, 142, 49, 1);
@@ -191,13 +217,20 @@
     /* letter-spacing: 0px; */
     text-align: center;
     border-radius: 20px;
+    color: black;
     
   }
+
+
+
+
   
   /* 휴대번호 적는 섹션 */
   .input_section1{
+    box-sizing: border-box;
     margin-top: 40px;
 
+    width:100%;
     display: flex;
     justify-content: center;
     
@@ -205,8 +238,10 @@
 
   /* 인증번호 적는 섹션 */
   .input_section2{
+    position: relative;
+    box-sizing: border-box;
     margin-top: 10px;
-
+    width:100%;
     display: flex;
     justify-content: center;
   }
@@ -216,9 +251,10 @@
   /* .FindingID .Modal */
   /* /*  해당 번호로 인증번호가 전송되었습니다! */
   #modal_success {
-    position: absolute;
     box-sizing: border-box;
-    margin-top:180px;
+    margin-top : 10px;
+    margin-bottom: 20px;
+
     width: 355px;
     height: 39px;
     padding: 8px 21px 7px 20px;
@@ -233,9 +269,116 @@
     
     letter-spacing: 0em;
     text-align: center;
-    
-    
-    
-    
 
   }
+
+
+
+
+  /* 반응형 웹 */
+@media (min-width: 1024px) {
+
+
+  /* 아이디찾기 */
+  .id_find {
+    font-size: 52px;
+
+    
+  }
+
+  /* 아이디 찾기 바디 */
+  .body{
+
+    width: 440px;
+    height: 400px;
+    margin-top:40px;
+
+  
+
+  }
+  
+  /* 휴대폰 번호 */
+  .phone_number_name{
+    box-sizing: border-box;
+    font-size: 36px;
+    padding-right:50%;
+  }
+  
+
+  /* 휴대폰 번호 */
+  .phone_number_name{
+    box-sizing: border-box;
+    font-size: 36px;
+    padding-right:50%;
+  }
+  
+
+  /* input 박스 전체 */
+  .input_all {
+    width: 350px;
+
+  }
+  
+
+
+
+  
+  /* 제일 밑 완료 */
+  .btn_success{
+
+    width: 440px;
+    height: 90px;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+
+    line-height: 90px;
+    letter-spacing: 0em;
+    text-align: center;
+
+    margin-top: 250px;
+    margin-bottom: 40px;
+
+  }
+  
+
+  .btn_success_yes{
+    width: 440px;
+    height: 90px;
+    font-family: Inter;
+    font-size: 36px;
+    font-weight: 700;
+
+    line-height: 90px;
+
+    letter-spacing: 0em;
+    text-align: center;
+    background-color: #5B8E31;
+    color: black;
+  }
+
+
+
+
+
+
+  /* .FindingID .Modal */
+  /* /*  해당 번호로 인증번호가 전송되었습니다! */
+  #modal_success {
+
+    width: 440px;
+    /* //styleName: Pretendard-20; */
+    font-family: Pretendard;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+
+
+  }
+
+
+
+
+}

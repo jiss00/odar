@@ -136,6 +136,10 @@
     margin: 5px 10px;
   }
 
+  /* 인증, 완료 성공 버튼 */
+  .btn_all_success_pass{
+    color: black;
+  }
 
 
 
@@ -157,6 +161,13 @@
     text-align: center;
     
 
+  }
+
+
+  /* 제일 밑 완료 클리어*/
+  #btn_success_pass{
+    background-color: #5B8E31;
+    color: black;
   }
 
   /* 아이디 input */
