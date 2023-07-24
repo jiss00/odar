@@ -126,18 +126,20 @@ function FindingID(){
     }
 
 
-
     // '완료 버튼 클릭 시'
+
     const BtnSuccess = () => {
         if (phone_number_state.length >= 5 && (certification_number_state.length === 6 && certification_number_state == '000000') ){
           // console.log("제일 밑 완료활성화, 인증번호 맞음/  현재 state %d", btn_all_state);
           set_btn_success_state(true);
+
           set_modal_text('인증이 완료되었습니다!');
         }
         else{
           // console.log("아직 활성화 안됨");
           set_btn_success_state(false);
           set_modal_text('유효하지 않은 인증번호입니다.');
+
         }
     }
 
