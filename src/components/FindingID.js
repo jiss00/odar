@@ -17,16 +17,23 @@ function FindingID(){
   const [modal, setModal] = useState(false); // 상태를 만듬.
   // const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
 
-  const Modal = function(){
+  const [modal_text, set_modal_text] = useState('해당 번호로 인증번호가 전송되었습니다!');
+  
+  
+  // 모달 글자
+  const Modal = function({text}){
+
     return(
       <div id = "modal_success">
-        해당 번호로 인증번호가 전송되었습니다!
+        {text}
       </div>
     );
   }
 
   const checkModal = function(){
+    setTime(180);
     setModal(true);
+    set_modal_text('해당 번호로 인증번호가 전송되었습니다!');
 
     if ({modal}){
       console.log("인증버튼 클릭");
@@ -118,14 +125,19 @@ function FindingID(){
 
     }
 
+
+
+    // '완료 버튼 클릭 시'
     const BtnSuccess = () => {
         if (phone_number_state.length >= 5 && (certification_number_state.length === 6 && certification_number_state == '000000') ){
           // console.log("제일 밑 완료활성화, 인증번호 맞음/  현재 state %d", btn_all_state);
           set_btn_success_state(true);
+          set_modal_text('인증이 완료되었습니다!');
         }
         else{
           // console.log("아직 활성화 안됨");
           set_btn_success_state(false);
+          set_modal_text('유효하지 않은 인증번호입니다.');
         }
     }
 
@@ -155,7 +167,7 @@ function FindingID(){
           {modal === true ? <Timer time={time}></Timer> : <></>}
           <button disabled={btn_all_state<2} onClick={BtnSuccess} className={btn_all_state >= 2 ? 'btn_all_yes' : 'btn_all'}  type="submit">완료</button>
         </section>
-        {modal === true ? <Modal></Modal> : <></>}
+        {modal === true ? <Modal text={modal_text}></Modal> : <></>}
       {/* {}를 쓰면 js 코드 쓸 수 있다. */}
       </div>
 

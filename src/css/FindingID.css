@@ -158,8 +158,8 @@
 
     width: 335px;
     height: 75px;
-    margin-top: 280px;
-    margin-bottom: 30px;
+    margin-top: 240px;
+    margin-bottom: 40px;
 
     gap: 8px;
     border-radius: 10px;
@@ -182,8 +182,8 @@
 
       width: 335px;
       height: 75px;
-      margin-top: 280px;
-      margin-bottom: 30px;
+      margin-top: 240px;
+      margin-bottom: 40px;
   
       gap: 8px;
       border-radius: 10px;
@@ -319,9 +319,12 @@
     font-family: Inter;
     font-size: 36px;
     font-weight: 700;
-    line-height: 44px;
+    line-height: 90px;
     letter-spacing: 0em;
     text-align: center;
+
+    margin-top: 250px;
+    margin-bottom: 40px;
   }
 
   .btn_success_yes{
@@ -330,7 +333,7 @@
     font-family: Inter;
     font-size: 36px;
     font-weight: 700;
-    line-height: 44px;
+    line-height: 90px;
     letter-spacing: 0em;
     text-align: center;
     background-color: #5B8E31;
