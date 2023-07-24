@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import FindingPass_Input_pw from './FindingPass_Input_pw';
 import FindingPass_Input_pwcheck from './FindingPass_Input_pwcheck';
 import Text from '../component/Join/Text';
-import Text_small from '../component/Join/Text_small';
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -12,6 +11,17 @@ import Text_small from '../component/Join/Text_small';
 function FindingPass(){
   const [modal, setModal] = useState(false); // 상태를 만듬.
   // const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
+  const [validEmail, setValidEmail] = useState(false);
+  const [validPassword, setValidPassword] = useState(false);
+  const [validPasswordCheck, setValidPasswordCheck] = useState(false);
+
+  const handlePasswordChange = (isValid) => {
+    setValidPassword(isValid);
+  };
+
+  const handlePasswordCheckChange = (isValid) => {
+    setValidPasswordCheck(isValid);
+  };
 
   const Modal = function(){
     return(
@@ -23,7 +33,7 @@ function FindingPass(){
 
   const checkModal = function(){
     setModal(true);
-
+    setValidEmail(true);//인증완료시 버튼 33%채워짐.
     if ({modal}){
       console.log("인증버튼 클릭");
     }
@@ -66,7 +76,11 @@ function FindingPass(){
     
     <div className='screen_pass'>
       <div className='state_bar_pass'>
-        <span className = 'state_bar_inner_pass'></span>
+        <span className='statebar_inner' style={{ width: validEmail && validPassword && validPasswordCheck ? '100%' 
+        : validEmail && validPassword || validPasswordCheck ? '66%' 
+        : validEmail || validPassword || validPasswordCheck ? '33%' 
+        : '0' }}>
+        </span>      
       </div>
       <h2 className="pass_find">비밀번호 찾기</h2>
       <div className='body_id_pass'>
@@ -84,10 +98,10 @@ function FindingPass(){
         </div> */}
 
       <div className="findingpass__pw__box"><Text width="110px">새 비밀번호</Text></div>
-        <FindingPass_Input_pw type="password" placeholder=" 비밀번호를 입력해주세요."  />
+        <FindingPass_Input_pw type="password" placeholder=" 비밀번호를 입력해주세요." onChange={handlePasswordChange} />
 
       <div className="findingpass__pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
-        <FindingPass_Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." />
+        <FindingPass_Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." onChange={handlePasswordCheckChange}  />
 
 
       <button className= "btn_all_pass" id = "btn_success_pass" >완료</button>

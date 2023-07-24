@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Shape = styled.div`
-  posiotion:relative;
+  position:relative;
   margin-top:83px;
   margin-right:auto;
   margin-left:auto;
@@ -23,7 +23,7 @@ const Shape = styled.div`
     }
 `;
 const InnerShape = styled.div`
-  posiotion:relative;
+  position:relative;
   margin-right:auto;
   width: ${({ count }) => {
     if (count === 3) return "192px";

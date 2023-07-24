@@ -19,7 +19,9 @@ function FindingID(){
 
   const [modal_text, set_modal_text] = useState('해당 번호로 인증번호가 전송되었습니다!');
   
-  
+  const [verification, setVerification] = useState('');
+  const [complete, setComplete] = useState('');
+
   // 모달 글자
   const Modal = function({text}){
 
@@ -34,6 +36,9 @@ function FindingID(){
     setTime(180);
     setModal(true);
     set_modal_text('해당 번호로 인증번호가 전송되었습니다!');
+
+    {/*인증버튼 클릭시 progressbar 50%*/}
+    setVerification(true);
 
     if ({modal}){
       console.log("인증버튼 클릭");
@@ -132,7 +137,7 @@ function FindingID(){
         if (phone_number_state.length >= 5 && (certification_number_state.length === 6 && certification_number_state == '000000') ){
           // console.log("제일 밑 완료활성화, 인증번호 맞음/  현재 state %d", btn_all_state);
           set_btn_success_state(true);
-
+          setComplete(true);// 완료버튼 클릭 시 상태바 너비를 100%로 설정
           set_modal_text('인증이 완료되었습니다!');
         }
         else{
@@ -154,8 +159,8 @@ function FindingID(){
     
     <div className='screen'>
       <div className='state_bar'>
-        <span className = 'state_bar_inner'></span>
-      </div>
+        <span className='statebar_inner' style={{ width: verification&& complete ? '100%' : verification|| complete? '50%' : '0' }}></span>      
+        </div>
       <h2 className = "id_find">아이디 찾기</h2>
       <div className='body'>
         <h3 className ="phone_number_name">휴대폰 번호</h3>
