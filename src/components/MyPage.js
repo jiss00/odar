@@ -36,7 +36,7 @@ function MyPage(){
 
     // 문의하기
     const goMyInfo = () => {
-        navigate('/myInfo');
+        navigate('/inquiry');
     }
 
     // 로그아웃
