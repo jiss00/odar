@@ -113,7 +113,7 @@ function Selectbar() {
   return (
     <MenuBarWrapper>
     <MenuBar>
-      <MenuItem value="1">직접입력</MenuItem>
+      <MenuItem value="1">----</MenuItem>
       <MenuItem value="2">경영/사무/금융/보험직</MenuItem>
       <MenuItem value="3">연구직 및 공학기술직</MenuItem>
       <MenuItem value="4">교육/법률/사회복지/경찰/소방직 및 군인</MenuItem>
@@ -124,7 +124,7 @@ function Selectbar() {
       <MenuItem value="9">건설/채굴직</MenuItem>
       <MenuItem value="10">설치/정비/생산직</MenuItem>
       <MenuItem value="11">농림어업직 </MenuItem>
-
+      <MenuItem value="12">직접입력</MenuItem>
     </MenuBar>
     </MenuBarWrapper>
   );

@@ -1,67 +1,81 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { PiEyeClosed,PiEye } from "react-icons/pi"; 
+import { PiEyeClosed, PiEye } from "react-icons/pi";
 
 const StyledInput = styled.input`
-    display: flex;
-    box-sizing: border-box;
-    position: relative; 
-    border-radius: 15px;
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 15px;
+  font-size: 24px;
+  border: 1.5px solid #5B8E31;
+  width: 335px;
+  height: 50px;
+  top: 280px;
+  margin: 0 auto;
+  ::placeholder {
+    font-family: "Pretendard";
     font-size: 24px;
-    border: 1.5px solid #5B8E31;
-    width: 335px;
-    height: 50px;
-    top: 310px;
-    margin: 0 auto;
-    ::placeholder {
-      font-family: "Pretendard";
-      font-size: 24px; 
-      color: #D9D9D9; 
-      font-weight: 800;
-    }
-    @media all and (min-width: 1024px){	
-        position: relative; 
-        margin-right:auto;
-        margin-left:auto;
-        top:480px;
-        left:0px;
-        width:440px;
-        }
-`;
-const IconWrapper = styled.div`
-    display: flex;
-    box-sizing: border-box;
+    color: #D9D9D9;
+    font-weight: 800;
+  }
+  @media all and (min-width: 1024px) {	
     position: relative; 
-    width: 24px;
-    height: 24px;
-    top: 275px;
-    left: 140px;
-    cursor: pointer;
-    margin-right:auto;
-    margin-left:auto;
-
-    @media all and (min-width: 1024px){	
-        position: relative; 
-        margin-right:auto;
-        margin-left:auto;
-        top:445px;
-        left:200px;
-        }
+    margin-right: auto;
+    margin-left: auto;
+    top: 480px;
+    left: 0px;
+    width: 440px;
+  }
 `;
+
+const IconWrapper = styled.div`
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: 245px;
+  left: 140px;
+  cursor: pointer;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media all and (min-width: 1024px) {	
+    position: relative; 
+    margin-right: auto;
+    margin-left: auto;
+    top: 445px;
+    left: 200px;
+  }
+`;
+
 function Input_pwcheck(props) {
   const [isPasswordVisible, setPasswordVisible] = useState(false); // 비밀번호 숨김/보임 상태
 
-  const handleClick = () => {
-      setPasswordVisible(!isPasswordVisible); };
+  const handleInputChange = (event) => {
+    const inputValue = event.target.value;
+    // 부모 컴포넌트로 변경된 값을 전달하는 부분
+    props.onChange(inputValue);
+  };
 
-return (
+  const handleClick = () => {
+    setPasswordVisible(!isPasswordVisible);
+  };
+
+  return (
     <div style={{ position: "relative" }}>
-        <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} />
-        <IconWrapper onClick={handleClick}>
-            {isPasswordVisible ? <PiEye size={24}/> : <PiEyeClosed size={24}/>} 
-        </IconWrapper>
+      <StyledInput
+        {...props}
+        type={isPasswordVisible ? "text" : "password"}
+        onChange={handleInputChange}
+      />
+      <IconWrapper onClick={handleClick}>
+        {isPasswordVisible ? <PiEye size={24}/> : <PiEyeClosed size={24}/>} 
+      </IconWrapper>
     </div>
-);
+  );
 }
 
 export default Input_pwcheck;
+

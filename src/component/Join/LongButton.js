@@ -6,9 +6,9 @@ const StyledButton = styled.button`
   display:flex;
   box-sizing: border-box;
   position: relative;
-  width: ${(props) => (props.문의하기 === "true" ? "310px" : "335px")};
-  height: ${(props) => (props.문의하기 === "true" ? "66px" : "75px")};
-  top: ${(props) => (props.문의하기 === "true" ? "-300px" : "707px")};
+  width: 310px;
+  height: 66px;
+  top: -300px;
   gap: 8px;
   padding: 23px 100px;
   border-radius: 10px;
@@ -39,10 +39,10 @@ const StyledButton = styled.button`
 
 
   const ButtonText = styled.span`
-    width: ${(props) => (props.문의하기 === "true"  ? "83px" : "67px")};
-    height: ${(props) => (props.문의하기 === "true"  ? "20px" : "29px")};
-    font-weight: ${(props) => (props.문의하기 === "true"  ? "800" : "700")};
-    line-height: ${(props) => (props.문의하기 === "true"  ? "20px" : "29.05px")};
+    width: 83px;
+    height:20px;
+    font-weight: 800;
+    line-height: 20px;
     font-size: 24px;
     
     @media all and (min-width: 1024px){	

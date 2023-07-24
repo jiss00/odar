@@ -16,7 +16,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:5px;
-    top:-275px;
+    top:-235px;
     left:3px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -33,7 +33,7 @@ const StyledTexts = styled.span`
   height: 20px;
   margin-left:auto;
   margin-right:10px;
-  top:-300px;
+  top:-250px;
   left:0px;
   font-size:20px;
   }
@@ -102,7 +102,7 @@ const DayWrapper = styled.div`
    position: relative;
     width: 200px; 
     height: 40px;
-    top: -280px;
+    top: -240px;
     margin-left:5px;
     margin-right:auto;
     display: flex; 
@@ -111,7 +111,7 @@ const DayWrapper = styled.div`
     position: relative;
     width: 358px; 
     height: 40px;
-    top: -300px;
+    top: -250px;
     left: -140px;
     margin-left:50px;
     margin-right:auto;
