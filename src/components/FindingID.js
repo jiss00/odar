@@ -44,13 +44,15 @@ function FindingID(){
   }
 
   const Timer = () => {
-    const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
+    const [time, setTime] = useState(3); // 남은 시간 (단위: 초)
     useEffect(() => {
         const timer = setInterval(() => {
             setTime((prev) => prev - 1);
         }, 1000);
         if (time === 0) {
           clearInterval(timer);
+          alert('시간경과');
+          setModal(false);
         }
         return () => clearInterval(timer);
     }, [time]);

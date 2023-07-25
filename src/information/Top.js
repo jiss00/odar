@@ -3,15 +3,17 @@ import backImage from './back.png';
 import barsImage from './bars.png';
 import closeImage from './close.png';
 import '../css/Top.css';
+import {useNavigate} from 'react-router-dom'
 
 function Top(props) {
     const [sidebar, setSidebar] = useState(false)
 
     const showSidebar = () => setSidebar(!sidebar)
+    const navigate = useNavigate();
 
     return(
         <div className='parent'>
-            <img className="back" alt="back" src={backImage} />
+            <img onClick={() => navigate(-1)} className="back" alt="back" src={backImage} />
             <div className="topName">{props.text}</div>
 
             <img className={sidebar ? 'bars active': 'bars'} 

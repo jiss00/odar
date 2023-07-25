@@ -3,14 +3,12 @@ import { useState } from 'react';
 import Bar from './bar';
 import Text from './text';
 import backImage from './back.png';
+import {useNavigate} from 'react-router-dom'
 function Detail() {
-  function onclick() {
-    window.location.href = 'http://localhost:3000/myPage';
-  }
-
+  const navigate = useNavigate();
   return (
     <div className='main_detail'>
-      <img className='img_detail_1' onClick={onclick} alt="back" src={backImage} />
+      <img className='img_detail_1' onClick={() => navigate(`/myPage`)} alt="back" src={backImage} />
       <Text text='지원내역'></Text>
         <Bar
           text='진주시 요양원 조리원 모집'

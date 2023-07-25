@@ -8,6 +8,8 @@ import Button from './button';
 import TopBar from './topBar';
 import Timer from './timer';
 import { useState } from 'react';
+import timer from './timer';
+
 
 const StyledDiv = styled.div`
 background-color: #EDF1D5;
@@ -27,11 +29,12 @@ margin-top :10px;
 }
 `;
 
-function Join() {
+function Join({time}) {
   const [modal, setModal] = useState(false); // 상태를 만듬.
   const onclick = () => {
     setModal(true);
   }
+
   return (
     <div className='main'>
       <TopBar></TopBar>
@@ -55,7 +58,7 @@ function Join() {
         </div>
         <div className='phone_number'>
           <Input placeholder="000000" w_width='350px' width='250px' />
-          {modal === true ? <Timer></Timer> : <></>}
+          {modal === true ? <Timer modal={modal} setModal={setModal}></Timer> : <></>}
 
           <Auth text='완료' />
         </div>
