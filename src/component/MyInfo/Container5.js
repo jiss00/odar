@@ -88,11 +88,26 @@ const Button = styled.div`
   transition: left 0.3s ease-in-out;
 `;
 
-function AgreeButton({top}) {
+function AgreeButton({ top }) {
   const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {
     setClicked(!clicked);
+    if (!clicked) {
+      // 사용자에게 위치 정보 권한 요청
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            console.log("사용자 위치 정보:", position.coords.latitude, position.coords.longitude);
+          },
+          (error) => {
+            console.error("위치 정보를 가져오는데 실패했습니다:", error.message);
+          }
+        );
+      } else {
+        console.error("Geolocation API를 지원하지 않는 브라우저입니다.");
+      }
+    }
   };
 
   return (
@@ -104,10 +119,11 @@ function AgreeButton({top}) {
 
 function Container5() {
   return (
-    <Container>        
-    <Texts fontsize={16} width={91} height={20} top={569} left={64} >
-      위치 알림 동의</Texts>
-      <AgreeButton top={571}></AgreeButton>
+    <Container>
+      <Texts fontsize={16} width={91} height={20} top={569} left={64}>
+        위치 알림 동의
+      </Texts>
+      <AgreeButton top={571} />
     </Container>
   );
 }
