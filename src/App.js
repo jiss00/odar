@@ -21,7 +21,7 @@ import Join from './component/Join/Join';
 import Login from './component/Login/Login';
 import Main from './component/Main/Main';
 import Inquiry from './component/MyInfo/Inquiry';
-import Withdrawl from './component/MyInfo/Withdrawal';
+import Withdrawal from './component/MyInfo/Withdrawal';
 import Modify from './component/MyInfo/Modify';
 import Alarm from "./information/alarm";
 import Recruitmentinfo from './component/Main/Recruitmentinfo';
@@ -45,7 +45,7 @@ function App(){
         <Route path="/requirement" element={<RequitmentDetail />} />  {/*채용상세*/}
         <Route path="login" element={<Login />} /> {/*로그인*/}
         <Route path="inquiry" element={<Inquiry/>}/> {/*문의하기*/} 
-        <Route path="withdrawal" element={<Withdrawl/>}/> {/*회원탈퇴*/}
+        <Route path="withdrawal" element={<Withdrawal/>}/> {/*회원탈퇴*/}
         <Route path="modify" element={<Modify/>}/> {/*내 정보 수정*/}
         <Route path="alarm" element={<Alarm/>}/> {/*알림창*/}
       </Routes>

@@ -5,13 +5,11 @@ import Rectangle from './Rectangle';
 import Texts from './Texts';
 import Withdrawal_Input_Id from './Withdrawal_Input_Id';
 import Withdrawal_Input_Pw from './Withdrawal_Input_Pw';
-import OButton from './OButton';
-import XButton from './XButton';
 import TopTitle from './TopTitle';
 import ButtonGroup from './OXButtonGroup';
 import Back from './Back';
 
-function Withdrawl(){
+function Withdrawal(){
     return(
         <>
         <div>
@@ -31,4 +29,4 @@ function Withdrawl(){
     )
 }
 
-export default Withdrawl
+export default Withdrawal

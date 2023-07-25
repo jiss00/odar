@@ -6,11 +6,11 @@
     margin-top:83px;
     margin-right:auto;
     margin-left:auto;
-
+    margin-bottom: 70px;
     width: 193px;
     height: 15px;
     left:0px;
-
+    top: 50px;
     border-radius: 10px;
     background-color: #ABABAB80;
     
@@ -26,10 +26,12 @@
     position:relative;
     margin-right:auto;
     width: ${({ count }) => {
-      if (count === 4) return "100px";
-      if (count === 3) return "75px";
-      if (count === 2) return "50px";
-      return count === 1 ? "25px" : "0px";
+      if (count === 6) return "100%";
+      if (count === 5) return "83%";
+      if (count === 4) return "67%";
+      if (count === 3) return "50%";
+      if (count === 2) return "33%";
+      return count === 1 ? "17%" : "0px";
     }};
     height: 15px;
     left:0px;
@@ -43,17 +45,12 @@
       margin-right:auto;
       top:0;
       left:0px;
-      width: ${({ count }) => {
-        if (count === 4) return "100%";
-        if (count === 3) return "75%";
-        if (count === 2) return "50%";
-        return count === 1 ? "25%" : "0px";
-      }};
+
     }
   `;
 
-  function TopBar({ name,birth,verification,complete}) {
-    const count = [name,birth,verification,complete].filter(Boolean).length;
+  function TopBar({ name,birth1,birth2,birth3,verification,complete }) {
+    const count = [name,birth1,birth2,birth3,verification,complete].filter(Boolean).length;
 
     return( <Shape>
         <InnerShape count={count}/>

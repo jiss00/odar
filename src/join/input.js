@@ -10,6 +10,7 @@ const StyledInput = styled.input`
   font-size: 24px;
   padding-left: 10px;
   font-weight: 600;
+  
   ::placeholder {
     font-family: "Pretendard";
     color: #D9D9D9;
@@ -18,57 +19,86 @@ const StyledInput = styled.input`
     line-height: 20px;
   }    
   @media screen and (min-width: 1024px) {
+
     width: ${({ w_width }) => w_width};
   }
 `;
 
+{/* 정규식 검사 함수들 */}
+
+{/*이름이 가~힣까지 1~10글자여야함. */}
 function validateName(name) {
   const regex = /^[가-힣]{1,10}$/;
   return regex.test(name);
 }
 
-function validateBirth(birth) {
-  const regex = /^[0-9]*$/;
+{/*년도는 숫자로만 이루어져있으며 4글자여야함. */}
+function validateBirth1(birth) {
+  const regex = /^[0-9]{4}$/;
   return regex.test(birth);
 }
 
+{/*월과 일은 숫자로만 이루어져있으며 2글자여야함. */}
+function validateBirth(birth) {
+  const regex = /^[0-9]{2}$/;
+  return regex.test(birth);
+}
+
+{/*전화번호는 010-****-**** 형식이어야하고 각 ****은 4글자여야함. */}
 function validatePhoneNumber(phoneNumber) {
   const regex = /^010-\d{4}-\d{4}$/;
   return regex.test(phoneNumber);
 }
 
+{/*인증코드는 숫자로만 이루어져있으며 6글자여야함. */}
 function validateVerificationCode(code) {
   const regex = /^[0-9]{6}$/;
   return regex.test(code);
 }
 
 function Input(props) {
-  const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
+  const { onChange, ...otherProps } = props;
   const [isValid, setIsValid] = useState(false);
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
-    let isValid = false;
+    let isValid =false;
 
     switch (props.type) {
       case "handleNameChange":
         isValid = validateName(inputValue);
+        setIsValid(isValid);
+        onChange(isValid);
         break;
-      case "handleBirthChange":
+      case "handleBirthChange1":
+        isValid = validateBirth1(inputValue);
+        setIsValid(isValid);
+        onChange(isValid);
+        break;
+      case "handleBirthChange2":
         isValid = validateBirth(inputValue);
+        setIsValid(isValid);
+        onChange(isValid);
+        break;
+      case "handleBirthChange3":
+        isValid = validateBirth(inputValue);
+        setIsValid(isValid);
+        onChange(isValid);
         break;
       case "handleVerificationChange":
         isValid = validatePhoneNumber(inputValue);
+        setIsValid(isValid);
+        onChange(isValid);
         break;
       case "handleCompleteChange":
         isValid = validateVerificationCode(inputValue);
+        setIsValid(isValid);
+        onChange(isValid);
         break;
       default:
         break;
     }
 
-    setIsValid(isValid);
-    onChange(isValid); // 부모 컴포넌트로 변경된 값을 전달하는 부분
   };
 
   return (
@@ -77,3 +107,4 @@ function Input(props) {
 }
 
 export default Input;
+
