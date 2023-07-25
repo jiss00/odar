@@ -1,5 +1,5 @@
 import '../../App';
-import React from 'react';
+import React,{ useState } from 'react';
 import { Link } from "react-router-dom";
 import Rectangle from './Rectangle';
 import Texts from './Texts';
@@ -10,6 +10,18 @@ import ButtonGroup from './OXButtonGroup';
 import Back from './Back';
 
 function Withdrawal(){
+    const [validEmail, setValidEmail] = useState(false);
+    const [validPassword, setValidPassword] = useState(false);
+  
+    const handleEmailChange = (isValid) => {
+        setValidEmail(isValid);
+      };
+  
+    const handlePasswordChange = (isValid) => {
+      setValidPassword(isValid);
+    };
+  
+
     return(
         <>
         <div>
@@ -21,9 +33,11 @@ function Withdrawal(){
         탈퇴할 경우 현재 아이디는 재사용 및 복구가 불가능합니다.
         탈퇴 후 회원정보 및 개인형 서비스 이용기록은 모두 삭제됩니다.<br/><br/>
         계정 탈퇴를 원하시면 아래 정보를 입력 후 탈퇴 버튼을 선택해주세요.</Texts>
-        <Withdrawal_Input_Id type="email" placeholder=" 아이디를 입력해주세요."  ></Withdrawal_Input_Id>
-        <Withdrawal_Input_Pw type="email" placeholder=" 비밀번호를 입력해주세요."  ></Withdrawal_Input_Pw>
-        <ButtonGroup/>
+        <Withdrawal_Input_Id type="email" placeholder=" 아이디를 입력해주세요." onChange={handleEmailChange} ></Withdrawal_Input_Id>
+        <Withdrawal_Input_Pw type="password" placeholder=" 비밀번호를 입력해주세요."onChange={handlePasswordChange}  ></Withdrawal_Input_Pw>
+        <ButtonGroup
+        validEmail={validEmail}
+        validPassword={validPassword}/>
         </div>
         </>
     )

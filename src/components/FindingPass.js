@@ -104,7 +104,17 @@ function FindingPass(){
         <FindingPass_Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." onChange={handlePasswordCheckChange}  />
 
 
-      <button className= "btn_all_pass" id = "btn_success_pass" >완료</button>
+      <button
+  disabled={validEmail && validPassword && validPasswordCheck ? false : true}
+  className="btn_all_pass"
+  id="btn_success_pass"
+  style={{
+    background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
+    color: validEmail && validPassword && validPasswordCheck ? 'black' : '#5C5C5C'
+  }}
+>
+  완료
+</button>
 
     </div>
   );
