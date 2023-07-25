@@ -10,98 +10,64 @@ margin: 0 auto;
 const StyledTexts = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
+    width: 100%;
+    max-width:56px;
+    height: 20px;
+    margin-left:auto;
+    margin-right:40px;
+    top:-185px;
+    left:3px;
+
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
-    ${props =>
-        props.fontsize &&
-        css`
-          font-size: ${props.fontsize}px;
-        `}
-    ${props =>
-        props.width &&
-        css`
-          width: ${props.width}px;
-        `}
-     ${props =>
-        props.height &&
-        css`
-        height: ${props.height}px;
-        `}
-     ${props =>
-        props.top &&
-        css`
-        top: ${props.top}px;
-        `}
-     ${props =>
-        props.left &&
-        css`
-        left: ${props.left}px;
-        `}
+    font-size:16px;
  
-  @media all and (min-width: 1024px){	
-  position: relative; 
-  width: 100%;
-  max-width:150px;
-  height: 20px;
-  margin-left:auto;
-  margin-right:10px;
-  top:-180px;
-  left:-85px;
-  font-size:20px;
-  }
 
-        
+
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    width: 100%;
+    max-width:150px;
+    height: 20px;
+    margin-left:auto;
+    margin-right:10px;
+    top:-180px;
+    left:-85px;
+    font-size:20px;
+    }
+  
+              
 `;
 
-function Texts({fontsize,width, height, top, left, children}) {
+function Texts({children}) {
     return (
-        <StyledTexts fontsize={fontsize} width={width} height={height} top={top} left={left}>
+        <StyledTexts>
             {children}
         </StyledTexts>
     );
 }
+
+ 
 
 
 // Texts 컴포넌트 
 const StyledTexts2 = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
-    ${props =>
-        props.fontsize &&
-        css`
-          font-size: ${props.fontsize}px;
-        `}
-    ${props =>
-        props.width &&
-        css`
-          width: ${props.width}px;
-        `}
-     ${props =>
-        props.height &&
-        css`
-        height: ${props.height}px;
-        `}
-     ${props =>
-        props.top &&
-        css`
-        top: ${props.top}px;
-        `}
-     ${props =>
-        props.left &&
-        css`
-        left: ${props.left}px;
-        `}
- 
+    top:-185px;
+    margin-left:50px;
+    margin-right:auto;
+  
   @media all and (min-width: 1024px){	
   position: relative; 
   width: 100%;
@@ -119,19 +85,20 @@ const StyledTexts2 = styled.span`
         
 `;
 
-function Texts2({fontsize,width, height, top, left, children}) {
-    return (
-        <StyledTexts2 fontsize={fontsize} width={width} height={height} top={top} left={left}>
-            {children}
-        </StyledTexts2>
-    );
+
+function Texts2({children}) {
+  return (
+      <StyledTexts2>
+          {children}
+      </StyledTexts2>
+  );
 }
 
 function Container6() {
   return (
     <Container>        
-     <Texts fontsize={16} width={56} height={20} top={645} left={66} >내 위치</Texts>
-     <Texts2 fontsize={16} width={132} height={20} top={645} left={200} >창원시 마산회원구</Texts2>
+      <Texts>내 위치</Texts>
+      <Texts2>창원시 마산회원구</Texts2>
     </Container>
   );
 }

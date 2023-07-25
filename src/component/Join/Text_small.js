@@ -4,7 +4,7 @@ import styled ,{ css }from "styled-components";
 const StyledText = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-size: 16px;
     font-weight: 400;
@@ -17,8 +17,9 @@ const StyledText = styled.span`
         props.이메일형식 &&
         css`
         Width: 74px;
-        top: 316px;
-        left: 30px;
+        top: 126px;
+        left: -10px;
+        
         @media all and (min-width: 1024px){	
           position: relative; 
           margin-right:10px;
@@ -31,9 +32,10 @@ const StyledText = styled.span`
      ${(props) =>
         props.대소문자 &&
         css`
+        position:relative;
         Width: 96px;
-        top: 491px;
-        left: 30px;
+        top: 192px;
+        left: -10px;
         @media all and (min-width: 1024px){	
           position: relative; 
           top:380px;
@@ -44,9 +46,10 @@ const StyledText = styled.span`
     ${(props) =>
         props.숫자 &&
         css`
+        position:relative;
         Width: 28px;
-        top: 491px;
-        left: 177px;
+        top: 192px;
+        left: 15px;
         @media all and (min-width: 1024px){	
           position: relative; 
         
@@ -58,9 +61,10 @@ const StyledText = styled.span`
      ${(props) =>
         props.특수문자 &&
         css`
+        position: relative; 
         Width: 56px;
-        top: 491px;
-        left: 256px;
+        top: 192px;
+        left: 40px;
         @media all and (min-width: 1024px){	
           position: relative; 
          

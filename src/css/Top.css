@@ -8,7 +8,7 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  margin-top: 161.5px;
+  margin-top: 190px;
   margin-right: 257px;
   z-index: 1;
   cursor : pointer;
@@ -18,7 +18,7 @@
   position: absolute;
   width: 25px;
   height: 20px;
-  margin-top: 160px;
+  margin-top: 190px;
   margin-left: 262px;
   z-index: 1;
   cursor : pointer;
@@ -32,7 +32,7 @@
   position: absolute;
   width: 130px;
   height: 20px;
-  top: 88px;
+  padding-top: 25vh;
   z-index: 1;
 
   font-family: Pretendard;
@@ -147,7 +147,7 @@
 .back{
   width: 40px;
   height: 30px;
-  margin-top: 12em;
+  margin-top: 18em;
   margin-right: 890px;
   z-index: 1;
   cursor : pointer;
@@ -156,7 +156,7 @@
 .bars{
   width: 40px;
   height: 30px;
-  margin-top: 12em;
+  margin-top: 18em;
   margin-left: 890px;
   z-index: 1;
   cursor : pointer;
@@ -169,7 +169,8 @@
 .topName{
   width: 192px;
   height: 20px;
-  margin-top: 1em;
+  margin-top: 4em;
+  padding-top: 10%;
   font-size: 52px;
   line-height: 20px;
   cursor : pointer;

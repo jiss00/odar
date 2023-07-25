@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 
 const StyledButton = styled.button`
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   width: 76px;
   height: 26px;
   top: 283px;
-  left: 157px;
   border-radius: 5px;
   line-height: 20px;
   border: 1px solid lightgray;
@@ -30,6 +29,16 @@ const StyledButton = styled.button`
 `;
 
 const ButtonWrapper = styled.div`
+  display:flex;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 auto; /* 가로 중앙 정렬 */
+  width: 100%; /* 너비를 100%로 설정 */
+  max-width: 76px; /* 최대 너비를 110px로 제한 */
+  height: 100%;
+  max-height: 26px;
+  top:-610px; 
+
   @media all and (min-width: 1024px) {
     position: relative;
     margin: 0 auto; /* 가로 중앙 정렬 */

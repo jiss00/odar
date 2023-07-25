@@ -5,13 +5,12 @@ import { Link } from "react-router-dom";
 const StyledButton = styled.button`
   display:flex;
   box-sizing: border-box;
-  position: absolute;
-  width: ${(props) => (props.문의하기 === "true" ? "310px" : "335px")};
-  height: ${(props) => (props.문의하기 === "true" ? "66px" : "75px")};
-  top: ${(props) => (props.문의하기 === "true" ? "704px" : "707px")};
-  left: ${(props) => (props.문의하기 === "true" ? "40px" : "27px")};
+  position: relative;
+  width: 310px;
+  height: 66px;
+  top: -300px;
   gap: 8px;
-  padding: 23px 140px;
+  padding: 23px 100px;
   border-radius: 10px;
   font-size: 24px;
   line-height: 20px;
@@ -22,7 +21,9 @@ const StyledButton = styled.button`
   font-family: "Pretendard";
   font-weight: 800;
   text-align: center;
-  
+  margin: 0px auto;
+  justify-content: center; 
+
   @media all and (min-width: 1024px){	
     position: relative; 
     width: 1008px;
@@ -38,11 +39,12 @@ const StyledButton = styled.button`
 
 
   const ButtonText = styled.span`
-    width: ${(props) => (props.문의하기 === "true"  ? "83px" : "67px")};
-    height: ${(props) => (props.문의하기 === "true"  ? "20px" : "29px")};
-    font-weight: ${(props) => (props.문의하기 === "true"  ? "800" : "700")};
-    line-height: ${(props) => (props.문의하기 === "true"  ? "20px" : "29.05px")};
+    width: 83px;
+    height:20px;
+    font-weight: 800;
+    line-height: 20px;
     font-size: 24px;
+    
     @media all and (min-width: 1024px){	
       position: relative; 
       margin-right:auto;

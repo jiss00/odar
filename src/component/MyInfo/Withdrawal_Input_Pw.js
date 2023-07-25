@@ -5,15 +5,16 @@ import { PiEyeClosed, PiEye } from "react-icons/pi";
 const StyledInput = styled.input`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
     border-radius: 15px;
     font-family: "Pretendard";
     font-size: 21px;
     border: 1.5px solid #5B8E31;
     width: 290px;
     height: 50px;
-    top: 459px;
-    left: 50px;
+    top: -285px;
+    margin: 0px auto;
+
     ::placeholder {
         font-family: "Pretendard";
         font-size: 21px; 
@@ -33,13 +34,14 @@ const StyledInput = styled.input`
 `;
 
 const IconWrapper = styled.div`
-    position: absolute; 
+    position: relative; 
     width: 24px;
     height: 24px;
-    top: 469px;
-    left: 301px;
+    top: -320px;
+    left: 120px;
     cursor: pointer;
-       
+    margin: 0px auto;
+
     @media all and (min-width: 1024px){	
         position: relative; 
         margin: 0px auto;

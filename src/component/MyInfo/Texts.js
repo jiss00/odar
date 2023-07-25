@@ -3,12 +3,14 @@ import styled,{css} from "styled-components";
 const StyledTexts = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
+    margin: 0px auto;
+
     ${props =>
         props.fontsize &&
         css`
@@ -29,11 +31,7 @@ const StyledTexts = styled.span`
         css`
         top: ${props.top}px;
         `}
-     ${props =>
-        props.left &&
-        css`
-        left: ${props.left}px;
-        `}
+   
  
   @media all and (min-width: 1024px){	
   position: relative; 

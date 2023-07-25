@@ -18,6 +18,7 @@ const CircleWrapper = styled.div`
     css`
     left: ${props.left}px;
     `}
+  
 `;
 
 const CircleText = styled.span`

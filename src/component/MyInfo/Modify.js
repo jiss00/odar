@@ -2,16 +2,9 @@ import '../../App';
 import React from 'react';
 import { Link } from "react-router-dom";
 import Rectangle from './Rectangle';
-import LongButton from '../Join/LongButton';
 import Line from './Line';
 import ProfileImage from './ProfileImage';
 import ProfileButton from './ProfileButton';
-import Texts from './Texts';
-import Selectbar from './Selectbar';
-import Day from './Day';
-import Time from './Time';
-import Tilde from './Tilde';
-import AgreeButton from './AgreeButton';
 import TopTitle from './TopTitle';
 import Back from './Back';
 import Line2 from './Line2';
@@ -28,28 +21,28 @@ function Modify(){
     return(
         <>
         <div>
-        <Back></Back>
+        <Back></Back>{/*뒤로가기*/}
         <TopTitle left={119}>내 정보 수정</TopTitle>
         <Rectangle></Rectangle>
-        <ProfileImage></ProfileImage>
-        <ProfileButton></ProfileButton>
+        <ProfileImage></ProfileImage>{/*프로필 이미지*/}
+        <ProfileButton></ProfileButton>{/*프로필변경 버튼*/}
 
         <Line></Line>
        
-        <Container1></Container1>
-        <Container2></Container2>
-        <Container3></Container3>
+        <Container1></Container1>{/*희망직종*/}
+        <Container2></Container2>{/*희망요일*/}
+        <Container3></Container3>{/*희망시간*/}
 
         <Line2></Line2>
        
-        <Container4></Container4>
-        <Container5></Container5>
+        <Container4></Container4>{/*채용정보 알림 동의*/}
+        <Container5></Container5>{/*위치 알림 동의*/}
 
         <Line3></Line3>
         
-        <Container6></Container6>
+        <Container6></Container6> {/*내위치*/}
 
-       <ModifyLongButton></ModifyLongButton>
+       <ModifyLongButton></ModifyLongButton>{/*적용버튼*/}
     
         </div>
         </>

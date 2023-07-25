@@ -3,10 +3,13 @@
 .App {
   text-align: center;
 }
+
 .join__box{
-  position: absolute; 
-  top: 133px;
-  left: 139px;
+  position: relative; 
+  top:50px;
+  left:0px;
+  margin-right:auto;
+  margin-left:auto;;
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
@@ -17,9 +20,12 @@
 }
 
 .id__box{
-  position: absolute; 
-  top: 198px;
-  left: 30px;
+  position: relative; 
+  top: 70px;
+  right:130px;
+  margin-right:auto;
+  margin-left:auto;
+
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
@@ -30,9 +36,12 @@
 }
 
 .pw__box{
-  position: absolute; 
-  top: 373px;
-  left: 30px;
+  position: relative; 
+  top: 155px;
+  right:120px;
+  margin-right:auto;
+  margin-left:auto;
+
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
@@ -43,9 +52,12 @@
 }
 
 .pwcheck__box{
-  position: absolute; 
-  top: 548px;
-  left: 30px;
+  position: relative; 
+  top: 235px;
+  right:96px;
+  margin-right:auto;
+  margin-left:auto;
+
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
@@ -54,6 +66,39 @@
     left:0px;
     }
 }
+
+.findingpass__pw__box{
+  position: relative; 
+  top: -20px;
+  right:115px;
+  margin-right:auto;
+  margin-left:auto;
+
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    margin-left:auto;
+    top:5px;
+    left:0px;
+    }
+}
+
+.findingpass__pwcheck__box{
+  position: relative; 
+  top: 20px;
+  right:90px;
+  margin-right:auto;
+  margin-left:auto;
+
+  @media all and (min-width: 1024px){	
+    position: relative; 
+    margin-right:auto;
+    margin-left:auto;
+    top:25px;
+    left:0px;
+    }
+}
+
 
 
 .App-logo {

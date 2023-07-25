@@ -4,15 +4,17 @@ import styled from "styled-components";
 const StyledTextBox = styled.textarea`
   display: flex;
   box-sizing: border-box;
-  position: absolute;
+  position: relative;
   font-family: 'Pretendard';
   width: 290px;
   height: 362px;
-  top: 315px;
-  left: 50px;
+  top: -325px;
   radius: 10px;
   border-radius: 10px;
   border: 3px solid #A2C08A;
+  margin: 0px auto;
+  justify-content: center; 
+
   ::placeholder {
     font-family: "Pretendard";
     font-size: 15px;

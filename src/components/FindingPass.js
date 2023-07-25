@@ -1,9 +1,8 @@
 import '../css/FindingPass.css';
-import '../css/FindingPass_web.css';
 import {useState} from 'react';
 import { useEffect } from 'react';
-import Input_pw from '../component/Join/Input/Input_pw';
-import Input_pwcheck from '../component/Join/Input/Input_pwcheck';
+import FindingPass_Input_pw from './FindingPass_Input_pw';
+import FindingPass_Input_pwcheck from './FindingPass_Input_pwcheck';
 import Text from '../component/Join/Text';
 import Text_small from '../component/Join/Text_small';
 // 띄우는거 : 대문자
@@ -16,8 +15,8 @@ function FindingPass(){
 
   const Modal = function(){
     return(
-      <div id = "modal_success">
-        해당 번호로 인증번호가 전송되었습니다!
+      <div id = "modal_success_pass">
+        아이디 인증이 완료되었습니다!
       </div>
     );
   }
@@ -65,31 +64,33 @@ function FindingPass(){
 
   return(
     
-    <div className='screen'>
-      <div className='state_bar'>
-        <span className = 'state_bar_inner'></span>
+    <div className='screen_pass'>
+      <div className='state_bar_pass'>
+        <span className = 'state_bar_inner_pass'></span>
       </div>
-      <h2 className="id_find">비밀번호 찾기</h2>
-      <div className='body'>
-        <h3 className="phone_number_name">아이디</h3>
-        <section className='input_section1'>
-          <input className="input_all" type="text" id="phone_number" placeholder="oooo@oooo" ></input>
-          <button className= "btn_all" type="submit" id = "btn_phone" onClick={() => { checkModal(); }} >인증</button>
+      <h2 className="pass_find">비밀번호 찾기</h2>
+      <div className='body_id_pass'>
+        <h3 className="id_pass">아이디</h3>
+        <section className='input_section1_pass'>
+          <input className="id_input_pass" type="text" id="" placeholder="oooo@oooo" ></input>
+          <button className= "btn_all_pass" type="submit"  onClick={() => { checkModal(); }} >인증</button>
         </section>
-      
+        {modal === true ? <Modal></Modal> : <></>}
+        {/* {}를 쓰면 js 코드 쓸 수 있다. */}
       </div>
-      <div className="pw__box"><Text width="110px">새 비밀번호</Text></div>
-          <Input_pw type="password" placeholder=" 비밀번호를 입력해주세요."  />
-          <Text_small 대소문자>대문자 · 소문자</Text_small>
-          <Text_small 숫자>숫자</Text_small>
-          <Text_small 특수문자>특수문자</Text_small>
 
-      <div className="pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
-        <Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." />
+       {/*<div className = "body_pass_pass">
+          새비밀번호 비밀번호확인
+        </div> */}
 
-      {/* {modal === true ? <Modal></Modal> : <></>} */}
-      {/* {}를 쓰면 js 코드 쓸 수 있다. */}
-      <button className= "btn_all" id = "btn_success" >완료</button>
+      <div className="findingpass__pw__box"><Text width="110px">새 비밀번호</Text></div>
+        <FindingPass_Input_pw type="password" placeholder=" 비밀번호를 입력해주세요."  />
+
+      <div className="findingpass__pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
+        <FindingPass_Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." />
+
+
+      <button className= "btn_all_pass" id = "btn_success_pass" >완료</button>
 
     </div>
   );

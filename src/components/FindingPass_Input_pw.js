@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled,{css} from "styled-components";
 import { PiEyeClosed, PiEye } from "react-icons/pi";
-import Text_small from "../Text_small";
-import ProgressBar from "../ProgressBar";
 
 const JoinContainer1 = styled.div`
 display: flex;
@@ -15,6 +13,88 @@ width: 300px;
   width:440px;
   }
 `;
+const StyledText = styled.span`
+    display: flex;
+    box-sizing: border-box;
+    position: relative; 
+    font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: #8E8B8B;
+    height: 20px;
+   
+    ${(props) =>
+        props.이메일형식 &&
+        css`
+        Width: 74px;
+        top: 156px;
+        left: -10px;
+        
+        @media all and (min-width: 1024px){	
+          position: relative; 
+          margin-right:10px;
+          margin-left:auto;
+          top:300px;
+          left:-160px;
+          width:74px;
+          }
+        `}
+     ${(props) =>
+        props.대소문자 &&
+        css`
+        position:relative;
+        Width: 96px;
+        top: 0px;
+        left: -10px;
+        @media all and (min-width: 1024px){	
+          position: relative; 
+          top:0px;
+          left:0px;
+          width:100px;
+      }
+        `} 
+    ${(props) =>
+        props.숫자 &&
+        css`
+        position:relative;
+        Width: 28px;
+        top: 0px;
+        left: 15px;
+        @media all and (min-width: 1024px){	
+          position: relative; 
+        
+          top:0px;
+          left:0px;
+          width:30px;
+          }
+        `}
+     ${(props) =>
+        props.특수문자 &&
+        css`
+        position: relative; 
+        Width: 56px;
+        top: 0px;
+        left: 40px;
+        @media all and (min-width: 1024px){	
+          position: relative; 
+         
+          top:0px;
+          left:0px;
+          width:60px;
+          }
+        `}        
+`;
+
+function Text_small({ children, ...props } ) {
+  return (
+    <>
+      <StyledText {...props}>{children}</StyledText>
+    </>
+  );
+}
+
 const StyledInput = styled.input`
   display: flex;
   box-sizing: border-box;
@@ -24,9 +104,9 @@ const StyledInput = styled.input`
   border: 1.5px solid #5B8E31;
   width: 335px;
   height: 50px;
-  top: 190px;
+  top: 0px;
   margin:0 auto;
-  z-index:1;
+
   ::placeholder {
     font-family: "Pretendard";
     font-size: 24px;
@@ -37,7 +117,7 @@ const StyledInput = styled.input`
     position: relative; 
     margin-right:auto;
     margin-left:auto;
-    top:385px;
+    top: 20px;
     left:0px;
     width:440px;
     }
@@ -49,18 +129,17 @@ const IconWrapper = styled.div`
     position: relative; 
     width: 24px;
     height: 24px;
-    top: 155px;
+    top: -37px;
     left: 140px;
     cursor: pointer;
     margin-right:auto;
     margin-left:auto;
-    z-index:1;
-    
+
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
     margin-left:auto;
-    top:350px;
+    top:-16px;
     left:200px;
     }
 `;
@@ -77,7 +156,7 @@ const Circlediv = styled.div`
   left: ${({ left }) => left};
   @media all and (min-width: 1024px){	
     position: relative; 
-    top:380px;
+    top:0px;
     left:0;
     margin: 0 10px;
   }
@@ -99,11 +178,8 @@ function validateSpecialCharacter(str) {
   return /[!@#$%^&*(),.?":{}|<>]/.test(str);
 }
 
-function Input_pw(props) {
-  const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
-
+function  FindingPass_Input_pw(props) {
   const [isPasswordVisible, setPasswordVisible] = useState(false); // 비밀번호 숨김/보임 상태
-
   const [validUpperCase, setValidUpperCase] = useState(false); // 대소문자 유효성 검사 결과
   const [validNumber, setValidNumber] = useState(false); // 숫자 유효성 검사 결과
   const [validSpecialCharacter, setValidSpecialCharacter] = useState(false); // 특수문자 유효성 검사 결과
@@ -114,43 +190,29 @@ function Input_pw(props) {
 
   const handleInputChange = (event) => {
     const password = event.target.value;
-    const isValid1 =validateUpperCase(password);
-    const isValid2 =validateNumber(password);
-    const isValid3 =validateSpecialCharacter(password);
-
-    setValidUpperCase(isValid1);
-    setValidNumber(isValid2);
-    setValidSpecialCharacter(isValid3);
-
-    function isAllValid(isValid1,isValid2,isValid3) {
-      return isValid1 && isValid2 && isValid3;
-    };
-    
-    // 부모 컴포넌트로 변경된 값을 전달하는 부분
-    
-   onChange(isValid1 && isValid2 && isValid3); 
-
+    setValidUpperCase(validateUpperCase(password));
+    setValidNumber(validateNumber(password));
+    setValidSpecialCharacter(validateSpecialCharacter(password));
   };
-  
+
   return (
     <div style={{ position: "relative" }}>
-      
-      <StyledInput {...otherProps} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
+      <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
       <IconWrapper onClick={handleClick}>
         {isPasswordVisible ? <PiEye size={24}/> : <PiEyeClosed size={24}/>}
       </IconWrapper>
 
       <JoinContainer1>
         <Text_small 대소문자>대문자 · 소문자</Text_small>
-        <Circlediv valid={validUpperCase} top="190px" left="0px" />
+        <Circlediv valid={validUpperCase} top="0px" left="0px" />
         <Text_small 숫자>숫자</Text_small>
-        <Circlediv valid={validNumber} top="190px" left="23px" />
+        <Circlediv valid={validNumber} top="0px" left="23px" />
         <Text_small 특수문자>특수문자</Text_small>   
-        <Circlediv valid={validSpecialCharacter} top="190px" left="50px" />
+        <Circlediv valid={validSpecialCharacter} top="0px" left="50px" />
       </JoinContainer1>
 
     </div>
   );
 }
 
-export default Input_pw;
+export default FindingPass_Input_pw;

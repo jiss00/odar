@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled,{css}  from "styled-components";
 
 const Container = styled.div`
@@ -10,37 +10,21 @@ margin: 0 auto;
 const StyledTexts = styled.span`
     display: flex;
     box-sizing: border-box;
-    position: absolute; 
+    position: relative; 
+    width: 100%;
+    max-width:56px;
+    height: 20px;
+    margin-left:auto;
+    margin-right:5px;
+    top:-235px;
+    left:3px;
+
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
-    ${props =>
-        props.fontsize &&
-        css`
-          font-size: ${props.fontsize}px;
-        `}
-    ${props =>
-        props.width &&
-        css`
-          width: ${props.width}px;
-        `}
-     ${props =>
-        props.height &&
-        css`
-        height: ${props.height}px;
-        `}
-     ${props =>
-        props.top &&
-        css`
-        top: ${props.top}px;
-        `}
-     ${props =>
-        props.left &&
-        css`
-        left: ${props.left}px;
-        `}
+    font-size:16px;
  
   @media all and (min-width: 1024px){	
   position: relative; 
@@ -49,7 +33,7 @@ const StyledTexts = styled.span`
   height: 20px;
   margin-left:auto;
   margin-right:10px;
-  top:-300px;
+  top:-250px;
   left:0px;
   font-size:20px;
   }
@@ -57,45 +41,52 @@ const StyledTexts = styled.span`
         
 `;
 
-function Texts({fontsize,width, height, top, left, children}) {
+function Texts({children}) {
     return (
-        <StyledTexts fontsize={fontsize} width={width} height={height} top={top} left={left}>
+        <StyledTexts>
             {children}
         </StyledTexts>
     );
 }
-
 
 // Circle 컴포넌트 
 
 const CircleWrapper = styled.div`
   display: flex;
   box-sizing: border-box;
-  position: absolute; 
+  position: relative; 
   align-items: center;
   justify-content: center;
-  width: 30px;
+  width: 20px;
   height: 30px;
   border-radius: 50%;
   border: 0.8px solid #5B8E31;
   background-color: #FFFFFF;
-  top:394px;
+  top:0px;
  ${props =>
     props.left &&
     css`
     left: ${props.left}px;
     `}
+
     @media all and (min-width: 1024px) {
     position: relative;
     width: 40px; 
-    height: 36.36px;
+    height: 40px;
     top: -10px;
     ${props =>
       props.left &&
       css`
-      left: ${props.left}px;
+      left: ${props.left*1.5+130}px;
       `};
   }
+
+  cursor: pointer; /* 요일을 클릭할 수 있도록 커서를 포인터로 변경 */
+  ${(props) =>
+    props.active &&
+    css`
+      background-color: #A2C08A; /* 클릭한 요일의 배경 색상을 변경 */
+    `}
   
 `;
 
@@ -108,38 +99,82 @@ const CircleText = styled.span`
 `;
 
 const DayWrapper = styled.div`
-    
+   position: relative;
+    width: 200px; 
+    height: 40px;
+    top: -240px;
+    margin-left:5px;
+    margin-right:auto;
+    display: flex; 
+
   @media all and (min-width: 1024px) {
     position: relative;
     width: 358px; 
     height: 40px;
-    top: -300px;
+    top: -250px;
     left: -140px;
     margin-left:50px;
     margin-right:auto;
     display: flex; 
   }`
 
-function Day({ left, text }) {
+function Day({ left, text, onClick, isActive }) {
   return (
-    <CircleWrapper left={left}>
+    <CircleWrapper left={left} onClick={onClick} active={isActive}>
       <CircleText>{text}</CircleText>
     </CircleWrapper>
   );
 }
 
 function Container2() {
+  // 선택된 요일을 상태로 관리하기 위해 useState 훅 사용
+  const [selectedDay, setSelectedDay] = useState([]);
+
+const handleDayClick = (day) => {
+    if (selectedDay.includes(day)) {
+      // 이미 선택된 요일이면 선택 해제
+      setSelectedDay(selectedDay.filter((d) => d !== day));
+    } else {
+      // 새로운 요일 선택
+      setSelectedDay([...selectedDay, day]);
+    }
+  };
+
+
   return (
     <Container>
-      <Texts fontsize={16} width={56} height={20} top={399} left={63} >
+      <Texts >
         희망요일
       </Texts>
       <DayWrapper>
-      <Day left={139} text="월"></Day>
-      <Day left={178.5} text="화"></Day>
-      <Day left={218} text="수"></Day>
-      <Day left={257.5} text="목"></Day>
-      <Day left={297} text="금"></Day>
+      <Day left={8} text="월"
+       onClick={() => handleDayClick("월")}
+       isActive={selectedDay.includes("월")}
+     ></Day>
+      <Day left={16} text="화"
+      onClick={() => handleDayClick("화")}
+      isActive={selectedDay.includes("화")}
+      ></Day>
+      <Day left={24} text="수"
+      onClick={() => handleDayClick("수")}
+      isActive={selectedDay.includes("수")}
+      ></Day>
+      <Day left={32} text="목"
+      onClick={() => handleDayClick("목")}
+      isActive={selectedDay.includes("목")}
+      ></Day>
+      <Day left={40} text="금"
+      onClick={() => handleDayClick("금")}
+      isActive={selectedDay.includes("금")}
+      ></Day>
+      <Day left={48} text="토"
+      onClick={() => handleDayClick("토")}
+      isActive={selectedDay.includes("토")}
+      ></Day>
+      <Day left={56} text="일"
+      onClick={() => handleDayClick("일")}
+      isActive={selectedDay.includes("일")}
+      ></Day>
       </DayWrapper>        
     </Container>
   );

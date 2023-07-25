@@ -4,7 +4,7 @@ import barsImage from './bars.png';
 import closeImage from './close.png';
 import '../css/Top.css';
 
-function Login(props) {
+function Top(props) {
     const [sidebar, setSidebar] = useState(false)
 
     const showSidebar = () => setSidebar(!sidebar)
@@ -40,4 +40,4 @@ function Login(props) {
     )
 }
 
-export default Login;
+export default Top;

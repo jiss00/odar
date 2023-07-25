@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const DaysWrapper = styled.div`
+    
   @media all and (min-width: 1024px) {
     position: relative;
     width: 60%; /* 너비를 60%로 설정 */

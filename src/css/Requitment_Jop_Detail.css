@@ -185,9 +185,34 @@
     border: 3px solid #A2C08A;
 }
 
+/* 전화기 모양 없음*/
+.btn_call.no_call{
+    display: none;
+}
+
 /* 지원하기 */
 .btn_apply{
     width: 200px;
+    height: 50px;
+    padding: 15px 69px 15px 68px;
+    border-radius: 15px;
+    border : 0px;
+    background-color: #5B8E31;
+
+
+    font-family: Pretendard;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+
+
+}
+
+/* 지원하기 전화번호없음 */
+.btn_apply.no_call{
+    width: 330px;
     height: 50px;
     padding: 15px 69px 15px 68px;
     border-radius: 15px;
@@ -322,6 +347,11 @@
         align-items: center;
     }
 
+    /* 전화기 모양 없음*/
+    .btn_call.no_call{
+        display: none;
+    }
+
     /* 지원하기 */
     .btn_apply{
         width: 730px;
@@ -335,6 +365,23 @@
         font-size: 22px;
         line-height: 22px;
 
+
+
+    }
+
+    
+    /* 지원하기 전화번호없음 */
+    .btn_apply.no_call{
+        width: 1008px;
+        height: 60px;
+        padding: 15px 69px 15px 68px;
+        border-radius: 15px;
+        border : 0px;
+        background-color: #5B8E31;
+
+
+        font-size: 22px;
+        line-height: 22px;
 
 
     }

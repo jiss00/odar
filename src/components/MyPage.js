@@ -9,15 +9,55 @@ import grandFather from './grandFather.png';
 
 import "../css/MyPage.css"
 
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
+
+
 function MyPage(){
     const apply = () =>{
         window.location.href = 'http://localhost:3000/detail';
     }
+
+    let navigate = useNavigate();
+
+    // 메인으로
+    const goMain = () => {
+        navigate('/');
+    }
+
+    // 내정보 수정
+    const goModify = () => {
+        navigate('/modify');
+    }
+
+    // 지원내역
+    const goDetail = () => {
+        navigate('/detail');
+    }
+
+    // 문의하기
+    const goMyInfo = () => {
+        navigate('/inquiry');
+    }
+
+    // 로그아웃
+    const goLogout = () => {
+        navigate('/');
+    }
+
+    //회원 탈퇴
+    const goWithdrawl = () =>{
+        navigate('/withdrawl');
+    }
+
+
+
+
+
     return (
         <div className = "screen_my_page">
             <section className = "head">
                 <div className = "item_title"> 내 정보</div>
-                <button className = "item_exit"> 
+                <button onClick = {goMain} className = "item_exit"> 
                     <svg width="35" height="30" viewBox="0 0 35 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 30V19.4118H21V30H29.75V15.8824H35L17.5 0L0 15.8824H5.25V30H14Z" fill="#5B8E31"/>
                     </svg>
@@ -36,7 +76,7 @@ function MyPage(){
                     <hr className = "item_hr"></hr>
                     <div className = "item_house"> 0 0 동</div>
                     <hr className = "item_hr"></hr>
-                    <button className = "item_btn"> 수정 </button>
+                    <button className = "item_btn" onClick = {goModify}> 수정 </button>
                 </div>
             </section>
             <section className = "body_2">
@@ -66,15 +106,15 @@ function MyPage(){
                     고객 지원
                 </div>
                 <div className = "footer_body">
-                    <div onClick ={apply}className = "item_footer_list">
-                        <span className = "item_footer_write">지원내역</span>
+                    <div onClick ={apply} className = "item_footer_list">
+                        <span className = "item_footer_write" onClick={goDetail}>지원내역</span>
                         <button className = "item_footer_btn">
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.51715 1.95471C5.5723 1.89942 5.63782 1.85555 5.70996 1.82561C5.78209 1.79568 5.85942 1.78027 5.93752 1.78027C6.01562 1.78027 6.09295 1.79568 6.16509 1.82561C6.23722 1.85555 6.30274 1.89942 6.3579 1.95471L13.4829 9.07971C13.5382 9.13486 13.5821 9.20039 13.612 9.27252C13.6419 9.34466 13.6573 9.42199 13.6573 9.50008C13.6573 9.57818 13.6419 9.65551 13.612 9.72765C13.5821 9.79978 13.5382 9.86531 13.4829 9.92046L6.3579 17.0455C6.24641 17.1569 6.09519 17.2196 5.93752 17.2196C5.77985 17.2196 5.62864 17.1569 5.51715 17.0455C5.40566 16.934 5.34302 16.7828 5.34302 16.6251C5.34302 16.4674 5.40566 16.3162 5.51715 16.2047L12.223 9.50008L5.51715 2.79546C5.46185 2.74031 5.41798 2.67478 5.38805 2.60265C5.35812 2.53052 5.34271 2.45318 5.34271 2.37508C5.34271 2.29699 5.35812 2.21965 5.38805 2.14752C5.41798 2.07539 5.46185 2.00986 5.51715 1.95471Z" fill="black"/>
                             </svg>
                         </button>
                     </div>
-                    <div className = "item_footer_list">
+                    <div className = "item_footer_list"  onClick={goMyInfo} >
                         <span className = "item_footer_write">문의하기</span>
                         <button className = "item_footer_btn">
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -82,15 +122,15 @@ function MyPage(){
                             </svg>
                         </button>
                     </div>
-                    <div className = "item_footer_list">
-                        <span className = "item_footer_write">로그아웃</span>
+                    <div className = "item_footer_list" onClick={goLogout} >
+                        <span className = "item_footer_write" >로그아웃</span>
                         <button className = "item_footer_btn">
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.51715 1.95471C5.5723 1.89942 5.63782 1.85555 5.70996 1.82561C5.78209 1.79568 5.85942 1.78027 5.93752 1.78027C6.01562 1.78027 6.09295 1.79568 6.16509 1.82561C6.23722 1.85555 6.30274 1.89942 6.3579 1.95471L13.4829 9.07971C13.5382 9.13486 13.5821 9.20039 13.612 9.27252C13.6419 9.34466 13.6573 9.42199 13.6573 9.50008C13.6573 9.57818 13.6419 9.65551 13.612 9.72765C13.5821 9.79978 13.5382 9.86531 13.4829 9.92046L6.3579 17.0455C6.24641 17.1569 6.09519 17.2196 5.93752 17.2196C5.77985 17.2196 5.62864 17.1569 5.51715 17.0455C5.40566 16.934 5.34302 16.7828 5.34302 16.6251C5.34302 16.4674 5.40566 16.3162 5.51715 16.2047L12.223 9.50008L5.51715 2.79546C5.46185 2.74031 5.41798 2.67478 5.38805 2.60265C5.35812 2.53052 5.34271 2.45318 5.34271 2.37508C5.34271 2.29699 5.35812 2.21965 5.38805 2.14752C5.41798 2.07539 5.46185 2.00986 5.51715 1.95471Z" fill="black"/>
                             </svg>
                         </button>
                     </div>
-                    <div className = "item_footer_list">
+                    <div className = "item_footer_list" onClick={goWithdrawl}>
                         <span className = "item_footer_write" >회원탈퇴</span>
                         <button className = "item_footer_btn">
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
