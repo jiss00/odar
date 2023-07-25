@@ -10,12 +10,13 @@ import Back from './Back';
 import Line2 from './Line2';
 import Line3 from './Line3';
 import Container1 from './Container1';
+import Container1_5 from './Container1_5';
 import Container2 from './Container2';
 import Container3 from './Container3';
 import Container4 from './Container4';
 import Container5 from './Container5';
-import ModifyLongButton from './ModifyLongButton';
 import Container6 from './Container6';
+import ModifyLongButton from './ModifyLongButton';
 
 function Modify(){
     return(
@@ -30,6 +31,7 @@ function Modify(){
         <Line></Line>
        
         <Container1></Container1>{/*희망직종*/}
+        <Container1_5></Container1_5> {/*희망직종 직접입력 선택시 나오는 input창*/}
         <Container2></Container2>{/*희망요일*/}
         <Container3></Container3>{/*희망시간*/}
 

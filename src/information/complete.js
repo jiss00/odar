@@ -30,15 +30,17 @@ height : 31px;
 font-size: 15px;
 font-weight: 400;
 padding-top : 4px;
-padding-left : 5px;
+padding-left : 8px;
 background-color: #D9D9D9;
 color : white;
 cursor : pointer;
 z-index:1;
 @media screen and (min-width: 1024px) {
   height : 40px;
-  padding-top : 8px;
-  padding-left:8px;
+  padding-top : 6px;
+  padding-left:5px;
+  font-size: 17px;
+
 }
 `
   return(

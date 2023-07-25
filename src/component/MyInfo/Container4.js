@@ -89,11 +89,28 @@ const Button = styled.div`
   transition: left 0.3s ease-in-out;
 `;
 
-function AgreeButton({top}) {
+function showNotification() {
+  if ("Notification" in window) {
+    // 사용자에게 알림 권한을 요청
+    Notification.requestPermission().then(permission => {
+      if (permission === "granted") {
+        // 알림을 생성
+        new Notification("푸시 알림 허용", {
+          body: "채용정보 알림 동의가 완료되었습니다!",
+        });
+      }
+    });
+  }
+}
+
+function AgreeButton({ top }) {
   const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {
     setClicked(!clicked);
+    if (!clicked) {
+      showNotification(); // 클릭 시 알림 표시
+    }
   };
 
   return (
@@ -102,6 +119,7 @@ function AgreeButton({top}) {
     </ButtonContainer>
   );
 }
+
 
 function Container4() {
   return (

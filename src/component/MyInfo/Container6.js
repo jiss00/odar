@@ -16,7 +16,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:40px;
-    top:-185px;
+    top:-200px;
     left:3px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -35,7 +35,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:10px;
-    top:-180px;
+    top:-200px;
     left:-85px;
     font-size:20px;
     }
@@ -64,7 +64,7 @@ const StyledTexts2 = styled.span`
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
-    top:-185px;
+    top:-200px;
     margin-left:50px;
     margin-right:auto;
   
@@ -75,7 +75,7 @@ const StyledTexts2 = styled.span`
   height: 20px;
   margin-left:10px;
   margin-right:auto;
-  top:-180px;
+  top:-200px;
   left:100px;
   font-size:20px;
   color: #5C5C5C;
