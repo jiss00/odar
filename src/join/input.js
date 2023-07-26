@@ -23,7 +23,7 @@ function Input(props){
   `;
 
   return(
-    <StyledInput placeholder={props.placeholder}></StyledInput>
+    <StyledInput onChange={props.onChange} placeholder={props.placeholder}></StyledInput>
   )
 }
 export default Input;

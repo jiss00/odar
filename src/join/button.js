@@ -17,7 +17,7 @@ function Button(props){
   width: 335px;
   height:75px;
   @media screen and (min-width: 1024px) {
-    width : ${props.w_width};
+    width : 440px;
   }
   `
   return(
