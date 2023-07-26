@@ -8,18 +8,20 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  margin-top: 161.5px;
+  margin-top: 190px;
   margin-right: 257px;
   z-index: 1;
+  cursor : pointer;
   } 
 
 .bars{
   position: absolute;
   width: 25px;
   height: 20px;
-  margin-top: 160px;
+  margin-top: 190px;
   margin-left: 262px;
   z-index: 1;
+  cursor : pointer;
 }
 
 .bars.active{
@@ -30,7 +32,7 @@
   position: absolute;
   width: 130px;
   height: 20px;
-  padding-top: 20vh;
+  padding-top: 25vh;
   z-index: 1;
 
   font-family: Pretendard;
@@ -40,6 +42,7 @@
   letter-spacing: 0px;
   text-align: center;
   color: rgba(162, 192, 138, 1);
+  cursor : pointer;
 }
 
 .nav-menu{
@@ -68,6 +71,7 @@
   margin-top: 70px;
   margin-left: 120px;
   z-index: 1;
+  cursor : pointer;
 }
 
 .top{
@@ -111,7 +115,8 @@
   width: 120px;
   margin-top: 246px;
   margin-left: 38px;
-  border: 1.5px solid rgba(162, 192, 138, 1)
+  border: 1.5px solid rgba(162, 192, 138, 1);
+  cursor : pointer;
 }
 
 .topBarLogin{
@@ -119,7 +124,8 @@
   width: 120px;
   top: 316px;
   left: 38px;
-  border: 1.5px solid rgba(162, 192, 138, 1)
+  border: 1.5px solid rgba(162, 192, 138, 1);
+  cursor : pointer;
 }
 
 .topBarMyInfo{
@@ -127,7 +133,8 @@
   width: 120px;
   margin-top: 386px;
   margin-left: 38px;
-  border: 1.5px solid rgba(162, 192, 138, 1)
+  border: 1.5px solid rgba(162, 192, 138, 1);
+  cursor : pointer;
 }
 
 @media (min-width: 1024px) {
@@ -140,17 +147,19 @@
 .back{
   width: 40px;
   height: 30px;
-  margin-top: 12em;
+  margin-top: 18em;
   margin-right: 890px;
   z-index: 1;
+  cursor : pointer;
   } 
   
 .bars{
   width: 40px;
   height: 30px;
-  margin-top: 12em;
+  margin-top: 18em;
   margin-left: 890px;
   z-index: 1;
+  cursor : pointer;
 }
 
 .bars.active{
@@ -160,10 +169,11 @@
 .topName{
   width: 192px;
   height: 20px;
-  margin-top: 1em;
-  padding-top: 20%;
+  margin-top: 4em;
+  padding-top: 10%;
   font-size: 52px;
   line-height: 20px;
+  cursor : pointer;
 }
 
 
@@ -191,6 +201,7 @@
   height: 30px;
   margin-top: 5em;
   margin-left: 24em;
+  cursor : pointer;
 }
 
 .topHome{
@@ -198,7 +209,7 @@
   height: 20px;
   margin-top: 308px;
   margin-left: 154px;
-
+  cursor : pointer;
 }
 
 .topLogin {
@@ -206,6 +217,7 @@
   height: 20px;
   margin-top: 408px;
   margin-left: 154px;
+  cursor : pointer;
 }
 
 .topMyInfo{
@@ -213,26 +225,30 @@
   height: 20px;
   margin-top: 508px;
   margin-left: 154px;
+  cursor : pointer;
 }
 
 .topBarHome{
   width: 150px;
   margin-top: 348px;
   margin-left: 131px;
-  border: 2px solid rgba(162, 192, 138, 1)
+  border: 2px solid rgba(162, 192, 138, 1);
+  cursor : pointer;
 }
 
 .topBarLogin{
   width: 150px;
   top: 448px;
   left: 131px;
-  border: 2px solid rgba(162, 192, 138, 1)
+  border: 2px solid rgba(162, 192, 138, 1);
+  cursor : pointer;
 }
 
 .topBarMyInfo{
   width: 150px;
   margin-top: 548px;
   margin-left: 131px;
-  border: 2px solid rgba(162, 192, 138, 1)
+  border: 2px solid rgba(162, 192, 138, 1);
+  cursor : pointer;
 }
 }

@@ -3,10 +3,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin:0 auto;
+
 }
 .sub{
+  margin:0 auto;
   @media screen and (min-width: 1024px){
-    margin-left: 25%;
     }
 }
 .top_bar{
@@ -17,6 +19,7 @@
   background-color: #ABABAB80;
   top : 83px;
   left : 99px;
+  
 }
 
 .auth{
@@ -25,18 +28,16 @@
 .search{
   cursor: pointer;
   display: block;
-  padding-left: 105px;
-  padding-top: 4px;
-  z-index: 1;
+  padding-top: 6px;
+  z-index: 2;
   width: 20px;
   @media screen and (min-width: 1024px){
-    padding-left: 630px;
-    margin-top: 3px;
-    width: 30px;
+    padding-top: 5px;
+    width: 28px;
     }
 }
 .search_input{
-  width: 330px;
+  width: 320px;
   height: 31px;
   position: fixed;
   box-sizing: border-box;
@@ -47,10 +48,9 @@
   border: solid 1px #5B8E31;
   font-size: 17px;  
   @media screen and (min-width: 1024px){
-    padding-left: 870px;
-    width: 330px;
+    width: 890px;
     height: 40px;
-    z-index: 1;
+    z-index: 2;
     }
 }
 
@@ -70,6 +70,9 @@
   grid-template-columns: 250px 0px 70px;
   grid-gap: 10px;
   margin-top : 15px;
+  margin-left:auto;
+  margin-right:auto;
+  
   @media screen and (min-width: 1024px){
   width: 440px;
   display: grid;
@@ -86,7 +89,16 @@
   display: grid;
   grid-template-columns: 140px 34px 77px 34px 77px 34px;
   grid-gap: 10px;
+  margin-left:26%;
   }
+}
+.name{
+  display:flex;
+  position: relative;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+
 }
 .web_text{
   margin-top: 50px;

@@ -9,7 +9,6 @@ function Top(props) {
     const [sidebar, setSidebar] = useState(false)
 
     const showSidebar = () => setSidebar(!sidebar)
-
     const Navigate = useNavigate();
 
     const goToHome = () => {
@@ -21,11 +20,9 @@ function Top(props) {
     const goToMyPage = () => {
         Navigate("/myPage")
     }
-
     return(
         <div className='parent'>
-
-            <img className="back" alt="back" src={backImage} />
+            <img onClick={() => Navigate(-1)} className="back" alt="back" src={backImage} />
             <div className="topName">{props.text}</div>
 
             <img className={sidebar ? 'bars active': 'bars'} 

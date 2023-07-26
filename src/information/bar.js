@@ -108,6 +108,8 @@ padding-top : 1px;
 `
 
 function Bar(props) {
+  /* 채용지원이 연한 초록색으로*/
+
   const [visible, setVisible] = useState(false);
   const [top,setTop] = useState('15px');
   const [bottom,setBottom] = useState('0px');

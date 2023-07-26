@@ -50,13 +50,20 @@ const IconWrapper = styled.div`
 `;
 function FindingPass_Input_pwcheck(props) {
   const [isPasswordVisible, setPasswordVisible] = useState(false); // 비밀번호 숨김/보임 상태
-
+ 
+  const handleInputChange = (event) => {
+    const inputValue = event.target.value;
+    // 부모 컴포넌트로 변경된 값을 전달하는 부분
+    props.onChange(inputValue);
+  };
   const handleClick = () => {
       setPasswordVisible(!isPasswordVisible); };
 
 return (
     <div style={{ position: "relative" }}>
-        <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} />
+        <StyledInput {...props} type={isPasswordVisible ? "text" : "password"}
+            onChange={handleInputChange}
+         />
         <IconWrapper onClick={handleClick}>
             {isPasswordVisible ? <PiEye size={24}/> : <PiEyeClosed size={24}/>} 
         </IconWrapper>

@@ -29,22 +29,22 @@ function Recruiting(props){
   height : 31px;
   font-size: 16px;
   font-weight: 400;
-  padding-top : 4px;
-  padding-left : 10px;
+  padding-top : 3px;
+  padding-left : 13px;
   background-color: #5B8E31;
   color : white;
   cursor : pointer;
   z-index:1;
   @media screen and (min-width: 1024px) {
     height : 40px;
-    padding-top : 6px;
+    padding-top : 7px;
     font-size: 16px;
     padding-left:12px;
 
   }
 `
   return(
-    <div className='recruit'onClick={props.func}>
+    <div onClick = {props.onClick}className='recruit'>
       <SubDiv>모집중</SubDiv>
       <MainDiv>{props.text}</MainDiv>
     </div>
