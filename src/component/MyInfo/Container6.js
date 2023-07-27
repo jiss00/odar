@@ -16,7 +16,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:40px;
-    top:-200px;
+    top:-190px;
     left:3px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -25,8 +25,6 @@ const StyledTexts = styled.span`
     color: #000000;
     white-space: pre-line;
     font-size:16px;
- 
-
 
   @media all and (min-width: 1024px){	
     position: relative; 
@@ -35,7 +33,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:10px;
-    top:-200px;
+    top:-190px;
     left:-85px;
     font-size:20px;
     }
@@ -51,8 +49,6 @@ function Texts({children}) {
     );
 }
 
- 
-
 
 // Texts 컴포넌트 
 const StyledTexts2 = styled.span`
@@ -64,7 +60,7 @@ const StyledTexts2 = styled.span`
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
-    top:-200px;
+    top:-190px;
     margin-left:50px;
     margin-right:auto;
   
@@ -75,7 +71,7 @@ const StyledTexts2 = styled.span`
   height: 20px;
   margin-left:10px;
   margin-right:auto;
-  top:-200px;
+  top:-190px;
   left:100px;
   font-size:20px;
   color: #5C5C5C;
