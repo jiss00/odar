@@ -11,7 +11,7 @@
     flex-direction: column;
     text-align: center;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -48,7 +48,7 @@
   .pass_find {
     margin : 0px 0px;
     width: 100vw;
-    height: 100px;
+    height: 70px;
     color: rgba(92, 92, 92, 1);
     /* Pretendard :  글꼴 웹폰트 적용 방법 */
     font-family: Pretendard;
@@ -133,7 +133,25 @@
     letter-spacing: 0px;
     text-align: center;
 
-    margin: 5px 10px;
+    margin: 0px 10px;
+  }
+
+  /* 인증, 완료 */
+  .btn_all_pass_yes {
+    color: black;
+    background-color: rgba(162, 192, 138, 1);
+    width: 70px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0px;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+
+    margin: 0px 10px;
   }
 
   /* 인증, 완료 성공 버튼 */
@@ -148,7 +166,7 @@
 
     width: 335px;
     height: 75px;
-    margin-top: 30px;
+    margin-top: 50px;
     
     gap: 8px;
     background: rgba(162, 192, 138, 1);
@@ -172,8 +190,9 @@
 
   /* 아이디 input */
   .id_input_pass {
+    box-sizing: border-box;
     border: 2px solid rgba(91, 142, 49, 1);
-    border-radius: 10px;
+    
     width: 250px;
     height: 50px;
     font-family: Pretendard;
@@ -182,7 +201,7 @@
     /* line-height: 20px; */
     /* letter-spacing: 0px; */
     text-align: center;
-    border-radius: 20px;
+    border-radius: 15px;
 
 
   }
@@ -221,7 +240,7 @@
     width: 355px;
     height: 39px;
     padding: 8px 21px 7px 20px;
-    border-radius: 20px;
+    border-radius: 15px;
 
     background: rgba(237, 241, 213, 1);
 
