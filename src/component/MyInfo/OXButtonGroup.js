@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -70,8 +71,15 @@ function OButton({ children, to, disabled, onClick  }) {
 }
 
 function XButton({ children }) {
+
+  const Navigate = useNavigate();
+
+  const goToMypage = () => {
+      Navigate(-1);
+  };
+
   return (
-    <StyledButton>
+    <StyledButton onClick={goToMypage}>
       <ButtonText>{children}</ButtonText>
     </StyledButton>
   );
