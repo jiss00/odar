@@ -191,26 +191,27 @@ function  FindingPass_Input_pw(props) {
   };
 
   const handleInputChange = (event) => {
-    const password = event.target.value;const isValid1 =validateUpperCase(password);
+    const password = event.target.value;
+    const isValid1 =validateUpperCase(password);
     const isValid2 =validateNumber(password);
     const isValid3 =validateSpecialCharacter(password);
+
+    const isValidPassword = isValid1 && isValid2 && isValid3;
 
     setValidUpperCase(isValid1);
     setValidNumber(isValid2);
     setValidSpecialCharacter(isValid3);
 
-    function isAllValid(isValid1,isValid2,isValid3) {
-      return isValid1 && isValid2 && isValid3;
-    };
        // 부모 컴포넌트로 변경된 값을 전달하는 부분
     
-   onChange(isValid1 && isValid2 && isValid3); 
+      // 비밀번호와 유효성 검사 결과를 객체로 묶어서 한 번에 전달
+      onChange({ password, isValidPassword });
 
   };
 
   return (
     <div style={{ position: "relative" }}>
-      <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
+      <StyledInput {...otherProps} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
       <IconWrapper onClick={handleClick}>
         {isPasswordVisible ? <PiEye size={24}/> : <PiEyeClosed size={24}/>}
       </IconWrapper>

@@ -13,17 +13,28 @@ function Join(){
     const [validEmail, setValidEmail] = useState(false);
     const [validPassword, setValidPassword] = useState(false);
     const [validPasswordCheck, setValidPasswordCheck] = useState(false);
-  
+    const [password, setPassword] = useState("");
+    const [passwordcheck, setPasswordCheck] = useState("");
+
     const handleEmailChange = (isValid) => {
       setValidEmail(isValid);
     };
   
-    const handlePasswordChange = (isValid) => {
-      setValidPassword(isValid);
+    const handlePasswordChange = ({ password, isValidPassword }) => {
+      setValidPassword(isValidPassword);
+      setPassword(password);
     };
   
-    const handlePasswordCheckChange = (isValid) => {
-      setValidPasswordCheck(isValid);
+    const handlePasswordCheckChange = ({ passwordcheck, isValidPasswordCheck }) => {
+      setPasswordCheck(passwordcheck);
+  
+      // 비밀번호와 비밀번호 확인 값이 같을 경우에만 setValidPasswordCheck 호출
+      if (passwordcheck === password) {
+        setValidPasswordCheck(isValidPasswordCheck);
+      }
+      else
+       setValidPasswordCheck(false);
+
     };
 
     return(
@@ -40,7 +51,7 @@ function Join(){
             <Input_id type="email" placeholder=" 아이디를 입력해주세요." onChange={handleEmailChange} />
 
             <div className="pw__box"><Text width="83px">비밀번호</Text></div>
-            <Input_pw type="password" placeholder=" 비밀번호를 입력해주세요." onChange={handlePasswordChange} />
+            <Input_pw type="password" placeholder=" 비밀번호를 입력해주세요."onChange={handlePasswordChange} />
 
 
             <div className="pwcheck__box"><Text width="130px">비밀번호 확인</Text></div>

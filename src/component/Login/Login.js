@@ -25,6 +25,8 @@ export default function Login() {
         Navigate("/join");
     };
 
+    const isButtonDisabled = !(username && password);
+
     return (
         <div className='page'>
             <div className='statebar'>
@@ -58,7 +60,7 @@ export default function Login() {
                     </div>
                 </div>
                 <div>
-                    <button className='bottomButton' onClick={goToHome}>
+                    <button className='bottomButton' style={{ background: username && password ? '#5B8E31' :  '#A2C08A' }} disabled={isButtonDisabled} onClick={goToHome}>
                         로그인
                     </button>
                 </div>
