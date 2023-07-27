@@ -44,15 +44,26 @@ function FindingPass(props){
   // ---------------------------------------
   
 
+  const [password, setPassword] = useState("");
+  const [passwordcheck, setPasswordCheck] = useState("");
 
-  const handlePasswordChange = (isValid) => {
-    setValidPassword(isValid);
+  const handlePasswordChange = ({ password, isValidPassword }) => {
+    setValidPassword(isValidPassword);
+    setPassword(password);
   };
 
-  const handlePasswordCheckChange = (isValid) => {
-    setValidPasswordCheck(isValid);
-  };
+  const handlePasswordCheckChange = ({ passwordcheck, isValidPasswordCheck }) => {
+    setPasswordCheck(passwordcheck);
 
+    // 비밀번호와 비밀번호 확인 값이 같을 경우에만 setValidPasswordCheck 호출
+    if (passwordcheck === password) {
+      setValidPasswordCheck(isValidPasswordCheck);
+    }
+    else
+     setValidPasswordCheck(false);
+
+  };
+  
   const Modal = function(){
     return(
       <div id = "modal_success_pass">
@@ -160,7 +171,8 @@ function FindingPass(props){
           완료
       </button>
 
-    </div>
+
+    </div>  
   );
 }
 
