@@ -63,24 +63,39 @@ function FindingPass(props){
      setValidPasswordCheck(false);
 
   };
+
+  // 모달-------------------------------------------//
   
   const Modal = function(){
     return(
       <div id = "modal_success_pass">
-        아이디 인증이 완료되었습니다!
+        {modal_text}
       </div>
     );
   }
 
-  const checkModal = function(){
-    setModal(true);
-    setValidEmail(true);//인증완료시 버튼 33%채워짐.
-    set_modal_text('아이디 인증이 완료되었습니다!');
 
+  // 인증 버튼 클릭 시, 유효한 아이디인지 확인 
+  
+  // id 유효성 검사 상태
+  const [id_available, set_id_available] = useState(false);
+  const checkModal = () =>{
+    setModal(true);
+    
+    if (id_available === true){
+      setValidEmail(true);//인증완료시 버튼 33%채워짐.
+      set_modal_text('아이디 인증이 완료되었습니다!');
+    } 
+    else if(id_available === false){
+      setValidEmail(false);//인증완료시 버튼 33%채워짐.
+      set_modal_text('아이디를 다시 확인해주세요.');
+    }
     // if ({modal}){
     //   console.log("인증버튼 클릭");
     // }
   }
+
+   // 모달-------------------------------------------//
   
 
   const getSeconds = (time) => {
@@ -159,7 +174,6 @@ function FindingPass(props){
 
 
       <button
-
           disabled={validEmail && validPassword && validPasswordCheck ? false : true}
           className="btn_all_pass"
           id="btn_success_pass"
