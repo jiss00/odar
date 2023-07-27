@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import FindingPass_Input_pw from './FindingPass_Input_pw';
 import FindingPass_Input_pwcheck from './FindingPass_Input_pwcheck';
 import Text from '../component/Join/Text';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
+
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -112,7 +114,16 @@ function FindingPass(props){
     );
   }
 
-  
+  // 제일 밑 완료 버튼 클릭시, 로그인 화면으로 이동, 서버에 업데이트된 비밀번호 전송
+  let navigate = useNavigate(); //라우팅 객체 만들기
+  const goLogin = () => {
+    navigate('/login');
+  }
+  const goLogin_pushToPass = () =>{
+    goLogin(); //로그인 화면으로 이동
+    // 서버에 업데이트된 비밀번호 전송 기능 만들기
+    
+  }
 
 
   return(
@@ -148,16 +159,19 @@ function FindingPass(props){
 
 
       <button
-      disabled={validEmail && validPassword && validPasswordCheck ? false : true}
-      className="btn_all_pass"
-      id="btn_success_pass"
-      style={{
-        background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
-        color: validEmail && validPassword && validPasswordCheck ? 'black' : '#5C5C5C'
-      }}
-    >
-      완료
-</button>
+
+          disabled={validEmail && validPassword && validPasswordCheck ? false : true}
+          className="btn_all_pass"
+          id="btn_success_pass"
+          style={{
+            background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
+            color: validEmail && validPassword && validPasswordCheck ? 'black' : '#5C5C5C'
+          }}
+          onClick={goLogin_pushToPass}
+        >
+          완료
+      </button>
+
 
     </div>  
   );
