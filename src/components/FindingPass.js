@@ -8,12 +8,40 @@ import Text from '../component/Join/Text';
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
 
-function FindingPass(){
+function FindingPass(props){
   const [modal, setModal] = useState(false); // 상태를 만듬.
+    // 모달창 내용
+  const [modal_text, set_modal_text] = useState('아이디 인증이 완료되었습니다!');
   // const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
-  const [validEmail, setValidEmail] = useState(false);
+
   const [validPassword, setValidPassword] = useState(false);
   const [validPasswordCheck, setValidPasswordCheck] = useState(false);
+
+
+  // 정규식 확인 ---------------------------------
+  // const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
+
+  const [validEmail, setValidEmail] = useState(false);
+    
+  // 아이디 이메일 정규식 확인
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  }
+
+  // id 입력받는거 얻는거
+  const handleInputChange = (event) => {
+    const email = event.target.value;
+    const isValid = validateEmail(email);
+    // 이메일 유효성 검사 결과 : true, false
+    setValidEmail(isValid);
+    // console.log(isValid);
+    
+  }
+
+  // ---------------------------------------
+  
+
   const [password, setPassword] = useState("");
   const [passwordcheck, setPasswordCheck] = useState("");
 
@@ -45,9 +73,11 @@ function FindingPass(){
   const checkModal = function(){
     setModal(true);
     setValidEmail(true);//인증완료시 버튼 33%채워짐.
-    if ({modal}){
-      console.log("인증버튼 클릭");
-    }
+    set_modal_text('아이디 인증이 완료되었습니다!');
+
+    // if ({modal}){
+    //   console.log("인증버튼 클릭");
+    // }
   }
   
 
@@ -82,6 +112,8 @@ function FindingPass(){
     );
   }
 
+  
+
 
   return(
     
@@ -97,8 +129,8 @@ function FindingPass(){
       <div className='body_id_pass'>
         <h3 className="id_pass">아이디</h3>
         <section className='input_section1_pass'>
-          <input className="id_input_pass" type="text" id="" placeholder="oooo@oooo" ></input>
-          <button className= "btn_all_pass" type="submit"  onClick={() => { checkModal(); }} >인증</button>
+          <input className="id_input_pass" onChange={handleInputChange} type="text" id="" placeholder="oooo@oooo" ></input>
+          <button className= {validEmail === false ? "btn_all_pass" : "btn_all_pass_yes"} disabled ={!validEmail} type="submit"  onClick={() => { checkModal(); }} >인증</button>
         </section>
         {modal === true ? <Modal></Modal> : <></>}
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
