@@ -179,6 +179,8 @@ function validateSpecialCharacter(str) {
 }
 
 function  FindingPass_Input_pw(props) {
+  const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
+
   const [isPasswordVisible, setPasswordVisible] = useState(false); // 비밀번호 숨김/보임 상태
   const [validUpperCase, setValidUpperCase] = useState(false); // 대소문자 유효성 검사 결과
   const [validNumber, setValidNumber] = useState(false); // 숫자 유효성 검사 결과
@@ -189,10 +191,21 @@ function  FindingPass_Input_pw(props) {
   };
 
   const handleInputChange = (event) => {
-    const password = event.target.value;
-    setValidUpperCase(validateUpperCase(password));
-    setValidNumber(validateNumber(password));
-    setValidSpecialCharacter(validateSpecialCharacter(password));
+    const password = event.target.value;const isValid1 =validateUpperCase(password);
+    const isValid2 =validateNumber(password);
+    const isValid3 =validateSpecialCharacter(password);
+
+    setValidUpperCase(isValid1);
+    setValidNumber(isValid2);
+    setValidSpecialCharacter(isValid3);
+
+    function isAllValid(isValid1,isValid2,isValid3) {
+      return isValid1 && isValid2 && isValid3;
+    };
+       // 부모 컴포넌트로 변경된 값을 전달하는 부분
+    
+   onChange(isValid1 && isValid2 && isValid3); 
+
   };
 
   return (

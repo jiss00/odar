@@ -46,8 +46,9 @@ function Join(){
             <div className="pwcheck__box"><Text width="130px">비밀번호 확인</Text></div>
             <Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." onChange={handlePasswordCheckChange} />
 
-        <InputLongButton></InputLongButton>
-            
+        <InputLongButton validEmail={validEmail}
+          validPassword={validPassword}
+          validPasswordCheck={validPasswordCheck}/>
         </div>
         </>  
     )

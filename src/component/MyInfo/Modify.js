@@ -14,8 +14,8 @@ import Container2 from './Container2';
 import Container3 from './Container3';
 import Container4 from './Container4';
 import Container5 from './Container5';
-import ModifyLongButton from './ModifyLongButton';
 import Container6 from './Container6';
+import ModifyLongButton from './ModifyLongButton';
 
 function Modify(){
     return(

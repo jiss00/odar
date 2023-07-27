@@ -45,8 +45,8 @@ function MyPage(){
     }
 
     //회원 탈퇴
-    const goWithdrawl = () =>{
-        navigate('/withdrawl');
+    const goWithdrawal = () =>{
+        navigate('/withdrawal');
     }
 
 
@@ -130,7 +130,7 @@ function MyPage(){
                             </svg>
                         </button>
                     </div>
-                    <div className = "item_footer_list" onClick={goWithdrawl}>
+                    <div className = "item_footer_list" onClick={goWithdrawal}>
                         <span className = "item_footer_write" >회원탈퇴</span>
                         <button className = "item_footer_btn">
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">

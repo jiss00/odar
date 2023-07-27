@@ -54,17 +54,57 @@ const Icon = styled.div`
     width: 24px;
     height: 24px;
 `;
+// 대소문자 유효성 검사 함수
+function validateUpperCase(str) {
+    return /[A-Z]/.test(str);
+  }
+  
+  // 숫자 유효성 검사 함수
+  function validateNumber(str) {
+    return /[0-9]/.test(str);
+  }
+  
+  // 특수문자 유효성 검사 함수
+  function validateSpecialCharacter(str) {
+    return /[!@#$%^&*(),.?":{}|<>]/.test(str);
+  }
 
 function Withdrawal_Input_Pw(props) {
-    const [isPasswordVisible, setPasswordVisible] = useState(false);
+  const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
+
+  const [isPasswordVisible, setPasswordVisible] = useState(false); // 비밀번호 숨김/보임 상태
+
+  const [validUpperCase, setValidUpperCase] = useState(false); // 대소문자 유효성 검사 결과
+  const [validNumber, setValidNumber] = useState(false); // 숫자 유효성 검사 결과
+  const [validSpecialCharacter, setValidSpecialCharacter] = useState(false); // 특수문자 유효성 검사 결과
 
     const handleClick = () => {
         setPasswordVisible(!isPasswordVisible);
     };
-      
+
+    const handleInputChange = (event) => {
+    const password = event.target.value;
+    const isValid1 =validateUpperCase(password);
+    const isValid2 =validateNumber(password);
+    const isValid3 =validateSpecialCharacter(password);
+
+    setValidUpperCase(isValid1);
+    setValidNumber(isValid2);
+    setValidSpecialCharacter(isValid3);
+
+    function isAllValid(isValid1,isValid2,isValid3) {
+      return isValid1 && isValid2 && isValid3;
+    };
+    
+    // 부모 컴포넌트로 변경된 값을 전달하는 부분
+    
+   onChange(isValid1 && isValid2 && isValid3); 
+
+  };
+  
     return (
         <div style={{ position: "relative" }}>
-            <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} />
+            <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
             <IconWrapper onClick={handleClick}>
                 <Icon>{isPasswordVisible ? <PiEye size={24} /> : <PiEyeClosed size={24} />}</Icon>
             </IconWrapper>

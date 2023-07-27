@@ -7,9 +7,8 @@ import Auth from './authentic';
 import Button from './button';
 import TopBar from './topBar';
 import Timer from './timer';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
+import { useState } from 'react';
+import timer from './timer';
 
 
 const StyledDiv = styled.div`
@@ -29,25 +28,61 @@ margin-top :10px;
   position:absolute
 }
 `;
-const auth = document.getElementsByClassName("auth");
-const complete = () => {
-  auth[0].style.display = 'block';
-}
-const auth_number = '000000'; /*임시 인증번호*/ 
 
 function Join() {
+  const [modal, setModal] = useState(false); // 상태를 만듬.
+/* 정규식 관련 */
+  const [name, setName] = useState('');
+  const [birth1, setBirth1] = useState('');
+  const [birth2, setBirth2] = useState('');
+  const [birth3, setBirth3] = useState('');
+  const [verification, setVerification] = useState('');
+  const [complete, setComplete] = useState('');
+  const handleNameChange = (isValid,inputValue) => {
+    setName(isValid);
+    setUsrName(inputValue);
+  };
 
-  const [name,setName] = useState('');
+  const handleBirthChange1 = (isValid,inputValue) => {
+    setBirth1(isValid);
+    setYear(inputValue);
+  };
+
+  const handleBirthChange2 = (isValid,inputValue) => {
+    setBirth2(isValid);
+    setMonth(inputValue);
+  };
+
+  const handleBirthChange3 = (isValid,inputValue) => {
+    setBirth3(isValid);
+    setDay(inputValue);
+  };
+
+  const handleVerificationChange = (isValid,inputValue) => {
+    setVerification(isValid);
+    setPhone(inputValue);
+  };
+
+  const handleCompleteChange = (isValid,inputValue) => {
+    setComplete(isValid);
+    setAuth(inputValue);
+  };
+
+  /* 사용자 정보 저장하기*/
+  const [usrName,setUsrName] = useState('');
   const [year,setYear] = useState('');
   const [month,setMonth] = useState('');
   const [day,setDay] = useState('');
   const [phone,setPhone] = useState('');
   const [auth,setAuth] = useState('');
-  const btn_state = useState(true);
-  const [modal, setModal] = useState(false); // 상태를 만듬.
-  const onclick = () => {
-    setModal(true);
-  }
+  console.log(usrName);
+  console.log(year);
+  console.log(month);
+  console.log(day);
+  console.log(phone);
+  console.log(auth);
+
+
   /*
   const url = `http://arthurcha.shop:3000/app/users`
   axios(
@@ -67,39 +102,38 @@ function Join() {
     console.log(response.data)
   });
 */
-  console.log(name);
-  console.log(year);
-  console.log(month);
-  console.log(day);
-  console.log(phone);
-  console.log(auth);
 
+  const onclick = () => {
+    setModal(true);
+  }
 
 
 
   return (
     <div className='main'>
-      <TopBar></TopBar>
+         <TopBar name={name} birth1={birth1} birth2={birth2} birth3={birth3} verification={verification} complete={complete}/>
       <div className='sub'>
         <Text text='회원가입' />
         <Text1 text='이름' />
-        <input onChange={(e)=>setName(e.target.value)} placeholder="이름을 입력해주세요."className='input_1'></input>
+        <div className='name'>
+          <Input placeholder="이름을 입력해주세요." w_width='440px' width='335px' type="handleNameChange" onChange={handleNameChange}/>
+        </div> 
         <Text1 top='342px' left='31px' text='생년월일' />
         <div className='date'>
-          <input onChange={(e)=>setYear(e.target.value)} placeholder="1900"className='input_2'></input>
+          <Input placeholder="1900" w_width='140px' width='96px'type="handleBirthChange1" onChange={handleBirthChange1}/>
           <div className='text'>년</div>
-          <input onChange={(e)=>setMonth(e.target.value)} placeholder="01"className='input_3'></input>
+          <Input placeholder="01" w_width='77px' width='65px' type="handleBirthChange2" onChange={handleBirthChange2}/>
           <div className='text'>월</div>
-          <input onChange={(e)=>setDay(e.target.value)} placeholder="01"className='input_3'></input>
+          <Input placeholder="01" w_width='77px' width='65px'type="handleBirthChange3" onChange={handleBirthChange3} />
           <div className='text'>일</div>
         </div>
         <Text1 text='휴대폰번호' />
         <div className='phone_number'>
-          <input onChange={(e)=>setPhone(e.target.value)} placeholder="010-0000-0000"className='input_4' ></input>
+          <Input placeholder="010-0000-0000" w_width='350px' width='250px'type="handleVerificationChange" onChange={handleVerificationChange} />
           <Auth func={onclick} text='인증' />
         </div>
         <div className='phone_number'>
-          <input onChange={(e)=>setAuth(e.target.value)} placeholder="000000" className='input_4' ></input>
+          <Input placeholder="000000" w_width='350px' width='250px' type="handleCompleteChange" onChange={handleCompleteChange}/>
           {modal === true ? <Timer modal={modal} setModal={setModal}></Timer> : <></>}
 
           <Auth text='완료' />
@@ -107,7 +141,7 @@ function Join() {
         <div style={{ height: '50px' }}>
           <StyledDiv className='auth'>휴대폰 인증이 완료되었습니다.</StyledDiv>
         </div>
-        <button disabled={btn_state ? false : true} className='button' onClick={complete}>가입</button>
+        <Button birth1={birth1} birth2={birth2} birth3={birth3} verification={verification} complete={complete}/>
       </div>
     </div>
   )

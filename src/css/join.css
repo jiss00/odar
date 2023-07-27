@@ -1,12 +1,26 @@
 .main{
   position: absolute;
-  top: 50%;
+  top : 400px;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin:0 auto;
+  @media screen and (min-width: 1024px){
+    top : 500px;
+  }
+}
+.main1{
+  position: absolute;
+  left: 48%;
+  top : 450px;
+  transform: translate(-50%, -50%);
+  margin:0 auto;
+  @media screen and (min-width: 1024px){
+    top : 550px;
+  }
 }
 .sub{
+  margin:0 auto;
   @media screen and (min-width: 1024px){
-    margin-left: 25%;
     }
 }
 .top_bar{
@@ -68,6 +82,9 @@
   grid-template-columns: 250px 0px 70px;
   grid-gap: 10px;
   margin-top : 15px;
+  margin-left:auto;
+  margin-right:auto;
+  
   @media screen and (min-width: 1024px){
   width: 440px;
   display: grid;
@@ -84,7 +101,16 @@
   display: grid;
   grid-template-columns: 140px 34px 77px 34px 77px 34px;
   grid-gap: 10px;
+  margin-left:26%;
   }
+}
+.name{
+  display:flex;
+  position: relative;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+
 }
 .web_text{
   margin-top: 50px;

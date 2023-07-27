@@ -6,10 +6,15 @@ function Text_1(props){
   font-weight: 800;
   margin-bottom : 10px;
   margin-top : 40px;
+  text-align: left;
+  margin-left:auto;
+  margin-right:auto;
+
   @media screen and (min-width: 1024px) {
-    font-weight : 800;
     font-size : 36px;
-    margin-top : 40px;
+    align-items: center;
+    justify-content: center;
+    margin-left:26%;
   `
   return(
     <StyledText_1>{props.text}</StyledText_1>

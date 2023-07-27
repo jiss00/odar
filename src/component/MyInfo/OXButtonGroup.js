@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const StyledButton = styled.button`
   font-size: 24px;
   line-height: 20px;
   border: 1px solid lightgray;
-  background: ${props => (props.primary ? "#5B8E31" : "#A2C08A")};
+  background: ${props => (props.primary === "true" ? "#5B8E31" : "#A2C08A")};
   color: #000000;
   text-decoration: none;
   font-family: "Pretendard";
@@ -29,7 +30,15 @@ const StyledButton = styled.button`
   margin-left:${props => (props.primary ? "auto" : "0")};
   margin-right:${props => (props.primary ? "0" : "auto")};
   margin-bottom: 100px;
-  
+  ${({ disabled }) =>
+  disabled &&
+  `
+  background:#A2C08A;
+  color: #5C5C5C;
+  pointer-events: none;
+  cursor: not-allowed;
+`}
+
   @media all and (min-width: 1024px) {
     position: relative;
     width: 100%;
@@ -52,9 +61,9 @@ const ButtonText = styled.span`
   text-align: center;
 `;
 
-function OButton({ children }) {
+function OButton({ children, to, disabled, onClick  }) {
   return (
-    <StyledButton primary>
+    <StyledButton primary="true" as={Link} to={to} disabled={disabled} onClick={onClick}>
       <ButtonText>{children}</ButtonText>
     </StyledButton>
   );
@@ -68,10 +77,23 @@ function XButton({ children }) {
   );
 }
 
-function ButtonGroup() {
+function ButtonGroup({ validEmail, validPassword }) {
+  const isButtonDisabled = !(validEmail && validPassword);
+
+  const handleConfirm = () => {
+    if (!isButtonDisabled) {
+      // 여기에 확인 버튼을 눌렀을 때 유효한 회원 체크 로직을 작성.
+    
+      if (validEmail  && validPassword) {
+        console.log("유효한 회원입니다. 탈퇴 요청을 처리합니다.");
+      } else {
+        console.log("유효하지 않은 회원입니다.");
+      }
+    }
+  };
   return (
     <ButtonContainer>
-      <OButton>확인</OButton>
+      <OButton  disabled={isButtonDisabled} onClick={handleConfirm}>확인</OButton>
       <XButton>취소</XButton>
     </ButtonContainer>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled,{css}  from "styled-components";
 
 const Container = styled.div`
@@ -113,21 +113,37 @@ const Writeinput = styled.input`
   position: relative;
   border: 1px solid #5B8E31;
   border-radius: 20px;
-  
+  margin:0 auto;
+  left: -2px;
   width: 188px; 
   height: 25px;
-  top: -18.5em;
-  left: -8em;
+  top: 11px;
 
   @media all and (min-width: 1024px) {
+    width:358px;
+    height: 35px;
+    left: -2px;
+    top: 11px;
 
 }
 `;
 
 function Selectbar() {
+
+  const [selectedOption, setSelectedOption] = useState("1");
+  const [inputValue, setInputValue] = useState(""); 
+
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
   return (
     <MenuBarWrapper>
-    <MenuBar>
+    <MenuBar onChange={handleSelectChange} value={selectedOption}>
       <MenuItem value="1">----</MenuItem>
       <MenuItem value="2">직접입력</MenuItem>
       <MenuItem value="3">경영/사무/금융/보험직</MenuItem>
@@ -141,6 +157,13 @@ function Selectbar() {
       <MenuItem value="11">설치/정비/생산직</MenuItem>
       <MenuItem value="12">농림어업직 </MenuItem>
     </MenuBar>
+    {selectedOption === "2" && (
+      <Writeinput
+      type="text"
+      value={inputValue}
+      onChange={handleInputChange}
+    />
+    )}
     </MenuBarWrapper>
   );
 }
@@ -152,7 +175,6 @@ function Container1() {
         희망직종
       </Texts>
       <Selectbar />
-      <Writeinput />
     </Container>
   );
 }

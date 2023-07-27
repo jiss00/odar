@@ -3,7 +3,7 @@
   justify-content: center; /* 가로 축 가운데 정렬 */
   align-items: center; /* 세로 축 가운데 정렬 */
 }
-  .statebar{
+.statebar {
   position: absolute;
   display: flex;
   width: 193px;
@@ -11,15 +11,25 @@
   top: 90px;
   border-radius: 10px;
   background-color: rgba(171, 171, 171, 0.5);
-  }
-  
-  /* .statebar_inner{
-  width: 96.5px;
+}
+
+.statebar_inner {
   height: 15px;
   border-radius: 10px;
   background: rgba(162, 192, 138, 1);
-  } */
-  
+  transition: width 0.3s ease;
+}
+
+/* 입력창의 상태에 따라 상태바의 너비를 설정 */
+input.input:not(:placeholder-shown) + .statebar .statebar_inner {
+  width: 50px; /* 입력이 되면 50%까지 채워짐 */
+}
+
+input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
+  width: 100px; /* 입력이 모두 되면 100%로 채워짐 */
+}
+
+
   .titleWrap_login{
   position:absolute;
   top:180px;
