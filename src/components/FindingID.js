@@ -1,5 +1,4 @@
 import '../css/FindingID.css';
-import '../css/FindingID_web.css';
 // styled 컴포넌트 사용
 // import styled from 'styled-components';
 import { useState } from 'react';
@@ -17,6 +16,7 @@ function FindingID() {
   const [modal, setModal] = useState(false); // 상태를 만듬.
   // const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
 
+    // 모달창 내용
   const [modal_text, set_modal_text] = useState('해당 번호로 인증번호가 전송되었습니다!');
   
   const [verification, setVerification] = useState('');
