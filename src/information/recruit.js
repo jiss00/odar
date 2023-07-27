@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Recruiting from './recruiting';
 import Complete from './complete';
 import Text from './text';
@@ -16,7 +16,8 @@ function Recruit() {
   return (
     <div>
       <Top text='채용정보'></Top>
-      <div className="main">
+
+      <div className="main1">
         <div className="margin"></div>
         <div className="sort">
           <Sort text='마감날짜' ></Sort>
@@ -24,7 +25,7 @@ function Recruit() {
           <div></div>
           <Search></Search>
         </div>
-        <Recruiting onClick={() => navigate(`/requirement`)} top='195px' text='진주시 요양원 조리원 모집'></Recruiting>
+        <Recruiting onClick={() => navigate(`/requirement`)} text='진주시 요양원 조리원 모집'></Recruiting>
         <Recruiting text='경상대 주차요원 모집'></Recruiting>
         <Recruiting text='사대부고 주차도우미'></Recruiting>
         <Recruiting text='기숙사 급식 도우미'></Recruiting>

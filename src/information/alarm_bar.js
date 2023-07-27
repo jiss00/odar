@@ -28,18 +28,21 @@ margin-top : 12px;
 const SubDiv = styled.div`
 box-sizing: border-box;
 text-align: center;  
-padding-top : 5px;
+padding-top : 7px;
+padding-left : 10px;
+padding-right : 10px;
 width : 329px;
 height : 153px;
 border-radius : 10px;
 background-color:#EDF1D5;
 margin-left: 20px;
+font-size:18px;
 @media screen and (min-width: 1024px){
   padding-top : 25px;
   width : 1004px;
   height : 170px;
-  font-size:20px;
-  font-weight : 400;  
+  font-size:22px;
+  font-weight : 450;  
 }
 `
 const StyledDiv = styled.div`
@@ -59,8 +62,6 @@ background-color : #A2C08A;
 
 } 
 `
-
-
 function Bar(props) {
   const [visible, setVisible] = useState(false);
   const [top,setTop] = useState('15px');

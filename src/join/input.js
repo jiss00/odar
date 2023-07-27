@@ -7,10 +7,11 @@ const StyledInput = styled.input`
   border-radius: 15px;
   border: solid #5B8E31 2px;
   height: 50px;
-  font-size: 24px;
+  padding-top : 5px;
   padding-left: 10px;
-  font-weight: 600;
-  
+  font-size: 20px;
+  font-weight: 400;
+  outline: none;
   ::placeholder {
     font-family: "Pretendard";
     color: #D9D9D9;
@@ -60,6 +61,7 @@ function Input(props) {
   const { onChange, ...otherProps } = props;
   const [isValid, setIsValid] = useState(false);
 
+
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     let isValid =false;
@@ -68,32 +70,33 @@ function Input(props) {
       case "handleNameChange":
         isValid = validateName(inputValue);
         setIsValid(isValid);
-        onChange(isValid);
+        onChange(isValid,inputValue);
+
         break;
       case "handleBirthChange1":
         isValid = validateBirth1(inputValue);
         setIsValid(isValid);
-        onChange(isValid);
+        onChange(isValid,inputValue);
         break;
       case "handleBirthChange2":
         isValid = validateBirth(inputValue);
         setIsValid(isValid);
-        onChange(isValid);
+        onChange(isValid,inputValue);
         break;
       case "handleBirthChange3":
         isValid = validateBirth(inputValue);
         setIsValid(isValid);
-        onChange(isValid);
+        onChange(isValid,inputValue);
         break;
       case "handleVerificationChange":
         isValid = validatePhoneNumber(inputValue);
         setIsValid(isValid);
-        onChange(isValid);
+        onChange(isValid,inputValue);
         break;
       case "handleCompleteChange":
         isValid = validateVerificationCode(inputValue);
         setIsValid(isValid);
-        onChange(isValid);
+        onChange(isValid,inputValue);
         break;
       default:
         break;
@@ -107,4 +110,3 @@ function Input(props) {
 }
 
 export default Input;
-

@@ -22,7 +22,7 @@ padding-top : 11px;
   }
 `
 function Timer({ modal, setModal }) {
-    const [time, setTime] = useState(3); // 남은 시간 (단위: 초)
+    const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
     useEffect(() => {
         const timer = setInterval(() => {
             setTime((prev) => prev - 1);

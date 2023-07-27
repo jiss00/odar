@@ -4,7 +4,7 @@ import Complete from './complete';
 import Text from './text';
 import Sort from './sort';
 import Search from './search';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Footer from './footerBar';
 import Top from './Top';
 import '../css/information.css';
@@ -20,7 +20,7 @@ function Employment() {
   return (
     <div>
       <Top route={back} text='취업지원'></Top>
-      <div className="main">
+      <div className="main1">
         <div className="margin"></div>
         <div className="sort">
           <Sort text='마감날짜' ></Sort>

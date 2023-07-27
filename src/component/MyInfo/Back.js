@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import profileImage from './back.png'; // 상대 경로로 이미지 파일을 import
+import { useNavigate } from 'react-router-dom'
 
 const StyledBack = styled.img`
   box-sizing: border-box;
@@ -11,6 +12,7 @@ const StyledBack = styled.img`
   top: 67px;
   left:-135px;
   margin: 0px auto;
+  cursor : pointer;
 
   @media all and (min-width: 1024px){
     display:flex;	
@@ -23,9 +25,14 @@ const StyledBack = styled.img`
 `;
 
 function Back() {
+  const navigate = useNavigate();
+
+  const goBack = () =>{
+    navigate(-1);
+  }
   return (
     <div>
-      <StyledBack src={profileImage} alt="Profile Image" />
+      <StyledBack onClick={goBack} src={profileImage} alt="Profile Image" />
     </div>
   );
 }
