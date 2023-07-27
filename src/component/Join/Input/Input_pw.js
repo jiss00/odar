@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { PiEyeClosed, PiEye } from "react-icons/pi";
 import Text_small from "../Text_small";
-import ProgressBar from "../ProgressBar";
 
 const JoinContainer1 = styled.div`
 display: flex;
@@ -118,17 +117,14 @@ function Input_pw(props) {
     const isValid2 =validateNumber(password);
     const isValid3 =validateSpecialCharacter(password);
 
+    const isValidPassword = isValid1 && isValid2 && isValid3;
+
     setValidUpperCase(isValid1);
     setValidNumber(isValid2);
     setValidSpecialCharacter(isValid3);
 
-    function isAllValid(isValid1,isValid2,isValid3) {
-      return isValid1 && isValid2 && isValid3;
-    };
-    
-    // 부모 컴포넌트로 변경된 값을 전달하는 부분
-    
-   onChange(isValid1 && isValid2 && isValid3); 
+    // 비밀번호와 유효성 검사 결과를 객체로 묶어서 한 번에 전달
+    onChange({ password, isValidPassword });
 
   };
   
