@@ -148,15 +148,15 @@ function FindingPass(props){
 
 
       <button
-  disabled={validEmail && validPassword && validPasswordCheck ? false : true}
-  className="btn_all_pass"
-  id="btn_success_pass"
-  style={{
-    background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
-    color: validEmail && validPassword && validPasswordCheck ? 'black' : '#5C5C5C'
-  }}
->
-  완료
+      disabled={validEmail && validPassword && validPasswordCheck ? false : true}
+      className="btn_all_pass"
+      id="btn_success_pass"
+      style={{
+        background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
+        color: validEmail && validPassword && validPasswordCheck ? 'black' : '#5C5C5C'
+      }}
+    >
+      완료
 </button>
 
     </div>  
