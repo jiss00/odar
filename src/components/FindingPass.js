@@ -77,15 +77,17 @@ function FindingPass(props){
 
   // 인증 버튼 클릭 시, 유효한 아이디인지 확인 
   
-  // id 유효성 검사 상태
-  const [id_available, set_id_available] = useState(false);
+  // id 가 서버에 있는지 확인하는거
+  const [id_available, set_id_available] = useState(true);
+  
   const checkModal = () =>{
     setModal(true);
-    
+    // id가 서버에 있음
     if (id_available === true){
       setValidEmail(true);//인증완료시 버튼 33%채워짐.
       set_modal_text('아이디 인증이 완료되었습니다!');
     } 
+    // id가 서버에 없음
     else if(id_available === false){
       setValidEmail(false);//인증완료시 버튼 33%채워짐.
       set_modal_text('아이디를 다시 확인해주세요.');

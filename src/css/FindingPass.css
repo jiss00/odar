@@ -67,7 +67,9 @@
 /* 아이디 바디 */
   .body_id_pass{
     width: 350px;
-    height: 200px;
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 40px;
 
     
     display: flex;
@@ -124,6 +126,7 @@
     background-color: rgba(162, 192, 138, 1);
     width: 70px;
     height: 50px;
+    
     border-radius: 10px;
     border: 0px;
     font-family: Pretendard;
@@ -142,6 +145,7 @@
     background-color: rgba(162, 192, 138, 1);
     width: 70px;
     height: 50px;
+    
     border-radius: 10px;
     border: 0px;
     font-family: Pretendard;
@@ -166,6 +170,7 @@
 
     width: 335px;
     height: 75px;
+    min-height: 75px;
     margin-top: 50px;
     
     gap: 8px;
@@ -182,11 +187,6 @@
   }
 
 
-  /* 제일 밑 완료 클리어*/
-  #btn_success_pass{
-    background-color: #5B8E31;
-    color: black;
-  }
 
   /* 아이디 input */
   .id_input_pass {
@@ -275,6 +275,7 @@
     width:440px;
     height: 145px;
     margin-top:40px;
+    margin-bottom: 10px;
   }
 
   /* 아이디 */
@@ -335,6 +336,13 @@
     box-sizing: border-box;
     width: 440px;
     height: 90px;
+    min-height: 90px;
+
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 90px;
+
+
   }
 }
 
