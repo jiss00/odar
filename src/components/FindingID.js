@@ -3,7 +3,7 @@ import '../css/FindingID.css';
 // import styled from 'styled-components';
 import { useState } from 'react';
 import { useEffect } from 'react';
-
+import FindingID_Result from './FindingID_Result.js';
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -45,6 +45,7 @@ function FindingID() {
       console.log("인증버튼 클릭");
     }
   }
+
 
 
   const getSeconds = (time) => {
@@ -150,6 +151,7 @@ function FindingID() {
   // // phone_number_state와 certification_mumber_state 가 변경될 때마다  inputAllValue 함수를 호출
   useEffect(() => {
     inputAllValue();
+    
   }, [phone_number_state, certification_number_state]);
 
   // --------------------------------------------------//
@@ -164,7 +166,7 @@ function FindingID() {
       <div className='body'>
         <h3 className="phone_number_name">휴대폰 번호</h3>
         <section className='input_section1'>
-          <input onChange={savePhoneNumber} className="input_all" type="text" id="phone_number" placeholder="01000000000" maxLength={11}></input>
+          <input onChange={savePhoneNumber} className="input_all" type="text" id="phone_number" placeholder="010-0000-0000" maxLength={13}></input>
           <button disabled={btn_all_state < 1} className={btn_all_state >= 1 ? 'btn_all_yes' : 'btn_all'} type="submit" onClick={() => { checkModal(); }} >인증</button>
         </section>
         <section className='input_section2'>
@@ -176,6 +178,8 @@ function FindingID() {
         {modal === true ? <Modal text={modal_text}></Modal> : <></>}
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
       </div>
+      {/* 아이디 출력하는 코드 */}
+      <FindingID_Result id = 'hi'></FindingID_Result>
 
       <button disabled={btn_success_state ? false : true} className={`${btn_success_state === true ? 'btn_success_yes' : 'btn_success'}`} >완료</button>
 

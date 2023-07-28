@@ -29,6 +29,7 @@ function Top(props) {
                 alt="bars" 
                 src={barsImage} 
                 onClick={showSidebar}
+                style={{display: props.display}}
             />
 
             <nav className={sidebar ? 'nav-menu active': 'nav-menu'}>

@@ -25,7 +25,7 @@ function Recruit() {
           <div></div>
           <Search></Search>
         </div>
-        <Recruiting onClick={() => navigate(`/requirement`)} text='진주시 요양원 조리원 모집'></Recruiting>
+        <Recruiting onClick={() => navigate(`/requitmentDetail`)} text='진주시 요양원 조리원 모집'></Recruiting>
         <Recruiting text='경상대 주차요원 모집'></Recruiting>
         <Recruiting text='사대부고 주차도우미'></Recruiting>
         <Recruiting text='기숙사 급식 도우미'></Recruiting>

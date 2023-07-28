@@ -28,7 +28,7 @@ function Employment() {
           <div></div>
           <Search></Search>
         </div>
-        <Recruiting onClick={() => navigate(`/Jopdetail_1`)} text='시니어 바리스타 자격증 과정'></Recruiting>
+        <Recruiting onClick={() => navigate(`/jopdetail`)} text='시니어 바리스타 자격증 과정'></Recruiting>
         <Recruiting text='플라워리스트 자격증 과정'></Recruiting>
         <Recruiting text='요양도우미 자격증 과정'></Recruiting>
         <Recruiting text='키오스크 사용법 교육'></Recruiting>

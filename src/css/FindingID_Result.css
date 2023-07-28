@@ -1,0 +1,26 @@
+
+.modal_id{
+    position: fixed;
+    top:20vh;
+    
+    width: 60vw;
+    height: 60vh;
+
+    margin: 0px 0px;
+
+
+    box-sizing: border-box;
+    background: #EDF1D5;
+    border: 2px solid #5B8E31;
+    color: black;
+
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 0em;
+    text-align: center;
+
+
+
+  }
