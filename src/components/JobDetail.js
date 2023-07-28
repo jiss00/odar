@@ -12,7 +12,7 @@ import Top from '../information/Top';
 
 import '../css/Requitment_Jop_Detail.css';
 
-function RequitmentDetail(){
+function JobDetail(){
 
     // --------------상태 변수 모음------------
     let [recruitment, set_recruitment] = useState(''); //모집여부
@@ -110,11 +110,13 @@ function RequitmentDetail(){
     };
     
 
-
     return(
         <div className="screen_requitment_detail">
             
-            <div style={{ height: "20%" ,margin: "0px 0px"}}><Top text ='취업상세'></Top></div>
+            <div style={{ height: "20%" ,margin: "0px 0px"}}>
+                <Top display = 'none' text ='취업상세'></Top>
+            </div>
+            
             <section className="body_1_detail"> 
                 <div className="body_1_title_detail"> 
                     {/* 모집여부 : recruitment */}
@@ -166,4 +168,4 @@ function RequitmentDetail(){
         </div>
     );
 }
-export default RequitmentDetail;
+export default JobDetail;
