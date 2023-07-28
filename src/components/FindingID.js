@@ -179,7 +179,7 @@ function FindingID() {
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
       </div>
       {/* 아이디 출력하는 코드 */}
-      <FindingID_Result id = 'hi'></FindingID_Result>
+      {/* <FindingID_Result id = 'hi'></FindingID_Result> */}
 
       <button disabled={btn_success_state ? false : true} className={`${btn_success_state === true ? 'btn_success_yes' : 'btn_success'}`} >완료</button>
 
