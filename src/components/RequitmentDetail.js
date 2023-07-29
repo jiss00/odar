@@ -112,7 +112,7 @@ function RequitmentDetail(){
         <div className="screen_requitment_detail">
             
             <div style={{ margin: "0px 0px", height: "20%"}}>
-                <Top text ='채용상세'></Top>
+                <Top display= 'none' text ='채용상세'></Top>
             </div>
             <section className="body_1_detail"> 
                 <div className="body_1_title_detail"> 

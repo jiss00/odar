@@ -24,7 +24,7 @@ const StyledText = styled.span`
           position: relative; 
           margin-right:10px;
           margin-left:auto;
-          top:300px;
+          top:225px;
           left:-160px;
           width:74px;
           }
@@ -38,7 +38,7 @@ const StyledText = styled.span`
         left: -10px;
         @media all and (min-width: 1024px){	
           position: relative; 
-          top:380px;
+          top:305px;
           left:0px;
           width:100px;
       }
@@ -53,7 +53,7 @@ const StyledText = styled.span`
         @media all and (min-width: 1024px){	
           position: relative; 
         
-          top:380px;
+          top:305px;
           left:0px;
           width:30px;
           }
@@ -68,7 +68,7 @@ const StyledText = styled.span`
         @media all and (min-width: 1024px){	
           position: relative; 
          
-          top:380px;
+          top:305px;
           left:0px;
           width:60px;
           }

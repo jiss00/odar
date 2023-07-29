@@ -14,11 +14,11 @@ const StyledButton = styled.button`
   box-sizing: border-box;
   position: relative;
   width:335px;
-  height: 75px;
+  height: 66px;
   top: 0px;
   margin: 0 auto;
   gap: 8px;
-  padding: 25px 130px;
+  padding: 17px 130px;
   border-radius: 10px;
   font-size: 24px;
   line-height: 20px;
@@ -45,10 +45,11 @@ const StyledButton = styled.button`
     position: relative; 
     left:0;
     width: 440px;
-    height: 66px;
+    height: 90px;
     margin-left:auto;
     margin-right:auto;
     margin-bottom:30px;
+    padding-top : 28px;
     }
 `;
 
@@ -77,11 +78,11 @@ const StyledButton = styled.button`
     );
   }
 
-  function Button({ birth1, birth2, birth3, verification, complete }) {
+  function Button({ birth1, birth2, birth3, verification, complete },props) {
     const isButtonDisabled = !(birth1 && birth2 && birth3 && verification && complete);
     return (
     <Container>        
-      <LongButton to="/" disabled={isButtonDisabled}>완 료</LongButton>
+      <LongButton to="/" disabled={isButtonDisabled}>가 입</LongButton>
     </Container>
   );
 }
@@ -108,7 +109,7 @@ function Button(props){
   width: 335px;
   height:75px;
   @media screen and (min-width: 1024px) {
-    width : ${props.w_width};
+    width : 440px;
   }
   `
   return(

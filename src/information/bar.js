@@ -3,14 +3,14 @@ import { useState } from 'react';
 const Div = styled.div`
 box-sizing: border-box;
 text-align: center;  
-padding-top : 5px;
+padding-top : 4px;
 color: black;
-font-weight: 450;
-font-size: 15px;
+font-weight: 550;
+font-size: 17px;
 @media screen and (min-width: 1024px){
   font-weight: 450;
-  font-size: 18px;  
-  padding-top : 7px;
+  font-size: 20px;  
+  padding-top : 6px;
 }
 `
 const Triangle = styled.div`
@@ -73,11 +73,11 @@ const Sub_div2 = styled.div`
 padding-top: 10px;
 display: grid;
 grid-template-columns: 0.5fr 0.5fr 1fr;
-font-size: 12px;
+font-size: 15px;
 font-weight: 600;
 color:#5C5C5C;
 @media screen and (min-width: 1024px){
-  font-size:18px; 
+  font-size:20px; 
 } 
 `
 
@@ -89,6 +89,7 @@ font-size: 16px;
 font-weight: 400;
 width:60px;
 height: 27px;
+padding-top:1px;
 @media screen and (min-width: 1024px){
   width:75px;
   height: 34px;

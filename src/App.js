@@ -13,7 +13,6 @@ import Detail from './information/detail';
 import './App.css';
 import RequitmentDetail from './components/RequitmentDetail';
 import JobDetail from './components/JobDetail'
-import JobDetail2 from './components/JobDetail2'
 import MyPage from './components/MyPage'
 import FindingID from './components/FindingID';
 import FindingPass from './components/FindingPass';
@@ -41,8 +40,7 @@ function App(){
         <Route path="/findingId" element={<FindingID />} />  {/*아이디 찾기*/}
         <Route path="/myPage" element={<MyPage />} />  {/*내정보*/}
         <Route path="/jopDetail" element={<JobDetail />} />  {/*취업상세_1*/}
-        {/* <Route path="/Jopdetail_2" element={<JobDetail2 />} />  취업상세_2 */}
-        <Route path="/requirement" element={<RequitmentDetail />} />  {/*채용상세*/}
+        <Route path="/requitmentDetail" element={<RequitmentDetail />} />  {/*채용상세*/}
         <Route path="login" element={<Login />} /> {/*로그인*/}
         <Route path="inquiry" element={<Inquiry/>}/> {/*문의하기*/} 
         <Route path="withdrawal" element={<Withdrawal/>}/> {/*회원탈퇴*/}

@@ -9,6 +9,8 @@ import TopBar from './topBar';
 import Timer from './timer';
 import { useState } from 'react';
 import timer from './timer';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 
 const StyledDiv = styled.div`
@@ -29,45 +31,85 @@ margin-top :10px;
 }
 `;
 
-function Join({time}) {
+function Join() {
   const [modal, setModal] = useState(false); // 상태를 만듬.
-
+/* 정규식 관련 */
   const [name, setName] = useState('');
   const [birth1, setBirth1] = useState('');
   const [birth2, setBirth2] = useState('');
   const [birth3, setBirth3] = useState('');
-
   const [verification, setVerification] = useState('');
   const [complete, setComplete] = useState('');
-
-  const handleNameChange = (isValid) => {
+  const handleNameChange = (isValid,inputValue) => {
     setName(isValid);
+    setUsrName(inputValue);
   };
 
-
-  const handleBirthChange1 = (isValid) => {
+  const handleBirthChange1 = (isValid,inputValue) => {
     setBirth1(isValid);
+    setYear(inputValue);
   };
 
-  const handleBirthChange2 = (isValid) => {
+  const handleBirthChange2 = (isValid,inputValue) => {
     setBirth2(isValid);
+    setMonth(inputValue);
   };
 
-  const handleBirthChange3 = (isValid) => {
+  const handleBirthChange3 = (isValid,inputValue) => {
     setBirth3(isValid);
+    setDay(inputValue);
   };
 
-  const handleVerificationChange = (isValid) => {
+  const handleVerificationChange = (isValid,inputValue) => {
     setVerification(isValid);
+    setPhone(inputValue);
   };
 
-  const handleCompleteChange = (isValid) => {
+  const handleCompleteChange = (isValid,inputValue) => {
     setComplete(isValid);
+    setAuth(inputValue);
   };
 
+  /* 사용자 정보 저장하기*/
+  const [usrName,setUsrName] = useState('');
+  const [year,setYear] = useState('');
+  const [month,setMonth] = useState('');
+  const [day,setDay] = useState('');
+  const [phone,setPhone] = useState('');
+  const [auth,setAuth] = useState('');
+  console.log(usrName);
+  console.log(year);
+  console.log(month);
+  console.log(day);
+  console.log(phone);
+  console.log(auth);
+  const location = useLocation();
+  const userInfo={...location.state};
+  console.log(userInfo);
+
+
+
+  const url = `http://arthurcha.shop:3000/app/users`
+  axios(
+    {
+      url: url,
+      method: 'post',
+      data: {
+        "email": "test1234@gmail.com",
+        "password": "test1234!",
+        "name": usrName,
+        "phone": phone,
+        "year": year,
+        "month": month,
+        "day": day      } 
+    }
+  ).then(function (response) {
+  });
   const onclick = () => {
     setModal(true);
   }
+
+
 
   return (
     <div className='main'>
@@ -77,7 +119,7 @@ function Join({time}) {
         <Text1 text='이름' />
         <div className='name'>
           <Input placeholder="이름을 입력해주세요." w_width='440px' width='335px' type="handleNameChange" onChange={handleNameChange}/>
-        </div>
+        </div> 
         <Text1 top='342px' left='31px' text='생년월일' />
         <div className='date'>
           <Input placeholder="1900" w_width='140px' width='96px'type="handleBirthChange1" onChange={handleBirthChange1}/>

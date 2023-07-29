@@ -105,11 +105,12 @@ const StyledInput = styled.input`
   position: relative;
   border-radius: 15px;
   font-size: 24px;
-  border: 1.5px solid #5B8E31;
+  border: 2px solid #5B8E31;
   width: 335px;
   height: 50px;
   top: 0px;
   margin:0 auto;
+  text-indent: 0.5em;
 
   ::placeholder {
     font-family: "Pretendard";

@@ -43,7 +43,7 @@ const StyledButton = styled.button`
   
   @media all and (min-width: 1024px){	
     position: relative; 
-    top: 550px;
+    top: 425px;
     left:0;
     width: 440px;
     height: 66px;
@@ -70,19 +70,20 @@ const StyledButton = styled.button`
       font-weight: 800;
       }
   `;
-  function LongButton({ children, to, disabled }) {
+  function LongButton({children, disabled,onClick}) {
     return (
-      <StyledButton as={Link} to={to} disabled={disabled}>
+      <StyledButton onClick={onClick} disabled={disabled}>
         <ButtonText >{children}</ButtonText>
       </StyledButton>
     );
   }
 
-  function InputLongButton({ validEmail, validPassword, validPasswordCheck }) {
+  function InputLongButton({validEmail, validPassword, validPasswordCheck,onClick}) {
     const isButtonDisabled = !(validEmail && validPassword && validPasswordCheck);
+
     return (
-    <Container>        
-      <LongButton to="/join1" disabled={isButtonDisabled}>다 음</LongButton>
+    <Container onClick={onClick}>        
+      <LongButton disabled={isButtonDisabled}>다 음</LongButton>
     </Container>
   );
 }

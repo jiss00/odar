@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import FindingPass_Input_pw from './FindingPass_Input_pw';
 import FindingPass_Input_pwcheck from './FindingPass_Input_pwcheck';
 import Text from '../component/Join/Text';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
+
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -25,7 +27,7 @@ function FindingPass(props){
     
   // 아이디 이메일 정규식 확인
   const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     return regex.test(email);
   }
 
@@ -61,24 +63,41 @@ function FindingPass(props){
      setValidPasswordCheck(false);
 
   };
+
+  // 모달-------------------------------------------//
   
   const Modal = function(){
     return(
       <div id = "modal_success_pass">
-        아이디 인증이 완료되었습니다!
+        {modal_text}
       </div>
     );
   }
 
-  const checkModal = function(){
-    setModal(true);
-    setValidEmail(true);//인증완료시 버튼 33%채워짐.
-    set_modal_text('아이디 인증이 완료되었습니다!');
 
+  // 인증 버튼 클릭 시, 유효한 아이디인지 확인 
+  
+  // id 가 서버에 있는지 확인하는거
+  const [id_available, set_id_available] = useState(true);
+  
+  const checkModal = () =>{
+    setModal(true);
+    // id가 서버에 있음
+    if (id_available === true){
+      setValidEmail(true);//인증완료시 버튼 33%채워짐.
+      set_modal_text('아이디 인증이 완료되었습니다!');
+    } 
+    // id가 서버에 없음
+    else if(id_available === false){
+      setValidEmail(false);//인증완료시 버튼 33%채워짐.
+      set_modal_text('아이디를 다시 확인해주세요.');
+    }
     // if ({modal}){
     //   console.log("인증버튼 클릭");
     // }
   }
+
+   // 모달-------------------------------------------//
   
 
   const getSeconds = (time) => {
@@ -112,7 +131,16 @@ function FindingPass(props){
     );
   }
 
-  
+  // 제일 밑 완료 버튼 클릭시, 로그인 화면으로 이동, 서버에 업데이트된 비밀번호 전송
+  let navigate = useNavigate(); //라우팅 객체 만들기
+  const goLogin = () => {
+    navigate('/login');
+  }
+  const goLogin_pushToPass = () =>{
+    goLogin(); //로그인 화면으로 이동
+    // 서버에 업데이트된 비밀번호 전송 기능 만들기
+    
+  }
 
 
   return(
@@ -147,16 +175,18 @@ function FindingPass(props){
     
 
       <button
-      disabled={validEmail && validPassword && validPasswordCheck ? false : true}
-      className="btn_all_pass"
-      id="btn_success_pass"
-      style={{
-        background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
-        color: validEmail && validPassword && validPasswordCheck ? 'black' : '#5C5C5C'
-      }}
-    >
-      완료
-</button>
+          disabled={validEmail && validPassword && validPasswordCheck ? false : true}
+          className="btn_all_pass"
+          id="btn_success_pass"
+          style={{
+            background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
+            color: validEmail && validPassword && validPasswordCheck ? 'black' : '#8E8B8B'
+          }}
+          onClick={goLogin_pushToPass}
+        >
+          완료
+      </button>
+
 
     </div>  
   );

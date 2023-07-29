@@ -15,7 +15,7 @@ font-size: 22px;
 grid-gap:1px;
 cursor : pointer;
 @media screen and (min-width: 1024px){
-  padding-left:250px;
+  padding-left:280px;
   }
 `
 function Footer() {
