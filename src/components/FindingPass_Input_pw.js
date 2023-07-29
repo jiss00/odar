@@ -5,11 +5,15 @@ import { PiEyeClosed, PiEye } from "react-icons/pi";
 const JoinContainer1 = styled.div`
 display: flex;
 position: relative; 
-margin: 0 auto;
+top:0px;
 width: 300px;
+
+margin-right:auto;
+margin-left:auto;
+
 @media all and (min-width: 1024px){	
-  margin-right:auto;
-  margin-left:auto;
+  margin: 10px auto;
+  top:45px;
   width:440px;
   }
 `;
@@ -117,7 +121,7 @@ const StyledInput = styled.input`
     position: relative; 
     margin-right:auto;
     margin-left:auto;
-    top: 20px;
+    top: 60px;
     left:0px;
     width:440px;
     }
@@ -139,7 +143,7 @@ const IconWrapper = styled.div`
     position: relative; 
     margin-right:auto;
     margin-left:auto;
-    top:-16px;
+    top:22px;
     left:200px;
     }
 `;

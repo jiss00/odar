@@ -133,7 +133,8 @@
     letter-spacing: 0px;
     text-align: center;
 
-    margin: 0px 10px;
+    margin: 0 auto;
+    margin-bottom: 30px;
   }
 
   /* 인증, 완료 */
@@ -166,8 +167,8 @@
 
     width: 335px;
     height: 75px;
-    margin-top: 50px;
-    
+    margin-top: 0px;
+    margin-bottom:30px;
     gap: 8px;
     background: rgba(162, 192, 138, 1);
 
@@ -181,12 +182,6 @@
 
   }
 
-
-  /* 제일 밑 완료 클리어*/
-  #btn_success_pass{
-    background-color: #5B8E31;
-    color: black;
-  }
 
   /* 아이디 input */
   .id_input_pass {
@@ -223,6 +218,10 @@
   .body_pass_pass{
     width:100vw;
     height: 300px;
+     display: flex;
+    flex-direction: column;
+    text-align: center;
+ 
     background-color: aqua;
   }
 
@@ -274,7 +273,7 @@
   .body_id_pass{
     width:440px;
     height: 145px;
-    margin-top:40px;
+    margin-top:100px;
   }
 
   /* 아이디 */
@@ -301,8 +300,9 @@
   
   /* 인증버튼 */
   .btn_all_pass{
-    margin: 0px 5px;
-
+    margin: 0 auto;
+    width:70px;
+    top: 0px;
   }
 
   /* 아이디 인증이 완료되었습니다! */
@@ -315,16 +315,15 @@
 
   }
   
-  /* 버튼 전체 : 인증, 완료 */
-  .btn_all_pass{
-    
-  }
-
   /* 비빌번호 영역------- */
 
   .body_pass_pass{
     width:100vw;
-    height: 900px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
     /* background-color: aqua; */
   }
 
@@ -335,6 +334,9 @@
     box-sizing: border-box;
     width: 440px;
     height: 90px;
+    position: relative;
+    margin: 0 auto;
+    margin-top:150px;
   }
 }
 

@@ -29,7 +29,8 @@ const StyledButton = styled.button`
   font-weight: 800;
   text-align: center;
   margin-bottom: 30px;
-
+  align-items: center;
+  
   /* 버튼이 비활성화된 상태에 대한 스타일 */
   ${({ disabled }) =>
     disabled &&
@@ -63,7 +64,7 @@ const StyledButton = styled.button`
       width:100px;
       position: relative; 
       margin: 0 auto;
-      top:px;
+      top:0px;
       left:0px;
       font-size: 36px;
       font-weight: 800;

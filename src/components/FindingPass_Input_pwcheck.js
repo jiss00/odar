@@ -23,7 +23,7 @@ const StyledInput = styled.input`
         position: relative; 
         margin-right:auto;
         margin-left:auto;
-        top:40px;
+        top:100px;
         left:0px;
         width:440px;
         }
@@ -44,7 +44,7 @@ const IconWrapper = styled.div`
         position: relative; 
         margin-right:auto;
         margin-left:auto;
-        top:2px;
+        top:63px;
         left:200px;
         }
 `;
