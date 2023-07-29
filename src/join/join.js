@@ -9,6 +9,8 @@ import TopBar from './topBar';
 import Timer from './timer';
 import { useState } from 'react';
 import timer from './timer';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 
 const StyledDiv = styled.div`
@@ -81,9 +83,12 @@ function Join() {
   console.log(day);
   console.log(phone);
   console.log(auth);
+  const location = useLocation();
+  const userInfo={...location.state};
+  console.log(userInfo);
 
 
-  /*
+
   const url = `http://arthurcha.shop:3000/app/users`
   axios(
     {
@@ -92,17 +97,14 @@ function Join() {
       data: {
         "email": "test1234@gmail.com",
         "password": "test1234!",
-        "name": "z",
-        "phone": "010-1234-5678",
-        "year": 2011,
-        "month": 10,
-        "day": 12      } 
+        "name": usrName,
+        "phone": phone,
+        "year": year,
+        "month": month,
+        "day": day      } 
     }
   ).then(function (response) {
-    console.log(response.data)
   });
-*/
-
   const onclick = () => {
     setModal(true);
   }

@@ -70,7 +70,7 @@ function Input_id(props) {
     const isValid = validateEmail(email);
     setValidEmail(isValid);
      // 부모 컴포넌트로 변경된 값을 전달하는 부분
-    onChange(isValid); 
+    onChange(isValid,email); 
   };
   return (
     <>
