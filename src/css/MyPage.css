@@ -17,6 +17,7 @@
     /* justify-content: center; */
 
     /* align-items ( 세로축 - 교차축 ) */
+    /* 가로 정렬 */
     align-items: center;
     width: 100vw;
     height: 100vh;
@@ -25,24 +26,23 @@
 
 .head {
     /* 원래 자기자신 기준 위치 */
-    position: absolute;
-    width:100vw;
-    height: 10vh;
+    /* position: absolute; */
+    width:100%;
+    height: 150px;
     display : flex;
     flex-direction: row;
     /* 수평 정렬 */
     justify-content: center;
     /* 수직 정렬 */
     align-items : center;
-    margin-top: 5vh;
+    
 }
 
 
 /* 내 정보 */
 .item_title{ 
     /* background-color: aqua; */
-    /* 부모 요소 기준 */
-    position : absolute;
+    
     border-radius: 15px;
     border: 3px;
     color: #A2C08A;
@@ -60,9 +60,8 @@
 /* 집 모양 */
 .item_exit{
     position : absolute;
-    /* top : 50px;  */
-    /* left : 314px; */
     right : 5vw;
+
     padding-bottom: 20px;
     border: 0px;
     /* 배경 투명도 0 */
@@ -73,11 +72,9 @@
 
 /* 그리드 */
 .body_1{
-    position: absolute;
+
     width: 310px;
     height: 210px;
-    margin-top: 15vh;
-    margin-bottom: 3vh;
     
     border-radius: 15px;
     /* text-align: center; */
@@ -124,7 +121,7 @@
 
 /* 안법인 */
 .item_name{
-    top:5px;
+    
 
     font-family: Inter;
     font-size: 20px;
@@ -213,14 +210,12 @@
 
 /* 희망 직종, 오후2시~ 오후6시 그리드 */
 .body_2{
-    position: absolute;
-    width: 100vw;
-    height: 121px;
-    margin-top:47vh;
+    width: 100%;
+    height: 200px;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 
     /* align-items ( 세로축 - 교차축 ) */
     align-items: center;
@@ -228,6 +223,8 @@
 
 /* 가방, 희망 직종 */
 .item_job{
+    /* 세로 가로 */
+    height: 30%;
     display: grid;
     gap: 0px 20px;
     grid-template-columns: 50px 200px;
@@ -257,6 +254,8 @@
 
 /* 시계, 오후 2시 ~ 오후 6시 */
 .item_time{
+
+    height: 30%;
     display: grid;
     gap: 0px 20px;
     grid-template-columns: 50px 200px;
@@ -288,21 +287,18 @@
 /* footer */
 
 .footer_hr {
-    position: absolute;
     width: 310px;
-    top: 67vh;
 
     border: 1.5px solid rgba(205, 205, 205, 1); 
 }
 
 /* 고객지원, 지원내역, 문의하기, 로그아웃, 회원탈퇴 */
 .footer {
-    position: absolute;
+
     /* margin-top: */
-    width: 100vw;
+    width: 100%;
     height: 200px;
-    top: 70vh;
-    left: 0px;
+
 
     display: flex;
     flex-direction: column;
@@ -381,7 +377,9 @@
 /* 모니터 기준 */
 @media (min-width: 1024px) {
 
-    
+    .head{
+        height: 200px;
+    }
     /* 내 정보 */
     .item_title{ 
         font-family: Pretendard;
@@ -400,7 +398,7 @@
         height: 30px;
         /* top : 50px;  */
         /* left : 314px; */
-        right : 5vw;
+        right : 20vw;
         padding-bottom: 20px;
         border: 0px;
         /* 배경 투명도 0 */
@@ -411,15 +409,13 @@
     
     /* 그리드 */
     .body_1{
-        margin-top : 20vh;
+        box-sizing: border-box;
         width: 400px;
         height: 210px;
 
     }
     
     .body_2{
-
-        margin-top:52vh;
         
     }
     
