@@ -31,12 +31,8 @@
   background-color: #ABABAB80;
   top : 83px;
   left : 99px;
-  
 }
 
-.auth{
-  display :none;
-}
 .search{
   cursor: pointer;
   display: block;

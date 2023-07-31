@@ -17,7 +17,7 @@ function Complete(props){
     height : 40px;
     position:absolute
     padding-left : 30px;
-    padding-top : 6px;
+    padding-top : 7px;
     font-size: 16px;
   }
 `

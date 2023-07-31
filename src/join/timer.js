@@ -15,10 +15,10 @@ color:red;
 font-size: 18px;
 font-weight: 600;
 position:absolute;
-padding-left : 190px;
 padding-top : 11px;
+margin-left : 190px;
 @media screen and (min-width: 1024px) {
-    padding-left : 290px;
+    margin-left : 290px;
   }
 `
 function Timer({ modal, setModal }) {

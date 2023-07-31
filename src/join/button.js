@@ -70,19 +70,19 @@ const StyledButton = styled.button`
       font-weight: 800;
       }
   `;
-  function LongButton({ children, to, disabled }) {
+  function LongButton({ children, to, disabled, onClick }) {
     return (
-      <StyledButton as={Link} to={to} disabled={disabled}>
+      <StyledButton onClick={onClick} disabled={disabled}>
         <ButtonText >{children}</ButtonText>
       </StyledButton>
     );
   }
 
-  function Button({ birth1, birth2, birth3, verification, complete },props) {
+  function Button({ birth1, birth2, birth3, verification, complete,onClick }) {
     const isButtonDisabled = !(birth1 && birth2 && birth3 && verification && complete);
     return (
     <Container>        
-      <LongButton to="/" disabled={isButtonDisabled}>가 입</LongButton>
+      <LongButton onClick={onClick} disabled={isButtonDisabled}>가 입</LongButton>
     </Container>
   );
 }
