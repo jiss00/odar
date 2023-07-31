@@ -4,6 +4,7 @@ import '../css/FindingID.css';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import FindingID_Result from './FindingID_Result.js';
+import axios from 'axios'
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -13,14 +14,32 @@ import FindingID_Result from './FindingID_Result.js';
 
 //이건 아이디 찾기
 function FindingID() {
+  // ------------------------input 변수--------------------//
+  // input에서 value를 담기 위한 state 생성
+  // 휴대폰번호
+  const [phone_number_state, set_phone_number] = useState('');
+  // 인증번호
+  const [certification_number_state, set_certification_number] = useState('');
+  // 인증번호 코드
+  const [certification_code, set_certification_code] = useState(false);
+
+  // 버튼_인증_완료
+  const [btn_all_state, set_btn_all_state] = useState(0);
+
+  const [btn_success_state, set_btn_success_state] = useState(false);
+
   const [modal, setModal] = useState(false); // 상태를 만듬.
   // const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
 
+  // --------------------모달 변수 ----------------------//
     // 모달창 내용
   const [modal_text, set_modal_text] = useState('해당 번호로 인증번호가 전송되었습니다!');
   
   const [verification, setVerification] = useState('');
   const [complete, setComplete] = useState('');
+  
+
+
 
   // 모달 글자
   const Modal = function ({ text }) {
@@ -45,6 +64,28 @@ function FindingID() {
       console.log("인증버튼 클릭");
     }
   }
+
+  // 인증버튼 클릭시, 문자 날라오게하기
+  const phone_send_api = () => {
+    
+    const phoneData =  { "phone" : phone_number_state  };
+    const url = "http://arthurcha.shop:3000/app/auth/phone-send"
+    
+    axios.post(url, phoneData)
+    .then((response) => {
+      // console.log("성공함");
+      // console.log(response.data['result']['code']); //인증번호
+      set_certification_code(response.data['result']['code']); //인증번호 설정하기 (state)
+      console.log("이전 인증번호",certification_code);
+    })
+    .catch((error)=>{
+      console.log(error.response.data); // 에러 출력
+    })
+  }
+  // 인증번호가 변경될때마다 실행함.
+  useEffect( () => {
+    console.log("현재 인증번호",certification_code);
+  },[certification_code]);
 
 
 
@@ -93,15 +134,7 @@ function FindingID() {
 
   // -----------------input-------------------///
   // input에서 value를 담기 위한 state 생성
-  // 휴대폰번호
-  const [phone_number_state, set_phone_number] = useState('');
-  // 인증번호
-  const [certification_number_state, set_certification_number] = useState('');
 
-  // 버튼_인증_완료
-  const [btn_all_state, set_btn_all_state] = useState(0);
-
-  const [btn_success_state, set_btn_success_state] = useState(false);
 
   // input이 입력될 때마다 state 값 변경되게 하는 함수!
   const savePhoneNumber = event => {
@@ -134,7 +167,7 @@ function FindingID() {
   // '완료 버튼 클릭 시'
 
     const BtnSuccess = () => {
-        if (phone_number_state.length >= 5 && (certification_number_state.length === 6 && certification_number_state == '000000') ){
+        if (phone_number_state.length >= 5 && (certification_number_state.length === 6 && certification_number_state === certification_code) ){
           // console.log("제일 밑 완료활성화, 인증번호 맞음/  현재 state %d", btn_all_state);
           set_btn_success_state(true);
           setComplete(true);// 완료버튼 클릭 시 상태바 너비를 100%로 설정
@@ -147,12 +180,12 @@ function FindingID() {
 
     }
   }
-
   // // phone_number_state와 certification_mumber_state 가 변경될 때마다  inputAllValue 함수를 호출
   useEffect(() => {
     inputAllValue();
     
-  }, [phone_number_state, certification_number_state]);
+  }, [phone_number_state, certification_number_state ]);
+  //휴대폰 입력, 인증번호 입력, 인증번호 코드
 
   // --------------------------------------------------//
 
@@ -167,7 +200,7 @@ function FindingID() {
         <h3 className="phone_number_name">휴대폰 번호</h3>
         <section className='input_section1'>
           <input onChange={savePhoneNumber} className="input_all" type="text" id="phone_number" placeholder="010-0000-0000" maxLength={13}></input>
-          <button disabled={btn_all_state < 1} className={btn_all_state >= 1 ? 'btn_all_yes' : 'btn_all'} type="submit" onClick={() => { checkModal(); }} >인증</button>
+          <button disabled={btn_all_state < 1} className={btn_all_state >= 1 ? 'btn_all_yes' : 'btn_all'} type="submit" onClick={() => { checkModal(); phone_send_api();}} >인증</button>
         </section>
         <section className='input_section2'>
           <input onChange={saveCertificationNumber} className="input_all" type="text" id="certification_number" placeholder="000000" maxLength={6} ></input>
