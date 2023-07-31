@@ -13,6 +13,7 @@ import axios from 'axios';
 
 
 function Employment() {
+  const status ='employment';
   const back = () => {
     window.location.href = 'http://localhost:3000'
   }
@@ -61,7 +62,7 @@ function Employment() {
         {dataList[8].active_status === 1 ? <Recruiting text= {dataList[8].title}></Recruiting> : <Complete text= {dataList[8].title}></Complete>}
         {dataList[9].active_status === 1 ? <Recruiting text= {dataList[9].title}></Recruiting> : <Complete text= {dataList[9].title}></Complete>}
         {/*dataList[10].active_status === 1 ? <Recruiting text= {dataList[10].title}></Recruiting> : <Complete text= {dataList[10].title}></Complete>*/}
-        <Footer page={page} setPage = {setPage}></Footer>
+        <Footer status={status} page={page} setPage = {setPage}></Footer>
       </div>)}
     </div>
   )
