@@ -11,7 +11,6 @@ function Text(props){
   @media screen and (min-width: 1024px) {
     font-size : 52px;
     font-weight: 800;
-    margin-top:100px;  
     `;
   return(
     <StyledText>{props.text}</StyledText>

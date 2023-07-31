@@ -7,6 +7,8 @@ import Text from './Text';
 import ProgressBar from './ProgressBar';
 import InputLongButton from './Input/InputLongButton';
 import BigText from './BigText';
+import { useNavigate } from 'react-router-dom';
+
 
 function Join(){
     
@@ -15,9 +17,14 @@ function Join(){
     const [validPasswordCheck, setValidPasswordCheck] = useState(false);
     const [password, setPassword] = useState("");
     const [passwordcheck, setPasswordCheck] = useState("");
+    const [id,setId] = useState("");
+    const [passWd,setPassWd] = useState("");
+    
 
-    const handleEmailChange = (isValid) => {
+    const handleEmailChange = (isValid,email) => {
       setValidEmail(isValid);
+      setId(email);
+
     };
   
     const handlePasswordChange = ({ password, isValidPassword }) => {
@@ -31,12 +38,22 @@ function Join(){
       // 비밀번호와 비밀번호 확인 값이 같을 경우에만 setValidPasswordCheck 호출
       if (passwordcheck === password) {
         setValidPasswordCheck(isValidPasswordCheck);
+        setPassWd(passwordcheck);
       }
       else
        setValidPasswordCheck(false);
 
     };
-
+        /*클릭시 라우팅 + input 값들 전달하기*/
+        const navigate = useNavigate();
+        const routing = () =>{
+          navigate('/join1',{
+            state:{
+              id : id,
+              passWd : passWd
+            }
+          });
+        }
     return(
         <>
         <div>
@@ -59,7 +76,9 @@ function Join(){
 
         <InputLongButton validEmail={validEmail}
           validPassword={validPassword}
-          validPasswordCheck={validPasswordCheck}/>
+          validPasswordCheck={validPasswordCheck}
+          onClick={routing}
+          />
         </div>
         </>  
     )

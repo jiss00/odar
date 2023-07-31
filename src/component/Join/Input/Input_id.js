@@ -15,12 +15,13 @@ const StyledInput = styled.input`
     position: relative; 
     border-radius: 15px;
     font-size: 24px;
-    border: 1.5px solid #5B8E31;
+    border: 2px solid #5B8E31;
     width: 335px;
     height: 50px;
     top: 100px;
     margin:0 auto;
     z-index:1;
+    text-indent: 0.5em;
     ::placeholder {
       font-family: "Pretendard";
       font-size: 24px; 
@@ -31,7 +32,7 @@ const StyledInput = styled.input`
       position: relative; 
       margin-right:auto;
       margin-left:auto;
-      top:280px;
+      top:205px;
       left:0px;
       width:440px;
       }
@@ -53,14 +54,15 @@ const Circlediv = styled.div`
     position: relative; 
     margin-left:10px;
     margin-right:auto;
-    top:300px;
-    left:-160px;
+    top:224px;
+    left:-170px;
     }
 `;
 function validateEmail(email) {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   return regex.test(email);
 }
+
 function Input_id(props) {
   const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
   const [validEmail, setValidEmail] = useState(false);
@@ -70,7 +72,7 @@ function Input_id(props) {
     const isValid = validateEmail(email);
     setValidEmail(isValid);
      // 부모 컴포넌트로 변경된 값을 전달하는 부분
-    onChange(isValid); 
+    onChange(isValid,email); 
   };
   return (
     <>

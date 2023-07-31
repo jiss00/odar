@@ -27,7 +27,7 @@ function FindingPass(props){
     
   // 아이디 이메일 정규식 확인
   const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     return regex.test(email);
   }
 
@@ -164,16 +164,15 @@ function FindingPass(props){
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
       </div>
 
-       {/*<div className = "body_pass_pass">
-          새비밀번호 비밀번호확인
-        </div> */}
+      <div className = "body_pass_pass">
+        <div className="findingpass__pw__box"><Text width="110px">새 비밀번호</Text></div>
+          <FindingPass_Input_pw type="password" placeholder=" 비밀번호를 입력해주세요." onChange={handlePasswordChange} />
 
-      <div className="findingpass__pw__box"><Text width="110px">새 비밀번호</Text></div>
-        <FindingPass_Input_pw type="password" placeholder=" 비밀번호를 입력해주세요." onChange={handlePasswordChange} />
+        <div className="findingpass__pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
+          <FindingPass_Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." onChange={handlePasswordCheckChange}  />
+      </div>
 
-      <div className="findingpass__pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
-        <FindingPass_Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." onChange={handlePasswordCheckChange}  />
-
+    
 
       <button
           disabled={validEmail && validPassword && validPasswordCheck ? false : true}
@@ -181,7 +180,7 @@ function FindingPass(props){
           id="btn_success_pass"
           style={{
             background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
-            color: validEmail && validPassword && validPasswordCheck ? 'black' : '#5C5C5C'
+            color: validEmail && validPassword && validPasswordCheck ? 'black' : '#8E8B8B'
           }}
           onClick={goLogin_pushToPass}
         >
