@@ -21,14 +21,13 @@
   /* 상태 바 */
     .state_bar_pass {
       /* 부모 기준 위치 */
-        margin-top: 6vh;
+        margin-top: 72px;
         margin-bottom: 3vh;
         margin-left: auto;
         margin-right: auto;
         
         border-radius: 10px;  
-        /* width: 193; */
-        width: 60vw;
+        width: 193px;
         height: 15px; 
         display: flex;
         background: rgba(171, 171, 171, 0.5);
@@ -68,7 +67,7 @@
   .body_id_pass{
     width: 350px;
     height: 150px;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: 40px;
 
     
@@ -126,7 +125,7 @@
     background-color: rgba(162, 192, 138, 1);
     width: 70px;
     height: 50px;
-    
+    top:300px;
     border-radius: 10px;
     border: 0px;
     font-family: Pretendard;
@@ -136,7 +135,7 @@
     letter-spacing: 0px;
     text-align: center;
 
-    margin: 0px 10px;
+    margin-left:11px;
   }
 
   /* 인증, 완료 */
@@ -167,12 +166,13 @@
 
   /* 제일 밑 완료 */
   #btn_success_pass{
-
+    position: relative;
     width: 335px;
     height: 75px;
     min-height: 75px;
     margin-top: 50px;
-    
+    margin-left:0px;
+    top:0px;
     gap: 8px;
     background: rgba(162, 192, 138, 1);
 
@@ -223,7 +223,7 @@
   .body_pass_pass{
     width:100vw;
     height: 300px;
-    background-color: aqua;
+    /*background-color: aqua;*/
   }
 
 
@@ -274,7 +274,7 @@
   .body_id_pass{
     width:440px;
     height: 145px;
-    margin-top:40px;
+    margin-top:90px;
     margin-bottom: 10px;
   }
 
@@ -302,8 +302,8 @@
   
   /* 인증버튼 */
   .btn_all_pass{
-    margin: 0px 5px;
-
+    width:70px;
+    height:50px;
   }
 
   /* 아이디 인증이 완료되었습니다! */
@@ -316,16 +316,19 @@
 
   }
   
-  /* 버튼 전체 : 인증, 완료 */
-  .btn_all_pass{
-    
+  
+  /* 상태 바 1024이상일때*/
+  .state_bar_pass {
+    /* 부모 기준 위치 */
+      width: 915px; 
+      
   }
+
 
   /* 비빌번호 영역------- */
 
   .body_pass_pass{
     width:100vw;
-    height: 900px;
     /* background-color: aqua; */
   }
 
@@ -337,7 +340,7 @@
     width: 440px;
     height: 90px;
     min-height: 90px;
-
+    top:100px;
     font-size: 36px;
     font-weight: 700;
     line-height: 90px;

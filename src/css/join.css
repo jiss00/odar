@@ -21,6 +21,7 @@
 .sub{
   margin:0 auto;
   @media screen and (min-width: 1024px){
+    margin-top:-25px;
     }
 }
 .top_bar{

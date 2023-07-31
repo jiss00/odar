@@ -21,14 +21,12 @@
   /* 상태 바 */
     .state_bar {
       /* 부모 기준 위치 */
-        margin-top: 6vh;
+        margin-top: 72px;
         margin-bottom: 3vh;
         margin-left: auto;
         margin-right: auto;
-        
         border-radius: 10px;  
-        /* width: 193; */
-        width: 60vw;
+        width: 193px; 
         height: 15px; 
         display: flex;
         background: rgba(171, 171, 171, 0.5);
@@ -366,7 +364,12 @@
   }
 
 
-
+  /* 상태 바 1024이상일때*/
+  .state_bar {
+    /* 부모 기준 위치 */
+      width: 915px; 
+      
+  }
 
 
 
