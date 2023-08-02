@@ -105,7 +105,7 @@ function Input(props) {
   };
 
   return (
-    <StyledInput onChange={handleInputChange} {...otherProps} />
+    <StyledInput disabled={false} onChange={handleInputChange} {...otherProps} />
   );
 }
 
