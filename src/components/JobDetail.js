@@ -1,8 +1,10 @@
 import styled , {css} from 'styled-components';
 import {useState} from 'react';
 import { useEffect } from 'react';
-import StyledSection from './StyledSection';
-import StyledSpan from './StyledSpan';
+import { useParams } from 'react-router-dom';
+import axios from 'axios'
+import ReactMarkdown from 'react-markdown';
+
 import Top from '../information/Top';
 
 // 띄우는거 : 대문자
@@ -13,13 +15,15 @@ import Top from '../information/Top';
 import '../css/Requitment_Jop_Detail.css';
 
 function JobDetail(){
+    let {jobPostingId} = useParams();
+    console.log(jobPostingId);
 
     // --------------상태 변수 모음------------
     let [recruitment, set_recruitment] = useState(''); //모집여부
     let [title, set_title] = useState(''); //직업 제목
-    let [money, set_money] = useState(''); // 월급
-    let [time, set_time] = useState(''); // 근무시간
-    let [introduction, set_introduction] = useState(''); // 근무시간
+    let [salary, set_salary] = useState(''); // 월급
+    let [work_day, set_work_day] = useState(''); // 근무시간
+    let [content, set_content] = useState(''); // 근무시간
 
     //--------------지원하기 버튼 클릭 시 기능----------------//
     // 이동할 페이지 url 선언
@@ -30,39 +34,77 @@ function JobDetail(){
     // ----------------------------//
     
     // --------------전화 걸기 기능-------------//
-    let phoneNumber = '777-7777-7777'; // 설정한 전화번호 
+    let [phone, set_phone] = useState('010-4096-3487'); // 설정한 전화번호 
     // 이 전화번호 길이에 따라 전화버튼 생기거나 없어짐
 
 
     // 상태 업데이트하는 함수
-    const setJopDetail =(recruitment, title, money, time, introduction) => {
+    const setJopDetail =(recruitment, title, salary, work_day, content, url,phone) => {
         set_recruitment(recruitment);
         set_title(title);
-        set_money(money);
-        set_time(time);
-        set_introduction(introduction);
+        set_salary(salary);
+        set_work_day(work_day);
+        set_content(content);
+
+        set_url(url);
+        set_phone(phone);
     }
 
+
+    // '\n' 문자열을 br 태그로 변경하는 함수
+    const renderNewLine = (props) => <br key={props.key} />;
     // 백엔드에서 데이터 가져와서 상태를 업데이트 하는 함수. 아직 백엔드에서 받아노는건 구현 안함
     const fetchDataFromBackend = () =>{
-            // 백엔드에서 받아오기 전이므로, 가상의 데이터로 예시 작성
-        const dataFromBackend = {
-            recruitment: '모집중',
-            title: '시니어 바리스타 자격증 과정',
-            money: '600,000',
-            time: '주 5일, 10시 ~ 12시 30분',
-            introduction: '바리스타 자격증 과정입니다.',
-        };
 
-        setJopDetail(dataFromBackend.recruitment, dataFromBackend.title, dataFromBackend.money, dataFromBackend.time, dataFromBackend.introduction);
+
+        const url = `http://arthurcha.shop:3000/app/jobPosting/${jobPostingId}`
+        console.log('get하자');
+        axios.get(url)
+        .then( (response) => {
+            console.log(response.data);
+            const dataFromBackend = {
+                recruitment : '모집중',
+                title : response.data['result']['title'], // 이름
+                salary : response.data['result']['salary'], // 월급
+                work_day : response.data['result']['work_day'], //근무시간
+                content : response.data['result']['content'], // 컨텐츠
+                // content : "줄바꿈\n\n 줄바꿈 \n\n줄바꿈3",
+                url : response.data['result']['url'],
+                phone : response.data['result']['phone1'],
+
+
+            };
+            setJopDetail(
+                dataFromBackend.recruitment, 
+                dataFromBackend.title, 
+                dataFromBackend.salary, 
+                dataFromBackend.work_day,
+                dataFromBackend.content,
+                dataFromBackend.url,
+                dataFromBackend.phone
+                );
+        } )
+        .catch((error)=>{
+            console.error('Error fetching data:', error);
+            // console.log(); // 에러 출력
+        })
+        
+        // const dataFromBackend = {
+        //     recruitment: '모집중',
+        //     title: '시니어 바리스타 자격증 과정',
+        //     money: '600,000',
+        //     time: '주 5일, 10시 ~ 12시 30분',
+        //     introduction: '바리스타 자격증 과정입니다.',
+        // };
+
+        // setJopDetail(dataFromBackend.recruitment, dataFromBackend.title, dataFromBackend.money, dataFromBackend.time, dataFromBackend.introduction);
     }
-
 
 
     // ----------전화걸기 기능 -----------------
     // 전화 걸기 기능
-    const callPhoneNumber = (phoneNumber) => {
-        window.location.href = `tel:${phoneNumber}`;
+    const callPhone = (phone) => {
+        window.location.href = `tel:${phone}`;
     };
 
     // --------휴대번호에 따른 전화번호 모양 띄우기 기능----------------//
@@ -72,7 +114,7 @@ function JobDetail(){
 
     const callState_func = () =>{
         // 휴대폰 번호가 존재하면 (0)
-        if (phoneNumber.length >0 ) {
+        if (phone.length >0 ) {
             set_btn_apply_state(0);
         }
         // 휴대폰 번호가 존재하지 않으면 (1)
@@ -116,8 +158,7 @@ function JobDetail(){
 
     return(
         <div className="screen_requitment_detail">
-            
-            <div style={{ height: "20%" ,margin: "0px 0px"}}>
+            <div  className="top_">
                 <Top display = 'none' text ='취업상세'></Top>
             </div>
             
@@ -138,7 +179,7 @@ function JobDetail(){
                         </span>
                         <span className="list_item_text_detail">월급</span>
                         {/* 월급 돈 :  money */}
-                        <span className="list_item_text_detail">{money}원/월</span>    
+                        <span className="list_item_text_detail">{salary}</span>    
                     </div>
                     <div className ="list_item_detail"> 
                         <span> 
@@ -149,17 +190,20 @@ function JobDetail(){
                         </span>
                         <span className="list_item_text_detail">근무 시간</span>
                         {/* time */}
-                        <span className="list_item_text_detail">{time}</span>    
+                        <span id = "work_day" className="list_item_text_detail">{work_day}</span>    
                     </div>
                 </div>
             </section>
             <section className="body_2_detail"> 
-                {/*    직업 소개 : introduction */}
-                <span className="detail_text"> {introduction}</span>
+                {/*    직업 소개 : content */}
+                <span className="detail_text">
+                    <ReactMarkdown escapeHtml={false} renderers={{ text: renderNewLine }}>{content}</ReactMarkdown>
+                     {/* <ReactMarkdown >{"\n\n줄바꿈  줄바꿈\n\n줄바꿈"}</ReactMarkdown> */}
+                </span>
             </section>
             <section className='footer_detail'> 
 
-                <button className={`btn_call ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => callPhoneNumber(phoneNumber)}>
+                <button className={`btn_call ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => callPhone(phone)}>
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.3937 8.72661L9.809 10.5814C10.1483 11.5175 10.6257 12.4179 11.231 13.2637C11.8611 14.1036 12.6191 14.8778 13.4876 15.5684L16.8349 14.7435C18.7101 14.2811 20.7572 14.756 22.0043 15.9434L23.9107 17.7582C24.6826 18.4868 25.0696 19.427 24.9897 20.3799C24.9098 21.3327 24.3692 22.2232 23.4826 22.8627C20.3728 25.1325 15.5847 25.8999 11.9999 23.6476C8.84928 21.6635 6.18349 19.2313 4.13642 16.4734C2.08486 13.7284 0.711882 10.6936 0.0921691 7.53422C-0.595416 3.97957 2.65811 1.13485 6.71487 0.164943C9.13391 -0.415 11.7155 0.579903 12.6031 2.43472L13.6501 4.62201C14.3377 6.06187 13.8439 7.68671 12.3937 8.72661Z" fill="#5B8E31"/>
                         </svg>    
