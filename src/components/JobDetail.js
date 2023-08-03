@@ -15,8 +15,8 @@ import Top from '../information/Top';
 import '../css/Requitment_Jop_Detail.css';
 
 function JobDetail(){
-    let {jobPostingId} = useParams();
-    console.log(jobPostingId);
+    let {job_edu_id} = useParams();
+    console.log(job_edu_id);
 
     // --------------상태 변수 모음------------
     let [recruitment, set_recruitment] = useState(''); //모집여부
@@ -57,7 +57,7 @@ function JobDetail(){
     const fetchDataFromBackend = () =>{
 
 
-        const url = `http://arthurcha.shop:3000/app/jobPosting/${jobPostingId}`
+        const url = `http://arthurcha.shop:3000/app/jobEdu/${job_edu_id}`
         console.log('get하자');
         axios.get(url)
         .then( (response) => {
@@ -65,8 +65,8 @@ function JobDetail(){
             const dataFromBackend = {
                 recruitment : '모집중',
                 title : response.data['result']['title'], // 이름
-                salary : response.data['result']['salary'], // 월급
-                work_day : response.data['result']['work_day'], //근무시간
+                salary : response.data['result']['title'], // 월급 -> 없음!
+                work_day : response.data['result']['edu_day']+response.data['result']['edu_time'], //근무시간
                 content : response.data['result']['content'], // 컨텐츠
                 // content : "줄바꿈\n\n 줄바꿈 \n\n줄바꿈3",
                 url : response.data['result']['url'],
