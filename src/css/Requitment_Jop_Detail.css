@@ -19,7 +19,12 @@
     width: 100vw;
     height: 100vh;
 }
-
+/* 탑바 */
+.top_{
+    height: 150px;
+    min-height: 150px;
+    margin: 0px 0px;
+}
 
 /* 처음 연두 박스 */
 .body_1_detail{
@@ -136,11 +141,16 @@
 }
 
 
+
 /* ----------상세 설명 -------------*/
 .body_2_detail{
     box-sizing: border-box;
     width: 330px;
     height: 425px;
+    /* 스크롤이 필요한 경우만 스크롤이 나타나도록 설정 */
+    overflow-y: auto;
+    /* 원래 스타일은 유지하고 위에 추가된 스타일만 적용하도록 하기 위해 !important 사용 */
+   
     padding: 20px 25px;
     margin-bottom: 15px;
     border-radius: 15px;
@@ -151,6 +161,7 @@
 
 /* 상세 설명 텍스트 */
 .detail_text{
+    white-space: pre-wrap !important;
     font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
@@ -234,7 +245,11 @@
 /* ----------------------------------------------------반응형 웹-------------------------------------------------- */
 /* 모니터 기준 */
 @media (min-width: 1024px) {
-
+    /* 탑바 */
+    .top_{
+        height: 250px;
+        min-height: 250px;
+    }
 
 
     /* 처음 연두 박스 */
@@ -282,11 +297,11 @@
     /* 월급, 근무 시간 */
     .body_1_list_detail{
         box-sizing: border-box;
-        width:70%;
+        width:80%;
         height: 100%;
 
         padding-top: 20px;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1.5fr;
        
         align-items: center;
 
@@ -315,7 +330,12 @@
 
     /* ----------상세 설명 -------------*/
     .body_2_detail{
+        
         width: 1008px;
+        /* 스크롤이 필요한 경우만 스크롤이 나타나도록 설정 */
+        overflow-y: auto;
+        /* 원래 스타일은 유지하고 위에 추가된 스타일만 적용하도록 하기 위해 !important 사용 */
+       
         height: 430px;
         padding: 40px 25px;
         margin-bottom: 20px;
