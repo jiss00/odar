@@ -40,8 +40,8 @@ function App(){
         <Route path="/findingPass" element={<FindingPass />} />  {/*비밀번호 찾기*/}
         <Route path="/findingId" element={<FindingID />} />  {/*아이디 찾기*/}
         <Route path="/myPage" element={<MyPage />} />  {/*내정보*/}
-        <Route path="/jobDetail/:jobPostingId" element={<JobDetail />} />  {/*취업상세_1*/}
-        <Route path="/requitmentDetail/:id" element={<RequitmentDetail />} />  {/*채용상세*/}
+        <Route path="/jobDetail/:job_edu_id" element={<JobDetail />} />  {/*취업상세_1*/}
+        <Route path="/requitmentDetail/:jobPostingId" element={<RequitmentDetail />} />  {/*채용상세*/}
         <Route path="login" element={<Login />} /> {/*로그인*/}
         <Route path="inquiry" element={<Inquiry/>}/> {/*문의하기*/} 
         <Route path="withdrawal" element={<Withdrawal/>}/> {/*회원탈퇴*/}
