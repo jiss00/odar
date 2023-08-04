@@ -8,6 +8,7 @@ import Search from './search';
 import Footer from './footerBar';
 import Top from './Top';
 import axios from 'axios';
+import JobDetail from "../components/JobDetail";
 
 
 function Recruit() {
@@ -86,6 +87,9 @@ function Recruit() {
       input[0].style.display = 'block';
     }
   }
+  const handleRecruitingClick = (jobpostingId) => {
+    navigate(`/requitmentDetail/${jobpostingId}`);
+  };
   console.log(searchData);
   return (
     <div>
@@ -104,17 +108,17 @@ function Recruit() {
           {status ==='search' ? ( // 검색 결과가 있을 경우
             renderSearchData.map((data, index) => (
               data.active_status === 2 ? (
-                <Recruiting key={index} text={data.title} />
+                <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
               ) : (
-                <Complete key={index} text={data.title} />
+                <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
               )
             ))
           ) : ( // 검색 결과가 없을 경우 또는 검색되지 않은 초기 상태일 경우
             renderDataList.map((data, index) => (
               data.active_status === 2 ? (
-                <Recruiting key={index} text={data.title} />
+                <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)}key={index} text={data.title} />
               ) : (
-                <Complete key={index} text={data.title} />
+                <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
               )
             ))
           )}

@@ -41,6 +41,9 @@ function Employment() {
 
     fetchData();
   }, [page]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+  const handleRecruitingClick = (job_edu_id) => {
+    navigate(`/jobDetail/${job_edu_id}`);
+  };
   console.log(dataList);
 
   return (
@@ -58,9 +61,9 @@ function Employment() {
           </div>
           {renderDataList.map((data, index) => (
             data.active_status === 1 ? (
-              <Recruiting key={index} text={data.title}></Recruiting>
+              <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title}></Recruiting>
             ) : (
-              <Complete key={index} text={data.title}></Complete>
+              <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title}></Complete>
             )
           ))}
           <Footer status={status} page={page} setPage={setPage}></Footer>

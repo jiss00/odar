@@ -47,7 +47,7 @@ const formatText = (text) => {
   return text.replace('(마감)', '');
 };
   return(
-    <div className='recruit'>
+    <div onClick = {props.onClick}className='recruit'>
       <SubDiv>모집완료</SubDiv>      
       <MainDiv>{formatText(props.text)}</MainDiv>
     </div>
