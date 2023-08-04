@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import FindingID_Result from './FindingID_Result.js';
 import axios from 'axios'
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -171,7 +172,7 @@ function FindingID() {
           // console.log("제일 밑 완료활성화, 인증번호 맞음/  현재 state %d", btn_all_state);
           set_btn_success_state(true);
           setComplete(true);// 완료버튼 클릭 시 상태바 너비를 100%로 설정
-          set_modal_text('인증이 완료되었습니다!');
+          set_modal_text('인증이 완료되었습니다! 문자로 아이디가 전송됩니다.');
         }
         else{
           // console.log("아직 활성화 안됨");
@@ -186,6 +187,15 @@ function FindingID() {
     
   }, [phone_number_state, certification_number_state ]);
   //휴대폰 입력, 인증번호 입력, 인증번호 코드
+
+
+  // 큰 완료버튼 클릭시 홈화면으로 이동
+  const navigate = useNavigate();
+
+  // 메인으로
+  const goMain = () => {
+      navigate('/');
+  }
 
   // --------------------------------------------------//
 
@@ -214,7 +224,7 @@ function FindingID() {
       {/* 아이디 출력하는 코드 */}
       {/* <FindingID_Result id = 'hi'></FindingID_Result> */}
 
-      <button disabled={btn_success_state ? false : true} className={`${btn_success_state === true ? 'btn_success_yes' : 'btn_success'}`} >완료</button>
+      <button disabled={btn_success_state ? false : true} className={`${btn_success_state === true ? 'btn_success_yes' : 'btn_success'}`} onClick={goMain} >완료</button>
 
     </div>
   );
