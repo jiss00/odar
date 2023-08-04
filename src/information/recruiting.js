@@ -4,12 +4,12 @@ function Recruiting(props){
     box-sizing: border-box;
     border-radius: 10px;
     border : solid #D9D9D9 1px;
-    width : 260px;
+    width : 310px;
     height : 30px;
     font-size: 15px;
     font-weight: 400;
     padding-top : 4px;
-    padding-left : 30px;
+    padding-left : 25px;
     background-color: #EDF1D5;
     cursor : pointer;
     @media screen and (min-width: 1024px) {
@@ -18,7 +18,7 @@ function Recruiting(props){
       position:absolute
       padding-left : 30px;
       padding-top : 7px;
-      font-size: 16px;
+      font-size: 18px;
     }
   `
   const SubDiv = styled.div`
@@ -38,11 +38,12 @@ function Recruiting(props){
   @media screen and (min-width: 1024px) {
     height : 40px;
     padding-top : 7px;
-    font-size: 16px;
+    font-size: 17px;
     padding-left:12px;
 
   }
 `
+
   return(
     <div onClick = {props.onClick}className='recruit'>
       <SubDiv>모집중</SubDiv>

@@ -6,6 +6,7 @@ import backImage from './back.png';
 import {useNavigate} from 'react-router-dom'
 function Detail() {
   const navigate = useNavigate();
+  
   return (
     <div className='main_detail'>
       <img className='img_detail_1' onClick={() => navigate(`/myPage`)} alt="back" src={backImage} />

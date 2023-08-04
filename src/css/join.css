@@ -10,12 +10,14 @@
 }
 .main1{
   position: absolute;
-  left: 48%;
+  left: 46%;
   top : 450px;
   transform: translate(-50%, -50%);
   margin:0 auto;
   @media screen and (min-width: 1024px){
     top : 550px;
+    left: 48%;
+
   }
 }
 .sub{
@@ -46,7 +48,7 @@
     }
 }
 .search_input{
-  width: 320px;
+  width: 360px;
   height: 31px;
   position: fixed;
   box-sizing: border-box;
@@ -56,6 +58,8 @@
   border-radius: 10px;
   border: solid 1px #5B8E31;
   font-size: 17px;  
+  outline: none;
+
   @media screen and (min-width: 1024px){
     width: 890px;
     height: 40px;

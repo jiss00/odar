@@ -2,13 +2,14 @@ import styled from 'styled-components';
 import '../css/join.css';
 import { useState,useEffect } from 'react';
 
+
 const Div = styled.div`
   color: black;
   display: grid;
   grid-template-columns: 30px 30px 30px 30px 30px 30px 30px;
   width: 270px;
   height: 20px;
-  margin-left: 90px;
+  margin-left: 120px;
   margin-top: 90px;
   font-weight: 550;
   font-size: 22px;
@@ -16,22 +17,32 @@ const Div = styled.div`
   cursor: pointer;
   @media screen and (min-width: 1024px) {
     grid-template-columns: 30px 30px 30px 30px 30px 30px 30px;
-    padding-left: 300px;
+    padding-left: 310px;
+    margin-left: 90px;
+
   }
 `;
 
-function Footer({status, page, setPage }) {
+function Footer({status, page, setPage,totalpage }) {
   const [totalPages,setTotalPages] = useState(0); // 총 페이지 크기
+  const [displayPages,setDisplayPage] = useState(5); // 한 번에 보여질 페이지 개수
+  //totalpages : 전체 페이지 수 totalpage : 한 페이지에 보여줄 정보 개수
   useEffect(() => {
     // status에 따라 totalPages를 변경해주는 로직
     if (status === 'recruit') {
-      setTotalPages(25);
-    } else {
+      setDisplayPage(5);
+      setTotalPages(28);
+    }
+    else if(status ==='search'){
+      setTotalPages(totalpage);
+      setDisplayPage(totalpage < 5 ? totalpage : 5);
+    }
+    else {
+      setDisplayPage(5);
       setTotalPages(6);
     }
-  }, [status]); // status가 변경될 때마다 useEffect가 호출되도록 설정
+  }, [status,totalpage]); // status가 변경될 때마다 useEffect가 호출되도록 설정
 
-  const displayPages = 5; // 한 번에 보여질 페이지 개수
   const [current, setCurrent] = useState(1);
 
   const onClick = (pageNumber) => {
@@ -55,9 +66,28 @@ function Footer({status, page, setPage }) {
 
   const renderPageNumbers = () => {
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
-    const startIdx = Math.floor((current - 1) / displayPages) * displayPages;
-    const visiblePages = pageNumbers.slice(startIdx, startIdx + displayPages);
-
+    
+    if (totalPages === 1) {
+      // totalPages가 1인 경우에는 1만 표시하도록 처리합니다.
+      return (
+        <div
+          style={{
+            color: current === 1 ? '#5B8E31' : 'black',
+            fontSize: current === 1 ? '21px' : '21px',
+          }}
+          onClick={() => onClick(1)}
+        >
+          1
+        </div>
+      );
+    }
+  
+    const middlePage = Math.floor(displayPages / 2);
+    const startIdx = Math.max(0, current - middlePage - 1); // 시작 페이지 인덱스
+    const endIdx = Math.min(pageNumbers.length - 1, startIdx + displayPages - 1); // 끝 페이지 인덱스
+  
+    const visiblePages = pageNumbers.slice(startIdx, endIdx + 1);
+  
     return visiblePages.map((pageNumber) => (
       <div
         key={pageNumber}
