@@ -52,10 +52,12 @@
 .body_1_title_detail{
     display: grid;
     width: 100%;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 23% 77%;
     align-items: center;
     justify-items: center;
     /* column-gap: 20px; */
+    /* text-size-adjust: auto; */
+    /* text-size-adjust: auto; */
 }
 
 /* 모집중 */
@@ -84,15 +86,22 @@
 /* 진주시 요양원 조리원 모집 */
 .title_item2_detail{
     height: 30px;
-    
-
     font-family: Pretendard;
-    font-size: 18px;
     font-weight: 800;
     line-height: 30px;
     letter-spacing: 0em;
     text-align: center;
-
+    display: inline-block;
+    max-width: 100%; /* 너비를 100%로 제한하여 부모 요소의 크기에 맞춤 */
+    /* 새로운 속성 */
+    white-space: nowrap; /* 텍스트 줄바꿈 금지 */
+    /* 넘치는 텍스트 숨김 */
+    /* overflow: hidden;  */
+    /* 넘치는 텍스트에 말줄임표 표시 */
+    /* text-overflow: ellipsis;  */
+    /* 스크롤이 필요한 경우만 가로 스크롤이 나타나도록 설정 */
+    overflow-x: auto;
+    
 }
 
 /* 선 */

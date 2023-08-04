@@ -63,7 +63,7 @@ function RequitmentDetail(){
         .then( (response) => {
             console.log(response.data);
             const dataFromBackend = {
-                recruitment : '모집중',
+                recruitment : (response.data['result']['active_status'] == 1 ? '모집중' : '모집완료'), // 모집중, 모집완료
                 title : response.data['result']['title'], // 이름
                 salary : response.data['result']['salary'], // 월급
                 work_day : response.data['result']['work_day'], //근무시간
@@ -184,7 +184,7 @@ function RequitmentDetail(){
                         </span>
                          {/* 월급 돈 :  money */}
                         <span className="list_item_text_detail">월급</span>
-                        <span className="list_item_text_detail">{salary}원/월</span>    
+                        <span className="list_item_text_detail">{salary}</span>    
                     </div>
                     <div className ="list_item_detail"> 
                         <span> 
