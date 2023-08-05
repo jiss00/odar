@@ -17,36 +17,42 @@
   display: none;
 }
 
-.Mnav-menu{
-  position:absolute;
-  top:0;
+.Mnav-menu {
+  position: absolute;
+  top: 0;
   width: 196px;
-  height: 844px;
+  height: 800px;
   right: 0px;
   border-radius: 20px 0px 0px 20px;
   background-color: rgba(255, 255, 255, 0.9);
-  display: none;
-  transition: 850ms;
+  /*opacity 속성에 0으로 시작하고 1로 변화될 때 애니메이션 적용 */
+  opacity: 0;
+  /* 추가: transform으로 요소를 오른쪽에서 이동시킴 */
+  transform: translateX(100%);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   z-index: 1;
 }
 
-.Mnav-menu.active{
-  position:absolute;
-  display: block;
-  z-index: 1;
-}
-
-.Mclose{
+.Mnav-menu.active {
   position: absolute;
+  /* 추가: opacity 속성이 1로 변화될 때 애니메이션 적용 */
+  opacity: 1;
+  /* 추가: transform으로 요소가 원래 위치로 이동 */
+  transform: translateX(0);
+  z-index: 1;
+}
+.Mclose{
+  position: relative;
+  top:65px;
+  left:140px;
   width: 25px;
-  height: 20px;
-  margin-top: 70px;
-  margin-left: 120px;
+  height: 25px;
   z-index: 1;
 }
 
 .Mtop{
-  font-family: Pretendard;
+  
+  font-family: 'Pretendard';
   font-size: 30px;
   font-weight: 800;
   line-height: 20px;
@@ -54,6 +60,8 @@
   text-align: center;
   color: rgba(92, 92, 92, 1);
   list-style: none;
+  margin-left:0;
+  margin-right:0;
 }
 
 .MtopHome{
@@ -61,7 +69,7 @@
   width: 90px;
   height: 20px;
   margin-top: 213px;
-  margin-left: 59px;
+  right:50px;
 }
 
 .MtopLogin {
@@ -69,7 +77,7 @@
   width: 90px;
   height: 20px;
   margin-top: 283px;
-  margin-left: 59px;
+  right:50px;
 }
 
 .MtopMyInfo{
@@ -77,23 +85,23 @@
   width: 90px;
   height: 20px;
   margin-top: 353px;
-  margin-left: 59px;
-
+  right:50px;
 }
 
 .MtopBarHome{
   position: absolute;
   width: 120px;
   margin-top: 246px;
-  margin-left: 38px;
-  border: 1px solid rgba(162, 192, 138, 1)
+  right:35px;
+  border: 1.5px solid rgba(162, 192, 138, 1)
+  
 }
 
 .MtopBarLogin{
   position: absolute;
   width: 120px;
-  top: 316px;
-  left: 38px;
+  margin-top: 316px;
+  right:35px;
   border: 1.5px solid rgba(162, 192, 138, 1)
 }
 
@@ -101,7 +109,7 @@
   position: absolute;
   width: 120px;
   margin-top: 386px;
-  margin-left: 38px;
+  right:35px;
   border: 1.5px solid rgba(162, 192, 138, 1)
 }
 
@@ -123,68 +131,61 @@
     position:absolute;
     top:0;
     width: 720px;
-    height: 100%;
+    height: 1000px;
     right: 0px;
     border-radius: 20px 0px 0px 20px;
     background-color: rgba(255, 255, 255, 0.9);
-    display: none;
-    transition: 850ms;
     z-index: 1;
   }
   
-  .Mnav-menu.active{
-    position:absolute;
-    display: block;
-    z-index: 1;
-  }
+ 
   
   .Mclose{
     width: 40px;
     height: 30px;
-    margin-top: 129px;
-    margin-left: 460px;
+    top: 130px;
+    left: 535px;
   }
 
   .MtopHome{
     width: 104px;
     height: 20px;
-    margin-top: 308px;
-    margin-left: 154px;
-
+    margin-top: 250px;
+    right:425px;
   }
   
   .MtopLogin {
     width: 104px;
     height: 20px;
-    margin-top: 408px;
-    margin-left: 154px;
+    margin-top: 350px;
+    right:425px;
   }
   
   .MtopMyInfo{
     width: 70px;
     height: 20px;
-    margin-top: 508px;
-    margin-left: 171px;
+    margin-top: 450px;
+    right:440px;
   }
   
   .MtopBarHome{
     width: 150px;
-    margin-top: 348px;
-    margin-left: 131px;
+    margin-top: 290px;
+    right:400px;
     border: 2px solid rgba(162, 192, 138, 1)
   }
   
   .MtopBarLogin{
     width: 150px;
-    top: 448px;
-    left: 131px;
+    margin-top: 390px;
+    right:400px;
     border: 2px solid rgba(162, 192, 138, 1)
   }
   
   .MtopBarMyInfo{
     width: 150px;
-    margin-top: 548px;
-    margin-left: 131px;
+    margin-top: 490px;
+    right:400px;
     border: 2px solid rgba(162, 192, 138, 1)
   }
 }
