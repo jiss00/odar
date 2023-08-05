@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import '../css/join.css';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 const Div = styled.div`
@@ -22,51 +22,61 @@ const Div = styled.div`
 
   }
 `;
+function Footer({current,setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
+  const [totalPages, setTotalPages] = useState(0);
+  const [displayPages, setDisplayPage] = useState(5);
 
-function Footer({status, page, setPage,totalpage }) {
-  const [totalPages,setTotalPages] = useState(0); // 총 페이지 크기
-  const [displayPages,setDisplayPage] = useState(5); // 한 번에 보여질 페이지 개수
-  //totalpages : 전체 페이지 수 totalpage : 한 페이지에 보여줄 정보 개수
   useEffect(() => {
-    // status에 따라 totalPages를 변경해주는 로직
     if (status === 'recruit') {
       setDisplayPage(5);
       setTotalPages(28);
-    }
-    else if(status ==='search'){
-      setTotalPages(totalpage);
-      setDisplayPage(totalpage < 5 ? totalpage : 5);
-    }
-    else {
+    } else if (status === 'search') {
+      setTotalPages(totalSearchPages);
+      setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
+    } else {
       setDisplayPage(5);
       setTotalPages(6);
     }
-  }, [status,totalpage]); // status가 변경될 때마다 useEffect가 호출되도록 설정
+  }, [status, totalSearchPages]);
 
-  const [current, setCurrent] = useState(1);
-
-  const onClick = (pageNumber) => {
+  const onClick = async (pageNumber) => {
+    if (status === 'recruit') {
+      setPage(pageNumber);
+    } else if (status === 'search') {
+      setSearchPage(pageNumber);
+    }
+    else{
+      setPage(pageNumber);
+    }
     setCurrent(pageNumber);
-    setPage(pageNumber);
   };
+  
 
   const onPrevClick = () => {
     if (current > 1) {
       setCurrent((prev) => Math.max(prev - displayPages, 1));
-      setPage((prev) => Math.max(prev - displayPages, 1));
+      if (status === 'recruit') {
+        setPage((prev) => Math.max(prev - displayPages, 1));
+      } else if (status === 'search') {
+        setSearchPage((prev) => Math.max(prev - displayPages, 1));
+      }
     }
   };
 
   const onNextClick = () => {
     if (current < totalPages) {
       setCurrent((prev) => Math.min(prev + displayPages, totalPages));
-      setPage((prev) => Math.min(prev + displayPages, totalPages));
+      if (status === 'recruit') {
+        setPage((prev) => Math.min(prev + displayPages, totalPages));
+      } else if (status === 'search') {
+        setSearchPage((prev) => Math.min(prev + displayPages, totalPages));
+      }
     }
   };
-
+  console.log(status);
   const renderPageNumbers = () => {
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
-    
+
     if (totalPages === 1) {
       // totalPages가 1인 경우에는 1만 표시하도록 처리합니다.
       return (
@@ -81,13 +91,13 @@ function Footer({status, page, setPage,totalpage }) {
         </div>
       );
     }
-  
+
     const middlePage = Math.floor(displayPages / 2);
     const startIdx = Math.max(0, current - middlePage - 1); // 시작 페이지 인덱스
     const endIdx = Math.min(pageNumbers.length - 1, startIdx + displayPages - 1); // 끝 페이지 인덱스
-  
+
     const visiblePages = pageNumbers.slice(startIdx, endIdx + 1);
-  
+
     return visiblePages.map((pageNumber) => (
       <div
         key={pageNumber}
@@ -114,3 +124,5 @@ function Footer({status, page, setPage,totalpage }) {
 }
 
 export default Footer;
+
+ 

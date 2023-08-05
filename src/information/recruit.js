@@ -13,14 +13,23 @@ import JobDetail from "../components/JobDetail";
 
 function Recruit() {
   const navigate = useNavigate();
-  const [status,setStatus] = useState('recruit');
+  const [status, setStatus] = useState('recruit');
   const [dataList, setDataList] = useState([]); // API 결과값들을 저장할 배열
-  const [page, setPage] = useState('1');
-  const [searchPage,setSearchPage] = useState(1);
-  /*정보 불러오기*/
+  const [page, setPage] = useState('1'); //채용정보 footbar 페이지
+  const [searchPage, setSearchPage] = useState(1); //검색결과 footbar의 페이지
   const renderCount = 11; // 렌더링할 최대 항목 수
   const renderDataList = dataList.slice(0, renderCount);
+  const [current, setCurrent] = useState(1);
 
+
+  /* 검색기능*/
+  const input = document.getElementsByClassName('search_input');
+  const [searchData, setSearchData] = useState([]); // API 결과값들을 저장할 배열
+  const renderSearchData = searchData.length > 0 ? searchData.slice(0, renderCount) : [];
+  const [inputValue, setInputValue] = useState('');
+  const [totalSearchPages,setTotalPages] = useState(0);
+
+  //채용정보 api
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,7 +38,7 @@ function Recruit() {
           params: { page: page },
           // 동적으로 변경되는 검색어
         });
-        setDataList(response.data.result);        
+        setDataList(response.data.result);
         setStatus('recruit');
 
       } catch (error) {
@@ -40,37 +49,38 @@ function Recruit() {
     fetchData();
   }, [page]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
 
-  /* 검색기능*/
-  const input = document.getElementsByClassName('search_input');
-  const [searchData, setSearchData] = useState([]); // API 결과값들을 저장할 배열
-  const renderSearchData = searchData.length > 0 ? searchData.slice(0, renderCount) : [];
-  
-  //검색한 정보들 가져오기
+  //검색 결과 api
   useEffect(() => {
-    const renderSearchData = searchData.length > 0 ? searchData.slice(0, renderCount) : [];
-    setStatus('search'); // 검색 결과가 있을 때 검색 결과를 보여주도록 상태를 변경합니다.
-  }, [searchData]);
 
-  const [inputValue, setInputValue] = useState('');
-  const onChange = (e) => {
-    setInputValue(e.target.value);
-  }
-  const fetchData1 = async () => {
+  const search_infromation = async () => {
     try {
       const response = await axios.get('http://arthurcha.shop:3000/app/jobPosting/search', {
         params: {
           keyword: inputValue,
-          page : page
+          page: searchPage
         },
       });
       setSearchData(response.data.result.data);
-      setSearchPage(response.data.result.totalCount < 11 ? 1 : String(Math.ceil(response.data.result.totalCount / 11)));
+      setTotalPages(response.data.result.totalCount < 11 ? 1 : Math.ceil(response.data.result.totalCount / 11)); // 검색 결과에 따라 totalPages 업데이트
+
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-    console.log('검색결과',searchData);
-
   };
+  search_infromation();
+}, [inputValue,searchPage]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+
+
+  //검색한 정보들 가져오기
+  useEffect(() => {
+    const renderSearchData = searchData.length > 0 ? searchData.slice(0, renderCount) : [];
+    setStatus('search'); // 검색 결과가 있을 때 검색 결과를 보여주도록 상태를 변경합니다.
+  }, [searchPage]);
+
+  const onChange = (e) => {
+    setInputValue(e.target.value);
+    setSearchPage(1);
+  }
 
   const onclick = (e) => {
     if (input[0].style.display === 'block') {
@@ -79,7 +89,6 @@ function Recruit() {
         setStatus('recruit');
       }
       else {
-        fetchData1();
         setStatus('search');
       }
     }
@@ -91,6 +100,7 @@ function Recruit() {
     navigate(`/requitmentDetail/${jobpostingId}`);
   };
   console.log(searchData);
+  console.log('input에 들어있는 값 :', inputValue);
   return (
     <div>
       <Top text='채용정보'></Top>
@@ -105,7 +115,7 @@ function Recruit() {
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
           </div>
-          {status ==='search' ? ( // 검색 결과가 있을 경우
+          {status === 'search' ? ( // 검색 결과가 있을 경우
             renderSearchData.map((data, index) => (
               data.active_status === 2 ? (
                 <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
@@ -116,13 +126,13 @@ function Recruit() {
           ) : ( // 검색 결과가 없을 경우 또는 검색되지 않은 초기 상태일 경우
             renderDataList.map((data, index) => (
               data.active_status === 2 ? (
-                <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)}key={index} text={data.title} />
+                <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
               ) : (
                 <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
               )
             ))
           )}
-          <Footer totalpage={searchPage} status={status} page={page} setPage={setPage}></Footer>
+          <Footer setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
         </div>)}
     </div>
   )
