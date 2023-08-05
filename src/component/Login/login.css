@@ -68,7 +68,7 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
   display: flex;
   border-radius: 18px;
   margin-top: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   background-color: white;
   border: 2.5px solid rgba(91, 142, 49, 1);
   }
@@ -104,7 +104,8 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
   background-color: rgba(162, 192, 138, 1);
   color: rgba(92, 92, 92, 1);
   
-  margin:auto;
+  margin: 0 auto;
+  margin-top: 30px;
   display:block;
   
   }
@@ -145,6 +146,14 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
   font-weight: 800;
   color: rgba(91, 142, 49, 1);
   
+  }
+
+  .errorMessage{
+    position: absolute;
+    top:450px;
+    font-family: "Pretendard";
+    color: red;
+    margin-left:5px;
   }
 
   @media (min-width: 1024px) {
@@ -270,5 +279,15 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
       font-weight: 800;
       color: rgba(91, 142, 49, 1);
     
+    }
+
+    .errorMessage{
+      position: absolute;
+      top:590px;
+      font-family: "Pretendard";
+      margin-left:5px;
+      margin-bottom: 10px;
+      font-size: 20px;
+      
     }
   }
