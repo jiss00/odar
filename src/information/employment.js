@@ -17,9 +17,10 @@ function Employment() {
   const [current, setCurrent] = useState(1);
   const navigate = useNavigate();
   const [dataList, setDataList] = useState([]); // API 결과값들을 저장할 배열
-  const [page, setPage]= useState('1');
+  const [page, setPage] = useState('1');
   console.log(page);
   const [searchPage, setSearchPage] = useState(1); //검색결과 footbar의 페이지
+  const [chageValue,setChangeValue] = useState('');
 
   /*정보 불러오기*/
   const renderCount = 11; // 렌더링할 최대 항목 수
@@ -84,17 +85,19 @@ function Employment() {
   console.log(dataList);
 
   const onChange = (e) => {
-    setInputValue(e.target.value);
-    setSearchPage(1);
+    setChangeValue(e.target.value);
   }
 
   const onclick = (e) => {
     if (input[0].style.display === 'block') {
-      if (inputValue === '') {
+      if (chageValue === '') {
         input[0].style.display = 'none';
+        setCurrent(1);
         setStatus('employment');
       }
       else {
+        setCurrent(1);
+        setInputValue(chageValue);
         setStatus('search');
       }
     }
@@ -108,7 +111,7 @@ function Employment() {
       <Top text='취업지원'></Top>
       {dataList.length === 0 ? (
         <></>) :
-        (<div className="main1">
+        (<div>
           <div className="margin"></div>
           <div className="sort">
             <Sort text='마감날짜' ></Sort>
@@ -116,6 +119,7 @@ function Employment() {
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
           </div>
+          <div className="margin1"></div>
           {status === 'search' ? ( // 검색 결과가 있을 경우
             renderSearchData.map((data, index) => (
               data.active_status === 1 ? (
@@ -133,9 +137,10 @@ function Employment() {
               )
             ))
           )}
-          <Footer setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
         </div>)
       }
+      <Footer setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
+
     </div >
   )
 }

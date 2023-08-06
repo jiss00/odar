@@ -9,20 +9,52 @@ const Div = styled.div`
   grid-template-columns: 30px 30px 30px 30px 30px 30px 30px;
   width: 270px;
   height: 20px;
-  margin-left: 120px;
   margin-top: 90px;
   font-weight: 550;
   font-size: 22px;
   grid-gap: 1px;
   cursor: pointer;
-  @media screen and (min-width: 1024px) {
-    grid-template-columns: 30px 30px 30px 30px 30px 30px 30px;
-    padding-left: 310px;
-    margin-left: 90px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin:0 auto;
+  top : 740px;
+  padding-left: ${props => {
+    if (props.displayPages === 5) {
+      return '60px';
+    } else if (props.displayPages === 4) {
+      return '90px';
+    }
+    else if (props.displayPages === 3) {
+      return '120px';
+    }
+    else if (props.displayPages === 2) {
+      return '150px';
+    } else if (props.displayPages === 1) {
+      return '180px';
+    }
+  }};  
+    @media screen and (min-width: 1024px) {
+    padding-left: padding-left: ${props => {
+    if (props.displayPages === 5) {
+      return '330px';
+    } else if (props.displayPages === 4) {
+      return '340px';
+    }
+    else if (props.displayPages === 3) {
+      return '370px';
+    }
+    else if (props.displayPages === 2) {
+      return '400px';
+    } else if (props.displayPages === 1) {
+      return '430px';
+    }
+  }};
+    top : 970px;
 
   }
 `;
-function Footer({current,setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
+function Footer({ current, setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
   const [totalPages, setTotalPages] = useState(0);
   const [displayPages, setDisplayPage] = useState(5);
 
@@ -38,19 +70,18 @@ function Footer({current,setCurrent, status, page, setSearchPage, setPage, total
       setTotalPages(6);
     }
   }, [status, totalSearchPages]);
-
   const onClick = async (pageNumber) => {
     if (status === 'recruit') {
       setPage(pageNumber);
     } else if (status === 'search') {
       setSearchPage(pageNumber);
     }
-    else{
+    else {
       setPage(pageNumber);
     }
     setCurrent(pageNumber);
   };
-  
+
 
   const onPrevClick = () => {
     if (current > 1) {
@@ -113,16 +144,13 @@ function Footer({current,setCurrent, status, page, setSearchPage, setPage, total
   };
 
   return (
-    <div>
-      <Div>
-        <div onClick={onPrevClick}>{'<'}</div>
-        {renderPageNumbers()}
-        <div onClick={onNextClick}>{'>'}</div>
-      </Div>
-    </div>
+    <Div displayPages={displayPages}>
+      <div onClick={onPrevClick}>{'<'}</div>
+      {renderPageNumbers()}
+      <div onClick={onNextClick}>{'>'}</div>
+    </Div>
   );
 }
 
 export default Footer;
 
- 

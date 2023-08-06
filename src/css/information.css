@@ -1,10 +1,13 @@
 .sort{
-  margin-top: 65px;
-  margin-left: 30px;
-  margin-bottom: 20px;
-  display: grid;
+  position: absolute;
+  left:50%;
+  transform: translate(-50%, -50%);
+  margin:0 auto;
+  top:180px;
+  display: grid; 
   grid-template-columns : 98px 98px 140px 30px;
   @media screen and (min-width: 1024px){
+    top : 300px;
     grid-template-columns : 98px 98px 600px 30px;
     grid-gap : 20px;
   }
@@ -17,10 +20,15 @@
     }
 }
 .recruit{
-  margin-left: 30px;
-  margin-bottom: 10px;
+  margin-left:10px;
+  margin-top: 10px;
   display: grid;
   grid-template-columns: 60px 200px;
+  @media screen and (min-width: 1024px){
+  margin-left: 710px;
+  display: grid;
+  grid-template-columns: 60px 200px;
+  }
 }
 .sort_1{
   width:98px;
@@ -71,4 +79,10 @@
   @media screen and (min-width: 1024px){
     height: 150px;   
   }
+}
+.margin1{
+  height: 230px;   
+  @media screen and (min-width: 1024px){
+    height: 210px;   
+  }  
 }
