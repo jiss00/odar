@@ -6,13 +6,14 @@ import StyledSection from './StyledSection';
 import StyledHr from '../css/StyledHr';
 import StyledSpan from './StyledSpan';
 import grandFather from './grandFather.png';
-
+import axios from 'axios'
 import "../css/MyPage.css"
 
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 
 
 function MyPage(){
+    // ------------------이동하는 메소드 --------------//
     const apply = () =>{
         window.location.href = 'http://localhost:3000/detail';
     }
@@ -49,7 +50,68 @@ function MyPage(){
         navigate('/withdrawal');
     }
 
+    // -------------------------------------------//
+    const [name, setName] = useState('이름'); //사용자명
+    const [age, setAge] = useState('나이'); //나이
+    const [job, setJop] = useState('희망 직종');
+    const [region, setRegion] = useState('장소'); // 00동
+    const [desire_start_time, set_desire_start_time] = useState('0'); //희망 시작시간
+    const [desire_end_time, set_desire_end_time] = useState('0');
 
+
+    // ------------------------------------------------//
+    const userToken = localStorage.getItem('accessToken'); //토큰
+
+    //get
+    const fetchDataFromBackend = () =>{
+        const url = `http://arthurcha.shop:3000/app/users/info`
+        // console.log('get하자');
+        
+        axios.get(url,
+            {
+                headers : {
+                'Authorization': `Bearer ${userToken}`, //토큰추가
+                },
+                
+            })
+        .then( (response) => { //성공시
+            
+            console.log(response.data);
+            if (response.data['isSuccess']){
+                console.log('get성공');
+                console.log(response.data.result);
+                
+                const backendData = response.data.result;
+                
+                //이름, 직업, 사는곳, 시작시간, 끝시간
+                setName(backendData.userInfo.name); 
+                // setAge(backendData.userInfo.)
+                setJop(backendData.job);
+                setRegion(backendData.region.region);
+                set_desire_start_time(backendData.userInfo.desire_start_time);
+                set_desire_end_time(backendData.userInfo.desire_end_time);
+
+            }
+            else{
+                // 오류코드 알려주고, 뒤로가기
+                alert('▶오류'+response.data.code+'\n'+response.data.message);
+                // goBack();
+
+                
+            }
+
+        } )
+        .catch((error)=>{
+            console.error('▶서버오류'+ error);
+            // console.log(); // 에러 출력
+        });
+    }
+
+    // userEffect를 사용하여 컴포넌트가 렌더링됐을때 한번만 실행된다.
+    useEffect(() => {
+        // console.log('useEffect!');
+        fetchDataFromBackend(); // 데이터 가져오기
+    }, []);
 
 
 
@@ -68,13 +130,15 @@ function MyPage(){
                 <div className = "item_profile_1">
                     <img className = "item_image" alt="Grandfather" src={grandFather}/>
                     <span className = "item_name">
-                        안 법 인
+                        {name}
                     </span>
                 </div>
                 <div className = "item_profile_2">
-                    <div className = "item_age"> 만 24세 </div>
+                    {/* 나이 */}
+                    <div className = "item_age"> 만 {age}세 </div>
                     <hr className = "item_hr"></hr>
-                    <div className = "item_house"> 0 0 동</div>
+                    {/* 사는곳 */}
+                    <div className = "item_house"> {region}</div>
                     <hr className = "item_hr"></hr>
                     <button className = "item_btn" onClick = {goModify}> 수정 </button>
                 </div>
@@ -86,7 +150,8 @@ function MyPage(){
                             <path d="M35.5833 8.54158H29.3333V6.45825C29.3333 4.80065 28.6748 3.21094 27.5027 2.03883C26.3306 0.866732 24.7409 0.208252 23.0833 0.208252H18.9166C17.259 0.208252 15.6693 0.866732 14.4972 2.03883C13.3251 3.21094 12.6666 4.80065 12.6666 6.45825V8.54158H6.41663C4.75902 8.54158 3.16931 9.20007 1.99721 10.3722C0.825107 11.5443 0.166626 13.134 0.166626 14.7916V33.5416C0.166626 35.1992 0.825107 36.7889 1.99721 37.961C3.16931 39.1331 4.75902 39.7916 6.41663 39.7916H35.5833C37.2409 39.7916 38.8306 39.1331 40.0027 37.961C41.1748 36.7889 41.8333 35.1992 41.8333 33.5416V14.7916C41.8333 13.134 41.1748 11.5443 40.0027 10.3722C38.8306 9.20007 37.2409 8.54158 35.5833 8.54158ZM16.8333 6.45825C16.8333 5.90572 17.0528 5.37581 17.4435 4.98511C17.8342 4.59441 18.3641 4.37492 18.9166 4.37492H23.0833C23.6358 4.37492 24.1657 4.59441 24.5564 4.98511C24.9471 5.37581 25.1666 5.90572 25.1666 6.45825V8.54158H16.8333V6.45825ZM37.6666 33.5416C37.6666 34.0941 37.4471 34.624 37.0564 35.0147C36.6657 35.4054 36.1358 35.6249 35.5833 35.6249H6.41663C5.86409 35.6249 5.33419 35.4054 4.94349 35.0147C4.55279 34.624 4.33329 34.0941 4.33329 33.5416V22.0833C9.638 24.1877 15.2931 25.2692 21 25.2708C26.7067 25.2672 32.3614 24.1858 37.6666 22.0833V33.5416ZM37.6666 17.5208C32.4133 19.8286 26.7379 21.0203 21 21.0203C15.262 21.0203 9.58663 19.8286 4.33329 17.5208V14.7916C4.33329 14.239 4.55279 13.7091 4.94349 13.3184C5.33419 12.9277 5.86409 12.7083 6.41663 12.7083H35.5833C36.1358 12.7083 36.6657 12.9277 37.0564 13.3184C37.4471 13.7091 37.6666 14.239 37.6666 14.7916V17.5208Z" fill="#5B8E31"/>
                         </svg>
                     </span>
-                    <span className="item_job_write"> 희망 직종 </span>
+                    {/* 희망 직종 */}
+                    <span className="item_job_write"> {job} </span>
                 </div>
                 <div className = "item_time"> 
                     <span className ="item_time_img">
@@ -94,8 +159,8 @@ function MyPage(){
                             <path d="M21 0.6875C16.9826 0.6875 13.0554 1.87881 9.71499 4.11077C6.37462 6.34274 3.77111 9.51512 2.23371 13.2267C0.696301 16.9384 0.294046 21.0225 1.07781 24.9628C1.86157 28.903 3.79615 32.5224 6.6369 35.3631C9.47766 38.2039 13.097 40.1384 17.0372 40.9222C20.9775 41.706 25.0616 41.3037 28.7733 39.7663C32.4849 38.2289 35.6573 35.6254 37.8892 32.285C40.1212 28.9446 41.3125 25.0174 41.3125 21C41.3068 15.6145 39.1649 10.4513 35.3568 6.64317C31.5487 2.83507 26.3855 0.693187 21 0.6875ZM21 38.1875C17.6006 38.1875 14.2776 37.1795 11.4511 35.2909C8.62468 33.4023 6.42171 30.718 5.12083 27.5774C3.81995 24.4368 3.47958 20.9809 4.14276 17.6469C4.80595 14.3128 6.4429 11.2503 8.84661 8.8466C11.2503 6.44289 14.3128 4.80594 17.6469 4.14275C20.9809 3.47957 24.4368 3.81994 27.5774 5.12082C30.718 6.4217 33.4023 8.62467 35.2909 11.4511C37.1795 14.2776 38.1875 17.6006 38.1875 21C38.1823 25.5568 36.3699 29.9255 33.1477 33.1477C29.9255 36.3699 25.5568 38.1823 21 38.1875ZM33.5 21C33.5 21.4144 33.3354 21.8118 33.0424 22.1049C32.7493 22.3979 32.3519 22.5625 31.9375 22.5625H21C20.5856 22.5625 20.1882 22.3979 19.8952 22.1049C19.6021 21.8118 19.4375 21.4144 19.4375 21V10.0625C19.4375 9.6481 19.6021 9.25067 19.8952 8.95765C20.1882 8.66462 20.5856 8.5 21 8.5C21.4144 8.5 21.8118 8.66462 22.1049 8.95765C22.3979 9.25067 22.5625 9.6481 22.5625 10.0625V19.4375H31.9375C32.3519 19.4375 32.7493 19.6021 33.0424 19.8951C33.3354 20.1882 33.5 20.5856 33.5 21Z" fill="#5B8E31"/>
                         </svg>
                     </span>
-
-                    <span className = "item_time_write">오후 2시~ 오후 6시</span>
+                    {/* 희망 시간 */}
+                    <span className = "item_time_write">{desire_start_time}시~ {desire_end_time}시</span>
                 </div>
             </section>
 
