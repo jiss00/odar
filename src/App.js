@@ -48,7 +48,7 @@ function App(){
         <Route path="modify" element={<Modify/>}/> {/*내 정보 수정*/}
         <Route path="alarm" element={<Alarm/>}/> {/*알림창*/}
         <Route path="*" element={<div>404 error : url이 잘못 입력되었습니다.</div>}/> {/*404 에러 페이지*/ }
-        <Route path="/test/:jobPostingId" element={<Test></Test>}/>
+        <Route path="/test/:jobPostingId" element={<Test></Test>}/> {/*테스트 페이지*/}
       </Routes>
     </Router>
 
