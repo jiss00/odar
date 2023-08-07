@@ -52,7 +52,7 @@ function Texts({children}) {
 // Selectbar 컴포넌트
 const MenuBar = styled.select`
   font-family: 'Pretendard';
-  text-indent: 0.3em;
+  text-indent: 0.5em;
 
   display: flex;
   box-sizing: border-box;
@@ -77,7 +77,6 @@ const MenuBar = styled.select`
     left:0px;
 
     font-size: 15px;
-    text-indent: 1em;
    
     }
     
@@ -110,6 +109,9 @@ const MenuItem = styled.option`
 `;
 
 const Writeinput = styled.input`
+  font-family: "Pretendard";
+  font-size: 14.5px;
+
   position: relative;
   border: 1px solid #5B8E31;
   border-radius: 20px;
@@ -118,7 +120,8 @@ const Writeinput = styled.input`
   width: 188px; 
   height: 25px;
   top: 11px;
-
+  text-indent: 0.5em;
+    
   @media all and (min-width: 1024px) {
     width:358px;
     height: 35px;

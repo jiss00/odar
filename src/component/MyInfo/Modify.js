@@ -3,8 +3,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Rectangle from './Rectangle';
 import Line from './Line';
-import ProfileImage from './ProfileImage';
-import ProfileButton from './ProfileButton';
+import Profile from './Profile';
 import TopTitle from './TopTitle';
 import Back from './Back';
 import Line2 from './Line2';
@@ -24,9 +23,7 @@ function Modify(){
         <Back></Back>{/*뒤로가기*/}
         <TopTitle left={119}>내 정보 수정</TopTitle>
         <Rectangle></Rectangle>
-        <ProfileImage></ProfileImage>{/*프로필 이미지*/}
-        <ProfileButton></ProfileButton>{/*프로필변경 버튼*/}
-
+        <Profile></Profile>{/*프로필 이미지, 변경버튼*/}
         <Line></Line>
        
         <Container1></Container1>{/*희망직종*/}
