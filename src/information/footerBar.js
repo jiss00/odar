@@ -54,20 +54,20 @@ const Div = styled.div`
 
   }
 `;
-function Footer({ current, setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
+function Footer({totalpage, current, setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
   const [totalPages, setTotalPages] = useState(0);
   const [displayPages, setDisplayPage] = useState(5);
 
   useEffect(() => {
     if (status === 'recruit') {
       setDisplayPage(5);
-      setTotalPages(28);
+      setTotalPages(totalpage);
     } else if (status === 'search') {
       setTotalPages(totalSearchPages);
       setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
     } else {
       setDisplayPage(5);
-      setTotalPages(6);
+      setTotalPages(totalpage);
     }
   }, [status, totalSearchPages]);
   const onClick = async (pageNumber) => {
@@ -104,7 +104,6 @@ function Footer({ current, setCurrent, status, page, setSearchPage, setPage, tot
       }
     }
   };
-  console.log(status);
   const renderPageNumbers = () => {
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 

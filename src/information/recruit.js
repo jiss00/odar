@@ -8,7 +8,6 @@ import Search from './search';
 import Footer from './footerBar';
 import Top from './Top';
 import axios from 'axios';
-import JobDetail from "../components/JobDetail";
 
 
 function Recruit() {
@@ -20,7 +19,7 @@ function Recruit() {
   const renderCount = 11; // 렌더링할 최대 항목 수
   const renderDataList = dataList.slice(0, renderCount);
   const [current, setCurrent] = useState(1);
-  const [chageValue,setChangeValue] = useState('');
+  const [chageValue, setChangeValue] = useState('');
 
 
   /* 검색기능*/
@@ -29,6 +28,7 @@ function Recruit() {
   const renderSearchData = searchData.length > 0 ? searchData.slice(0, renderCount) : [];
   const [inputValue, setInputValue] = useState('');
   const [totalSearchPages, setTotalPages] = useState(0);
+  const [totalpage,setTotalPage] = useState();
 
   //채용정보 api
   useEffect(() => {
@@ -39,10 +39,10 @@ function Recruit() {
           params: { page: page },
           // 동적으로 변경되는 검색어
         });
-        setDataList(response.data.result);
+        setDataList(response.data.result.result);
+        console.log('dataList 결과 값:', response.data.result); // 데이터 확인
         setStatus('recruit');
-        console.log(dataList);
-
+        setTotalPage(response.data.result.totalPage);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -53,7 +53,6 @@ function Recruit() {
 
   //검색 결과 api
   useEffect(() => {
-
     const search_infromation = async () => {
       try {
         const response = await axios.get('http://arthurcha.shop:3000/app/jobPosting/search', {
@@ -70,7 +69,6 @@ function Recruit() {
     };
     search_infromation();
   }, [inputValue, searchPage]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
-
 
   //검색한 정보들 가져오기
   useEffect(() => {
@@ -102,7 +100,6 @@ function Recruit() {
   const handleRecruitingClick = (jobpostingId) => {
     navigate(`/requitmentDetail/${jobpostingId}`);
   };
-  console.log(searchData);
   console.log('input에 들어있는 값 :', chageValue);
 
   return (
@@ -116,10 +113,12 @@ function Recruit() {
           <div className="sort">
             <Sort text='마감날짜' ></Sort>
             <Sort text='거리순' ></Sort>
+            <Sort text='모집현황' ></Sort>
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
           </div>
           <div className="margin1"></div>
+          <div className="main1">
           {status === 'search' ? ( // 검색 결과가 있을 경우
             renderSearchData.map((data, index) => (
               data.active_status === 2 ? (
@@ -136,9 +135,9 @@ function Recruit() {
                 <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
               )
             ))
-          )}
+          )}</div>
         </div>)}
-      <Footer setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
+      <Footer totalpage={totalpage} setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
 
     </div>
   )
