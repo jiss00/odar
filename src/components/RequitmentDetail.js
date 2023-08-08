@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
 import ReactMarkdown from 'react-markdown';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 
 import Top from '../information/Top';
 
@@ -16,7 +17,7 @@ import '../css/Requitment_Jop_Detail.css';
 
 function RequitmentDetail(){
     let {jobPostingId} = useParams();
-    console.log(jobPostingId);
+    // console.log(jobPostingId);
 
     // --------------상태 변수 모음------------
     let [recruitment, set_recruitment] = useState(''); //모집여부
@@ -28,16 +29,35 @@ function RequitmentDetail(){
     
     //--------------지원하기 버튼 클릭 시 기능----------------//
     // 이동할 페이지 url 선언
-    let [url, set_url] = useState('https://www.naver.com');
+    let [url, set_url] = useState('');
 
     // 이미 지원했는지 확인할 state , false: 미지원, true : 지원
     let [apply_state, set_apply_state] = useState(0);
     // ----------------------------//
     
     // --------------전화 걸기 기능-------------//
-    let [phone, set_phone] = useState('010-4096-3487'); // 설정한 전화번호 
+    let [phone, set_phone] = useState('-'); // 설정한 전화번호 
     // 이 전화번호 길이에 따라 전화버튼 생기거나 없어짐
 
+    // ---------------화면이동-------------------//
+    // 네이베게이트 변수
+    let navigate = useNavigate();
+
+    //---------------버튼활성화---------------//
+    let [btn_apply_state, set_btn_apply_state] = useState(0);
+
+    // ---------------화면이동----------------//
+
+    // 이전 화면으로
+    const goBack = () => {
+        navigate(-1);
+    }
+
+    // 메인으로
+    const goMain = () => {
+        navigate('/');
+    }
+    // ---------------------------------------------//
 
     // 상태 업데이트하는 함수
     const setJopDetail =(recruitment, title, salary, work_day, content, url,phone) => {
@@ -46,7 +66,6 @@ function RequitmentDetail(){
         set_salary(salary);
         set_work_day(work_day);
         set_content(content);
-
         set_url(url);
         set_phone(phone);
     }
@@ -55,57 +74,98 @@ function RequitmentDetail(){
     const renderNewLine = (props) => <br key={props.key} />;
     // 백엔드에서 데이터 가져와서 상태를 업데이트 하는 함수. 아직 백엔드에서 받아노는건 구현 안함
     const fetchDataFromBackend = () =>{
-
-
         const url = `http://arthurcha.shop:3000/app/jobPosting/${jobPostingId}`
-        console.log('get하자');
+        // console.log('get하자');
+        
         axios.get(url)
-        .then( (response) => {
+        .then( (response) => { //성공시
+            
             console.log(response.data);
-            const dataFromBackend = {
-                recruitment : (response.data['result']['active_status'] == 1 ? '모집중' : '모집완료'), // 모집중, 모집완료
-                title : response.data['result']['title'], // 이름
-                salary : response.data['result']['salary'], // 월급
-                work_day : response.data['result']['work_day'], //근무시간
-                content : response.data['result']['content'], // 컨텐츠
-                // content : "줄바꿈\n\n 줄바꿈 \n\n줄바꿈3",
-                url : response.data['result']['url'],
-                phone : response.data['result']['phone1'],
+            if (response.data['isSuccess']){
+                const dataFromBackend = {
+                    recruitment : (response.data['result']['active_status'] == 1 ? '모집중' : '모집완료'), // 모집중, 모집완료
+                    title : response.data['result']['title'], // 이름
+                    salary : response.data['result']['salary'], // 월급
+                    work_day : response.data['result']['work_day'], //근무시간
+                    content : response.data['result']['content'], // 컨텐츠
+                    // content : "줄바꿈\n\n 줄바꿈 \n\n줄바꿈3",
+                    url : response.data['result']['url'],
+                    phone : response.data['result']['phone1'],
+                };
+
+                setJopDetail(
+                    dataFromBackend.recruitment, 
+                    dataFromBackend.title, 
+                    dataFromBackend.salary, 
+                    dataFromBackend.work_day,
+                    dataFromBackend.content,
+                    dataFromBackend.url,
+                    dataFromBackend.phone
+                    );
+                callState_func();
+            }
+            else{
+                // 오류코드 알려주고, 뒤로가기
+                alert('▶오류'+response.data.code+'\n'+response.data.message);
+                goBack();
+
+                
+            }
+
+        } )
+        .catch((error)=>{
+            console.error('>오류'+ error);
+            // console.log(); // 에러 출력
+        });
+    }
+
+    // userEffect를 사용하여 컴포넌트가 렌더링됐을때 한번만 실행된다.
+    useEffect(() => {
+        // console.log('useEffect!');
+        fetchDataFromBackend(); // 데이터 가져오기
+    }, []);
 
 
-            };
-            setJopDetail(
-                dataFromBackend.recruitment, 
-                dataFromBackend.title, 
-                dataFromBackend.salary, 
-                dataFromBackend.work_day,
-                dataFromBackend.content,
-                dataFromBackend.url,
-                dataFromBackend.phone
-                );
+// ------------ 지원하기 ----------------------//
+    // 지원하기 기능
+    const ApplyToBackend = () =>{
+        const url = `http://arthurcha.shop:3000/app/jobApply`
+        // console.log('get하자');
+        // 토큰 받아오기
+        const userToken = localStorage.getItem('accessToken');
+
+        axios.post(url, 
+            {
+                'jobPostingId' : jobPostingId,
+            },    
+            {
+                headers : {
+                'Authorization': `Bearer ${userToken}`, //토큰추가
+                },
+                
+            })
+        .then( (response) => { //성공시
+            if (response.data['isSuccess']){
+                
+                console.log("post 성공, ID: "+ jobPostingId);
+                console.log(apply_state);
+                console.log(response.data);
+            }
+            else{
+                console.log(response.data);
+                console.log('▶오류'+response.data.code+'\n'+response.data.message);
+
+            }
         } )
         .catch((error)=>{
             console.error('Error fetching data:', error);
             // console.log(); // 에러 출력
-        })
-        
-        // const dataFromBackend = {
-        //     recruitment: '모집중',
-        //     title: '시니어 바리스타 자격증 과정',
-        //     money: '600,000',
-        //     time: '주 5일, 10시 ~ 12시 30분',
-        //     introduction: '바리스타 자격증 과정입니다.',
-        // };
-
-        // setJopDetail(dataFromBackend.recruitment, dataFromBackend.title, dataFromBackend.money, dataFromBackend.time, dataFromBackend.introduction);
+        });
     }
 
-
-
-
-
+    // ------------------------------------------------//
     
-    // ----------전화걸기 기능 -----------------
+    // ----------전화걸기 기능 -----------------//
     // 전화 걸기 기능
     const callPhone = (phone) => {
         window.location.href = `tel:${phone}`;
@@ -114,7 +174,7 @@ function RequitmentDetail(){
 
     // 전화번호 있는지 판단해서 class이름 설정하는 state
     // 기본이 둘 다 있음
-    let [btn_apply_state, set_btn_apply_state] = useState(0);
+
 
     const callState_func = () =>{
         // 휴대폰 번호가 존재하면 (0)
@@ -128,12 +188,6 @@ function RequitmentDetail(){
         
     }
 
-    // userEffect를 사용하여 컴포넌트가 렌더링됐을때 한번만 실행된다.
-    useEffect(() => {
-        fetchDataFromBackend();
-        callState_func();
-        
-    }, []);
     
     
     //--------------지원하기 버튼 클릭 시 기능----------------//
@@ -141,18 +195,18 @@ function RequitmentDetail(){
 
 
     const openLink = () => {
+        console.log('지원하기 클릭');
         // 여기에 이동하고자 하는 URL을 넣어주세요.
         // 이미 지원했다면(state:true)
         if (apply_state === 1 ) {
             alert("이미 지원한 공고입니다.");
-            // window.open(url, '_blank');
+            window.open(url, '_blank');
         }
         // 지원하지 않았으면 ( state : false)
         else if (apply_state === 0){
             alert("지원이 완료되었습니다.");
-            window.open(url, '_blank');
-            // apply_state를 업데이트하여 지원 완료 상태로 변경합니다.
             set_apply_state(1);
+            window.open(url, '_blank');
         }
         
     };
@@ -213,7 +267,7 @@ function RequitmentDetail(){
                             <path d="M12.3937 8.72661L9.809 10.5814C10.1483 11.5175 10.6257 12.4179 11.231 13.2637C11.8611 14.1036 12.6191 14.8778 13.4876 15.5684L16.8349 14.7435C18.7101 14.2811 20.7572 14.756 22.0043 15.9434L23.9107 17.7582C24.6826 18.4868 25.0696 19.427 24.9897 20.3799C24.9098 21.3327 24.3692 22.2232 23.4826 22.8627C20.3728 25.1325 15.5847 25.8999 11.9999 23.6476C8.84928 21.6635 6.18349 19.2313 4.13642 16.4734C2.08486 13.7284 0.711882 10.6936 0.0921691 7.53422C-0.595416 3.97957 2.65811 1.13485 6.71487 0.164943C9.13391 -0.415 11.7155 0.579903 12.6031 2.43472L13.6501 4.62201C14.3377 6.06187 13.8439 7.68671 12.3937 8.72661Z" fill="#5B8E31"/>
                         </svg>    
                     </button>
-                <button className={`btn_apply ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={openLink}>지원하기</button>                    
+                <button className={`btn_apply ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => {openLink(); ApplyToBackend();}}>지원하기</button>                    
              </section>
 
         </div>

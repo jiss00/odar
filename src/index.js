@@ -6,7 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // 개발단계 임시 주석 , 배포시 없애야함
+  <React.StrictMode> 
     <App />
   </React.StrictMode>
 );
