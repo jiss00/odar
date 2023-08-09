@@ -34,7 +34,7 @@ function Employment() {
   const [totalSearchPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    if (status === 'recruit') {
+    if (status === 'employment') {
       const fetchData = async () => {
         try {
           const url = 'http://arthurcha.shop:3000/app/jobEdu';
@@ -55,7 +55,6 @@ function Employment() {
   }, [page, status]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
 
   //정렬 관련 기능들
-  const [number, setNumber] = useState();
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
 
@@ -145,7 +144,7 @@ function Employment() {
       setStatus('recruiting');
     }
     else if (index === 0) {
-      setStatus('recruit');
+      setStatus('employment');
     }
   };
   const sortItems = [
