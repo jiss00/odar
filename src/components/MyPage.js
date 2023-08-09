@@ -54,7 +54,7 @@ function MyPage(){
     const [name, setName] = useState('이름'); //사용자명
     const [age, setAge] = useState('나이'); //나이
     const [job, setJop] = useState('희망 직종');
-    const [region, setRegion] = useState('장소'); // 00동
+    const [region, setRegion] = useState('00동'); // 00동
     const [desire_start_time, set_desire_start_time] = useState('0'); //희망 시작시간
     const [desire_end_time, set_desire_end_time] = useState('0');
 
@@ -83,13 +83,14 @@ function MyPage(){
                 
                 const backendData = response.data.result;
                 
+                // 백엔드에 내용이 있다면, 백엔드에서 받아온 내용으로 업그레이드 해준다.
                 //이름, 직업, 사는곳, 시작시간, 끝시간
-                setName(backendData.userInfo.name); 
-                // setAge(backendData.userInfo.)
-                setJop(backendData.job);
-                setRegion(backendData.region.region);
-                set_desire_start_time(backendData.userInfo.desire_start_time);
-                set_desire_end_time(backendData.userInfo.desire_end_time);
+                if (backendData.userInfo.name != '')    setName(backendData.userInfo.name); //이름 
+                // setAge(backendData.userInfo.age); //나이 
+                if (backendData.job!= '')   setJop(backendData.job); //직업
+                if(backendData.region.region !='')  setRegion(backendData.region.region); //사는곳
+                if(backendData.userInfo.desire_start_time !='')   set_desire_start_time(backendData.userInfo.desire_start_time); //시작시간
+                if(backendData.userInfo.desire_end_time !='')   set_desire_end_time(backendData.userInfo.desire_end_time); //끝시간
 
             }
             else{
@@ -135,7 +136,7 @@ function MyPage(){
                 </div>
                 <div className = "item_profile_2">
                     {/* 나이 */}
-                    <div className = "item_age"> 만 {age}세 </div>
+                    <div className = "item_age"> 만 {age} 세 </div>
                     <hr className = "item_hr"></hr>
                     {/* 사는곳 */}
                     <div className = "item_house"> {region}</div>
@@ -160,7 +161,7 @@ function MyPage(){
                         </svg>
                     </span>
                     {/* 희망 시간 */}
-                    <span className = "item_time_write">{desire_start_time}시~ {desire_end_time}시</span>
+                    <span className = "item_time_write">{desire_start_time}시 ~ {desire_end_time}시</span>
                 </div>
             </section>
 
