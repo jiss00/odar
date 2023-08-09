@@ -28,7 +28,7 @@ function Recruit() {
   const renderSearchData = searchData.length > 0 ? searchData.slice(0, renderCount) : [];
   const [inputValue, setInputValue] = useState('');
   const [totalSearchPages, setTotalPages] = useState(0);
-  const [totalpage,setTotalPage] = useState();
+  const [totalpage, setTotalPage] = useState();
 
   //채용정보 api
   useEffect(() => {
@@ -47,9 +47,50 @@ function Recruit() {
         console.error('Error fetching data:', error);
       }
     };
-
     fetchData();
-  }, [page]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+  }, [page]);
+
+
+  //정렬 관련 기능들
+  const [number, setNumber] = useState();
+  const [recruitData, setRecruitData] = useState([]);
+  const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
+
+  const recent = () => {
+  }
+
+  const distance = () => {
+  }
+
+  const recruiting = () => {
+    setStatus('recruiting');
+  }
+  //모집중인 api 호출
+  useEffect(() => {
+    if (status === 'recruiting') {
+      const fetchData = async () => {
+        try {
+          const url = 'http://arthurcha.shop:3000/app/jobPosting';
+          const response = await axios.get(url, {
+            params: {
+              page: recruitPage,
+              active_status: 2
+            },
+            // 동적으로 변경되는 검색어
+          });
+          setRecruitData(response.data.result.result);
+          console.log('모집중 결과 값:', response.data.result); // 데이터 확인
+          setStatus('recruiting');
+          setTotalPages(response.data.result.totalPage);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData();
+    }
+  }, [recruitPage, status]);
+
+
 
   //검색 결과 api
   useEffect(() => {
@@ -61,7 +102,7 @@ function Recruit() {
             page: searchPage
           },
         });
-        setSearchData(response.data.result.data);
+        setSearchData(response.data.result.result);
         setTotalPages(response.data.result.totalCount < 11 ? 1 : Math.ceil(response.data.result.totalCount / 11)); // 검색 결과에 따라 totalPages 업데이트
 
       } catch (error) {
@@ -91,6 +132,7 @@ function Recruit() {
         setInputValue(chageValue);
         setCurrent(1);
         setStatus('search');
+        input[0].style.display = 'none';
       }
     }
     else {
@@ -100,8 +142,21 @@ function Recruit() {
   const handleRecruitingClick = (jobpostingId) => {
     navigate(`/requitmentDetail/${jobpostingId}`);
   };
-  console.log('input에 들어있는 값 :', chageValue);
+  console.log('staus: :', status);
 
+
+  const [activeSort, setActiveSort] = useState(null);
+  const handleSortClick = (index) => {
+    setActiveSort(index);
+    if(index === 2){
+      setStatus('recruiting');
+    }
+  };
+  const sortItems = [
+    { text: '최근순', index: 0 },
+    { text: '거리순', index: 1 },
+    { text: '모집현황', index: 2 },
+  ];
   return (
     <div>
       <Top text='채용정보'></Top>
@@ -111,33 +166,46 @@ function Recruit() {
         (<div>
           <div className="margin"></div>
           <div className="sort">
-            <Sort text='마감날짜' ></Sort>
-            <Sort text='거리순' ></Sort>
-            <Sort text='모집현황' ></Sort>
+            {sortItems.map((item, index) => (
+              <Sort
+                key={index}
+                text={item.text}
+                active={activeSort === index}
+                onClick={() => handleSortClick(index)}
+              />
+            ))}
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
           </div>
           <div className="margin1"></div>
           <div className="main1">
-          {status === 'search' ? ( // 검색 결과가 있을 경우
-            renderSearchData.map((data, index) => (
-              data.active_status === 2 ? (
-                <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
-              ) : (
-                <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
-              )
-            ))
-          ) : ( // 검색 결과가 없을 경우 또는 검색되지 않은 초기 상태일 경우
-            renderDataList.map((data, index) => (
-              data.active_status === 2 ? (
-                <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
-              ) : (
-                <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
-              )
-            ))
-          )}</div>
+            {(() => {
+              if (status === 'search') {
+                return renderSearchData.map((data, index) => (
+                  data.active_status === 2 ? (
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                  ) : (
+                    <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                  )
+                ));
+              }
+              else if (status === 'recruiting') {
+                return recruitData.map((data, index) => (<Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                ))
+              }
+              else {
+                return renderDataList.map((data, index) => (
+                  data.active_status === 2 ? (
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                  ) : (
+                    <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                  )
+                ));
+              }
+            })()}
+          </div>
         </div>)}
-      <Footer totalpage={totalpage} setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
+      <Footer setRecruitPage={setRecruitPage} totalpage={totalpage} setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
 
     </div>
   )
