@@ -32,23 +32,26 @@ function Recruit() {
 
   //채용정보 api
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const url = 'http://arthurcha.shop:3000/app/jobPosting';
-        const response = await axios.get(url, {
-          params: { page: page },
-          // 동적으로 변경되는 검색어
-        });
-        setDataList(response.data.result.result);
-        console.log('dataList 결과 값:', response.data.result); // 데이터 확인
-        setStatus('recruit');
-        setTotalPage(response.data.result.totalPage);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }, [page]);
+    if (status === 'recruit') {
+
+      const fetchData = async () => {
+        try {
+          const url = 'http://arthurcha.shop:3000/app/jobPosting';
+          const response = await axios.get(url, {
+            params: { page: page },
+            // 동적으로 변경되는 검색어
+          });
+          setDataList(response.data.result.result);
+          console.log('dataList 결과 값:', response.data.result); // 데이터 확인
+          setStatus('recruit');
+          setTotalPage(response.data.result.totalPage);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData();
+    }
+  }, [page, status]);
 
 
   //정렬 관련 기능들
@@ -56,15 +59,7 @@ function Recruit() {
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
 
-  const recent = () => {
-  }
 
-  const distance = () => {
-  }
-
-  const recruiting = () => {
-    setStatus('recruiting');
-  }
   //모집중인 api 호출
   useEffect(() => {
     if (status === 'recruiting') {
@@ -148,8 +143,12 @@ function Recruit() {
   const [activeSort, setActiveSort] = useState(null);
   const handleSortClick = (index) => {
     setActiveSort(index);
-    if(index === 2){
+    if (index === 2) {
       setStatus('recruiting');
+    }
+    else if(index===0){
+      setStatus('recruit');
+
     }
   };
   const sortItems = [

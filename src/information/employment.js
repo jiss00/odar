@@ -34,38 +34,32 @@ function Employment() {
   const [totalSearchPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const url = 'http://arthurcha.shop:3000/app/jobEdu';
-        const response = await axios.get(url, {
-          params: { page: page }, // 동적으로 변경되는 검색어
-        });
-        setDataList(response.data.result.result); // 데이터를 업데이트하여 다시 렌더링
-        setStatus('employment');
-        console.log('api결과값', response.data.result.jobEduListResult);
-        setTotalPage(response.data.result.totalPage);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    if (status === 'recruit') {
+      const fetchData = async () => {
+        try {
+          const url = 'http://arthurcha.shop:3000/app/jobEdu';
+          const response = await axios.get(url, {
+            params: { page: page }, // 동적으로 변경되는 검색어
+          });
+          setDataList(response.data.result.result); // 데이터를 업데이트하여 다시 렌더링
+          setStatus('employment');
+          console.log('api결과값', response.data.result.jobEduListResult);
+          setTotalPage(response.data.result.totalPage);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
 
-    fetchData();
-  }, [page]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+      fetchData();
+    }
+  }, [page, status]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
 
   //정렬 관련 기능들
   const [number, setNumber] = useState();
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
 
-  const recent = () => {
-  }
 
-  const distance = () => {
-  }
-
-  const recruiting = () => {
-    setStatus('recruiting');
-  }
   useEffect(() => {
     if (status === 'recruiting') {
       const fetchData = async () => {
@@ -149,6 +143,9 @@ function Employment() {
     setActiveSort(index);
     if (index === 2) {
       setStatus('recruiting');
+    }
+    else if (index === 0) {
+      setStatus('recruit');
     }
   };
   const sortItems = [
