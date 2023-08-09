@@ -177,22 +177,22 @@ function Employment() {
               if (status === 'search') {
                 return renderSearchData.map((data, index) => (
                   data.active_status === 1 ? (
-                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                   ) : (
-                    <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                    <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                   )
                 ));
               }
               else if (status === 'recruiting') {
-                return recruitData.map((data, index) => (<Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                return recruitData.map((data, index) => (<Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                 ))
               }
               else {
                 return renderDataList.map((data, index) => (
                   data.active_status === 1 ? (
-                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                   ) : (
-                    <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                    <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                   )
                 ));
               }
