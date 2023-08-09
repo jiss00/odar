@@ -8,18 +8,7 @@
     top : 500px;
   }
 }
-.main1{
-  position: absolute;
-  left: 46%;
-  top : 450px;
-  transform: translate(-50%, -50%);
-  margin:0 auto;
-  @media screen and (min-width: 1024px){
-    top : 550px;
-    left: 43%;
 
-  }
-}
 .sub{
   margin:0 auto;
   @media screen and (min-width: 1024px){
@@ -61,7 +50,7 @@
   outline: none;
 
   @media screen and (min-width: 1024px){
-    width: 890px;
+    width: 910px;
     height: 40px;
     z-index: 2;
     }

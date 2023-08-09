@@ -21,17 +21,19 @@ const Div = styled.div`
   top : 740px;
   padding-left: ${props => {
     if (props.displayPages === 5) {
-      return '60px';
+      return '70px';
     } else if (props.displayPages === 4) {
-      return '90px';
+      return '100px';
     }
     else if (props.displayPages === 3) {
-      return '120px';
+      return '140px';
     }
     else if (props.displayPages === 2) {
-      return '150px';
+      return '170px';
     } else if (props.displayPages === 1) {
-      return '180px';
+      return '190px';
+    } else if (props.displayPages === 0) {
+      return '220px'
     }
   }};  
     @media screen and (min-width: 1024px) {
@@ -54,20 +56,23 @@ const Div = styled.div`
 
   }
 `;
-function Footer({ current, setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
+function Footer({setRecruitPage, totalpage, current, setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
   const [totalPages, setTotalPages] = useState(0);
   const [displayPages, setDisplayPage] = useState(5);
 
   useEffect(() => {
     if (status === 'recruit') {
       setDisplayPage(5);
-      setTotalPages(28);
-    } else if (status === 'search') {
+      setTotalPages(totalpage);
+    } else if (status === 'search' ) {
+      setTotalPages(totalSearchPages);
+      setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
+    }else if (status === 'recruiting' ) {
       setTotalPages(totalSearchPages);
       setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
     } else {
       setDisplayPage(5);
-      setTotalPages(6);
+      setTotalPages(totalpage);
     }
   }, [status, totalSearchPages]);
   const onClick = async (pageNumber) => {
@@ -75,6 +80,9 @@ function Footer({ current, setCurrent, status, page, setSearchPage, setPage, tot
       setPage(pageNumber);
     } else if (status === 'search') {
       setSearchPage(pageNumber);
+    }
+    else if (status === 'recruiting') {
+      setRecruitPage(pageNumber);
     }
     else {
       setPage(pageNumber);
@@ -90,6 +98,8 @@ function Footer({ current, setCurrent, status, page, setSearchPage, setPage, tot
         setPage((prev) => Math.max(prev - displayPages, 1));
       } else if (status === 'search') {
         setSearchPage((prev) => Math.max(prev - displayPages, 1));
+      }  else if (status === 'recruiting') {
+        setRecruitPage((prev) => Math.max(prev - displayPages, 1));
       }
     }
   };
@@ -101,10 +111,11 @@ function Footer({ current, setCurrent, status, page, setSearchPage, setPage, tot
         setPage((prev) => Math.min(prev + displayPages, totalPages));
       } else if (status === 'search') {
         setSearchPage((prev) => Math.min(prev + displayPages, totalPages));
+      }else if (status === 'recruiting') {
+        setRecruitPage((prev) => Math.min(prev + displayPages, totalPages));
       }
     }
   };
-  console.log(status);
   const renderPageNumbers = () => {
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
