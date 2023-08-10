@@ -19,8 +19,8 @@ function Employment() {
   const [dataList, setDataList] = useState([]); // API 결과값들을 저장할 배열
   const [page, setPage] = useState('1');
   const [searchPage, setSearchPage] = useState(1); //검색결과 footbar의 페이지
-  const [chageValue,setChangeValue] = useState('');
-  const [totalpage,setTotalPage] = useState();
+  const [chageValue, setChangeValue] = useState('');
+  const [totalpage, setTotalPage] = useState();
 
   /*정보 불러오기*/
   const renderCount = 11; // 렌더링할 최대 항목 수
@@ -34,23 +34,55 @@ function Employment() {
   const [totalSearchPages, setTotalPages] = useState(0);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const url = 'http://arthurcha.shop:3000/app/jobEdu';
-        const response = await axios.get(url, {
-          params: { page: page }, // 동적으로 변경되는 검색어
-        });
-        setDataList(response.data.result.jobEduListResult); // 데이터를 업데이트하여 다시 렌더링
-        setStatus('employment');
-        console.log('api결과값',response.data.result.jobEduListResult);
-        setTotalPage(response.data.result.totalPage);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
+    if (status === 'employment') {
+      const fetchData = async () => {
+        try {
+          const url = 'http://arthurcha.shop:3000/app/jobEdu';
+          const response = await axios.get(url, {
+            params: { page: page }, // 동적으로 변경되는 검색어
+          });
+          setDataList(response.data.result.result); // 데이터를 업데이트하여 다시 렌더링
+          setStatus('employment');
+          console.log('api결과값', response.data.result.jobEduListResult);
+          setTotalPage(response.data.result.totalPage);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
 
-    fetchData();
-  }, [page]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+      fetchData();
+    }
+  }, [page, status]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+
+  //정렬 관련 기능들
+  const [recruitData, setRecruitData] = useState([]);
+  const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
+
+
+  useEffect(() => {
+    if (status === 'recruiting') {
+      const fetchData = async () => {
+        try {
+          const url = 'http://arthurcha.shop:3000/app/jobEdu';
+          const response = await axios.get(url, {
+            params: {
+              page: recruitPage,
+              active_status: 1
+            },
+            // 동적으로 변경되는 검색어
+          });
+          setRecruitData(response.data.result.result);
+          console.log('모집중 결과 값:', response.data.result); // 데이터 확인
+          setStatus('recruiting');
+          setTotalPages(response.data.result.totalPage);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData();
+    }
+  }, [recruitPage, status]);
+
 
   const handleRecruitingClick = (job_edu_id) => {
     navigate(`/jobDetail/${job_edu_id}`);
@@ -67,7 +99,7 @@ function Employment() {
             page: searchPage
           },
         });
-        setSearchData(response.data.result.data);
+        setSearchData(response.data.result.result);
         setTotalPages(response.data.result.totalCount < 11 ? 1 : Math.ceil(response.data.result.totalCount / 11)); // 검색 결과에 따라 totalPages 업데이트
 
       } catch (error) {
@@ -105,7 +137,21 @@ function Employment() {
       input[0].style.display = 'block';
     }
   }
-
+  const [activeSort, setActiveSort] = useState(null);
+  const handleSortClick = (index) => {
+    setActiveSort(index);
+    if (index === 2) {
+      setStatus('recruiting');
+    }
+    else if (index === 0) {
+      setStatus('employment');
+    }
+  };
+  const sortItems = [
+    { text: '최근순', index: 0 },
+    { text: '거리순', index: 1 },
+    { text: '모집현황', index: 2 },
+  ];
   return (
     <div>
       <Top text='취업지원'></Top>
@@ -114,34 +160,46 @@ function Employment() {
         (<div>
           <div className="margin"></div>
           <div className="sort">
-            <Sort text='마감날짜' ></Sort>
-            <Sort text='거리순' ></Sort>
-            <Sort text='모집현황' ></Sort>
+            {sortItems.map((item, index) => (
+              <Sort
+                key={index}
+                text={item.text}
+                active={activeSort === index}
+                onClick={() => handleSortClick(index)}
+              />
+            ))}
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
           </div>
           <div className="margin1"></div>
           <div className="main1">
-          {status === 'search' ? ( // 검색 결과가 있을 경우
-            renderSearchData.map((data, index) => (
-              data.active_status === 1 ? (
-                <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title}></Recruiting>
-              ) : (
-                <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title}></Complete>
-              )
-            ))
-          ) : ( // 검색 결과가 없을 경우 또는 검색되지 않은 초기 상태일 경우
-            renderDataList.map((data, index) => (
-              data.active_status === 1 ? (
-                <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
-              ) : (
-                <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
-              )
-            ))
-          )}</div>
+            {(() => {
+              if (status === 'search') {
+                return renderSearchData.map((data, index) => (
+                  data.active_status === 1 ? (
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
+                  ) : (
+                    <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
+                  )
+                ));
+              }
+              else if (status === 'recruiting') {
+                return recruitData.map((data, index) => (<Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
+                ))
+              }
+              else {
+                return renderDataList.map((data, index) => (
+                  data.active_status === 1 ? (
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
+                  ) : (
+                    <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
+                  )
+                ));
+              }
+            })()}</div>
         </div>)
       }
-      <Footer totalpage={totalpage} setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
+      <Footer setRecruitPage={setRecruitPage} totalpage={totalpage} setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
 
     </div >
   )
