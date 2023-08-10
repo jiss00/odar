@@ -9,7 +9,7 @@
   top:50px;
   left:0px;
   margin-right:auto;
-  margin-left:auto;;
+  margin-left:auto;
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-right:auto;
@@ -21,7 +21,7 @@
 
 .id__box{
   position: relative; 
-  top: 70px;
+  top: 100px;
   right:130px;
   margin-right:auto;
   margin-left:auto;
@@ -37,7 +37,7 @@
 
 .pw__box{
   position: relative; 
-  top: 155px;
+  top: 185px;
   right:120px;
   margin-right:auto;
   margin-left:auto;
@@ -53,7 +53,7 @@
 
 .pwcheck__box{
   position: relative; 
-  top: 235px;
+  top: 265px;
   right:96px;
   margin-right:auto;
   margin-left:auto;
@@ -69,7 +69,7 @@
 
 .findingpass__pw__box{
   position: relative; 
-  top: -20px;
+  top: 10px;
   right:115px;
   margin-right:auto;
   margin-left:auto;
@@ -85,7 +85,7 @@
 
 .findingpass__pwcheck__box{
   position: relative; 
-  top: 20px;
+  top: 50px;
   right:90px;
   margin-right:auto;
   margin-left:auto;

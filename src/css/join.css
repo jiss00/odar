@@ -11,6 +11,8 @@
 
 .sub{
   margin:0 auto;
+  position: relative;
+  top:35px;
   @media screen and (min-width: 1024px){
     margin-top:-25px;
     }
@@ -107,9 +109,10 @@
 }
 .text{
   color:#5C5C5C;
-  font-size: 20px;
-  font-weight: 550;
+  font-size: 24px;
+  font-weight: 600;
   padding-top : 10px;
+  line-height: 29.05px;
   @media screen and (min-width: 1024px) {
     font-weight : 800;
     font-size : 36px;
@@ -211,4 +214,10 @@
   @media screen and (min-width: 1024px) {
     width : 350px;
   }
+}
+
+.closeimg{
+  width: 20px;
+  height: 21px;
+  margin:0 auto;
 }
