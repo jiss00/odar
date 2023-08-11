@@ -57,7 +57,7 @@ function MyPage(){
     const [region, setRegion] = useState('00동'); // 00동
     const [desire_start_time, set_desire_start_time] = useState('0'); //희망 시작시간
     const [desire_end_time, set_desire_end_time] = useState('0');
-
+    const [profile_img, set_profile_img] = useState(grandFather); //프로필이미지
 
     // ------------------------------------------------//
     const userToken = localStorage.getItem('accessToken'); //토큰
@@ -89,7 +89,14 @@ function MyPage(){
                 if (backendData.userInfo.name != null)    setName(backendData.userInfo.name); //이름 
                 setAge(backendData.userInfo.age); //나이 
                 if (backendData.job != null)   setJop(backendData.job); //직업
-                if(backendData.region.region != null)  setRegion(backendData.region.region); //사는곳
+                for (let key in backendData.region){
+                    // console.log('key',key);
+                    if (backendData.region[key] != null){
+                        setRegion(backendData.region[key]); //사는곳
+                    }
+                }
+                // 변수명을 이용해 속성에 접근하려면 대괄호 표기법을 사용해야 합니다. 
+                    
                 if(backendData.userInfo.desire_start_time !=null)   set_desire_start_time(backendData.userInfo.desire_start_time); //시작시간
                 if(backendData.userInfo.desire_end_time !=null)   set_desire_end_time(backendData.userInfo.desire_end_time); //끝시간
 
@@ -130,7 +137,7 @@ function MyPage(){
             </section>
             <section className = "body_1">
                 <div className = "item_profile_1">
-                    <img className = "item_image" alt="Grandfather" src={grandFather}/>
+                    <img className = "item_image" alt="Grandfather" src={profile_img}/>
                     <span className = "item_name">
                         {name}
                     </span>

@@ -224,7 +224,6 @@
 /* 가방, 희망 직종 */
 .item_job{
     /* 세로 가로 */
-    height: 30%;
     display: grid;
     gap: 0px 20px;
     grid-template-columns: 50px 200px;
@@ -254,8 +253,6 @@
 
 /* 시계, 오후 2시 ~ 오후 6시 */
 .item_time{
-
-    height: 30%;
     display: grid;
     gap: 0px 20px;
     grid-template-columns: 50px 200px;
@@ -418,7 +415,19 @@
     .body_2{
         
     }
-    
+
+    /* 가방, 희망 직종 */
+    .item_job{
+        /* 세로 가로 */
+        grid-template-columns: 50px 300px;
+
+
+    }
+    /* 시계, 오후 2시 ~ 오후 6시 */
+    .item_time{
+        grid-template-columns: 50px 300px;
+
+    }
     /* footer */
     
     .footer_hr {
