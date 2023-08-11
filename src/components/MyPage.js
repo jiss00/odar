@@ -81,16 +81,17 @@ function MyPage(){
                 console.log('get성공');
                 console.log(response.data.result);
                 
-                const backendData = response.data.result;
+                const backendData = response.data['result'];
                 
                 // 백엔드에 내용이 있다면, 백엔드에서 받아온 내용으로 업그레이드 해준다.
                 //이름, 직업, 사는곳, 시작시간, 끝시간
-                if (backendData.userInfo.name != '')    setName(backendData.userInfo.name); //이름 
-                // setAge(backendData.userInfo.age); //나이 
-                if (backendData.job!= '')   setJop(backendData.job); //직업
-                if(backendData.region.region !='')  setRegion(backendData.region.region); //사는곳
-                if(backendData.userInfo.desire_start_time !='')   set_desire_start_time(backendData.userInfo.desire_start_time); //시작시간
-                if(backendData.userInfo.desire_end_time !='')   set_desire_end_time(backendData.userInfo.desire_end_time); //끝시간
+
+                if (backendData.userInfo.name != null)    setName(backendData.userInfo.name); //이름 
+                setAge(backendData.userInfo.age); //나이 
+                if (backendData.job != null)   setJop(backendData.job); //직업
+                if(backendData.region.region != null)  setRegion(backendData.region.region); //사는곳
+                if(backendData.userInfo.desire_start_time !=null)   set_desire_start_time(backendData.userInfo.desire_start_time); //시작시간
+                if(backendData.userInfo.desire_end_time !=null)   set_desire_end_time(backendData.userInfo.desire_end_time); //끝시간
 
             }
             else{
