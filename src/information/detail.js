@@ -117,7 +117,7 @@ function Detail() {
     if (deleteData.job_posting_id) {
       matchedRecord = recruitRecord.find(item => item.id === deleteData.job_posting_id);
     } else {
-      matchedRecord = employRecord.find(item => item.job_edu_id === deleteData.job_edu_id);
+      matchedRecord = employRecord.find(item => item.id === deleteData.job_edu_id);
     }
   
     const applyId = matchedRecord.applyId;
@@ -188,7 +188,7 @@ function Detail() {
               text3='월급'
               text4={data.salary}
               text5='근무시간' 
-              text6={data.work_day}
+              text6={data.edu_time}
               key={index}
             ></Bar>)
           )

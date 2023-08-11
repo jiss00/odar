@@ -26,11 +26,11 @@ border-right: 7.5px solid transparent;
 margin-top : 8px;
 cursor : pointer;
 box-sizing: border-box;
-margin-left:30px;
+margin-left:7px;
 @media screen and (min-width: 1024px){
 border-left: 12px solid transparent;
 border-right: 12px solid transparent;
-margin-left:710px;
+margin-left:570px;
 margin-top : 12px;
 } 
 `
@@ -50,7 +50,7 @@ margin-left: 20px;
 `
   const StyledDiv = styled.div`
 display: grid;
-grid-template-columns: 275px 30px;
+grid-template-columns: 300px 30px;
 margin-left: 20px;
 margin-top: 25px;
 width : 330px;
@@ -60,7 +60,7 @@ border-radius : 10px;
 cursor: pointer;
 background-color:${(props) => props.color};
 @media screen and (min-width: 1024px){
-  grid-template-columns: 255px 40px;
+  grid-template-columns: 400px 40px;
   width : 1004px;
   height : 40px; 
 } 

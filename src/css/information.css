@@ -69,7 +69,7 @@
 }
 .img_detail_1{
   cursor: pointer;
-  padding-left: 10px;
+  padding-left: 30px;
   @media screen and (min-width: 1024px){
     width: 30px;
     padding-left: 50px;
@@ -79,6 +79,8 @@
   cursor: pointer;
   font-size: 24px;
   font-weight: 700;
+  padding-right: 30px;
+
   color:#5B8E31;
   @media screen and (min-width: 1024px){
     font-size: 32px;
@@ -89,7 +91,7 @@
 .top_grid{
   margin-top: 67px;
   display: grid;
-  grid-template-columns: 50px 300px 50px;
+  grid-template-columns: 50px 270px 80px;
     @media screen and (min-width: 1024px){
       grid-template-columns: 150px 800px 150px;
     } 
@@ -97,7 +99,8 @@
 .img_alarm{
   width:35px;
   height: 35px;
-  margin: 0px 30px 30px 80px;
+  margin: 0px 40px 30px 80px;
+  padding-right: 30px;
   @media screen and (min-width: 1024px){
     margin-left: 350px;
     width: 40px;
@@ -120,12 +123,12 @@
 }
 .x{
   padding-top: 8px;
-  padding-left : 25px;
+  padding-left : 5px;
   width:18px;
   @media screen and (min-width: 1024px){
     width: 25px;
     padding-top: 10px;
-    padding-left : 710px;
+    padding-left : 560px;
   }  
 }
 .pencil{
