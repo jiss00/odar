@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled,{css}  from "styled-components";
+import { sendLocationStatusToAPI } from './ModifyLongButton';
+import {Region} from './Container6';
 
 const Container = styled.div`
 display: flex;
@@ -16,7 +18,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:48px;
-    top:-210px;
+    top:-218px;
     left:0px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -33,7 +35,7 @@ const StyledTexts = styled.span`
       height: 20px;
       margin-left:auto;
       margin-right:10px;
-      top:-215px;
+      top:-225px;
       left:-130px;
       font-size:20px;
       }  
@@ -61,14 +63,14 @@ const ButtonContainer = styled.div`
   border-radius: 50px;
   background-color: transparent;
   cursor: pointer;
-  top: -220px;
+  top: -228px;
   margin-left:30px;
   margin-right:auto;
   @media all and (min-width: 1024px) {
     position: relative;
     max-width: 67px;
     max-height: 33px;
-    top: -225px;
+    top: -235px;
     left:120px;
     margin-left:10px;
     margin-right:auto;
@@ -99,9 +101,15 @@ function AgreeButton({ top }) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
             console.log("사용자 위치 정보:", position.coords.latitude, position.coords.longitude);
+            sendLocationStatusToAPI(1);
+            
+            // Container6.js에 있는 Region함수로 위도, 경도 전달
+            Region(position.coords.latitude, position.coords.longitude);
           },
+
           (error) => {
             console.error("위치 정보를 가져오는데 실패했습니다:", error.message);
+            sendLocationStatusToAPI(0);
           }
         );
       } else {
@@ -117,13 +125,15 @@ function AgreeButton({ top }) {
   );
 }
 
+
 function Container5() {
+
   return (
     <Container>
       <Texts fontsize={16} width={91} height={20} top={569} left={64}>
         위치 알림 동의
       </Texts>
-      <AgreeButton top={571} />
+      <AgreeButton top={571}/>
     </Container>
   );
 }

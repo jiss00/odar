@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled,{css}  from "styled-components";
+import { sendSelectedDaysToAPI } from './ModifyLongButton';
+
 
 const Container = styled.div`
 display: flex;
@@ -16,7 +18,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:5px;
-    top:-235px;
+    top:-275px;
     left:3px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -33,7 +35,7 @@ const StyledTexts = styled.span`
   height: 20px;
   margin-left:auto;
   margin-right:10px;
-  top:-250px;
+  top:-300px;
   left:0px;
   font-size:20px;
   }
@@ -102,7 +104,7 @@ const DayWrapper = styled.div`
    position: relative;
     width: 200px; 
     height: 40px;
-    top: -240px;
+    top: -280px;
     margin-left:5px;
     margin-right:auto;
     display: flex; 
@@ -111,7 +113,7 @@ const DayWrapper = styled.div`
     position: relative;
     width: 358px; 
     height: 40px;
-    top: -250px;
+    top: -300px;
     left: -140px;
     margin-left:50px;
     margin-right:auto;
@@ -138,6 +140,8 @@ const handleDayClick = (day) => {
       // 새로운 요일 선택
       setSelectedDay([...selectedDay, day]);
     }
+    // 선택한 요일 리스트를 보냄
+    sendSelectedDaysToAPI(selectedDay);
   };
 
 

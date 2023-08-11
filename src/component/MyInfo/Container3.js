@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled,{css}  from "styled-components";
+import sendStartTimesToAPI from "./ModifyLongButton";
+import sendEndTimesToAPI from "./ModifyLongButton";
 
 const Container = styled.div`
 display: flex;
@@ -16,7 +18,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:5px;
-    top:-235px;
+    top:-275px;
     left:8px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -33,7 +35,7 @@ const StyledTexts = styled.span`
   height: 20px;
   margin-left:auto;
   margin-right:10px;
-  top:-240px;
+  top:-290px;
   left:0px;
   font-size:20px;
   }
@@ -117,7 +119,7 @@ const ClockText = styled.span`
     } 
 `;
 
-function Time({ left }) {
+function Time({ left, onChange }) {
   function handleOnInputChange(event) {
     const maxlength = 2;
     const inputValue = event.target.value;
@@ -132,6 +134,9 @@ function Time({ left }) {
     if (inputValue.length > maxlength) {
       event.target.value = inputValue.substr(0, maxlength);
     }
+
+    // 콜백 함수 호출하여 값을 부모 컴포넌트로 전달
+    onChange(inputValue);
   }
 
   return (
@@ -175,7 +180,7 @@ const TimeWrapper = styled.div`
     position: relative;
     width: 200px; 
     height: 40px;
-    top: -240px;
+    top: -280px;
     margin-left:15px;
     margin-right:auto;
     display: flex; 
@@ -184,7 +189,7 @@ const TimeWrapper = styled.div`
     position: relative;
     width: 358px; 
     height: 40px;
-    top: -200px;
+    top: -250px;
     left: -140px;
     margin-left:50px;
     margin-right:auto;
@@ -197,14 +202,29 @@ function Tilde() {
   );
 }
 
+
 function Container3() {
+  let Start = 0;
+  let End = 0;
+
+  const sendStartTimes = (startTime) => {
+    Start = startTime;
+  };
+
+  const sendEndTimes = (endTime) => {
+    End = endTime;
+  };
+
+  sendStartTimesToAPI(Start);
+  sendEndTimesToAPI(End);
+
   return (
     <Container>
       <Texts>희망시간</Texts>
       <TimeWrapper>
-      <Time left={139}></Time>
-      <Tilde></Tilde>
-      <Time left={257}></Time>      
+        <Time left={139} onChange={sendStartTimes} />
+        <Tilde />
+        <Time left={257} onChange={sendEndTimes} />
       </TimeWrapper>
     </Container>
   );
