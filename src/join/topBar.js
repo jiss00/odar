@@ -3,10 +3,9 @@
 
   const Shape = styled.div`
     position:relative;
-    margin-top:0px;
     margin-right:auto;
     margin-left:auto;
-    margin-bottom: 70px;
+    margin-bottom: 30px; 
     width: 193px;
     height: 15px;
     left:0px;

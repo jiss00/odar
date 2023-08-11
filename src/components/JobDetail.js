@@ -162,12 +162,14 @@ function JobDetail(){
                 console.log(response.data);
             }
             else{
+                alert("지원에 실패하였습니다.");
                 console.log(response.data);
                 console.log('▶오류'+response.data.code+'\n'+response.data.message);
 
             }
         } )
         .catch((error)=>{
+            alert("지원에 실패하였습니다.");
             console.error('Error fetching data:', error);
             // console.log(); // 에러 출력
         });
@@ -212,6 +214,7 @@ function JobDetail(){
         }
         // 지원하지 않았으면 ( state : false)
         else if (apply_state === 0){
+
             window.open(url, '_blank');
         }
         
