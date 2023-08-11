@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -85,20 +86,41 @@ function XButton({ children }) {
   );
 }
 
-function ButtonGroup({ validEmail, validPassword }) {
+function ButtonGroup({ validEmail, validPassword, id, password }) {
   const isButtonDisabled = !(validEmail && validPassword);
-
-  const handleConfirm = () => {
+ 
+  const handleConfirm = async () => {
     if (!isButtonDisabled) {
-      // 여기에 확인 버튼을 눌렀을 때 유효한 회원 체크 로직을 작성.
-    
-      if (validEmail  && validPassword) {
-        console.log("유효한 회원입니다. 탈퇴 요청을 처리합니다.");
-      } else {
-        console.log("유효하지 않은 회원입니다.");
+      try {
+        const token = localStorage.getItem('accessToken');
+        console.log(token);
+        const requestBody = {
+          email: id,
+          password: password
+        };
+        console.log('requestBody:', requestBody); // 확인용
+      
+        const response = await axios.delete('http://arthurcha.shop:3000/app/users/delete', {
+          data: requestBody,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+      
+        if (response.data.isSuccess && response.data.code === 200) {
+          alert('계정이 삭제되었습니다.');
+        } else {
+          // 에러 처리 로직 추가
+          alert('요청 실패: ' + response.data.message);
+        }
+      } catch (error) {
+        // 에러 처리 로직 추가
+        alert('요청 실패: ' + error.message);
       }
     }
-  };
+  };  
+  
+  
   return (
     <ButtonContainer>
       <OButton  disabled={isButtonDisabled} onClick={handleConfirm}>확인</OButton>

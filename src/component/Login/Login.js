@@ -20,6 +20,7 @@ export default function Login() {
         email: username,
         password: password,
     };
+    console.log(username)
 
     // Axios를 사용하여 API 요청 보내기
     axios.post(loginUrl, requestBody)

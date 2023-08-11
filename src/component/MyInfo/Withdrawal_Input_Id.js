@@ -40,13 +40,14 @@ function Withdrawal_Input_Id(props) {
   
   const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
   const [validEmail, setValidEmail] = useState(false);
+  const [email, setEmail] = useState(""); // email 상태 추가
 
   const handleInputChange = (event) => {
     const email = event.target.value;
     const isValid = validateEmail(email);
     setValidEmail(isValid);
-     // 부모 컴포넌트로 변경된 값을 전달하는 부분
-    onChange(isValid); 
+    setEmail(email); // email 상태 업데이트
+    onChange(isValid, email);
   };
   return (
     <>
