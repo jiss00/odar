@@ -125,7 +125,47 @@ function RequitmentDetail(){
         fetchDataFromBackend(); // 데이터 가져오기
     }, []);
 
+    // =============제일 처음 지원상태 변경=================//
+    const StartApplyToUpdate = () => {
+        const url = `http://arthurcha.shop:3000/app/jobApply/edu/${jobPostingId}`
+        const userToken = localStorage.getItem('accessToken');
 
+        axios.get(url,{
+            headers : {
+                'Authorization' : `Bearer ${userToken}`, //토큰추가
+            }
+        })
+        .then( (response) => { // 서버연결 성공시
+            if (response.data['isSuccess']){
+                console.log(response.data);
+                // 이미 지원함
+                if (response.data.result === true){
+                    console.log("이미 지원함");
+                    set_apply_state(1); // 지원내역 상태변경
+                }
+                else{
+                    console.log("지원하지 않았음");
+                    set_apply_state(0);
+                }
+                
+            }
+            else{
+                console.log(response.data);
+                console.log('▶isSuccess오류'+'\n'+response.data.message);
+            }
+        } )
+        .catch((error)=>{
+            console.error('Error fetching data:', error);
+            // console.log(); // 에러 출력
+        });
+    }
+
+    useEffect(()=>{
+        console.log("맨 처음 렌더링 될때 한 번만 실행 : 지원상태 업데이트");
+        StartApplyToUpdate();
+    },[]);
+
+    // ==============================//
 // ------------ 지원하기 ----------------------//
     // 지원하기 기능
     const ApplyToBackend = () =>{
