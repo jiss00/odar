@@ -1,7 +1,6 @@
 import '../../App';
 import React from 'react';
-import { Link } from "react-router-dom";
-
+import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import Rectangle from './Rectangle';
 import LongButton from '../Join/LongButton';
@@ -11,7 +10,21 @@ import TextBox from './TextBox';
 import TopTitle from './TopTitle';
 import Back from './Back';
 import axios from 'axios';
+import Modal from 'react-modal';
+import closeImage from '../../components/close.png';
 
+const StyledModalDiv = styled.div`
+  display:flex;
+  background-color: #EDF1D5;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center; 
+  margin: 0 auto;
+  font-family: "Pretendard";
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 28.64px;
+`;
 
 function Inquiry(){
     // input에서 value를 담기 위한 state 생성
@@ -64,6 +77,7 @@ function Inquiry(){
             console.log(response.data);
             if(response.data.isSuccess){
                 console.log('isSuccess 성공');
+                setModalVisible(true); // 이메일이 성공적으로 전송되면 모달 표시.
             }else{
                 console.log('▶[오류] isSuccess 실패'+response.data.code+'\n'+response.data.message);
             }
@@ -76,6 +90,7 @@ function Inquiry(){
         pointerEvents: longButton_state ?  'auto' :'none'
     };
         
+    const [modalVisible, setModalVisible] = useState(false);
 
     return(
         <>
@@ -92,7 +107,46 @@ function Inquiry(){
         <span style = {TextStyle} onClick={() => {inputValue();  EmailToQuestion(); }}> 
             <LongButton 문의하기={longButton_state} >문의하기</LongButton>
         </span>
-        
+        <Modal
+            isOpen={modalVisible}
+            onRequestClose={() => setModalVisible(false)}
+            contentLabel="알림"
+            style={{
+                overlay: {
+                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                },
+                content: {
+                    backgroundColor: '#EDF1D5',
+                    border: 'none',
+                    margin: '0 auto',
+                    borderRadius: '20px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    position: 'relative',
+                    top: '300px',
+                    left: '0',
+                    height: '200px',
+                    width: '305px'
+                },
+            }}
+        >
+            <img
+                className='closeimg'
+                src={closeImage}
+                onClick={() => setModalVisible(false)}
+                style={{
+                    position: 'absolute',
+                    top: '10px',
+                    right: '10px',
+                    cursor: 'pointer',
+                }}
+            />
+            <StyledModalDiv>
+                <p>이메일 전송이 <br/>성공적으로 완료되었습니다 🎉</p>
+            </StyledModalDiv>
+        </Modal> 
         </div>
         </>
     );
