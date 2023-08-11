@@ -173,6 +173,8 @@ function FindingID() {
           set_btn_success_state(true);
           setComplete(true);// 완료버튼 클릭 시 상태바 너비를 100%로 설정
           set_modal_text('인증이 완료되었습니다! 문자로 아이디가 전송됩니다.');
+
+          // EmailIDFromBackend(); // 백엔드로부터 이메일 얻기
         }
         else{
           // console.log("아직 활성화 안됨");
@@ -197,6 +199,33 @@ function FindingID() {
       navigate('/');
   }
 
+  // -------------아이디 전송 -----------------//
+//   const EmailIDFromBackend = () =>{
+//     const phoneData =  { "phone" : phone_number_state  };
+//     const url = `http://arthurcha.shop:3000/app/users/email`
+//     console.log('id get하자');
+//     axios.get(url, phoneData)
+//     .then( (response) => {
+//         console.log(response.data);
+//         if (response.data.isSuccess === true){
+//           console.log('isSuccess 성공');
+//           console.log('id:'+response.data.result.email);
+//         }
+//         else{
+//           console.log('▶[오류] isSuccess 실패'+response.data.code+'\n'+response.data.message);
+//         }
+//         // setJopDetail(response.recruitment, response.title, response.money, response.time, response.introduction);
+//     } )
+//     .catch((error)=>{
+//       console.error('▶서버오류'+ error);
+//         // console.log(); // 에러 출력
+//     })
+//     // 백엔드에서 받아오기 전이므로, 가상의 데이터로 예시 작성
+    
+// }
+// ------------------------------------------//
+
+
   // --------------------------------------------------//
 
   return (
@@ -216,7 +245,7 @@ function FindingID() {
           <input onChange={saveCertificationNumber} className="input_all" type="text" id="certification_number" placeholder="000000" maxLength={6} ></input>
           <span></span>
           {modal === true ? <Timer time={time}></Timer> : <></>}
-          <button disabled={btn_all_state < 2} onClick={BtnSuccess} className={btn_all_state >= 2 ? 'btn_all_yes' : 'btn_all'} type="submit">완료</button>
+          <button disabled={btn_all_state < 2} onClick={() => {BtnSuccess(); } } className={btn_all_state >= 2 ? 'btn_all_yes' : 'btn_all'} type="submit">완료</button>
         </section>
         {modal === true ? <Modal text={modal_text}></Modal> : <></>}
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}

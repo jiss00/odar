@@ -57,7 +57,7 @@ const StyledButton = styled.button`
     const is문의하기 = 문의하기 ? "true" : undefined;
     return (
       <StyledButton as={Link} to={to} 문의하기={is문의하기}>
-        <ButtonText 문의하기={is문의하기}>{children}</ButtonText>
+        <ButtonText 문의하기={is문의하기} >{children}</ButtonText>
       </StyledButton>
     );
   }

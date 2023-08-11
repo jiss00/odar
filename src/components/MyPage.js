@@ -105,8 +105,6 @@ function MyPage(){
                 // 오류코드 알려주고, 뒤로가기
                 alert('▶오류'+response.data.code+'\n'+response.data.message);
                 // goBack();
-
-                
             }
 
         } )
