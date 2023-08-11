@@ -4,9 +4,9 @@ import Text from './text';
 const Div = styled.div`
   margin-top:88px;
   display : grid;
-  grid-template-columns: 100px 25px;
+  grid-template-columns: 180px 40px;
   @media screen and (min-width: 1024px){
-    grid-template-columns: 180px 30px;
+    grid-template-columns: 500px 200px;
 
     }  
 `
