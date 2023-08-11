@@ -3,6 +3,8 @@ import {useState} from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
+import { BrowserView, MobileView } from 'react-device-detect'
+
 
 import Top from '../information/Top';
 
@@ -88,12 +90,39 @@ function Test(){
         // setJopDetail(dataFromBackend.recruitment, dataFromBackend.title, dataFromBackend.money, dataFromBackend.time, dataFromBackend.introduction);
     }
 
+    // 이미지얻자
+    const fetchDataFromBackend3 = () =>{
+
+
+        const url = `http://arthurcha.shop:3000/app/image`
+        console.log('get하자');
+        axios.get(url)
+        .then( (response) => {
+            console.log(response.data);
+        } )
+        .catch((error)=>{
+            console.error('Error fetching data:', error);
+            // cosole.log(); // 에러 출력
+        })
+        
+        // const dataFromBackend = {
+        //     recruitment: '모집중',
+        //     title: '시니어 바리스타 자격증 과정',
+        //     money: '600,000',
+        //     time: '주 5일, 10시 ~ 12시 30분',
+        //     introduction: '바리스타 자격증 과정입니다.',
+        // };
+
+        // setJopDetail(dataFromBackend.recruitment, dataFromBackend.title, dataFromBackend.money, dataFromBackend.time, dataFromBackend.introduction);
+    }
 
     return(
         <div>
+            <MobileView> 테스트창 </MobileView>
             테스트창
             <button onClick={fetchDataFromBackend}> get하자</button>
             <button onClick={fetchDataFromBackend2}> 취업상세 get하자 </button>
+            <button onClick={fetchDataFromBackend3}> 이미지 get하자 </button>
         </div>
     );
 }

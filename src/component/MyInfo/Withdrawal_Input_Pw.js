@@ -77,6 +77,7 @@ function Withdrawal_Input_Pw(props) {
   const [validUpperCase, setValidUpperCase] = useState(false); // 대소문자 유효성 검사 결과
   const [validNumber, setValidNumber] = useState(false); // 숫자 유효성 검사 결과
   const [validSpecialCharacter, setValidSpecialCharacter] = useState(false); // 특수문자 유효성 검사 결과
+  const [password, setPassword] = useState(""); // password 상태 추가
 
     const handleClick = () => {
         setPasswordVisible(!isPasswordVisible);
@@ -88,17 +89,15 @@ function Withdrawal_Input_Pw(props) {
     const isValid2 =validateNumber(password);
     const isValid3 =validateSpecialCharacter(password);
 
+    const isValidPassword = isValid1 && isValid2 && isValid3;
+
     setValidUpperCase(isValid1);
     setValidNumber(isValid2);
     setValidSpecialCharacter(isValid3);
-
-    function isAllValid(isValid1,isValid2,isValid3) {
-      return isValid1 && isValid2 && isValid3;
-    };
-    
-    // 부모 컴포넌트로 변경된 값을 전달하는 부분
-    
-   onChange(isValid1 && isValid2 && isValid3); 
+    setPassword(password); // email 상태 업데이트
+  
+    // 비밀번호와 유효성 검사 결과를 객체로 묶어서 한 번에 전달
+    onChange(isValidPassword, password);
 
   };
   

@@ -146,7 +146,7 @@ function JobDetail(){
 
         axios.post(url, 
             {
-                'jobPostingId' : job_edu_id,
+                "jobEduId" : job_edu_id,
             },    
             {
                 headers : {
