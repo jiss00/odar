@@ -147,9 +147,13 @@ function Recruit() {
     setActiveSort(index);
     if (index === 2) {
       setStatus('recruiting');
+      setCurrent(1);
+      setRecruitPage(1);
     }
     else if(index===0){
       setStatus('recruit');
+      setCurrent(1);
+      setPage(1);
 
     }
   };
