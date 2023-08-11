@@ -85,6 +85,7 @@ function MyPage(){
                 
                 // 백엔드에 내용이 있다면, 백엔드에서 받아온 내용으로 업그레이드 해준다.
                 //이름, 직업, 사는곳, 시작시간, 끝시간
+
                 if (backendData.userInfo.name != null)    setName(backendData.userInfo.name); //이름 
                 setAge(backendData.userInfo.age); //나이 
                 if (backendData.job != null)   setJop(backendData.job); //직업
