@@ -7,7 +7,7 @@ function Auth(props){
   height: 50px;
   cursor: pointer;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 800;
   background-color: #A2C08A;
   border-radius: 15px;
   text-align: center;

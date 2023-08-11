@@ -8,6 +8,7 @@ import Search from './search';
 import Footer from './footerBar';
 import Top from './Top';
 import axios from 'axios';
+import { BrowserView, MobileView } from 'react-device-detect'
 
 
 function Recruit() {
@@ -69,7 +70,7 @@ function Recruit() {
           const response = await axios.get(url, {
             params: {
               page: recruitPage,
-              active_status: 2
+              active_status: 1
             },
             // 동적으로 변경되는 검색어
           });
@@ -89,6 +90,7 @@ function Recruit() {
 
   //검색 결과 api
   useEffect(() => {
+    if (status === 'search') {
     const search_infromation = async () => {
       try {
         const response = await axios.get('http://arthurcha.shop:3000/app/jobPosting/search', {
@@ -103,8 +105,8 @@ function Recruit() {
       } catch (error) {
       }
     };
-    search_infromation();
-  }, [inputValue, searchPage]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+    search_infromation();}
+  }, [status,inputValue, searchPage]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
 
   //검색한 정보들 가져오기
   useEffect(() => {
@@ -145,9 +147,13 @@ function Recruit() {
     setActiveSort(index);
     if (index === 2) {
       setStatus('recruiting');
+      setCurrent(1);
+      setRecruitPage(1);
     }
     else if(index===0){
       setStatus('recruit');
+      setCurrent(1);
+      setPage(1);
 
     }
   };
@@ -158,6 +164,7 @@ function Recruit() {
   ];
   return (
     <div>
+
       <Top text='채용정보'></Top>
       {dataList.length === 0 ? (
         <></>) :
@@ -181,7 +188,7 @@ function Recruit() {
             {(() => {
               if (status === 'search') {
                 return renderSearchData.map((data, index) => (
-                  data.active_status === 2 ? (
+                  data.active_status === 1 ? (
                     <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   ) : (
                     <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
@@ -194,7 +201,7 @@ function Recruit() {
               }
               else {
                 return renderDataList.map((data, index) => (
-                  data.active_status === 2 ? (
+                  data.active_status === 1 ? (
                     <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   ) : (
                     <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />

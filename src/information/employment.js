@@ -91,6 +91,7 @@ function Employment() {
 
   //검색 결과 api
   useEffect(() => {
+    if(status === 'search'){
     const search_infromation = async () => {
       try {
         const response = await axios.get('http://arthurcha.shop:3000/app/jobEdu/search', {
@@ -106,7 +107,7 @@ function Employment() {
         console.error('Error fetching data:', error);
       }
     };
-    search_infromation();
+    search_infromation();}
   }, [inputValue, searchPage]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
 
   //검색한 정보들 가져오기
@@ -142,9 +143,13 @@ function Employment() {
     setActiveSort(index);
     if (index === 2) {
       setStatus('recruiting');
+      setCurrent(1);
+      setRecruitPage(1);
     }
     else if (index === 0) {
       setStatus('employment');
+      setCurrent(1);
+      setPage(1);
     }
   };
   const sortItems = [

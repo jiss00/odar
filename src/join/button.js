@@ -45,11 +45,10 @@ const StyledButton = styled.button`
     position: relative; 
     left:0;
     width: 440px;
-    height: 90px;
+    height: 60px;
     margin-left:auto;
     margin-right:auto;
     margin-bottom:30px;
-    padding-top : 28px;
     }
 `;
 
@@ -78,8 +77,8 @@ const StyledButton = styled.button`
     );
   }
 
-  function Button({ birth1, birth2, birth3, verification, complete,onClick }) {
-    const isButtonDisabled = !(birth1 && birth2 && birth3 && verification && complete);
+  function Button({ birth1, birth2, birth3, verification, complete, onClick, check }) {
+    const isButtonDisabled = !(birth1 && birth2 && birth3 && verification && complete && check);
     return (
     <Container>        
       <LongButton onClick={onClick} disabled={isButtonDisabled}>가 입</LongButton>

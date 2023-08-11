@@ -4,8 +4,8 @@ import styled from "styled-components";
 function Text(props){
   const StyledText = styled.div`
   color: #5C5C5C;
-  font-weight: 550;
-  font-size: 27px;
+  font-weight: 800;
+  font-size: 32px;
   margin: 0 auto;
   text-align:center;
   @media screen and (min-width: 1024px) {
