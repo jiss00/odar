@@ -3,6 +3,8 @@ import {useState} from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios'
+import { BrowserView, MobileView } from 'react-device-detect'
+
 
 import Top from '../information/Top';
 
@@ -91,6 +93,7 @@ function Test(){
 
     return(
         <div>
+            <MobileView> 테스트창 </MobileView>
             테스트창
             <button onClick={fetchDataFromBackend}> get하자</button>
             <button onClick={fetchDataFromBackend2}> 취업상세 get하자 </button>
