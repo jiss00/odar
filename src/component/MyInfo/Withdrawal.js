@@ -12,13 +12,17 @@ import Back from './Back';
 function Withdrawal(){
     const [validEmail, setValidEmail] = useState(false);
     const [validPassword, setValidPassword] = useState(false);
+    const [id,setId] = useState("");
+    const [password,setPassword] = useState("");
   
-    const handleEmailChange = (isValid) => {
+    const handleEmailChange = (isValid,email) => {
         setValidEmail(isValid);
+        setId(email);
       };
-  
-    const handlePasswordChange = (isValid) => {
-      setValidPassword(isValid);
+
+    const handlePasswordChange = (isValidPassword, password) => {
+      setValidPassword(isValidPassword);
+      setPassword(password);
     };
   
 
@@ -37,7 +41,9 @@ function Withdrawal(){
         <Withdrawal_Input_Pw type="password" placeholder=" 비밀번호를 입력해주세요."onChange={handlePasswordChange}  ></Withdrawal_Input_Pw>
         <ButtonGroup
         validEmail={validEmail}
-        validPassword={validPassword}/>
+        validPassword={validPassword}
+        id={id}
+        password={password}/>
         </div>
         </>
     )
