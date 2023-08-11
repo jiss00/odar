@@ -116,6 +116,25 @@ function Test(){
         // setJopDetail(dataFromBackend.recruitment, dataFromBackend.title, dataFromBackend.money, dataFromBackend.time, dataFromBackend.introduction);
     }
 
+    // const StartApplyToUpdate = () => {
+    //     const url = `http://arthurcha.shop:3000/app/jobApply/edu/${job_edu_id}`
+    //     const userToken = localStorage.getItem('accessToken');
+    //     axios.get(url,
+    //         {
+    //             headers : {
+    //                 Authorization : userToken,
+    //             },
+    //         }
+    //         )
+    //     .then( (response) => {
+    //         console.log(response.data);
+    //     } )
+    //     .catch((error)=>{
+    //         console.error('Error fetching data:', error);
+    //         // cosole.log(); // 에러 출력
+    //     })
+    // }
+
     return(
         <div>
             <MobileView> 테스트창 </MobileView>

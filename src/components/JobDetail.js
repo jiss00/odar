@@ -14,6 +14,7 @@ import Top from '../information/Top';
 
 import '../css/Requitment_Jop_Detail.css';
 
+
 function JobDetail(){
     let {job_edu_id} = useParams();
     console.log(job_edu_id);
@@ -134,8 +135,48 @@ function JobDetail(){
         fetchDataFromBackend(); // 데이터 가져오기
     }, []);
 
+    // =============제일 처음 지원상태 변경=================//
+    const StartApplyToUpdate = () => {
+        const url = `http://arthurcha.shop:3000/app/jobApply/edu/${job_edu_id}`
+        const userToken = localStorage.getItem('accessToken');
 
+        axios.get(url,{
+            headers : {
+                'Authorization' : `Bearer ${userToken}`, //토큰추가
+            }
+        })
+        .then( (response) => { // 서버연결 성공시
+            if (response.data['isSuccess']){
+                // 이미 지원함
+                if (response.data.result === true){
+                    console.log("이미 지원함");
+                    set_apply_state(1); // 지원내역 상태변경
+                }
+                else{
+                    console.log("지원하지 않았음");
+                    set_apply_state(0);
+                }
+                
+            }
+            else{
+                console.log(response.data);
+                console.log('▶isSuccess오류'+'\n'+response.data.message);
+            }
+        } )
+        .catch((error)=>{
+            console.error('Error fetching data:', error);
+            // console.log(); // 에러 출력
+        });
+    }
 
+    useEffect(()=>{
+        console.log("맨 처음 렌더링 될때 한 번만 실행 : 지원상태 업데이트");
+        StartApplyToUpdate();
+    },[]);
+
+    // ==============================//
+
+    
 // ------------ 지원하기 ----------------------//
     // 지원하기 기능
     const ApplyToBackend = () =>{
@@ -162,14 +203,12 @@ function JobDetail(){
                 console.log(response.data);
             }
             else{
-                alert("지원에 실패하였습니다.");
                 console.log(response.data);
                 console.log('▶오류'+response.data.code+'\n'+response.data.message);
 
             }
         } )
         .catch((error)=>{
-            alert("지원에 실패하였습니다.");
             console.error('Error fetching data:', error);
             // console.log(); // 에러 출력
         });
@@ -202,19 +241,21 @@ function JobDetail(){
 
     //------------------------------- -//
 
+    // ---------------지원 상태 업데이트 ------------//
 
     //--------------지원하기 버튼 클릭 시 기능----------------//
 
     const openLink = () => {
         // 여기에 이동하고자 하는 URL을 넣어주세요.
         // 이미 지원했다면(state:true)
+
+
         if (apply_state === 1 ) {
             alert("이미 지원한 공고입니다.");
             window.open(url, '_blank');
         }
         // 지원하지 않았으면 ( state : false)
         else if (apply_state === 0){
-
             window.open(url, '_blank');
         }
         
