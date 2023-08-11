@@ -188,7 +188,7 @@ function Detail() {
               text3='월급'
               text4={data.salary}
               text5='근무시간' 
-              text6={data.work_day}
+              text6={data.edu_time}
               key={index}
             ></Bar>)
           )
