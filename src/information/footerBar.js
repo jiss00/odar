@@ -31,7 +31,7 @@ const Div = styled.div`
     else if (props.displayPages === 2) {
       return '170px';
     } else if (props.displayPages === 1) {
-      return '190px';
+      return '200px';
     } else if (props.displayPages === 0) {
       return '220px'
     }
@@ -56,7 +56,7 @@ const Div = styled.div`
 
   }
 `;
-function Footer({setRecruitPage, totalpage, current, setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
+function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
   const [totalPages, setTotalPages] = useState(0);
   const [displayPages, setDisplayPage] = useState(5);
 
@@ -64,10 +64,10 @@ function Footer({setRecruitPage, totalpage, current, setCurrent, status, page, s
     if (status === 'recruit') {
       setDisplayPage(5);
       setTotalPages(totalpage);
-    } else if (status === 'search' ) {
+    } else if (status === 'search') {
       setTotalPages(totalSearchPages);
       setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
-    }else if (status === 'recruiting' ) {
+    } else if (status === 'recruiting') {
       setTotalPages(totalSearchPages);
       setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
     } else {
@@ -94,13 +94,18 @@ function Footer({setRecruitPage, totalpage, current, setCurrent, status, page, s
   const onPrevClick = () => {
     if (current > 1) {
       setCurrent((prev) => Math.max(prev - displayPages, 1));
+
       if (status === 'recruit') {
         setPage((prev) => Math.max(prev - displayPages, 1));
       } else if (status === 'search') {
         setSearchPage((prev) => Math.max(prev - displayPages, 1));
-      }  else if (status === 'recruiting') {
+      } else if (status === 'recruiting') {
         setRecruitPage((prev) => Math.max(prev - displayPages, 1));
       }
+      else {
+        setPage((prev) => Math.max(prev - displayPages, 1));
+      }
+
     }
   };
 
@@ -111,9 +116,13 @@ function Footer({setRecruitPage, totalpage, current, setCurrent, status, page, s
         setPage((prev) => Math.min(prev + displayPages, totalPages));
       } else if (status === 'search') {
         setSearchPage((prev) => Math.min(prev + displayPages, totalPages));
-      }else if (status === 'recruiting') {
+      } else if (status === 'recruiting') {
         setRecruitPage((prev) => Math.min(prev + displayPages, totalPages));
       }
+      else {
+        setPage((prev) => Math.min(prev + displayPages, totalPages));
+      }
+
     }
   };
   const renderPageNumbers = () => {

@@ -33,6 +33,8 @@ function Employment() {
   const [inputValue, setInputValue] = useState('');
   const [totalSearchPages, setTotalPages] = useState(0);
 
+
+
   useEffect(() => {
     if (status === 'employment') {
       const fetchData = async () => {
@@ -43,7 +45,6 @@ function Employment() {
           });
           setDataList(response.data.result.result); // 데이터를 업데이트하여 다시 렌더링
           setStatus('employment');
-          console.log('api결과값', response.data.result.jobEduListResult);
           setTotalPage(response.data.result.totalPage);
         } catch (error) {
           console.error('Error fetching data:', error);
@@ -53,7 +54,6 @@ function Employment() {
       fetchData();
     }
   }, [page, status]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
-
   //정렬 관련 기능들
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
@@ -176,7 +176,6 @@ function Employment() {
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
           </div>
-          <div className="margin1"></div>
           <div className="main1">
             {(() => {
               if (status === 'search') {
@@ -197,7 +196,7 @@ function Employment() {
                   data.active_status === 1 ? (
                     <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                   ) : (
-                    <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
+                    <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title}/>
                   )
                 ));
               }

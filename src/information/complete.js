@@ -4,13 +4,16 @@ function Complete(props){
   box-sizing: border-box;
   border-radius: 10px;
   border : solid #D9D9D9 1px;
-  width : 310px;
+  width : 290px;
   height : 30px;
   font-size: 15px;
   font-weight: 400;
   padding-top : 4px;
   padding-left : 25px;
+  padding-right : 25px;
   background-color: white;
+  overflow-x: auto;
+  white-space: nowrap; 
   cursor : pointer;    
   @media screen and (min-width: 1024px) {
     width : 840px;
@@ -19,6 +22,7 @@ function Complete(props){
     padding-left : 30px;
     padding-top : 7px;
     font-size: 18px;
+    padding-right : 25px;
   }
 `
 const SubDiv = styled.div`

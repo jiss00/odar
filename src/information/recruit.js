@@ -162,6 +162,7 @@ function Recruit() {
     { text: '거리순', index: 1 },
     { text: '모집현황', index: 2 },
   ];
+  const [dataLength,setDataLength] = useState(0);
   return (
     <div>
 
@@ -202,12 +203,13 @@ function Recruit() {
               else {
                 return renderDataList.map((data, index) => (
                   data.active_status === 1 ? (
-                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title}
+                    />
                   ) : (
                     <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   )
                 ));
-              }
+                }
             })()}
           </div>
         </div>)}
