@@ -18,7 +18,7 @@ export default function Login() {
       // 이메일과 비밀번호를 담은 요청 본문 객체 생성
       const requestBody = {
         email: username,
-        password: password,
+        password: password
     };
     console.log(username)
 

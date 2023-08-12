@@ -127,7 +127,7 @@ function RequitmentDetail(){
 
     // =============제일 처음 지원상태 변경=================//
     const StartApplyToUpdate = () => {
-        const url = `http://arthurcha.shop:3000/app/jobApply/edu/${jobPostingId}`
+        const url = `http://arthurcha.shop:3000/app/jobApply/posting/${jobPostingId}`
         const userToken = localStorage.getItem('accessToken');
 
         axios.get(url,{

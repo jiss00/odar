@@ -134,6 +134,56 @@ function Test(){
     //         // cosole.log(); // 에러 출력
     //     })
     // }
+    const EmailIDFromBackend = () =>{
+        const phoneData =  { "phone" : "010-4096-3487"  };
+        const url = `http://arthurcha.shop:3000/app/users/email`;
+
+
+        console.log('id get하자');
+        axios.get(url, {params: { phone : "010-4096-3487"}} )
+        .then( (response) => {
+            console.log(response);
+            console.log(response.data.isSuccess);
+            if (response.data.isSuccess === true){
+              console.log('isSuccess 성공');
+              console.log('id:'+response.data.result.email);
+            }
+            else{
+              console.log('▶[오류] isSuccess 실패'+response.data.code+'\n'+response.data.message);
+            }
+            // setJopDetail(response.recruitment, response.title, response.money, response.time, response.introduction);
+        } )
+        .catch((error)=>{
+          console.error('▶서버오류'+ error);
+            // console.log(); // 에러 출력
+        });
+        // 백엔드에서 받아오기 전이므로, 가상의 데이터로 예시 작성
+        
+    }
+
+    const EmailToQuestion = () => {
+        const questionData =  { "question" : "문의 보내기~"  };
+        const url = `http://arthurcha.shop:3000/app/question`;
+        const userToken = localStorage.getItem('accessToken');
+
+        axios.post(url, questionData,  
+            {headers:
+                 { 'Authorization': `Bearer ${userToken}`,}
+            })
+        .then((response) => {
+            console.log(response.data);
+            if(response.data.isSuccess){
+                console.log('isSuccess 성공');
+            }else{
+                console.log('▶[오류] isSuccess 실패'+response.data.code+'\n'+response.data.message);
+            }
+        })
+        .catch((error)=>{
+            console.error('▶오류'+ error);
+        });
+    }
+
+
 
     return(
         <div>
@@ -142,6 +192,8 @@ function Test(){
             <button onClick={fetchDataFromBackend}> get하자</button>
             <button onClick={fetchDataFromBackend2}> 취업상세 get하자 </button>
             <button onClick={fetchDataFromBackend3}> 이미지 get하자 </button>
+            <button onClick={EmailIDFromBackend}> id get하자 </button>
+            <button onClick={EmailToQuestion}> Email 보내자post </button>
         </div>
     );
 }

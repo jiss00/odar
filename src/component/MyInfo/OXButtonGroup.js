@@ -111,11 +111,11 @@ function ButtonGroup({ validEmail, validPassword, id, password }) {
           alert('계정이 삭제되었습니다.');
         } else {
           // 에러 처리 로직 추가
-          alert('요청 실패: ' + response.data.message);
+          alert('요청 실패1: ' + response.data.code + response.data.message);
         }
       } catch (error) {
         // 에러 처리 로직 추가
-        alert('요청 실패: ' + error.message);
+        alert('요청 실패2: ' + error.code+ error.message);
       }
     }
   };  

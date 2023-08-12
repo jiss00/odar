@@ -41,8 +41,33 @@ function MyPage(){
     }
 
     // 로그아웃
-    const goLogout = () => {
-        navigate('/');
+    const goLogout = async () => {
+        try {
+            const token = localStorage.getItem('accessToken');
+            console.log(token);
+          
+            const response = await axios.post('http://arthurcha.shop:3000/app/users/logout', 
+            {},
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              }
+            });
+          
+            if (response.data.isSuccess && response.data.code === 200) {
+              localStorage.removeItem('accessToken');
+              alert('로그아웃 되었습니다.');
+              navigate('/login');
+
+            } else {
+              // 에러 처리 로직 추가
+              alert('요청 실패1: ' + response.data.code + response.data.message);
+            }
+          } catch (error) {
+            // 에러 처리 로직 추가
+            alert('요청 실패2: ' + error.code+ error.message);
+          }
+        
     }
 
     //회원 탈퇴
@@ -105,8 +130,6 @@ function MyPage(){
                 // 오류코드 알려주고, 뒤로가기
                 alert('▶오류'+response.data.code+'\n'+response.data.message);
                 // goBack();
-
-                
             }
 
         } )
