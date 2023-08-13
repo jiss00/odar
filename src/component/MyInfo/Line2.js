@@ -9,14 +9,14 @@ const StyledLine = styled.div`
   width: 300px;
   height: 1px;
   border: 1px solid #D9D9D9;
-  top: -240px;
+  top: -270px;
   margin: 0px auto;
 
     @media all and (min-width: 1024px){	
       position: relative;
       width: 980px;
       margin: 0px auto;
-      top: -240px;
+      top: -290px;
       left: 0;
       } 
 `;

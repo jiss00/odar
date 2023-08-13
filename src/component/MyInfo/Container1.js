@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled,{css}  from "styled-components";
+import { handleSelectedValue } from './ModifyLongButton';
+
 
 const Container = styled.div`
 display: flex;
@@ -133,40 +135,32 @@ const Writeinput = styled.input`
 
 function Selectbar() {
 
-  const [selectedOption, setSelectedOption] = useState("1");
-  const [inputValue, setInputValue] = useState(""); 
+  const [selectedOption, setSelectedOption] = useState("0");
 
   const handleSelectChange = (event) => {
-    setSelectedOption(event.target.value);
+    const selectedValue = event.target.value;
+    setSelectedOption(selectedValue);
+
+    const selectedNumber = parseInt(selectedValue, 10);
+    handleSelectedValue(selectedNumber);
   };
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
 
   return (
     <MenuBarWrapper>
     <MenuBar onChange={handleSelectChange} value={selectedOption}>
-      <MenuItem value="1">----</MenuItem>
-      <MenuItem value="2">직접입력</MenuItem>
-      <MenuItem value="3">경영/사무/금융/보험직</MenuItem>
-      <MenuItem value="4">연구직 및 공학기술직</MenuItem>
-      <MenuItem value="5">교육/법률/사회복지/경찰/소방직 및 군인</MenuItem>
-      <MenuItem value="6">보건/의료직</MenuItem>
-      <MenuItem value="7">예술/디자인/방송/스포츠직</MenuItem>
-      <MenuItem value="8">미용/여행/숙박/음식/경비/청소직</MenuItem>
-      <MenuItem value="9">영업/판매/운전/운송직</MenuItem>
-      <MenuItem value="10">건설/채굴직</MenuItem>
-      <MenuItem value="11">설치/정비/생산직</MenuItem>
-      <MenuItem value="12">농림어업직 </MenuItem>
+      <MenuItem value="0">----</MenuItem>
+      <MenuItem value="1">경영/사무/금융/보험직</MenuItem>
+      <MenuItem value="2">연구직 및 공학기술직</MenuItem>
+      <MenuItem value="3">교육/법률/사회복지/경찰/소방직 및 군인</MenuItem>
+      <MenuItem value="4">보건/의료직</MenuItem>
+      <MenuItem value="5">예술/디자인/방송/스포츠직</MenuItem>
+      <MenuItem value="6">미용/여행/숙박/음식/경비/청소직</MenuItem>
+      <MenuItem value="7">영업/판매/운전/운송직</MenuItem>
+      <MenuItem value="8">건설/채굴직</MenuItem>
+      <MenuItem value="9">설치/정비/생산직</MenuItem>
+      <MenuItem value="10">농림어업직 </MenuItem>
     </MenuBar>
-    {selectedOption === "2" && (
-      <Writeinput
-      type="text"
-      value={inputValue}
-      onChange={handleInputChange}
-    />
-    )}
     </MenuBarWrapper>
   );
 }
