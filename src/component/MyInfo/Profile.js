@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import profileImage from './할아버지 1.png'; // 상대 경로로 이미지 파일을 import
-import SendprofileImg from './ModifyLongButton';
+import {SendprofileImg} from './ModifyLongButton';
 
 
 const ImageWrapper = styled.div`
