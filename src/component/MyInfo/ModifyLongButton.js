@@ -274,7 +274,7 @@ const sendEndTimes = (endTime) => {
   let RegionsData1 = null;
   let RegionsData2 = null;
   let RegionsData3 = null;
-  let ProfileImg = "http://arthurcha.shop:3000/app/image";
+  let ProfileImg = null;
   
   // 직군 정보 1
   export function handleSelectedValue(selectedValue) {
@@ -318,6 +318,13 @@ const sendEndTimes = (endTime) => {
     RegionsData1 = region1;
     RegionsData2 = region2;
     RegionsData3 = region3;
+  }
+
+  // 이미지 URL을 받는다.
+  export function SendprofileImg(imageUrl) {
+    console.log('이미지 url :', imageUrl);
+    // let으로 선언한 전역변수에 이미지 url을 넘긴다.
+    ProfileImg = imageUrl;
   }
 
 function SendUserInfo() {
