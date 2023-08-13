@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled,{css}  from "styled-components";
 import { sendLocationStatusToAPI } from './ModifyLongButton';
-import {Region} from './Container6';
+import { sendRegionsToAPI } from './ModifyLongButton';
+import axios from 'axios';
+import Container6 from './Container6';
 
 const Container = styled.div`
 display: flex;
@@ -91,7 +93,13 @@ const Button = styled.div`
 `;
 
 function AgreeButton({ top }) {
+
   const [clicked, setClicked] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [addressData, setAddressData] = useState(null);
+  const [region1, setRegion1] = useState('');
+  const [region2, setRegion2] = useState('');
+  const [region3, setRegion3] = useState('');
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -102,11 +110,37 @@ function AgreeButton({ top }) {
           (position) => {
             console.log("사용자 위치 정보:", position.coords.latitude, position.coords.longitude);
             sendLocationStatusToAPI(1);
-            
-            // Container6.js에 있는 Region함수로 위도, 경도 전달
-            Region(position.coords.latitude, position.coords.longitude);
-          },
 
+            const REST_API_KEY = 'fc2cb1fdd5ecbf98c49c7b6541e05f74';
+              axios
+                // 위도 경도를 주면 주소를 받을 수 있는 API
+                .get(`https://dapi.kakao.com/v2/local/geo/coord2address.json?x=${position.coords.longitude}&y=${position.coords.latitude}&input_coord=WGS84`, {
+                  headers: {
+                    Authorization: `KakaoAK ${REST_API_KEY}`,
+                  },
+                })
+                .then((response) => {
+                  const result = response.data.documents[0];
+                  const region1 = `${result.address.region_1depth_name}`;
+                  const region2 = `${result.address.region_2depth_name}`;
+                  const region3 = `${result.address.region_3depth_name}`;
+                  const space = ' '
+                  
+                  setAddressData(region1 + space + region2 + space + region3);
+                  setRegion1(region1);
+                  setRegion2(region2);
+                  setRegion3(region3);
+                  sendRegionsToAPI(region1, region2, region3);
+                  setIsLoading(false); // 로딩 상태 업데이트
+                  
+                })
+                .catch((error) => {
+                  console.error('주소를 불러오는 중 오류 발생:', error);
+                  setIsLoading(false); // 로딩 상태 업데이트
+                });
+            },
+          
+          // 에러
           (error) => {
             console.error("위치 정보를 가져오는데 실패했습니다:", error.message);
             sendLocationStatusToAPI(0);
@@ -121,6 +155,7 @@ function AgreeButton({ top }) {
   return (
     <ButtonContainer top={top} onClick={handleClick}>
       <Button clicked={clicked} />
+      <Container6 address={addressData} />
     </ButtonContainer>
   );
 }

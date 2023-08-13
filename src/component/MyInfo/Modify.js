@@ -36,10 +36,8 @@ function Modify(){
         <Container5></Container5>{/*위치 알림 동의*/}
 
         <Line3></Line3>
-        
-        <Container6></Container6> {/*내위치*/}
 
-       <ModifyLongButton></ModifyLongButton>{/*적용버튼*/}
+        <ModifyLongButton></ModifyLongButton>{/*적용버튼*/}
     
         </div>
         </>
