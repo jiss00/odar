@@ -122,29 +122,26 @@ function Recruit() {
 
 
 
-
-  //거리순으로 가까운 공고들 불러오는 api
-    useEffect(() => {
-      if (status === 'distance') {
-        const fetchData = async () => {
-          try {
-            const url = 'http://arthurcha.shop:3000/app/jobPosting/region';
-            const response = await axios.get(url, {
-              params: {
-              },
-              // 동적으로 변경되는 검색어
-            });
-            setRecruitData(response.data.result);
-            console.log('모집중 결과 값:', response.data.result); // 데이터 확인
-            setStatus('distance');
-            setTotalPages(1);
-          } catch (error) {
-            console.error('Error fetching data:', error);
-          }
-        };
-        fetchData();
+  useEffect(() => {
+    if (status === 'distance') {
+    const search_information = async () => {
+      const userToken = localStorage.getItem('accessToken');
+      try {
+        const response = await axios.get('http://arthurcha.shop:3000/app/jobPosting/region', {
+          headers: {
+            Authorization: `Bearer ${userToken}`, // Authorization 헤더에 토큰 추가
+          },
+        });
+        setDistanceData(response.data.result);
+        console.log('거리순 결과 값:', response.data.result); // 데이터 확인
+        setStatus('distance');
+        setTotalPages(1);
+      } catch (error) {
+        // 오류 처리
       }
-    }, [recruitPage, status]);
+    };
+    search_information();}
+  }, [recruitPage, status]);
 
 
   const onclick = (e) => {

@@ -38,7 +38,6 @@ function Detail() {
         }));
         setRecruitRecord(recruitRecords);
         setEmployRecord(employRecords);
-        console.log('ㅅㅂ',resultArray);
 
       } catch (error) {
         // 오류 처리
