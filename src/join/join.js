@@ -245,13 +245,13 @@ function Join() {
         <Text1 text='휴대폰번호' />
         <div className='phone_number'>
           <Input placeholder="010-0000-0000" w_width='350px' width='250px' type="handleVerificationChange" onChange={handleVerificationChange} />
-          <Auth func={onclick} text='인증' />
+          <Auth usrName={usrName} year={year} month={month} day={day} phone={phone} func={onclick} text='인증' />
         </div>
         <div className='phone_number'>
           <Input placeholder="000000" w_width='350px' width='250px' type="handleCompleteChange" onChange={handleCompleteChange} />
           {modal === true ? <Timer modal={modal} setModal={setModal}></Timer> : <></>}
 
-          <Auth func={confirm} text='완료' />
+          <Auth usrName={usrName} year={year} month={month} day={day} phone={phone} func={confirm} text='완료' />
         </div>
         {/*
         <div style={{ height: '50px' }}>
@@ -259,7 +259,7 @@ function Join() {
         </div>*/}
 
         <PrivacyPolicy onChange={handleCheckChange}></PrivacyPolicy>
-        <Button onClick={user_join} birth1={birth1} birth2={birth2} birth3={birth3} verification={verification} complete={complete} check={check} />
+        <Button onClick={user_join} name={name} birth1={birth1} birth2={birth2} birth3={birth3} verification={verification} complete={complete} check={check} />
       </div>
 
     </div>

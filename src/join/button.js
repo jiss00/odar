@@ -77,8 +77,8 @@ const StyledButton = styled.button`
     );
   }
 
-  function Button({ birth1, birth2, birth3, verification, complete, onClick, check }) {
-    const isButtonDisabled = !(birth1 && birth2 && birth3 && verification && complete && check);
+  function Button({name, birth1, birth2, birth3, verification, complete, onClick, check }) {
+    const isButtonDisabled = !(name && birth1 && birth2 && birth3 && verification && complete && check);
     return (
     <Container>        
       <LongButton onClick={onClick} disabled={isButtonDisabled}>가 입</LongButton>
