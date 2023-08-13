@@ -56,9 +56,9 @@ const StyledButton = styled.button`
       left:0px;
       }
   `;
-  function LongButton({ children, to, onClick, ...props }) {
+  function LongButton({ children, to, onClick}) {
     return (
-      <StyledButton as={Link} to={to} onClick={props.onClick}>
+      <StyledButton as={Link} to={to} onClick={onClick}>
         <ButtonText>{children}</ButtonText>
       </StyledButton>
     );
@@ -366,15 +366,17 @@ function SendUserInfo() {
 
 function ModifyLongButton() {
 
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleApplyClick = () => {
     SendUserInfo();
     goToMyPage();
+    
   };
 
   const goToMyPage = () => {
-    Navigate("/myPage");
+    navigate(-1);
+    console.log('라우팅');
   };
 
   return (
