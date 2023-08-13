@@ -70,7 +70,11 @@ function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, 
     } else if (status === 'recruiting') {
       setTotalPages(totalSearchPages);
       setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
-    } else {
+    }else if(status ==='distance'){
+      setTotalPages(1);
+      setDisplayPage(1);
+    }
+     else {
       setDisplayPage(5);
       setTotalPages(totalpage);
     }
@@ -128,20 +132,6 @@ function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, 
   const renderPageNumbers = () => {
     const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
-    if (totalPages === 1) {
-      // totalPages가 1인 경우에는 1만 표시하도록 처리합니다.
-      return (
-        <div
-          style={{
-            color: current === 1 ? '#5B8E31' : 'black',
-            fontSize: current === 1 ? '21px' : '21px',
-          }}
-          onClick={() => onClick(1)}
-        >
-          1
-        </div>
-      );
-    }
 
     const middlePage = Math.floor(displayPages / 2);
     const startIdx = Math.max(0, current - middlePage - 1); // 시작 페이지 인덱스

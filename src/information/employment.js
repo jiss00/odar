@@ -57,7 +57,8 @@ function Employment() {
   //정렬 관련 기능들
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
-
+  const [distanceData,setDistanceData] = useState([]); //거리순 가까운 공고들 저장
+  const renderDistance = distanceData.slice(0, renderCount);
 
   useEffect(() => {
     if (status === 'recruiting') {
@@ -117,6 +118,33 @@ function Employment() {
   }, [searchPage]);
   console.log(dataList);
 
+
+//거리순으로 가까운 공고들 불러오는 api
+useEffect(() => {
+  if (status === 'distance') {
+    const fetchData = async () => {
+      try {
+        const url = 'http://arthurcha.shop:3000/app/jobPosting/region';
+        const response = await axios.get(url, {
+          params: {
+          },
+          // 동적으로 변경되는 검색어
+        });
+        setRecruitData(response.data.result);
+        console.log('모집중 결과 값:', response.data.result); // 데이터 확인
+        setStatus('distance');
+        setTotalPages(1);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }
+}, [recruitPage, status]);
+
+
+
+  
   const onChange = (e) => {
     setChangeValue(e.target.value);
   }
@@ -138,13 +166,17 @@ function Employment() {
       input[0].style.display = 'block';
     }
   }
-  const [activeSort, setActiveSort] = useState(null);
+  const [activeSort, setActiveSort] = useState(0);
   const handleSortClick = (index) => {
     setActiveSort(index);
     if (index === 2) {
       setStatus('recruiting');
       setCurrent(1);
       setRecruitPage(1);
+    }
+    else if(index ===1){
+      setStatus('distance');
+      setCurrent(1);
     }
     else if (index === 0) {
       setStatus('employment');
@@ -184,6 +216,15 @@ function Employment() {
                     <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                   ) : (
                     <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
+                  )
+                ));
+              }
+              else if(status ==='distance'){
+                return renderDistance.map((data, index) => (
+                  data.active_status === 1 ? (
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                  ) : (
+                    <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   )
                 ));
               }
