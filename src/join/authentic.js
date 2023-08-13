@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-function Auth({usrName,year,month,day,phone,...props}){
+function Auth({verification,complete,...props}){
   const Auth =styled.button`
   box-sizing: border-box;
   width: 70px;
@@ -18,7 +18,7 @@ function Auth({usrName,year,month,day,phone,...props}){
     left : ${props.w_left};
   }
   `    
-  const isButtonDisabled = !(usrName && year && month && day && phone );
+  const isButtonDisabled = !(verification || complete );
 
 
   return(
