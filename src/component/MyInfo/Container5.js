@@ -68,6 +68,7 @@ const ButtonContainer = styled.div`
   top: -228px;
   margin-left:30px;
   margin-right:auto;
+  z-index:1;
   @media all and (min-width: 1024px) {
     position: relative;
     max-width: 67px;

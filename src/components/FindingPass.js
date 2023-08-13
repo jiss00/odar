@@ -119,6 +119,7 @@ function FindingPass(props){
 
   const [password, setPassword] = useState("");
   const [passwordcheck, setPasswordCheck] = useState("");
+  console.log(password);
 
   const handlePasswordChange = ({ password, isValidPassword }) => {
     setValidPassword(isValidPassword);
@@ -150,6 +151,7 @@ function FindingPass(props){
 
 
   // 네이게이션
+
   // 제일 밑 완료 버튼 클릭시, 로그인 화면으로 이동, 서버에 업데이트된 비밀번호 전송
   let navigate = useNavigate(); //라우팅 객체 만들기
   const goLogin = () => {

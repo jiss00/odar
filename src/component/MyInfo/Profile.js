@@ -2,6 +2,8 @@ import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import profileImage from './할아버지 1.png'; // 상대 경로로 이미지 파일을 import
+import {SendprofileImg} from './ModifyLongButton';
+
 
 const ImageWrapper = styled.div`
   position: relative;
@@ -91,6 +93,7 @@ const ButtonWrapper = styled.div`
 
 function ProfileImage() {
   const inputRef = useRef(null);
+  // 백엔드에서 받아올 imgurl을 담을 변수
   const [imageUrl, setImageUrl] = useState(profileImage);
 
   const twitSubmit = (e) => {
@@ -106,12 +109,17 @@ function ProfileImage() {
         'Authorization': `Bearer ${userToken}`,
       }
     })
+    // 만약 백엔드로 이미지를 보내는 것을 성공하면
     .then((response) => {
       console.log(response.data);
 
       if (response.data.isSuccess) {
         const imageUrl = response.data.result.img_url;
+        // useState로 이미지 url을 받는다
         setImageUrl(imageUrl);
+        SendprofileImg(imageUrl);
+        console.log(imageUrl);
+        
       } else {
         console.error("서버 응답 에러:", response.data.message);
       }

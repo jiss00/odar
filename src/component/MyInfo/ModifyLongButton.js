@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import styled,{css}  from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+const Container = styled.div`
+  display: flex;
+  margin: 0 auto;
+`;
 
 const StyledButton = styled.button`
   display:flex;
@@ -9,8 +13,7 @@ const StyledButton = styled.button`
   position: relative;
   width:310px;
   height: 66px;
-  top: -130px;
-  right:223px;
+  top: -160px;
   gap: 8px;
   padding: 25px 110px;
   border-radius: 10px;
@@ -33,8 +36,7 @@ const StyledButton = styled.button`
     margin-right:auto;
     margin-left:auto;
     margin-bottom: 100px;
-    top:-100px;
-    left:-347px;
+    top:-150px;
    
     }
 `;
@@ -60,11 +62,6 @@ const StyledButton = styled.button`
     );
   }
 
-  const Container = styled.div`
-      display: flex;
-      margin: 0 auto;
-      `;
-
 // Texts 컴포넌트 
 const StyledTexts = styled.span`
     display: flex;
@@ -76,7 +73,7 @@ const StyledTexts = styled.span`
     margin-left:auto;
     margin-right:5px;
     top:-388px;
-    left: 65px;
+    left: 8px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
@@ -93,7 +90,7 @@ const StyledTexts = styled.span`
   margin-left:auto;
   margin-right:10px;
   top:-405px;
-  left:605px;
+  left:0px;
   font-size:20px;
   }
 
@@ -112,7 +109,7 @@ const Styledtime = styled.div`
   border: 0.8px solid #5B8E31;
   background-color: #FFFFFF;
   top:-130px;
-  left:60px;
+  left:2px;
 
   /* Add styles for the input element */
   input {
@@ -136,7 +133,7 @@ const Styledtime = styled.div`
       ${props =>
         props.left &&
         css`
-        left: ${props.left*0.33+690}px;
+        left: ${props.left*0.33+85}px;
         `}
 
       input {
@@ -178,7 +175,7 @@ const StyledTilde = styled.span`
   font-weight: 400;
   color: #5B8E31;
   top:-125px;
-  left:60px;
+  left:2px;
   margin-left:17px;
   margin-right:17px;
   text-align: center;
@@ -189,7 +186,7 @@ const StyledTilde = styled.span`
     top: -160px;
     margin-left:0px;
     margin-right:0px;
-    left: 760px;
+    left: 155px;
   }  
 `;
 
@@ -277,7 +274,7 @@ const sendEndTimes = (endTime) => {
   let RegionsData1 = null;
   let RegionsData2 = null;
   let RegionsData3 = null;
-  let ProfileImg = "http://arthurcha.shop:3000/app/image";
+  let ProfileImg = null;
   
   // 직군 정보 1
   export function handleSelectedValue(selectedValue) {
@@ -323,6 +320,13 @@ const sendEndTimes = (endTime) => {
     RegionsData3 = region3;
   }
 
+  // 이미지 URL을 받는다.
+  export function SendprofileImg(imageUrl) {
+    console.log('이미지 url :', imageUrl);
+    // let으로 선언한 전역변수에 이미지 url을 넘긴다.
+    ProfileImg = imageUrl;
+  }
+
 function SendUserInfo() {
 
   const userToken = localStorage.getItem('accessToken');
@@ -365,6 +369,7 @@ const handleApplyClick = () => {
 function ModifyLongButton() {
 
   return (
+    <div>
     <Container>
     <Texts>희망시간</Texts>
     <TimeWrapper>
@@ -372,12 +377,14 @@ function ModifyLongButton() {
       <Tilde />
       <Time left={257} onChange={sendEndTimes} />
     </TimeWrapper>
-
-      <LongButton onClick={handleApplyClick}>
+    </Container>
+    
+    <Container>
+    <LongButton onClick={handleApplyClick}>
           적 용
       </LongButton>
-
-  </Container>
+    </Container>
+    </div>
   );
 }
 

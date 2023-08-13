@@ -37,7 +37,10 @@
 
         const handleLoginLogout = () => {
             if (loggedIn) {
+                localStorage.removeItem('accessToken');
+                setLoggedIn(false);
                 goToHome();
+
             } else {
                 goToLogin();
             }
