@@ -1,29 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import styled,{css}  from "styled-components";
+import axios from 'axios';
+import { sendRegionsToAPI } from './ModifyLongButton';
 
-const Container = styled.div`
+const Containerfor6 = styled.div`
 display: flex;
 margin: 0 auto;
 `;
 
 // Texts 컴포넌트 
-const StyledTexts = styled.span`
+const Texts2 = styled.span`
     display: flex;
-    box-sizing: border-box;
     position: relative; 
     width: 100%;
     max-width:56px;
     height: 20px;
     margin-left:auto;
-    margin-right:40px;
-    top:-190px;
-    left:3px;
+    margin-right:5px;
+    top: 70px;
+    left:-205px;
+    white-space:nowrap;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
-    white-space: pre-line;
     font-size:16px;
 
   @media all and (min-width: 1024px){	
@@ -33,25 +34,16 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:10px;
-    top:-190px;
-    left:-85px;
+    top: 85px;
+    left:-426px;
     font-size:20px;
     }
   
               
 `;
 
-function Texts({children}) {
-    return (
-        <StyledTexts>
-            {children}
-        </StyledTexts>
-    );
-}
-
-
 // Texts 컴포넌트 
-const StyledTexts2 = styled.span`
+const Texts3 = styled.span`
     display: flex;
     box-sizing: border-box;
     position: relative; 
@@ -59,10 +51,10 @@ const StyledTexts2 = styled.span`
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
-    white-space: pre-line;
-    top:-190px;
-    margin-left:50px;
+    top: 70px;
+    left:-170px;
     margin-right:auto;
+    white-space:nowrap;
   
   @media all and (min-width: 1024px){	
   position: relative; 
@@ -71,32 +63,25 @@ const StyledTexts2 = styled.span`
   height: 20px;
   margin-left:10px;
   margin-right:auto;
-  top:-190px;
-  left:100px;
+  top:85px;
+  left:-260px;
   font-size:20px;
   color: #5C5C5C;
 
   }
-
         
 `;
 
 
-function Texts2({children}) {
-  return (
-      <StyledTexts2>
-          {children}
-      </StyledTexts2>
-  );
-}
+const Container6 = (props) => {
 
-function Container6() {
   return (
-    <Container>        
-      <Texts>내 위치</Texts>
-      <Texts2>창원시 마산회원구</Texts2>
-    </Container>
+    <Containerfor6>
+      <Texts2>내 위치</Texts2>
+        <Texts3>{props.address}</Texts3>
+    </Containerfor6>
   );
+
 }
 
 export default Container6;

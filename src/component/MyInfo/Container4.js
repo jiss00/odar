@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled,{css}  from "styled-components";
+import { sendNotificationStatusToAPI } from './ModifyLongButton';
 
 const Container = styled.div`
 display: flex;
@@ -16,7 +17,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:48px;
-    top:-220px;
+    top:-240px;
     left:0px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -33,7 +34,7 @@ const StyledTexts = styled.span`
       height: 20px;
       margin-left:auto;
       margin-right:10px;
-      top:-218px;
+      top:-250px;
       left:-130px;
       font-size:20px;
       }     
@@ -63,14 +64,14 @@ const ButtonContainer = styled.div`
   border-radius: 50px;
   background-color: transparent;
   cursor: pointer;
-  top: -230px;
+  top: -250px;
   margin-left:30px;
   margin-right:auto;
   @media all and (min-width: 1024px) {
     position: relative;
     max-width: 67px;
     max-height: 33px;
-    top: -230px;
+    top: -260px;
     left:120px;
     margin-left:10px;
     margin-right:auto;
@@ -98,6 +99,9 @@ function showNotification() {
         new Notification("푸시 알림 허용", {
           body: "채용정보 알림 동의가 완료되었습니다!",
         });
+        sendNotificationStatusToAPI(1);
+      } else {
+        sendNotificationStatusToAPI(0);
       }
     });
   }
