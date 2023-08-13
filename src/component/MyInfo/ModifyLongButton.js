@@ -73,7 +73,7 @@ const StyledButton = styled.button`
   let RegionsData1 = null;
   let RegionsData2 = null;
   let RegionsData3 = null;
-  let ProfileImg = "http://arthurcha.shop:3000/app/image";
+  let ProfileImg = null;
   
   // 직군 정보 1
   export function handleSelectedValue(selectedValue) {
@@ -129,11 +129,19 @@ const StyledButton = styled.button`
     RegionsData3 = region3;
   }
 
+  // 이미지 URL을 props로 받는다.
+  export function SendprofileImg(props) {
+    console.log('이미지 url :', props.imageUrl);
+    // let으로 선언한 전역변수에 이미지 url을 넘긴다.
+    ProfileImg = props.imageUrl;
+  }
+
 function SendUserInfo() {
 
   const userToken = localStorage.getItem('accessToken');
 
   const data = {
+    // 백엔드로 이미지 url을 보낸다.
     profile_img: ProfileImg,
     want_days: DaysData,
     desire_start_time: StartData,
