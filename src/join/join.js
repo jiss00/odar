@@ -141,10 +141,7 @@ function Join() {
 
   /* 전화번호 백으로 넘기고 인증번호 받아오기 */
   const onclick = () => {
-    if(complete===''){
-      alert('전화번호를 입력해주세요');
-    }
-    else{
+
     setModal(true); /* modal이 true 일땐 타이머 시작 */
     axios(
       {
@@ -157,7 +154,7 @@ function Join() {
     ).then(function (response) {
       setAuth_number(response.data.result.code);
     });}
-  }
+
   console.log(auth_number);
   /*인증번호 맞는지 검사*/
   const [visible, setVisible] = useState(false);
