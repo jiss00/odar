@@ -86,6 +86,8 @@ function FindingPass(props){
       setModal(true);
       // console.log("인증실패!");
       set_modal_text('유효하지 않은 인증번호입니다.');
+      // 비밀번호 새비밀번호 없애기
+      set_body_pass_visibility("hidden");
       
       
 
@@ -119,7 +121,6 @@ function FindingPass(props){
 
   const [password, setPassword] = useState("");
   const [passwordcheck, setPasswordCheck] = useState("");
-  console.log(password);
 
   const handlePasswordChange = ({ password, isValidPassword }) => {
     setValidPassword(isValidPassword);
@@ -151,7 +152,6 @@ function FindingPass(props){
 
 
   // 네이게이션
-
   // 제일 밑 완료 버튼 클릭시, 로그인 화면으로 이동, 서버에 업데이트된 비밀번호 전송
   let navigate = useNavigate(); //라우팅 객체 만들기
   const goLogin = () => {
@@ -168,7 +168,7 @@ function FindingPass(props){
     axios.post(url, phoneData )
     .then( (response) => {
         console.log(response);
-        console.log(response.data.isSuccess);
+        // console.log(response.data.isSuccess);
         if (response.data.isSuccess === true){
           // console.log('isSuccess 성공');
           if(response.data.code == 200){  
@@ -176,7 +176,7 @@ function FindingPass(props){
             setValidEmail(true);//인증완료시 버튼 33%채워짐.
             setModal(true); //모달 보이게하기
             setIsCheckModal(true); //인증보내기 성공으로 상태 변경.!!
-            // set_certification_code(response.data.result.code);
+            set_certification_code(response.data.result.code);
             set_modal_text('인증번호가 발송되었습니다. \n이메일을 확인해주세요.');
           }
           else{
@@ -307,7 +307,8 @@ function FindingPass(props){
         <h3 className="id_pass">아이디</h3>
         <section className='input_section1_pass'>
           <input className="id_input_pass" onChange={handleInputChange} type="text" id="" placeholder="oooo@oooo" ></input>
-          <button className= {validEmail === false ? "btn_all_pass" : "btn_all_pass_yes"} disabled ={!validEmail} type="submit"  onClick={() => { set_modal_text('id가 유효한지 확인중입니다...'); setModal(true); checkModal(); }} >인증</button>
+          <button className= {validEmail === false ? "btn_all_pass" : "btn_all_pass_yes"} disabled ={!validEmail} type="submit"  onClick={() => { 
+            setTime(180); set_body_pass_visibility("hidden"); set_modal_text('id가 유효한지 확인중입니다...'); setModal(true); checkModal(); }} >인증</button>
         </section>
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
         {/* 인증버튼. */}
@@ -315,7 +316,7 @@ function FindingPass(props){
           <input onChange={saveCertificationNumber} className="id_input_pass" type="text"  placeholder="000000" maxLength={6} ></input>
           <span></span>
           {modal === true ? <Timer time={time}></Timer> : <></>}
-          <button disabled={ !btn_yes && !isCheckModal} onClick={() => {BtnSuccess(); } } className={ btn_yes && isCheckModal? 'btn_all_pass_yes' : 'btn_all_pass'} type="submit">완료</button>
+          <button disabled={ !btn_yes || !isCheckModal} onClick={() => {BtnSuccess(); } } className={ btn_yes && isCheckModal? 'btn_all_pass_yes' : 'btn_all_pass'} type="submit">완료</button>
         </section>
         {modal === true ? <Modal></Modal> : <></>}
       </div>
