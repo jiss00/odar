@@ -14,9 +14,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 
 function MyPage(){
     // ------------------이동하는 메소드 --------------//
-    const apply = () =>{
-        window.location.href = 'http://localhost:3000/detail';
-    }
+
 
     let navigate = useNavigate();
 
@@ -203,7 +201,7 @@ function MyPage(){
                     고객 지원
                 </div>
                 <div className = "footer_body">
-                    <div onClick ={apply} className = "item_footer_list">
+                    <div onClick ={goDetail} className = "item_footer_list">
                         <span className = "item_footer_write" onClick={goDetail}>지원내역</span>
                         <button className = "item_footer_btn">
                             <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
