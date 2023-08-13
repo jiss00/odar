@@ -6,6 +6,12 @@ import { useEffect } from 'react';
 import FindingID_Result from './FindingID_Result.js';
 import axios from 'axios'
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
+
+
+import styled from 'styled-components';
+
+import ReactMarkdown from 'react-markdown';
+
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
 // props : 부모가 자식에게 state 물려주기.
@@ -38,7 +44,8 @@ function FindingID() {
   
   const [verification, setVerification] = useState('');
   const [complete, setComplete] = useState('');
-  
+  // ------------------api 변수------------------//
+  const [email, setemail] = useState(''); //이메일
 
 
 
@@ -46,9 +53,9 @@ function FindingID() {
   const Modal = function ({ text }) {
 
     return (
-      <div id="modal_success">
-        {text}
-      </div>
+      <pre id="modal_success">
+          {text}
+      </pre>
     );
   }
 
@@ -148,13 +155,27 @@ function FindingID() {
     // console.log(longButton_state);
   }
 
+  // 전화번호 유효성검사
+  function telValidator(args) {
+    const msg = '유효하지 않는 전화번호입니다.';
+    // IE 브라우저에서는 당연히 var msg로 변경
+    
+    if (/^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}/.test(args)) {
+        return true;
+    }
+    // alert(msg);
+    return false;
+  }
+  telValidator(phone_number_state);
+
   const inputAllValue = () => {
-    // 인증 활성화
-    if (phone_number_state.length >= 5 && certification_number_state.length === 6) {
+    // 인증,(작은)완료 활성화
+    if (telValidator(phone_number_state) && certification_number_state.length === 6) {
       // console.log("인증, 완료 활성화 /현재 state %d", btn_all_state);
       set_btn_all_state(2);
     }
-    else if (phone_number_state.length >= 5) {
+    //인증 활성화
+    else if (telValidator(phone_number_state)) {
       // console.log("인증 활성화, 현재 state %d", btn_all_state);
       set_btn_all_state(1);
     }
@@ -164,17 +185,61 @@ function FindingID() {
 
   }
 
+  // ---------------(작은)완료버튼 클릭시 아이디 post
+  const EmailIDFromBackend = () =>{
+    const phoneData =  { "phone" :  phone_number_state };
+    const url = `http://arthurcha.shop:3000/app/users/email`;
 
-  // '완료 버튼 클릭 시'
+
+    console.log('id post하자');
+    console.log(phone_number_state)
+    axios.post(url, phoneData )
+    .then( (response) => {
+        console.log(response);
+        console.log(response.data.isSuccess);
+        if (response.data.isSuccess === true){
+          console.log('isSuccess 성공');
+          if(response.data.code == 200){
+            console.log('isSuccess 200 성공');
+            console.log('id:'+response.data.result.email);
+            setemail(response.data.result.email); //이메일 업데이트
+            set_modal_text(`인증이 완료되었습니다!🎉 \n 아이디는 ${email}입니다.`);
+          }
+        }
+        
+        else{
+          console.log('▶[오류] isSuccess 실패'+response.data.code+'\n'+response.data.message);
+          
+        }
+        // setJopDetail(response.recruitment, response.title, response.money, response.time, response.introduction);
+    } )
+    .catch((error)=>{
+      console.error('▶서버오류'+ error);
+        // console.log(); // 에러 출력
+    });
+    // 백엔드에서 받아오기 전이므로, 가상의 데이터로 예시 작성
+    
+}
+
+// 인증번호 바로바로 업데이트
+useEffect(() => {
+  BtnSuccess();
+  }, [email]);
+  // ---------------------------//
+
+
+
+
+  // (작은)'완료 버튼 클릭 시'
 
     const BtnSuccess = () => {
         if (phone_number_state.length >= 5 && (certification_number_state.length === 6 && certification_number_state === certification_code) ){
           // console.log("제일 밑 완료활성화, 인증번호 맞음/  현재 state %d", btn_all_state);
           set_btn_success_state(true);
           setComplete(true);// 완료버튼 클릭 시 상태바 너비를 100%로 설정
-          set_modal_text('인증이 완료되었습니다! 문자로 아이디가 전송됩니다.');
-
-          // EmailIDFromBackend(); // 백엔드로부터 이메일 얻기
+          EmailIDFromBackend(); //백엔드에서 데이터 받아옴.
+          
+          
         }
         else{
           // console.log("아직 활성화 안됨");
@@ -183,51 +248,30 @@ function FindingID() {
 
     }
   }
+
   // // phone_number_state와 certification_mumber_state 가 변경될 때마다  inputAllValue 함수를 호출
   useEffect(() => {
+    telValidator(phone_number_state);
     inputAllValue();
     
   }, [phone_number_state, certification_number_state ]);
   //휴대폰 입력, 인증번호 입력, 인증번호 코드
 
 
+
+
+
   // 큰 완료버튼 클릭시 홈화면으로 이동
   const navigate = useNavigate();
 
   // 메인으로
-  const goMain = () => {
-      navigate('/');
+  const goLogin = () => {
+      navigate('/login');
   }
-
-  // -------------아이디 전송 -----------------//
-//   const EmailIDFromBackend = () =>{
-//     const phoneData =  { "phone" : phone_number_state  };
-//     const url = `http://arthurcha.shop:3000/app/users/email`
-//     console.log('id get하자');
-//     axios.get(url, phoneData)
-//     .then( (response) => {
-//         console.log(response.data);
-//         if (response.data.isSuccess === true){
-//           console.log('isSuccess 성공');
-//           console.log('id:'+response.data.result.email);
-//         }
-//         else{
-//           console.log('▶[오류] isSuccess 실패'+response.data.code+'\n'+response.data.message);
-//         }
-//         // setJopDetail(response.recruitment, response.title, response.money, response.time, response.introduction);
-//     } )
-//     .catch((error)=>{
-//       console.error('▶서버오류'+ error);
-//         // console.log(); // 에러 출력
-//     })
-//     // 백엔드에서 받아오기 전이므로, 가상의 데이터로 예시 작성
-    
-// }
-// ------------------------------------------//
 
 
   // --------------------------------------------------//
-
+  
   return (
 
     <div className='screen'>
@@ -250,10 +294,8 @@ function FindingID() {
         {modal === true ? <Modal text={modal_text}></Modal> : <></>}
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
       </div>
-      {/* 아이디 출력하는 코드 */}
-      {/* <FindingID_Result id = 'hi'></FindingID_Result> */}
 
-      <button disabled={btn_success_state ? false : true} className={`${btn_success_state === true ? 'btn_success_yes' : 'btn_success'}`} onClick={goMain} >완료</button>
+      <button disabled={btn_success_state ? false : true} className={`${btn_success_state === true ? 'btn_success_yes' : 'btn_success'}`} onClick={goLogin} >완료</button>
 
     </div>
   );
