@@ -132,17 +132,23 @@ function Container2() {
   // 선택된 요일을 상태로 관리하기 위해 useState 훅 사용
   const [selectedDay, setSelectedDay] = useState([]);
 
-const handleDayClick = (day) => {
+  const handleDayClick = (day) => {
+    let updatedSelectedDay;
+  
     if (selectedDay.includes(day)) {
       // 이미 선택된 요일이면 선택 해제
-      setSelectedDay(selectedDay.filter((d) => d !== day));
+      updatedSelectedDay = selectedDay.filter((d) => d !== day);
     } else {
       // 새로운 요일 선택
-      setSelectedDay([...selectedDay, day]);
+      updatedSelectedDay = [...selectedDay, day];
     }
-    // 선택한 요일 리스트를 보냄
-    sendSelectedDaysToAPI(selectedDay);
+  
+    setSelectedDay(updatedSelectedDay);
+  
+    // 업데이트된 선택한 요일 리스트를 보냄
+    sendSelectedDaysToAPI(updatedSelectedDay);
   };
+  
 
 
   return (

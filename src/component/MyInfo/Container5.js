@@ -166,7 +166,7 @@ function Container5() {
   return (
     <Container>
       <Texts fontsize={16} width={91} height={20} top={569} left={64}>
-        위치 알림 동의
+        위치 제공 동의
       </Texts>
       <AgreeButton top={571}/>
     </Container>
