@@ -5,6 +5,7 @@ import FindingPass_Input_pw from './FindingPass_Input_pw';
 import FindingPass_Input_pwcheck from './FindingPass_Input_pwcheck';
 import Text from '../component/Join/Text';
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
+import axios from 'axios';
 
 // 띄우는거 : 대문자
 // 그냥 실행시키는 함수 : 소문자동사+대문자
@@ -18,22 +19,24 @@ function FindingPass(props){
 
   const [validPassword, setValidPassword] = useState(false);
   const [validPasswordCheck, setValidPasswordCheck] = useState(false);
-
-
+  
   // 정규식 확인 ---------------------------------
   // const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
 
   const [validEmail, setValidEmail] = useState(false);
     
   // 아이디 이메일 정규식 확인
-  const validateEmail = (email) => {
+  const validateEmail = () => {
     const regex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     return regex.test(email);
   }
 
+
+  const [email,setEmail] = useState('');
+  const [changeEmail, setChangeEmail] = useState('')
   // id 입력받는거 얻는거
   const handleInputChange = (event) => {
-    const email = event.target.value;
+    setEmail(event.target.value);
     const isValid = validateEmail(email);
     // 이메일 유효성 검사 결과 : true, false
     setValidEmail(isValid);
@@ -46,6 +49,7 @@ function FindingPass(props){
 
   const [password, setPassword] = useState("");
   const [passwordcheck, setPasswordCheck] = useState("");
+  console.log(password);
 
   const handlePasswordChange = ({ password, isValidPassword }) => {
     setValidPassword(isValidPassword);
@@ -64,6 +68,7 @@ function FindingPass(props){
 
   };
 
+
   // 모달-------------------------------------------//
   
   const Modal = function(){
@@ -75,72 +80,93 @@ function FindingPass(props){
   }
 
 
-  // 인증 버튼 클릭 시, 유효한 아이디인지 확인 
-  
-  // id 가 서버에 있는지 확인하는거
-  const [id_available, set_id_available] = useState(true);
-  
-  const checkModal = () =>{
-    setModal(true);
-    // id가 서버에 있음
-    if (id_available === true){
-      setValidEmail(true);//인증완료시 버튼 33%채워짐.
-      set_modal_text('아이디 인증이 완료되었습니다!');
-    } 
-    // id가 서버에 없음
-    else if(id_available === false){
-      setValidEmail(false);//인증완료시 버튼 33%채워짐.
-      set_modal_text('아이디를 다시 확인해주세요.');
-    }
-    // if ({modal}){
-    //   console.log("인증버튼 클릭");
-    // }
-  }
-
-   // 모달-------------------------------------------//
-  
-
-  const getSeconds = (time) => {
-    const seconds = Number(time % 60);
-    if(seconds < 10) {
-        return "0" + String(seconds);
-    } else {
-        return String(seconds);
-    }
-  }
-
-  const Timer = () => {
-    const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setTime((prev) => prev - 1);
-        }, 1000);
-        if (time === 0) {
-          clearInterval(timer);
-        }
-        return () => clearInterval(timer);
-    }, [time]);
-    return (
-        <div>
-            <div className='timer'>
-                <span>{parseInt(time / 60)}</span>
-                <span> : </span>
-                <span>{getSeconds(time)}</span>
-            </div>
-        </div>
-    );
-  }
+  // 네이게이션
+     // 모달-------------------------------------------//
 
   // 제일 밑 완료 버튼 클릭시, 로그인 화면으로 이동, 서버에 업데이트된 비밀번호 전송
   let navigate = useNavigate(); //라우팅 객체 만들기
   const goLogin = () => {
     navigate('/login');
   }
-  const goLogin_pushToPass = () =>{
-    goLogin(); //로그인 화면으로 이동
-    // 서버에 업데이트된 비밀번호 전송 기능 만들기
+
+  // -----------인증 버튼 클릭 시, 유효한 아이디인지 확인 ----------------//
+  const checkModal = () =>{
+    const phoneData =  { "email" : email  };
+    const url = `http://arthurcha.shop:3000/app/users/check-email`;
+
+
+    console.log('id post하자');
+    axios.post(url, phoneData )
+    .then( (response) => {
+        console.log(response);
+        console.log(response.data.isSuccess);
+        if (response.data.isSuccess === true){
+          // console.log('isSuccess 성공');
+          if(response.data.code == 200){  
+            // console.log('200번대 성공');
+            setValidEmail(true);//인증완료시 버튼 33%채워짐.
+            setModal(true); //모달 보이게하기
+            set_modal_text('아이디 인증이 완료되었습니다!');
+          }
+          else{
+          console.log('▶[오류] 코드:'+response.data.code+'\n'+response.data.message);
+          setValidEmail(false);//인증완료시 버튼 33%채워짐.
+          setModal(true); //모달 보이게하기
+          set_modal_text('아이디를 다시 확인해주세요.');
+          }
+        }
+        else{
+          console.log('▶[오류] isSuccess 실패'+response.data.code+'\n'+response.data.message);
+          setValidEmail(false);//인증완료시 버튼 33%채워짐.
+          setModal(true); //모달 보이게하기
+          set_modal_text('아이디를 다시 확인해주세요.');
+        }
+        // setJopDetail(response.recruitment, response.title, response.money, response.time, response.introduction);
+    } )
+    .catch((error)=>{
+      console.error('▶서버오류'+ error);
+      setValidEmail(false);//인증완료시 버튼 33%채워짐.
+      setModal(true); //모달 보이게하기
+      set_modal_text('아이디를 다시 확인해주세요.');
+        // console.log(); // 에러 출력
+    });
+    // 백엔드에서 받아오기 전이므로, 가상의 데이터로 예시 작성
     
+}
+
+  // --------------비밀번호 변경api-----------------//
+  // --------------비밀번호 변경api-----------------//
+  const PasswordChangeToBackEnd= () =>{
+    const url = 'http://arthurcha.shop:3000/app/users/password '; // 실제 엔드포인트에 맞게 URL을 수정해야 합니다.
+
+    const data = {
+      email: email,
+      password: password
+    };
+
+    axios.patch(url, data)
+      .then((response) => {
+        console.log(response);
+        if (response.data.isSuccess){
+          alert("비밀번호가 변경되었습니다! 로그인 화면으로 이동합니다.");
+          console.log(response.data.message);
+          goLogin();
+          
+        }
+        else{
+          alert("비밀번호 변경에 실패하였습니다.");
+          console.log(response.data.message);
+        }
+
+      })
+      .catch(error => {
+        alert("비밀번호 변경에 실패하였습니다.");
+        console.error('에러!: ', error);
+      });
+
   }
+
+  useEffect(()=> { }, [email]);
 
 
   return(
@@ -182,7 +208,9 @@ function FindingPass(props){
             background: validEmail && validPassword && validPasswordCheck ? '#5B8E31' : '#A2C08A',
             color: validEmail && validPassword && validPasswordCheck ? 'black' : '#8E8B8B'
           }}
-          onClick={goLogin_pushToPass}
+          onClick={() => {  PasswordChangeToBackEnd(); 
+          }}
+
         >
           완료
       </button>
