@@ -15,7 +15,6 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 function MyPage(){
     // ------------------이동하는 메소드 --------------//
 
-
     let navigate = useNavigate();
 
     // 메인으로
