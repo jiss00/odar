@@ -183,7 +183,26 @@ function Test(){
             console.error('▶오류'+ error);
         });
     }
+  // --------------비밀번호 변경api-----------------//
+  const PasswordChangeToBackEnd= () =>{
+    const url = 'http://arthurcha.shop:3000/app/users/password '; // 실제 엔드포인트에 맞게 URL을 수정해야 합니다.
 
+    const data = {
+      email: "moc24@naver.com",
+      password: 'Jjjjj12345@'
+    };
+
+    axios.patch(url, data)
+      .then((response) => {
+
+        alert("비밀번호가 변경되었습니다!");
+        console.log(response);
+      })
+      .catch(error => {
+        console.error('에러!: ', error);
+      });
+
+  }
 
 
     return(
@@ -195,6 +214,7 @@ function Test(){
             <button onClick={fetchDataFromBackend3}> 이미지 get하자 </button>
             <button onClick={EmailIDFromBackend}> id post하자 </button>
             <button onClick={EmailToQuestion}> Email 보내자post </button>
+            <button onClick={PasswordChangeToBackEnd}> 비밀번호 변경하자 patch </button>
         </div>
     );
 }
