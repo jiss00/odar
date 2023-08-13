@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled,{css}  from "styled-components";
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 const Container = styled.div`
   display: flex;
   margin: 0 auto;
@@ -54,9 +56,9 @@ const StyledButton = styled.button`
       left:0px;
       }
   `;
-  function LongButton({ children, to, onClick }) {
+  function LongButton({ children, to, onClick, ...props }) {
     return (
-      <StyledButton as={Link} to={to} onClick={onClick}>
+      <StyledButton as={Link} to={to} onClick={props.onClick}>
         <ButtonText>{children}</ButtonText>
       </StyledButton>
     );
@@ -362,11 +364,18 @@ function SendUserInfo() {
   });
 }
 
-const handleApplyClick = () => {
-  SendUserInfo()
-};
-
 function ModifyLongButton() {
+
+  const Navigate = useNavigate();
+
+  const handleApplyClick = () => {
+    SendUserInfo();
+    goToMyPage();
+  };
+
+  const goToMyPage = () => {
+    Navigate("/myPage");
+  };
 
   return (
     <div>
@@ -382,7 +391,7 @@ function ModifyLongButton() {
     <Container>
     <LongButton onClick={handleApplyClick}>
           적 용
-      </LongButton>
+        </LongButton>
     </Container>
     </div>
   );
