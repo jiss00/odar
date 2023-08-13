@@ -8,7 +8,6 @@ import Search from './search';
 import Footer from './footerBar';
 import Top from './Top';
 import axios from 'axios';
-import { BrowserView, MobileView } from 'react-device-detect'
 
 
 function Recruit() {

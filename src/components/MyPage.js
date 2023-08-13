@@ -15,7 +15,7 @@ import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 function MyPage(){
     // ------------------이동하는 메소드 --------------//
     const apply = () =>{
-        window.location.href = 'http://localhost:3000/detail';
+        navigate('/detail');
     }
 
     let navigate = useNavigate();

@@ -3,6 +3,8 @@ import AlarmBar from './alarm_bar';
 import Text from './text';
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom'
+
 const Div = styled.div`
   margin-top:88px;
   display : grid;
@@ -13,8 +15,9 @@ const Div = styled.div`
     }  
 `
 function Alarm() {
+  const navigate = useNavigate();
   const onclick = () => {
-    window.location.href = 'http://localhost:3000/'
+    navigate('/');
   }
   const [alarmList, setAlarmList] = useState([]);
   useEffect(() => {
