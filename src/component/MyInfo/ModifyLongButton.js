@@ -115,15 +115,16 @@ const Styledtime = styled.div`
 
   /* Add styles for the input element */
   input {
+    left:2px;
     font-family: 'Pretendard';
     position: absolute;
-    width: 90%;
-    height: 90%;
+    width: 70%;
+    height: 70%;
     border: none;
     outline: none;
     border-radius: 20px;
-    font-size: 15px;
-    text-indent: 1.5em;
+    font-size: 17px;
+    text-indent: 1em;
     color: #5B8E31;
   }
 
@@ -212,6 +213,11 @@ const TimeWrapper = styled.div`
     display: flex; 
   }`
 
+const TimeInput = styled.input`
+    width: 80%; 
+    height: 80%;
+`
+
   // 희망시간
 
   function Texts({children}) {
@@ -245,7 +251,7 @@ function Time({ left, onChange }) {
 
   return (
     <Styledtime left={left}>
-      <input type="number" onChange={handleOnInputChange} />
+      <TimeInput type="number" onChange={handleOnInputChange} />
       <ClockText>시</ClockText>
     </Styledtime>
   );

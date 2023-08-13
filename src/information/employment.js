@@ -169,14 +169,10 @@ useEffect(() => {
   const [activeSort, setActiveSort] = useState(0);
   const handleSortClick = (index) => {
     setActiveSort(index);
-    if (index === 2) {
+    if (index === 1) {
       setStatus('recruiting');
       setCurrent(1);
       setRecruitPage(1);
-    }
-    else if(index ===1){
-      setStatus('distance');
-      setCurrent(1);
     }
     else if (index === 0) {
       setStatus('employment');
@@ -186,8 +182,7 @@ useEffect(() => {
   };
   const sortItems = [
     { text: '최근순', index: 0 },
-    { text: '거리순', index: 1 },
-    { text: '모집현황', index: 2 },
+    { text: '모집현황', index: 1 }
   ];
   return (
     <div>
@@ -196,7 +191,7 @@ useEffect(() => {
         <></>) :
         (<div>
           <div className="margin"></div>
-          <div className="sort">
+          <div className="sort1">
             {sortItems.map((item, index) => (
               <Sort
                 key={index}

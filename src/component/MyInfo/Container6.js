@@ -55,16 +55,21 @@ const Texts3 = styled.span`
     left:-170px;
     margin-right:auto;
     white-space:nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: scroll;
+    #test::-webkit-scrollbar {
+      display: none; /* 크롬, 사파리, 오페라, 엣지 */
+  }
   
   @media all and (min-width: 1024px){	
   position: relative; 
-  width: 100%;
-  max-width:150px;
+  width: 500px;
   height: 20px;
   margin-left:10px;
   margin-right:auto;
   top:85px;
-  left:-260px;
+  left:-310px;
   font-size:20px;
   color: #5C5C5C;
 
