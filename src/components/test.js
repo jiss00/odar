@@ -139,8 +139,8 @@ function Test(){
         const url = `http://arthurcha.shop:3000/app/users/email`;
 
 
-        console.log('id get하자');
-        axios.get(url, {params: { phone : "010-4096-3487"}} )
+        console.log('id post하자');
+        axios.post(url, phoneData )
         .then( (response) => {
             console.log(response);
             console.log(response.data.isSuccess);
@@ -161,6 +161,7 @@ function Test(){
         
     }
 
+    // 문의하자.
     const EmailToQuestion = () => {
         const questionData =  { "question" : "문의 보내기~"  };
         const url = `http://arthurcha.shop:3000/app/question`;
@@ -192,7 +193,7 @@ function Test(){
             <button onClick={fetchDataFromBackend}> get하자</button>
             <button onClick={fetchDataFromBackend2}> 취업상세 get하자 </button>
             <button onClick={fetchDataFromBackend3}> 이미지 get하자 </button>
-            <button onClick={EmailIDFromBackend}> id get하자 </button>
+            <button onClick={EmailIDFromBackend}> id post하자 </button>
             <button onClick={EmailToQuestion}> Email 보내자post </button>
         </div>
     );
