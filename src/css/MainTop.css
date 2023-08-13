@@ -66,10 +66,10 @@
 
 .MtopHome{
   position: absolute;
-  width: 90px;
+  width: 120px;
   height: 20px;
   margin-top: 213px;
-  right:50px;
+  margin-left: 39px;
 }
 
 .MtopLogin {
