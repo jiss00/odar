@@ -409,6 +409,7 @@
         box-sizing: border-box;
         width: 400px;
         height: 210px;
+        grid-template-columns: 200px 180px;
 
     }
     
