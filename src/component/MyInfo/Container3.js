@@ -8,174 +8,6 @@ display: flex;
 margin: 0 auto;
 `;
 
-// Texts 컴포넌트 
-const StyledTexts = styled.span`
-    display: flex;
-    box-sizing: border-box;
-    position: relative; 
-    width: 100%;
-    max-width:56px;
-    height: 20px;
-    margin-left:auto;
-    margin-right:5px;
-    top:-275px;
-    left:8px;
-
-    font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
-    font-weight: 400;
-    line-height: 16.8px;
-    color: #000000;
-    white-space: pre-line;
-    font-size:16px;
- 
-  @media all and (min-width: 1024px){	
-  position: relative; 
-  width: 100%;
-  max-width:70px;
-  height: 20px;
-  margin-left:auto;
-  margin-right:10px;
-  top:-290px;
-  left:0px;
-  font-size:20px;
-  }
-
-        
-`;
-
-function Texts({children}) {
-    return (
-        <StyledTexts>
-            {children}
-        </StyledTexts>
-    );
-}
-
-
-// Time 컴포넌트 
-
-const Styledtime = styled.div`
-  display: flex;
-  box-sizing: border-box;
-  position: relative; 
-  align-items: center;
-  width: 70px;
-  height: 30px;
-  border-radius: 20px;
-  border: 0.8px solid #5B8E31;
-  background-color: #FFFFFF;
-  top:0px;
-  left:3px;
-
-  /* Add styles for the input element */
-  input {
-    font-family: 'Pretendard';
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    font-size: 15px;
-    text-indent: 1.5em;
-    color: #5B8E31;
-  }
-
-    @media all and (min-width: 1024px) {
-      position: relative;
-      width: 150px;
-      height:40px; 
-      top: -50px;
-      ${props =>
-        props.left &&
-        css`
-        left: ${props.left*0.33+90}px;
-        `}
-
-      input {
-        font-size: 20px;
-        text-indent: 4em;
-      }
-    }
-`;
-
-const ClockText = styled.span`
-  display: flex;
-  box-sizing: border-box;
-  position: relative;
-  width: 13px;
-  height: 20px;
-  font-size: 15px;
-  font-weight: 800;
-  color: #5B8E31;
-  left:45px; 
-  
-  @media all and (min-width: 1024px) {
-    position: relative;
-    font-size: 18px;
-    width: 150px; 
-    top: -3px;
-    left: 110px;
-    } 
-`;
-
-function Time({ left, onChange }) {
-  function handleOnInputChange(event) {
-    const maxlength = 2;
-    const inputValue = event.target.value;
-
-    // 입력된 값이 숫자가 아니거나 24 이하가 아닌 경우 빈 문자열로 변경
-    if (!/^\d*$/.test(inputValue) || parseInt(inputValue) > 24) {
-      event.target.value = '';
-      return;
-    }
-
-    // maxlength 이상 입력된 경우 maxlength로 제한
-    if (inputValue.length > maxlength) {
-      event.target.value = inputValue.substr(0, maxlength);
-    }
-
-    // 콜백 함수 호출하여 값을 부모 컴포넌트로 전달
-    onChange(inputValue);
-  }
-
-  return (
-    <Styledtime left={left}>
-      <input type="number" onChange={handleOnInputChange} />
-      <ClockText>시</ClockText>
-    </Styledtime>
-  );
-}
-
-
-//Tilde 컴퍼넌트
-
-const StyledTilde = styled.span`
-  display: flex;
-  box-sizing: border-box;
-  position: relative;
-  width: 16px;
-  height: 20px;
-  font-size: 25px;
-  line-height: 20px;
-  font-weight: 400;
-  color: #5B8E31;
-  top:3px;
-  left:0px;
-  margin-left:17px;
-  margin-right:17px;
-  text-align: center;
-  @media all and (min-width: 1024px) {
-    position: relative;
-    font-size: 40px;
-    width: 26px; 
-    top: -45px;
-    margin-left:0px;
-    margin-right:0px;
-    left: 150px;
-  }  
-`;
-
 const TimeWrapper = styled.div`
     position: relative;
     width: 200px; 
@@ -196,35 +28,14 @@ const TimeWrapper = styled.div`
     display: flex; 
   }`
 
-function Tilde() {
-  return (
-    <StyledTilde>~</StyledTilde>
-  );
-}
 
 
 function Container3() {
-  let Start = 0;
-  let End = 0;
-
-  const sendStartTimes = (startTime) => {
-    Start = startTime;
-  };
-
-  const sendEndTimes = (endTime) => {
-    End = endTime;
-  };
-
-  sendStartTimesToAPI(Start);
-  sendEndTimesToAPI(End);
 
   return (
     <Container>
-      <Texts>희망시간</Texts>
       <TimeWrapper>
-        <Time left={139} onChange={sendStartTimes} />
-        <Tilde />
-        <Time left={257} onChange={sendEndTimes} />
+        
       </TimeWrapper>
     </Container>
   );
