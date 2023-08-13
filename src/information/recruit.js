@@ -59,7 +59,8 @@ function Recruit() {
   const [number, setNumber] = useState();
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
-
+  const [distanceData,setDistanceData] = useState([]); //거리순 가까운 공고들 저장
+  const renderDistance = distanceData.slice(0, renderCount);
 
   //모집중인 api 호출
   useEffect(() => {
@@ -85,6 +86,7 @@ function Recruit() {
       fetchData();
     }
   }, [recruitPage, status]);
+
 
 
 
@@ -118,6 +120,30 @@ function Recruit() {
     setChangeValue(e.target.value);
   }
 
+
+
+  useEffect(() => {
+    if (status === 'distance') {
+    const search_information = async () => {
+      const userToken = localStorage.getItem('accessToken');
+      try {
+        const response = await axios.get('http://arthurcha.shop:3000/app/jobPosting/region', {
+          headers: {
+            Authorization: `Bearer ${userToken}`, // Authorization 헤더에 토큰 추가
+          },
+        });
+        setDistanceData(response.data.result);
+        console.log('거리순 결과 값:', response.data.result); // 데이터 확인
+        setStatus('distance');
+        setTotalPages(1);
+      } catch (error) {
+        // 오류 처리
+      }
+    };
+    search_information();}
+  }, [recruitPage, status]);
+
+
   const onclick = (e) => {
     if (input[0].style.display === 'block') {
       if (chageValue === '') {
@@ -142,13 +168,17 @@ function Recruit() {
   console.log('staus: :', status);
 
 
-  const [activeSort, setActiveSort] = useState(null);
+  const [activeSort, setActiveSort] = useState(0);
   const handleSortClick = (index) => {
     setActiveSort(index);
     if (index === 2) {
       setStatus('recruiting');
       setCurrent(1);
       setRecruitPage(1);
+    }
+    else if(index ===1){
+      setStatus('distance');
+      setCurrent(1);
     }
     else if(index===0){
       setStatus('recruit');
@@ -162,6 +192,7 @@ function Recruit() {
     { text: '거리순', index: 1 },
     { text: '모집현황', index: 2 },
   ];
+  const [dataLength,setDataLength] = useState(0);
   return (
     <div>
 
@@ -195,12 +226,8 @@ function Recruit() {
                   )
                 ));
               }
-              else if (status === 'recruiting') {
-                return recruitData.map((data, index) => (<Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
-                ))
-              }
-              else {
-                return renderDataList.map((data, index) => (
+              else if(status ==='distance'){
+                return renderDistance.map((data, index) => (
                   data.active_status === 1 ? (
                     <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   ) : (
@@ -208,6 +235,20 @@ function Recruit() {
                   )
                 ));
               }
+              else if (status === 'recruiting') {
+                return recruitData.map((data, index) => (<Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                ))
+              }
+              else {
+                return renderDataList.map((data, index) => (
+                  data.active_status === 1 ? (
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title}
+                    />
+                  ) : (
+                    <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                  )
+                ));
+                }
             })()}
           </div>
         </div>)}

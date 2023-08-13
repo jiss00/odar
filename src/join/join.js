@@ -7,12 +7,12 @@ import Auth from './authentic';
 import Button from './button';
 import TopBar from './topBar';
 import Timer from './timer';
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import timer from './timer';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PrivacyPolicy from './privacypolicy';
-import Modal from 'react-modal'; 
+import Modal from 'react-modal';
 import closeImage from '../components/close.png';
 
 const StyledDiv = styled.div`
@@ -43,6 +43,8 @@ const StyledModalDiv = styled.div`
   font-size: 22px;
   font-weight: 800;
   line-height: 28.64px;
+  @media screen and (min-width: 1024px) {
+  }
 `;
 
 function Join() {
@@ -96,7 +98,7 @@ function Join() {
   const [day, setDay] = useState('');
   const [phone, setPhone] = useState('');
   const [auth, setAuth] = useState(''); /*input에 사용자가 적은 인증번호 */
-  const [auth_number,setAuth_number] = useState(''); /*백엔드에서 주는 인증번호 */
+  const [auth_number, setAuth_number] = useState(''); /*백엔드에서 주는 인증번호 */
 
   /*join 페이지의 데이터*/
   const location = useLocation();
@@ -131,14 +133,18 @@ function Join() {
       if (response.data.isSuccess) {
         nagivate('/');
       }
-      else{
+      else {
         alert(response.data.message);
       }
     });
   }
-  
+
   /* 전화번호 백으로 넘기고 인증번호 받아오기 */
   const onclick = () => {
+    if(!phone){
+      alert('전화번호를 입력해주세요');
+    }
+    else{
     setModal(true); /* modal이 true 일땐 타이머 시작 */
     axios(
       {
@@ -150,16 +156,20 @@ function Join() {
       }
     ).then(function (response) {
       setAuth_number(response.data.result.code);
-    });
-  }
+    });}}
+
   console.log(auth_number);
   /*인증번호 맞는지 검사*/
   const [visible, setVisible] = useState(false);
+  const join_confirm = document.getElementsByClassName('join_confirm');
   const confirm = () => {
-    if(auth === auth_number){
+    if (auth === auth_number) {
       setModal(false);
-      setVisible(true);
-    }else{
+      if(auth_number){
+        setVisible(true);
+      }
+
+    } else {
       alert('인증번호가 맞지 않습니다. 다시 시도해주세요');
     }
   }
@@ -170,7 +180,7 @@ function Join() {
   const handleAgreeChange = () => {
     setAgreed(!agreed);
   };
-  
+
 
   return (
     <div className='main'>
@@ -202,9 +212,9 @@ function Join() {
               top: '300px',
               left: '0',
               height: '200px',
-              width: '305px'
-
+              width: '305px',
             },
+
           }}
         >
           <img
@@ -249,8 +259,9 @@ function Join() {
         </div>*/}
 
         <PrivacyPolicy onChange={handleCheckChange}></PrivacyPolicy>
-        <Button onClick={user_join} birth1={birth1} birth2={birth2} birth3={birth3} verification={verification} complete={complete} check={check}/>
-    </div>
+        <Button onClick={user_join} birth1={birth1} birth2={birth2} birth3={birth3} verification={verification} complete={complete} check={check} />
+      </div>
+
     </div>
   );
 }
