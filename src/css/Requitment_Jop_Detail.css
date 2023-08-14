@@ -233,6 +233,7 @@
 
 /* --------------전확 모양, 지원하기-------------- */
 .footer_detail{
+    margin-bottom: 20px;
     width: 330px;
     height: 50px;
     display: flex;
