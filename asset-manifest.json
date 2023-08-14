@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2bb5a0b0.css",
+    "main.js": "/static/js/main.baac3c5a.js",
+    "static/js/787.0bf4ddb8.chunk.js": "/static/js/787.0bf4ddb8.chunk.js",
+    "static/media/Pretendard-ExtraBold.otf": "/static/media/Pretendard-ExtraBold.9e2e4a7b934af8d26724.otf",
+    "static/media/MBC1961gulim.ttf": "/static/media/MBC1961gulim.5ce269ef24d035846236.ttf",
+    "static/media/grandFather.png": "/static/media/grandFather.0c649b8d7c86a41dd32b.png",
+    "index.html": "/index.html",
+    "main.2bb5a0b0.css.map": "/static/css/main.2bb5a0b0.css.map",
+    "main.baac3c5a.js.map": "/static/js/main.baac3c5a.js.map",
+    "787.0bf4ddb8.chunk.js.map": "/static/js/787.0bf4ddb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2bb5a0b0.css",
+    "static/js/main.baac3c5a.js"
+  ]
+}
