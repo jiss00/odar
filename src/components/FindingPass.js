@@ -277,6 +277,7 @@ function FindingPass(props){
         handleTimerEnd();
         alert('시간경과');
         setModal(false);
+        set_body_pass_visibility("hidden"); //숨기기
       }
       return () => clearInterval(timer);
     }, [time]);

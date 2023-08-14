@@ -46,7 +46,7 @@
   /* 아이디찾기 */
   .id_find {
     margin : 0px 0px;
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     width: 100vw;
     height: 100px;
     color: rgba(92, 92, 92, 1);
@@ -68,7 +68,7 @@
   .body{
 
     width: 350px;
-    height: 200px;
+    height: 180px;
 
     
     display: flex;
@@ -158,8 +158,9 @@
     /* height: 75px; */
     min-height: 75px;
     height: 75px;
-    margin-top: 200px;
-    margin-bottom: 40px;
+
+    margin-top: 20vh;
+    margin-bottom: 20px;
 
 
     gap: 8px;
@@ -185,8 +186,8 @@
       height: 75px;
       min-height: 75px;
 
-      margin-top: 200px;
-      margin-bottom: 40px;
+      margin-top: 20vh;
+      margin-bottom: 20px;
 
   
       gap: 8px;
@@ -230,7 +231,7 @@
   /* 휴대번호 적는 섹션 */
   .input_section1{
     box-sizing: border-box;
-    margin-top: 40px;
+    margin-top: 25px;
 
     width:100%;
     display: flex;
