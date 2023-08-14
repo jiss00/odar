@@ -213,7 +213,7 @@ function Recruit() {
         <></>) :
         (<div>
           <div className="margin"></div>
-          <Sort1>
+          <div className='sort'>
             {sortItems.map((item, index) => (
               <Sort
                 key={index}
@@ -224,7 +224,7 @@ function Recruit() {
             ))}
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
-          </Sort1>
+          </div>
           <div className="main1">
             {(() => {
               if (status === 'search') {
