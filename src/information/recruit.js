@@ -224,7 +224,7 @@ function Recruit() {
             ))}
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
-          <Sort1>
+          </Sort1>
           <div className="main1">
             {(() => {
               if (status === 'search') {
