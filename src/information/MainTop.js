@@ -39,7 +39,7 @@
             if (loggedIn) {
                 localStorage.removeItem('accessToken');
                 setLoggedIn(false);
-                alert("로그아웃되었습니다.");
+                alert("로그아웃 되었습니다.");
                 goToHome();
 
             } else {

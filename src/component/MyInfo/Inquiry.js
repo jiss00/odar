@@ -66,7 +66,7 @@ function Inquiry(){
         // 문의하기로 이메일 전송.
    const EmailToQuestion = () => {
         const questionData =  { "question" : `제목:${title_state}\n\n내용:${textBox_state} ` };
-        const url = `http://arthurcha.shop:3000/app/question`;
+        const url = `https://arthurcha.shop/app/question`;
         const userToken = localStorage.getItem('accessToken');
         console.log("문의하기post했다");
         axios.post(url, questionData,  

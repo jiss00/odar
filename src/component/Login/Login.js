@@ -13,7 +13,7 @@ export default function Login() {
 
     const goToHome = () => {
     // 백엔드의 로그인 API 엔드포인트 URL        
-    const loginUrl = 'http://arthurcha.shop:3000/app/users/login'; 
+    const loginUrl = 'https://arthurcha.shop/app/users/login'; 
 
       // 이메일과 비밀번호를 담은 요청 본문 객체 생성
       const requestBody = {

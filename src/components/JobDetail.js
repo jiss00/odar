@@ -78,7 +78,7 @@ function JobDetail(){
     const fetchDataFromBackend = () =>{
 
 
-        const url = `http://arthurcha.shop:3000/app/jobEdu/${job_edu_id}`
+        const url = `https://arthurcha.shop/app/jobEdu/${job_edu_id}`
         // console.log('get하자');
         axios.get(url)
         .then( (response) => {
@@ -137,7 +137,7 @@ function JobDetail(){
 
     // =============제일 처음 지원상태 변경=================//
     const StartApplyToUpdate = () => {
-        const url = `http://arthurcha.shop:3000/app/jobApply/edu/${job_edu_id}`
+        const url = `https://arthurcha.shop/app/jobApply/edu/${job_edu_id}`
         const userToken = localStorage.getItem('accessToken');
 
         axios.get(url,{
@@ -180,7 +180,7 @@ function JobDetail(){
 // ------------ 지원하기 ----------------------//
     // 지원하기 기능
     const ApplyToBackend = () =>{
-        const url = `http://arthurcha.shop:3000/app/jobApply`
+        const url = `https://arthurcha.shop/app/jobApply`
         // console.log('get하자');
         // 토큰 받아오기
         const userToken = localStorage.getItem('accessToken');

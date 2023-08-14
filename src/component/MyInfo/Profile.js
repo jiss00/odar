@@ -88,7 +88,7 @@ const ButtonWrapper = styled.div`
     height: 14px;
     font-weight: 400
     line-height: 14.4px;
-    font-size: 12px;
+    font-size: 11px;
 `;
 
 function ProfileImage() {
@@ -103,7 +103,7 @@ function ProfileImage() {
 
     const userToken = localStorage.getItem('accessToken');
 
-    axios.post('http://arthurcha.shop:3000/app/image', formDataForSubmit, {
+    axios.post('https://arthurcha.shop/app/image', formDataForSubmit, {
       headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${userToken}`,

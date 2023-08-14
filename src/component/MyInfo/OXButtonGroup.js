@@ -100,7 +100,7 @@ function ButtonGroup({ validEmail, validPassword, id, password }) {
         };
         console.log('requestBody:', requestBody); // 확인용
       
-        const response = await axios.delete('http://arthurcha.shop:3000/app/users/delete', {
+        const response = await axios.delete('https://arthurcha.shop/app/users/delete', {
           data: requestBody,
           headers: {
             Authorization: `Bearer ${token}`,

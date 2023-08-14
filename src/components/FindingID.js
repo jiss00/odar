@@ -77,7 +77,7 @@ function FindingID() {
   const phone_send_api = () => {
     
     const phoneData =  { "phone" : phone_number_state  };
-    const url = "http://arthurcha.shop:3000/app/auth/phone-send"
+    const url = "https://arthurcha.shop/app/auth/phone-send"
     
     axios.post(url, phoneData)
     .then((response) => {

@@ -43,7 +43,7 @@ function MyPage(){
             const token = localStorage.getItem('accessToken');
             console.log(token);
           
-            const response = await axios.post('http://arthurcha.shop:3000/app/users/logout', 
+            const response = await axios.post('https://arthurcha.shop/app/users/logout', 
             {},
             {
               headers: {
@@ -86,7 +86,7 @@ function MyPage(){
 
     //get
     const fetchDataFromBackend = () =>{
-        const url = `http://arthurcha.shop:3000/app/users/info`
+        const url = `https://arthurcha.shop/app/users/info`
         // console.log('get하자');
         
         axios.get(url,
@@ -118,7 +118,7 @@ function MyPage(){
                     }
                 }
                 // 변수명을 이용해 속성에 접근하려면 대괄호 표기법을 사용해야 합니다. 
-                if(backendData.userInfo.profile_img != "http://arthurcha.shop:3000/app/image")  set_profile_img(backendData.userInfo.profile_img);
+                if(backendData.userInfo.profile_img != "https://arthurcha.shop/app/image")  set_profile_img(backendData.userInfo.profile_img);
                 if(backendData.userInfo.desire_start_time !=null)   set_desire_start_time(backendData.userInfo.desire_start_time); //시작시간
                 if(backendData.userInfo.desire_end_time !=null)   set_desire_end_time(backendData.userInfo.desire_end_time); //끝시간
 

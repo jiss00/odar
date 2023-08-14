@@ -3,14 +3,18 @@ import styled from "styled-components";
 import { PiEyeClosed,PiEye } from "react-icons/pi"; 
 
 const StyledInput = styled.input`
+    font-family: "Pretendard";
+    position:relative;
     width: 100%;
-    margin-top: 0.6em;
     outline: none;
     border: none;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0px;
     background-color: transparent;
     text-indent: 0.5em;
+    top:5px;
 
     &&&::placeholder {
         font-family: "Pretendard";
@@ -26,6 +30,7 @@ const StyledInput = styled.input`
         margin-left:auto;
         left:0px;
         width:440px;
+        top:10px;
         }
 `;
 
@@ -35,15 +40,13 @@ const IconWrapper = styled.div`
     position: relative; 
     width: 24px;
     height: 24px;
-    left: 150px;
-    bottom: 1.5em;
+    top: -30px;
     cursor: pointer;
-    margin-right:auto;
+    margin-right:15px;
     margin-left:auto;
-
     @media all and (min-width: 1024px){	
         position: relative; 
-        left: 185px;
+        top:-17px;
         }
 `;
 function Input_pwcheck(props) {

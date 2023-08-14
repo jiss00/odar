@@ -161,7 +161,7 @@ function FindingPass(props){
   // -----------인증 버튼 클릭 시, 유효한 아이디인지 확인 ----------------//
   const checkModal = () =>{
     const phoneData =  { "email" : email  };
-    const url = `http://arthurcha.shop:3000/app/users/check-email`;
+    const url = `https://arthurcha.shop/app/users/check-email`;
 
 
     console.log('id post하자');
@@ -215,7 +215,7 @@ function FindingPass(props){
   // --------------비밀번호 변경api-----------------//
   // --------------비밀번호 변경api-----------------//
   const PasswordChangeToBackEnd= () =>{
-    const url = 'http://arthurcha.shop:3000/app/users/password '; // 실제 엔드포인트에 맞게 URL을 수정해야 합니다.
+    const url = 'https://arthurcha.shop/app/users/password '; // 실제 엔드포인트에 맞게 URL을 수정해야 합니다.
 
     const data = {
       email: email,
