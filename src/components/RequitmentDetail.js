@@ -186,19 +186,23 @@ function RequitmentDetail(){
             })
         .then( (response) => { //성공시
             if (response.data['isSuccess']){
-                
+                alert("지원이 완료되었습니다.");
                 console.log("post 성공, ID: "+ jobPostingId);
                 console.log(apply_state);
                 console.log(response.data);
+                set_apply_state(1); //지원상태 : 1
+                openLink();
             }
             else{
                 console.log(response.data);
                 console.log('▶오류'+response.data.code+'\n'+response.data.message);
-
+                alert(response.data.message);
+                openLink();
             }
         } )
         .catch((error)=>{
             console.error('Error fetching data:', error);
+            openLink();
             // console.log(); // 에러 출력
         });
     }
@@ -236,18 +240,17 @@ function RequitmentDetail(){
 
     const openLink = () => {
         console.log('지원하기 클릭');
+        window.open(url, '_blank');
         // 여기에 이동하고자 하는 URL을 넣어주세요.
         // 이미 지원했다면(state:true)
-        if (apply_state === 1 ) {
-            alert("이미 지원한 공고입니다.");
-            window.open(url, '_blank');
-        }
-        // 지원하지 않았으면 ( state : false)
-        else if (apply_state === 0){
-            alert("지원이 완료되었습니다.");
-            set_apply_state(1);
-            window.open(url, '_blank');
-        }
+        // if (apply_state === 1 ) {
+        //     // alert("이미 지원한 공고입니다.");
+        //     window.open(url, '_blank');
+        // }
+        // // 지원하지 않았으면 ( state : false)
+        // else if (apply_state === 0){
+        //     window.open(url, '_blank');
+        // }
         
     };
     
@@ -307,7 +310,13 @@ function RequitmentDetail(){
                             <path d="M12.3937 8.72661L9.809 10.5814C10.1483 11.5175 10.6257 12.4179 11.231 13.2637C11.8611 14.1036 12.6191 14.8778 13.4876 15.5684L16.8349 14.7435C18.7101 14.2811 20.7572 14.756 22.0043 15.9434L23.9107 17.7582C24.6826 18.4868 25.0696 19.427 24.9897 20.3799C24.9098 21.3327 24.3692 22.2232 23.4826 22.8627C20.3728 25.1325 15.5847 25.8999 11.9999 23.6476C8.84928 21.6635 6.18349 19.2313 4.13642 16.4734C2.08486 13.7284 0.711882 10.6936 0.0921691 7.53422C-0.595416 3.97957 2.65811 1.13485 6.71487 0.164943C9.13391 -0.415 11.7155 0.579903 12.6031 2.43472L13.6501 4.62201C14.3377 6.06187 13.8439 7.68671 12.3937 8.72661Z" fill="#5B8E31"/>
                         </svg>    
                     </button>
-                <button className={`btn_apply ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => {openLink(); ApplyToBackend();}}>지원하기</button>                    
+                <button className={`btn_apply ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => { 
+                    if (localStorage.getItem('accessToken')){ //만약, 로그인 되어 있다면 백엔드 호출
+                        ApplyToBackend();
+                    }
+                    else{ openLink(); //로그인 아니면, 그냥 open Link
+                    }
+                    }}>지원하기</button>                    
              </section>
 
         </div>
