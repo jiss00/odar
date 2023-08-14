@@ -6,11 +6,12 @@
 
 .Mbars{
   position: absolute;
-  width: 30px;
-  height: 25px;
-  margin-top: 160px;
-  margin-left: 262px;
+  width: 35px;
+  height: 30px;
+  margin-top: 60px;
+  margin-left: 257px;
   z-index: 1;
+  cursor : pointer;
 }
 
 .Mbars.active{
