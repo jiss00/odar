@@ -1,5 +1,50 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
+/* 스크롤바 스타일 설정 */
+/* 모든 브라우저에서 스크롤바를 배경에 보이지 않게 설정 */
+/* 스크롤바 막대 부분만 아주 작게 모서리 둥글게 설정하여 보이게 함 */
+
+
+.title_item2_detail .body_2_detail{
+    overflow:overlay;
+}
+/* Webkit 기반 브라우저의 스크롤바 디자인 설정 */
+
+/* 스크롤바 영역 */
+.title_item2_detail::-webkit-scrollbar {
+    width: 0px;
+    /* 스크롤바 자체의 너비 크기 */
+    height: 3px; 
+    /* 스크롤바자체의 높이 크기 */
+}
+
+.body_2_detail::-webkit-scrollbar{
+    width:5px;
+    height: 80%;
+    
+}
+/* 스크롤 막대 */
+.title_item2_detail::-webkit-scrollbar-thumb{
+    background-color: hsla(122, 100%, 16%, 0.2);
+    color: #D9D9D9;
+    border-radius: 100px;
+
+}
+
+/* 스크롤 막대 */
+.body_2_detail::-webkit-scrollbar-thumb{
+
+    background-color: hsla(122, 39%, 37%, 0.49);
+    border-radius: 100px;
+
+}
+/* : 스크롤바 뒷 배경에 대한 설정 */ 
+.body_2_detail::-webkit-scrollbar-track{
+    /* background-color: hsla(122, 37%, 48%, 0.49); */
+    border-radius: 100px;
+} 
+
+
 
 
 /* 전체 화면 */

@@ -8,8 +8,23 @@ import Search from './search';
 import Footer from './footerBar';
 import Top from './Top';
 import axios from 'axios';
+import styled from 'styled-components';
 
-
+const Sort1 =styled.div`
+position: absolute;
+left:50%;
+transform: translate(-48%, -50%);
+margin:0 auto;
+top:180px;
+display: grid; 
+grid-template-columns : 90px  90px 90px 66px 30px;
+@media screen and (min-width: 1024px){
+  transform: translate(-50%, -50%);
+  top : 300px;
+  grid-template-columns : 98px 98px 98px 502px 30px;
+  grid-gap : 20px;
+}
+`
 function Recruit() {
   const navigate = useNavigate();
   const [status, setStatus] = useState('recruit');
@@ -193,14 +208,12 @@ function Recruit() {
   ];
   return (
     <div>
-
       <Top text='채용정보'></Top>
       {dataList.length === 0 ? (
         <></>) :
-
         (<div>
           <div className="margin"></div>
-          <div className="sort">
+          <div className='sort'>
             {sortItems.map((item, index) => (
               <Sort
                 key={index}
