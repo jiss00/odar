@@ -7,7 +7,7 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  margin-top: 150px;
+  margin-top: 60px;
   margin-right: 257px;
   z-index: 1;
   cursor : pointer;
@@ -17,7 +17,7 @@
   position: absolute;
   width: 25px;
   height: 20px;
-  margin-top: 150px;
+  margin-top: 60px;
   margin-left: 257px;
   z-index: 1;
   cursor : pointer;
@@ -31,7 +31,7 @@
   position: absolute;
   width: 130px;
   height: 20px;
-  top: 85px;
+  top: 45px;
   z-index: 1;
 
   font-family: Pretendard;
