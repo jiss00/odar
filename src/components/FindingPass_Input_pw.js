@@ -103,8 +103,10 @@ const StyledInput = styled.input`
   display: flex;
   box-sizing: border-box;
   position: relative;
+  font-family: "Pretendard";
   border-radius: 15px;
   font-size: 24px;
+  font-weight: 800;
   border: 2px solid #5B8E31;
   width: 335px;
   height: 50px;

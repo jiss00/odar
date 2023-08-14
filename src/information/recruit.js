@@ -8,8 +8,23 @@ import Search from './search';
 import Footer from './footerBar';
 import Top from './Top';
 import axios from 'axios';
+import styled from 'styled-components';
 
-
+const Sort1 =styled.div`
+position: absolute;
+left:50%;
+transform: translate(-48%, -50%);
+margin:0 auto;
+top:180px;
+display: grid; 
+grid-template-columns : 90px  90px 90px 66px 30px;
+@media screen and (min-width: 1024px){
+  transform: translate(-50%, -50%);
+  top : 300px;
+  grid-template-columns : 98px 98px 98px 502px 30px;
+  grid-gap : 20px;
+}
+`
 function Recruit() {
   const navigate = useNavigate();
   const [status, setStatus] = useState('recruit');
@@ -176,6 +191,9 @@ function Recruit() {
       setRecruitPage(1);
     }
     else if(index ===1){
+      if(renderDistance.length ===0){
+        alert('위치정보 권한을 수락해주세요.');
+      }
       setStatus('distance');
       setCurrent(1);
     }
@@ -193,14 +211,12 @@ function Recruit() {
   ];
   return (
     <div>
-
       <Top text='채용정보'></Top>
       {dataList.length === 0 ? (
         <></>) :
-
         (<div>
           <div className="margin"></div>
-          <div className="sort">
+          <Sort1>
             {sortItems.map((item, index) => (
               <Sort
                 key={index}
@@ -211,7 +227,7 @@ function Recruit() {
             ))}
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
-          </div>
+          </Sort1>
           <div className="main1">
             {(() => {
               if (status === 'search') {

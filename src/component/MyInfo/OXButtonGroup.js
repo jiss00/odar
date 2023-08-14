@@ -88,7 +88,8 @@ function XButton({ children }) {
 
 function ButtonGroup({ validEmail, validPassword, id, password }) {
   const isButtonDisabled = !(validEmail && validPassword);
- 
+  const Navigate = useNavigate();
+
   const handleConfirm = async () => {
     if (!isButtonDisabled) {
       try {
@@ -108,7 +109,9 @@ function ButtonGroup({ validEmail, validPassword, id, password }) {
         });
       
         if (response.data.isSuccess && response.data.code === 200) {
+          localStorage.removeItem(token);
           alert('계정이 삭제되었습니다.');
+          Navigate("/");
         } else {
           // 에러 처리 로직 추가
           alert('요청 실패1: ' + response.data.code + response.data.message);

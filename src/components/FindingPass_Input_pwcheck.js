@@ -6,8 +6,10 @@ const StyledInput = styled.input`
     display: flex;
     box-sizing: border-box;
     position: relative; 
+    font-family: "Pretendard";
     border-radius: 15px;
     font-size: 24px;
+    font-weight: 800;
     border: 2px solid #5B8E31;
     width: 335px;
     height: 50px;
@@ -20,6 +22,8 @@ const StyledInput = styled.input`
       font-size: 24px; 
       color: #D9D9D9; 
       font-weight: 800;
+      text-indent: 0.5em;
+
     }
     @media all and (min-width: 1024px){	
         position: relative; 
