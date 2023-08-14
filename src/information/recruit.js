@@ -193,11 +193,9 @@ function Recruit() {
   ];
   return (
     <div>
-
       <Top text='채용정보'></Top>
       {dataList.length === 0 ? (
         <></>) :
-
         (<div>
           <div className="margin"></div>
           <div className="sort">
