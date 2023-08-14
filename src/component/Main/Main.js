@@ -18,8 +18,8 @@ export default function Main(){
         <div>
             <div className="parent">
                 <div className='titleWrap'>오다르</div>
-                <div className="main_employment" onClick={goToRecruit}>채용정보</div>
-                <div className="main_Recruitment" onClick={goToEmployment}>취업지원</div>
+                <div className="main_employment" onClick={goToRecruit}>채용 정보</div>
+                <div className="main_Recruitment" onClick={goToEmployment}>취업 지원</div>
             </div>
             <MainTop></MainTop>
         </div>
