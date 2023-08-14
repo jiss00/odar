@@ -46,6 +46,7 @@
   /* 비밀번호 찾기 */
   .pass_find {
     margin : 0px 0px;
+    margin-bottom: 10px;
     width: 100vw;
     height: 70px;
     color: rgba(92, 92, 92, 1);
@@ -107,7 +108,7 @@
     position:absolute;
 
     right: 30%;
-    padding-top: 20px;
+    padding-top: 15px;
     color: rgba(255, 0, 0, 1);
 
     font-family: Pretendard;
@@ -168,12 +169,15 @@
 
   /* 제일 밑 완료 */
   #btn_success_pass{
+    box-sizing: border-box;
     display: flex;
-    position: relative;
+    /* position: relative; */
     width: 335px;
-    height: 75px;
+    min-height: 60px;
     margin-left:0px;
-    top:0px;
+    margin: 20px 0px;
+    margin-bottom: 10px;
+
     gap: 8px;
     background: rgba(162, 192, 138, 1);
     font-family: 'Pretendard';
@@ -184,7 +188,7 @@
     text-align: center;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
+    
 
 
   }
@@ -225,9 +229,10 @@
   /* 비빌번호 영역------- */
 
   .body_pass_pass{
-    margin-top:30px;
+    margin-top:20px;
+    margin-bottom: 10px;
     width:100vw;
-    height: 260px;
+    height: 250px;
     /*background-color: aqua;*/
   }
 
@@ -256,7 +261,7 @@
     
     letter-spacing: 0em;
     text-align: center;
-    font-size: 20px;
+    font-size: 17px;
     
     
     
@@ -317,7 +322,7 @@
     height: auto;
     width: 440px;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 
   }
   
