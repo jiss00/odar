@@ -8,12 +8,14 @@ const StyledInput = styled.input`
     position: relative; 
     border-radius: 15px;
     font-family: "Pretendard";
-    font-size: 21px;
+    font-size: 24px;
+    font-weight: 800;
     border: 1.5px solid #5B8E31;
     width: 290px;
     height: 50px;
     top: -285px;
     margin: 0px auto;
+    text-indent: 0.5em;
 
     ::placeholder {
         font-family: "Pretendard";
