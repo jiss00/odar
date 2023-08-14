@@ -114,7 +114,7 @@ function Join() {
 
   /* 회원정보 백으로 전달하기 */
   const user_join = () => {
-    const url = `http://arthurcha.shop:3000/app/users`
+    const url = `https://arthurcha.shop/app/users`
     axios(
       {
         url: url,
@@ -148,7 +148,7 @@ function Join() {
     setModal(true); /* modal이 true 일땐 타이머 시작 */
     axios(
       {
-        url: `http://arthurcha.shop:3000/app/auth/phone-send`,
+        url: `https://arthurcha.shop/app/auth/phone-send`,
         method: 'post',
         data: {
           "phone": phone

@@ -103,7 +103,7 @@ function ProfileImage() {
 
     const userToken = localStorage.getItem('accessToken');
 
-    axios.post('http://arthurcha.shop:3000/app/image', formDataForSubmit, {
+    axios.post('https://arthurcha.shop/app/image', formDataForSubmit, {
       headers: {
         'Content-Type': 'multipart/form-data',
         'Authorization': `Bearer ${userToken}`,

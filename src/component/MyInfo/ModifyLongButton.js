@@ -357,7 +357,7 @@ function SendUserInfo() {
 
   console.log(data);
 
-  axios.patch('http://arthurcha.shop:3000/app/users/edit', data, {
+  axios.patch('https://arthurcha.shop/app/users/edit', data, {
     headers: {
       Authorization: `Bearer ${userToken}`
     }

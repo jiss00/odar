@@ -39,7 +39,7 @@ function Employment() {
     if (status === 'employment') {
       const fetchData = async () => {
         try {
-          const url = 'http://arthurcha.shop:3000/app/jobEdu';
+          const url = 'https://arthurcha.shop/app/jobEdu';
           const response = await axios.get(url, {
             params: { page: page }, // 동적으로 변경되는 검색어
           });
@@ -64,7 +64,7 @@ function Employment() {
     if (status === 'recruiting') {
       const fetchData = async () => {
         try {
-          const url = 'http://arthurcha.shop:3000/app/jobEdu';
+          const url = 'https://arthurcha.shop/app/jobEdu';
           const response = await axios.get(url, {
             params: {
               page: recruitPage,
@@ -95,7 +95,7 @@ function Employment() {
     if(status === 'search'){
     const search_infromation = async () => {
       try {
-        const response = await axios.get('http://arthurcha.shop:3000/app/jobEdu/search', {
+        const response = await axios.get('https://arthurcha.shop/app/jobEdu/search', {
           params: {
             keyword: inputValue,
             page: searchPage
@@ -124,7 +124,7 @@ useEffect(() => {
   if (status === 'distance') {
     const fetchData = async () => {
       try {
-        const url = 'http://arthurcha.shop:3000/app/jobPosting/region';
+        const url = 'https://arthurcha.shop/app/jobPosting/region';
         const response = await axios.get(url, {
           params: {
           },

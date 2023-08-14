@@ -24,7 +24,7 @@
   @media screen and (min-width: 1024px){
     transform: translate(-50%, -50%);
     top : 300px;
-    grid-template-columns : 98px 98px 600px 30px;
+    grid-template-columns : 98px 98px 620px 30px;
     grid-gap : 20px;
   }
 }

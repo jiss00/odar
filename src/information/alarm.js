@@ -24,7 +24,7 @@ function Alarm() {
     const search_information = async () => {
       const userToken = localStorage.getItem('accessToken');
       try {
-        const response = await axios.get('http://arthurcha.shop:3000/app/notice', {
+        const response = await axios.get('https://arthurcha.shop/app/notice', {
           headers: {
             Authorization: `Bearer ${userToken}`, // Authorization 헤더에 토큰 추가
           },

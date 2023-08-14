@@ -22,7 +22,7 @@ function Detail() {
     const search_information = async () => {
       const userToken = localStorage.getItem('accessToken');
       try {
-        const response = await axios.get('http://arthurcha.shop:3000/app/jobApply', {
+        const response = await axios.get('https://arthurcha.shop/app/jobApply', {
           headers: {
             Authorization: `Bearer ${userToken}`, // Authorization 헤더에 토큰 추가
           },
@@ -52,7 +52,7 @@ function Detail() {
       try {
         const jobDetailsPromises = recruitRecord.map(async record => {
           const jobId = record.id;
-          const response = await axios.get(`http://arthurcha.shop:3000/app/jobPosting/${jobId}`);
+          const response = await axios.get(`https://arthurcha.shop/app/jobPosting/${jobId}`);
           return response.data.result; // This will contain the detailed job information
         });
 
@@ -72,7 +72,7 @@ function Detail() {
       try {
         const jobDetailsPromises = employRecord.map(async record => {
           const jobEduId = record.id;
-          const response = await axios.get(`http://arthurcha.shop:3000/app/jobEdu/${jobEduId}`);
+          const response = await axios.get(`https://arthurcha.shop/app/jobEdu/${jobEduId}`);
           return response.data.result; // This will contain the detailed job information
         });
 
@@ -129,7 +129,7 @@ function Detail() {
     };
     
     try {
-      const response = await axios.delete(`http://arthurcha.shop:3000/app/jobApply/${applyId}`, { headers });
+      const response = await axios.delete(`https://arthurcha.shop/app/jobApply/${applyId}`, { headers });
       console.log('DELETE 요청 성공:', response.data);
       // 요청이 성공하면 원하는 작업 수행
       setDeleteStatus(!delete_status);

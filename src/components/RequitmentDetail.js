@@ -74,7 +74,7 @@ function RequitmentDetail(){
     const renderNewLine = (props) => <br key={props.key} />;
     // 백엔드에서 데이터 가져와서 상태를 업데이트 하는 함수. 아직 백엔드에서 받아노는건 구현 안함
     const fetchDataFromBackend = () =>{
-        const url = `http://arthurcha.shop:3000/app/jobPosting/${jobPostingId}`
+        const url = `https://arthurcha.shop/app/jobPosting/${jobPostingId}`
         // console.log('get하자');
         
         axios.get(url)
@@ -127,7 +127,7 @@ function RequitmentDetail(){
 
     // =============제일 처음 지원상태 변경=================//
     const StartApplyToUpdate = () => {
-        const url = `http://arthurcha.shop:3000/app/jobApply/posting/${jobPostingId}`
+        const url = `https://arthurcha.shop/app/jobApply/posting/${jobPostingId}`
         const userToken = localStorage.getItem('accessToken');
 
         axios.get(url,{
@@ -169,7 +169,7 @@ function RequitmentDetail(){
 // ------------ 지원하기 ----------------------//
     // 지원하기 기능
     const ApplyToBackend = () =>{
-        const url = `http://arthurcha.shop:3000/app/jobApply`
+        const url = `https://arthurcha.shop/app/jobApply`
         // console.log('get하자');
         // 토큰 받아오기
         const userToken = localStorage.getItem('accessToken');

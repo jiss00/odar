@@ -36,7 +36,7 @@ function Recruit() {
 
       const fetchData = async () => {
         try {
-          const url = 'https://arthurcha.shop:3000/app/jobPosting';
+          const url = 'https://arthurcha.shop/app/jobPosting';
           const response = await axios.get(url, {
             params: { page: page },
             // 동적으로 변경되는 검색어
@@ -66,7 +66,7 @@ function Recruit() {
     if (status === 'recruiting') {
       const fetchData = async () => {
         try {
-          const url = 'https://arthurcha.shop:3000/app/jobPosting';
+          const url = 'https://arthurcha.shop/app/jobPosting';
           const response = await axios.get(url, {
             params: {
               page: recruitPage,
@@ -94,7 +94,7 @@ function Recruit() {
     if (status === 'search') {
     const search_infromation = async () => {
       try {
-        const response = await axios.get('https://arthurcha.shop:3000/app/jobPosting/search', {
+        const response = await axios.get('https://arthurcha.shop/app/jobPosting/search', {
           params: {
             keyword: inputValue,
             page: searchPage
@@ -126,7 +126,7 @@ function Recruit() {
     const search_information = async () => {
       const userToken = localStorage.getItem('accessToken');
       try {
-        const response = await axios.get('https://arthurcha.shop:3000/app/jobPosting/region', {
+        const response = await axios.get('https://arthurcha.shop/app/jobPosting/region', {
           headers: {
             Authorization: `Bearer ${userToken}`, // Authorization 헤더에 토큰 추가
           },
