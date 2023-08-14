@@ -66,8 +66,7 @@
 }
 /* 탑바 */
 .top_{
-    height: 150px;
-    min-height: 150px;
+    min-height: 130px;
     margin: 0px 0px;
 }
 
