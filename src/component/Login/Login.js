@@ -30,7 +30,7 @@ export default function Login() {
             const accessToken = response.data.result.accessToken;
             // 접근 토큰을 localStorage 또는 쿠키에 저장하고, 메인 화면으로 이동
             localStorage.setItem('accessToken', accessToken);
-            console.log("로그인 성공하였습니다.");
+            alert("로그인 성공하였습니다.");
             Navigate("/");
             }
 
