@@ -191,6 +191,9 @@ function Recruit() {
       setRecruitPage(1);
     }
     else if(index ===1){
+      if(renderDistance.length ===0){
+        alert('위치정보 권한을 수락해주세요.');
+      }
       setStatus('distance');
       setCurrent(1);
     }
