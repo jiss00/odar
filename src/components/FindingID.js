@@ -187,7 +187,7 @@ function FindingID() {
   // ---------------(작은)완료버튼 클릭시 아이디 post
   const EmailIDFromBackend = () =>{
     const phoneData =  { "phone" :  phone_number_state };
-    const url = `http://arthurcha.shop:3000/app/users/email`;
+    const url = `https://arthurcha.shop/app/users/email`;
 
 
     console.log('id post하자');
