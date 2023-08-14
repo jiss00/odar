@@ -66,7 +66,7 @@
 }
 /* 탑바 */
 .top_{
-    min-height: 130px;
+    min-height: 95px;
     margin: 0px 0px;
 }
 
@@ -203,7 +203,7 @@
 .body_2_detail{
     box-sizing: border-box;
     width: 330px;
-    height: 425px;
+    min-height: 320px;
     /* 스크롤이 필요한 경우만 스크롤이 나타나도록 설정 */
     overflow-y: auto;
     /* 원래 스타일은 유지하고 위에 추가된 스타일만 적용하도록 하기 위해 !important 사용 */
