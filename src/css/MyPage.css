@@ -195,12 +195,13 @@
     border-radius: 15px;
     gap: 10px;
 
+    color: black;
     background: rgba(91, 142, 49, 1);
     border : 0px;
 
     font-family: Inter;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 750;
     line-height: 20px;
     letter-spacing: 0px;
     text-align: center;

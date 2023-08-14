@@ -281,7 +281,7 @@ useEffect(() => {
       <div className='body'>
         <h3 className="phone_number_name">휴대폰 번호</h3>
         <section className='input_section1'>
-          <input onChange={savePhoneNumber} className="input_all" type="text" id="phone_number" placeholder="010-0000-0000" maxLength={13}></input>
+          <input onChange={savePhoneNumber} className="input_all" type="text" id="phone_number" placeholder="010-0000-0000" maxLength={13} ></input>
           <button disabled={btn_all_state < 1} className={btn_all_state >= 1 ? 'btn_all_yes' : 'btn_all'} type="submit" onClick={() => { checkModal(); phone_send_api();}} >인증</button>
         </section>
         <section className='input_section2'>
