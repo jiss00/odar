@@ -34,9 +34,11 @@ function Top(props) {
         }
     }, []);
 
-    // 로그아웃 기능 추가해야함
     const handleLoginLogout = () => {
         if (loggedIn) {
+            localStorage.removeItem('accessToken');
+            setLoggedIn(false);
+            alert("로그아웃 되었습니다.");
             goToHome();
         } else {
             goToLogin();
