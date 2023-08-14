@@ -213,7 +213,6 @@ function Recruit() {
             <div></div>
             <Search onChange={onChange} onClick={onclick}></Search>
           </div>
-          <div className="margin1"></div>
           <div className="main1">
             {(() => {
               if (status === 'search') {
