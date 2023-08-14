@@ -198,7 +198,7 @@ function Recruit() {
         <></>) :
         (<div>
           <div className="margin"></div>
-          <div className="sort">
+          <div className="">
             {sortItems.map((item, index) => (
               <Sort
                 key={index}
