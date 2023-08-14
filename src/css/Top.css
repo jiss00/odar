@@ -17,8 +17,8 @@
   position: absolute;
   width: 25px;
   height: 20px;
-  margin-top: 190px;
-  margin-left: 262px;
+  margin-top: 150px;
+  margin-left: 257px;
   z-index: 1;
   cursor : pointer;
 }
@@ -157,8 +157,9 @@
   width: 40px;
   height: 30px;
   margin-top: 18em;
-  margin-left: 890px;
+  margin-left: 950px;
   z-index: 1;
+  top: -190px;
   cursor : pointer;
 }
 
