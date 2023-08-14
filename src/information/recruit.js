@@ -191,7 +191,6 @@ function Recruit() {
     { text: '거리순', index: 1 },
     { text: '모집현황', index: 2 },
   ];
-  const [dataLength,setDataLength] = useState(0);
   return (
     <div>
 
