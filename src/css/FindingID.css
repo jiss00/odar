@@ -123,7 +123,7 @@
     border-radius: 10px;
     border: 0px;
     font-family: Pretendard;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
     line-height: 20px;
     letter-spacing: 0px;
@@ -140,7 +140,7 @@
     border-radius: 10px;
     border: 0px;
     font-family: Pretendard;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 800;
     line-height: 20px;
     letter-spacing: 0px;
@@ -216,9 +216,10 @@
     font-weight: 800;
     /* line-height: 20px; */
     /* letter-spacing: 0px; */
-    text-align: center;
+    /* text-align: center; */
     border-radius: 20px;
     color: black;
+    padding-left: 10px;
     
   }
 
@@ -307,12 +308,6 @@
   }
   
 
-  /* 휴대폰 번호 */
-  .phone_number_name{
-    box-sizing: border-box;
-    font-size: 36px;
-    padding-right:50%;
-  }
   
 
   /* input 박스 전체 */
