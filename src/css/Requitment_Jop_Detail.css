@@ -62,7 +62,7 @@
     /* align-items ( 세로축 - 교차축 ) */
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 92vh;
 }
 /* 탑바 */
 .top_{
@@ -203,8 +203,9 @@
 .body_2_detail{
     box-sizing: border-box;
     width: 330px;
-    min-height: 290px;
-    
+    height: 340px;
+    min-height: 100px;
+
     /* 스크롤이 필요한 경우만 스크롤이 나타나도록 설정 */
     overflow-y: auto;
     /* 원래 스타일은 유지하고 위에 추가된 스타일만 적용하도록 하기 위해 !important 사용 */
@@ -235,7 +236,7 @@
 
 /* --------------전확 모양, 지원하기-------------- */
 .footer_detail{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 330px;
     height: 50px;
     display: flex;
