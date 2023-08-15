@@ -221,7 +221,7 @@
   cursor: pointer;
 }
 
-.recruiting{
+#recruiting{
   box-sizing: border-box;
   border-radius: 10px;
   border : solid #D9D9D9 1px;
