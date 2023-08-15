@@ -48,7 +48,7 @@ function Recruiting(props){
   return(
     <div onClick = {props.onClick} className='recruit'>
       <SubDiv>모집중</SubDiv>
-      <div className='recruiting'>{props.text}</div>
+      <MainDiv>{props.text}</MainDiv>
     </div>
   )
 }
