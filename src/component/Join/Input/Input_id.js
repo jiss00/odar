@@ -42,21 +42,23 @@ const Circlediv = styled.div`
   display: flex;
   box-sizing: border-box;
   position: relative;
-  width: 23px;
-  height: 23px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background-color: ${({ valid }) => (valid ? "#A2C08A" : "#FF0000")};
   margin-left:10px;
   margin-right:auto;
-  top:154px;
-  left:-10px;
+  top:157px;
+  left: -20px;
   
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-left:10px;
     margin-right:auto;
-    top:224px;
+    top:222px;
     left:-170px;
+    width: 24px;
+    height: 24px;
     }
 `;
 function validateEmail(email) {

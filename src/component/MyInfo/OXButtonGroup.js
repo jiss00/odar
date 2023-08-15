@@ -109,7 +109,8 @@ function ButtonGroup({ validEmail, validPassword, id, password }) {
         });
       
         if (response.data.isSuccess && response.data.code === 200) {
-          localStorage.removeItem(token);
+          console.log('accessToken');
+          localStorage.removeItem('accessToken');
           alert('계정이 삭제되었습니다.');
           Navigate("/");
         } else {
