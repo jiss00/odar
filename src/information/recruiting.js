@@ -1,7 +1,18 @@
 import styled from 'styled-components';
 function Recruiting(props){
   const MainDiv =styled.div`
-
+    box-sizing: border-box;
+    border-radius: 10px;
+    border : solid #D9D9D9 1px;
+    width : 275px;
+    height : 30px;
+    font-size: 22px;
+    padding-top : 5px;
+    padding-left : 25px;
+    background-color: #EDF1D5;
+    cursor : pointer;
+    overflow-x: auto;
+    white-space: nowrap; 
     @media screen and (min-width: 1024px) {
       width : 840px;
       height : 40px;
