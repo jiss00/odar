@@ -47,7 +47,7 @@ function Recruiting(props){
   return(
     <div onClick = {props.onClick} className='recruit'>
       <SubDiv>모집중</SubDiv>
-      <MainDiv style={{fontWeight:400}}>{props.text}</MainDiv>
+      <MainDiv>{props.text}</MainDiv>
     </div>
   )
 }
