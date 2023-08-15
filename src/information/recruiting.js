@@ -7,7 +7,6 @@ function Recruiting(props){
     width : 275px;
     height : 30px;
     font-size: 15px;
-    font-weight: 400;
     padding-top : 5px;
     padding-left : 25px;
     background-color: #EDF1D5;
@@ -48,7 +47,7 @@ function Recruiting(props){
   return(
     <div onClick = {props.onClick} className='recruit'>
       <SubDiv>모집중</SubDiv>
-      <MainDiv>{props.text}</MainDiv>
+      <MainDiv style={{fontWeight:400}}>{props.text}</MainDiv>
     </div>
   )
 }
