@@ -6,7 +6,8 @@ function Recruiting(props){
     border : solid #D9D9D9 1px;
     width : 275px;
     height : 30px;
-    font-size: 22px;
+    font-size: 15px;
+    font-weight: 400;
     padding-top : 5px;
     padding-left : 25px;
     background-color: #EDF1D5;
@@ -28,6 +29,7 @@ function Recruiting(props){
   width : 67px;
   height : 31px;
   font-size: 16px;
+  font-weight: 400;
   padding-top : 5px;
   padding-left : 11px;
   background-color: #5B8E31;
