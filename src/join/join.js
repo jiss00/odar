@@ -57,6 +57,7 @@ function Join() {
   const [verification, setVerification] = useState('');
   const [complete, setComplete] = useState('');
   const [check, setCheck] = useState('');
+  const [complete2, setComplete2] = useState('');
 
   const handleNameChange = (isValid, inputValue) => {
     setName(isValid);
@@ -166,6 +167,7 @@ function Join() {
     if (auth === auth_number) {
       setModal(false);
       if(auth_number){
+        setComplete2(true);
         setVisible(true);
       }
 
@@ -259,7 +261,8 @@ function Join() {
         </div>*/}
 
         <PrivacyPolicy onChange={handleCheckChange}></PrivacyPolicy>
-        <Button onClick={user_join} name={name} birth1={birth1} birth2={birth2} birth3={birth3} verification={verification} complete={complete} check={check} />
+        <Button onClick={user_join} name={name} birth1={birth1} birth2={birth2} birth3={birth3} 
+        verification={verification} complete={complete} complete2={complete2} check={check} />
       </div>
 
     </div>

@@ -272,6 +272,7 @@ function FindingPass(props){
       const timer = setInterval(() => {
         setTime((prev) => prev - 1);
       }, 1000);
+      
       if (time === 0) {
         clearInterval(timer);
         handleTimerEnd();
@@ -279,6 +280,7 @@ function FindingPass(props){
         setModal(false);
         set_body_pass_visibility("hidden"); //숨기기
       }
+    
       return () => clearInterval(timer);
     }, [time]);
     return (
