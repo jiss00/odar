@@ -44,7 +44,7 @@
   place-items: center;
   position: absolute;
   left:50%;
-  transform: translate( -48%);
+  transform: translate( -57%);
   @media screen and (min-width: 1024px){
     margin-top:60px;
     }
