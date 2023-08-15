@@ -15,9 +15,9 @@ position: absolute;
 left:50%;
 transform: translate(-48%, -50%);
 margin:0 auto;
-top:180px;
+top:115px;
 display: grid; 
-grid-template-columns : 90px  90px 90px 66px 30px;
+grid-template-columns : 84px 84px 84px 50px 40px;
 @media screen and (min-width: 1024px){
   transform: translate(-50%, -50%);
   top : 300px;
@@ -74,7 +74,6 @@ function Recruit() {
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
   const [distanceData,setDistanceData] = useState([]); //거리순 가까운 공고들 저장
-  const renderDistance = distanceData.slice(0, renderCount);
 
   //모집중인 api 호출
   useEffect(() => {
@@ -157,6 +156,29 @@ function Recruit() {
     search_information();}
   }, [recruitPage, status]);
 
+  //--------------------위치정보 등록했는지 안했는지 판별하기------------------------
+  const [location,setLocation] = useState(false);
+  if ("geolocation" in navigator) {
+    // 위치 권한을 지원하는 브라우저인지 확인
+  
+    navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
+      if (permissionStatus.state === 'granted') {
+        // 위치 권한이 허용되었을 때 실행할 코드
+        console.log("위치 권한이 허용되었습니다.");
+        setLocation(true);
+      } else if (permissionStatus.state === 'prompt') {
+        // 위치 권한을 묻는 팝업이 나타나기 전 상태
+        console.log("위치 권한을 요청 중입니다.");
+      } else {
+        // 위치 권한이 거부되었을 때 실행할 코드
+        console.log("위치 권한이 거부되었습니다.");
+        setLocation(false);
+      }
+    });
+  } else {
+    // 위치 권한을 지원하지 않는 브라우저
+    console.log("이 브라우저는 위치 권한을 지원하지 않습니다.");
+  }
 
   const onclick = (e) => {
     if (input[0].style.display === 'block') {
@@ -191,11 +213,12 @@ function Recruit() {
       setRecruitPage(1);
     }
     else if(index ===1){
-      setStatus('distance');
-      if(renderDistance.length ===0){
-        alert('위치정보 권한을 수락해주세요.');
-      }else{
-      setCurrent(1);
+      if(location === false){
+        alert('위치정보를 등록해주세요.')
+      }
+      else{
+        setStatus('distance');
+        setCurrent(1);
       }
     }
     else if(index===0){
@@ -241,7 +264,7 @@ function Recruit() {
                 ));
               }
               else if(status ==='distance'){
-                return renderDistance.map((data, index) => (
+                return distanceData.map((data, index) => (
                   data.active_status === 1 ? (
                     <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   ) : (

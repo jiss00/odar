@@ -18,9 +18,9 @@
   left:50%;
   transform: translate(-48%, -50%);
   margin:0 auto;
-  top:180px;
+  top:115px;
   display: grid; 
-  grid-template-columns : 90px  90px  156px 30px;
+  grid-template-columns : 87px  87px  130px 40px;
   @media screen and (min-width: 1024px){
     transform: translate(-50%, -50%);
     top : 300px;
@@ -32,8 +32,8 @@
 .main1{
   position: absolute;
   left:50%;
-  transform: translate( -74%,0);
-  top : 210px;
+  transform: translate( -71%,0);
+  top : 140px;
   @media screen and (min-width: 1024px){
     top : 340px;
     transform: translate( -68%,0);
@@ -42,6 +42,9 @@
 .main_detail{
   display: grid;
   place-items: center;
+  position: absolute;
+  left:50%;
+  transform: translate( -48%);
   @media screen and (min-width: 1024px){
     margin-top:60px;
     }
@@ -49,7 +52,7 @@
 .recruit{
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 60px 200px;
+  grid-template-columns: 53px 200px;
   margin-left: 7%;
   @media screen and (min-width: 1024px){
   margin-left: 0%;

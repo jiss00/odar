@@ -12,7 +12,6 @@
 .sub{
   margin:0 auto;
   position: relative;
-  top:35px;
   @media screen and (min-width: 1024px){
     margin-top:-25px;
     }
@@ -39,7 +38,7 @@
     }
 }
 .search_input{
-  width: 360px;
+  width: 330px;
   height: 31px;
   position: fixed;
   box-sizing: border-box;

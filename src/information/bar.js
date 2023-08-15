@@ -6,7 +6,7 @@ function Bar({ e_status, setEdit, ...props }) {
   const Div = styled.div`
 box-sizing: border-box;
 text-align: center;  
-padding-top : 4px;
+padding-top : 6px;
 color: black;
 font-weight: 550;
 font-size: 17px;
@@ -97,7 +97,8 @@ font-size: 16px;
 font-weight: 400;
 width:60px;
 height: 27px;
-padding-top:1px;
+box-sizing: border-box;
+padding-top:3px;
 @media screen and (min-width: 1024px){
   width:75px;
   height: 34px;
@@ -110,7 +111,7 @@ padding-top:1px;
 font-size: 17px;
 font-weight: 800;
 color: black;
-padding-top : 1px;
+padding-top : 3px;
 @media screen and (min-width: 1024px){
   font-size : 22px;
 } 
