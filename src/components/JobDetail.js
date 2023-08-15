@@ -201,16 +201,19 @@ function JobDetail(){
                 console.log("post 성공, ID: "+ job_edu_id);
                 set_apply_state(1); // 지원내역 상태변경
                 console.log(response.data);
+                openLink(); // 링크 열기
             }
             else{
                 console.log(response.data);
                 console.log('▶오류'+response.data.code+'\n'+response.data.message);
-
+                alert(response.data.message);
+                openLink(); //링크열기
             }
         } )
         .catch((error)=>{
             console.error('Error fetching data:', error);
             // console.log(); // 에러 출력
+            openLink();
         });
     }
 
@@ -246,18 +249,18 @@ function JobDetail(){
     //--------------지원하기 버튼 클릭 시 기능----------------//
 
     const openLink = () => {
+        console.log('지원하기 클릭');
+        window.open(url, '_blank');
         // 여기에 이동하고자 하는 URL을 넣어주세요.
         // 이미 지원했다면(state:true)
-
-
-        if (apply_state === 1 ) {
-            alert("이미 지원한 공고입니다.");
-            window.open(url, '_blank');
-        }
-        // 지원하지 않았으면 ( state : false)
-        else if (apply_state === 0){
-            window.open(url, '_blank');
-        }
+        // if (apply_state === 1 ) {
+        //     // alert("이미 지원한 공고입니다.");
+        //     window.open(url, '_blank');
+        // }
+        // // 지원하지 않았으면 ( state : false)
+        // else if (apply_state === 0){
+        //     window.open(url, '_blank');
+        // }
         
     };
     
@@ -265,7 +268,7 @@ function JobDetail(){
     return(
         <div className="screen_requitment_detail">
             <div  className="top_">
-                <Top display = 'none' text ='취업상세'></Top>
+                <Top display = 'none' text ='취업 지원'></Top>
             </div>
             
             <section className="body_1_detail"> 
@@ -315,7 +318,14 @@ function JobDetail(){
                         </svg>    
                     </button>
                     {/* url 페이지로 이동 */}
-                <button className={`btn_apply ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => {openLink(); ApplyToBackend();}}>지원하기</button>                    
+                <button className={`btn_apply ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => {
+                    if (localStorage.getItem('accessToken')){ //만약, 로그인 되어 있다면 백엔드 호출
+                        ApplyToBackend();
+                    }
+                    else{ openLink(); //로그인 아니면, 그냥 open Link
+                    }
+
+                }}>지원하기</button>                    
                 {/* <button className="btn_apply">지원하기</button> */}
              </section>
 
@@ -323,3 +333,5 @@ function JobDetail(){
     );
 }
 export default JobDetail;
+
+

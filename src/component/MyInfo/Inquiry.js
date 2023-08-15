@@ -12,6 +12,8 @@ import Back from './Back';
 import axios from 'axios';
 import Modal from 'react-modal';
 import closeImage from '../../components/close.png';
+import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
+
 
 const StyledModalDiv = styled.div`
   display:flex;
@@ -32,6 +34,12 @@ function Inquiry(){
     const [textBox_state, set_textBox] = useState('');    
     const [longButton_state, set_longButton] = useState(false);
 
+    let navigate = useNavigate();
+
+    // 메인으로
+    const goMyPage = () => {
+        navigate('/myPage');
+    }
     // input이 입력될 때마다 state 값 변경되게 하는 함수!
     const saveTitle = event => {
         set_title(event.target.value);
@@ -135,7 +143,7 @@ function Inquiry(){
             <img
                 className='closeimg'
                 src={closeImage}
-                onClick={() => setModalVisible(false)}
+                onClick={() => {setModalVisible(false); goMyPage();} }
                 style={{
                     position: 'absolute',
                     top: '10px',

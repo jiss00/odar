@@ -28,7 +28,7 @@
     /* 원래 자기자신 기준 위치 */
     /* position: absolute; */
     width:100%;
-    height: 150px;
+    height: 75px;
     display : flex;
     flex-direction: row;
     /* 수평 정렬 */
@@ -74,7 +74,7 @@
 .body_1{
 
     width: 310px;
-    height: 210px;
+    height: 180px;
     
     border-radius: 15px;
     /* text-align: center; */
@@ -212,7 +212,7 @@
 /* 희망 직종, 오후2시~ 오후6시 그리드 */
 .body_2{
     width: 100%;
-    height: 200px;
+    height: 180px;
 
     display: flex;
     flex-direction: column;
@@ -286,7 +286,7 @@
 
 .footer_hr {
     width: 310px;
-
+    margin: 10px 0px;
     border: 1.5px solid rgba(205, 205, 205, 1); 
 }
 
@@ -314,7 +314,7 @@
     
     width: 90px;
     height: 28px;
-    margin : 10px 0;
+    margin : 15px 0;
     border-radius: 20px;
     
     background: #5B8E31;
@@ -338,11 +338,12 @@
     place-items: center;
 
     width: 100vw;
-    height: 200px;
+    height: 160px;
 
     display: grid;
     grid-template-rows: 24px 24px 24px 24px;
     gap: 20px;
+    margin-bottom: 10px;
 }
 
 .item_footer_list{
@@ -434,6 +435,7 @@
     
     .footer_hr {
         width: 50vw;
+        
     }
     
     

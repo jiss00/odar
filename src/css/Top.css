@@ -1,14 +1,13 @@
 .parent {
   display: flex;
   justify-content: center; /* 가로 축 가운데 정렬 */
-  align-items: center; /* 세로 축 가운데 정렬 */
 }
 
 .back{
   position: absolute;
   width: 25px;
   height: 25px;
-  margin-top: 190px;
+  margin-top: 60px;
   margin-right: 257px;
   z-index: 1;
   cursor : pointer;
@@ -18,8 +17,9 @@
   position: absolute;
   width: 25px;
   height: 20px;
-  margin-top: 190px;
-  margin-left: 262px;
+
+  margin-top: 60px;
+  margin-left: 257px;
   z-index: 1;
   cursor : pointer;
 }
@@ -32,7 +32,7 @@
   position: absolute;
   width: 130px;
   height: 20px;
-  top: 105px;
+  top: 45px;
   z-index: 1;
 
   font-family: Pretendard;
@@ -148,8 +148,9 @@
   width: 40px;
   height: 30px;
   margin-top: 18em;
-  margin-right: 890px;
+  margin-right: 950px;
   z-index: 1;
+  top: -190px;
   cursor : pointer;
   } 
   
@@ -157,8 +158,9 @@
   width: 40px;
   height: 30px;
   margin-top: 18em;
-  margin-left: 890px;
+  margin-left: 950px;
   z-index: 1;
+  top: -190px;
   cursor : pointer;
 }
 
@@ -169,7 +171,7 @@
 .topName{
   width: 192px;
   height: 20px;
-  top: 170px;
+  top: 150px;
   font-size: 52px;
   line-height: 20px;
   cursor : pointer;
