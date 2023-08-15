@@ -202,7 +202,7 @@
 /* ----------상세 설명 -------------*/
 .body_2_detail{
     box-sizing: border-box;
-    width: 330px;
+    width: 300px;
     min-height: 320px;
     /* 스크롤이 필요한 경우만 스크롤이 나타나도록 설정 */
     overflow-y: auto;
