@@ -18,7 +18,7 @@ const Div = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   margin:0 auto;
-  top : 740px;
+  top : 640px;
   padding-left: ${props => {
     if (props.displayPages === 5) {
       return '70px';

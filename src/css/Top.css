@@ -68,8 +68,8 @@
   position: absolute;
   width: 25px;
   height: 20px;
-  margin-top: 70px;
-  margin-left: 120px;
+  margin-top: 20px;
+  margin-left: 117px;
   z-index: 1;
   cursor : pointer;
 }
@@ -89,7 +89,7 @@
   position: absolute;
   width: 90px;
   height: 20px;
-  margin-top: 213px;
+  margin-top: 143px;
   margin-left: 59px;
 }
 
@@ -97,7 +97,7 @@
   position: absolute;
   width: 120px;
   height: 20px;
-  margin-top: 283px;
+  margin-top: 213px;
   margin-left: 39px;
 }
 
@@ -105,7 +105,7 @@
   position: absolute;
   width: 90px;
   height: 20px;
-  margin-top: 353px;
+  margin-top: 283px;
   margin-left: 59px;
 
 }
@@ -113,7 +113,7 @@
 .topBarHome{
   position: absolute;
   width: 120px;
-  margin-top: 246px;
+  margin-top: 176px;
   margin-left: 38px;
   border: 1.5px solid rgba(162, 192, 138, 1);
   cursor : pointer;
@@ -122,7 +122,7 @@
 .topBarLogin{
   position: absolute;
   width: 120px;
-  top: 316px;
+  margin-top: 246px;
   left: 38px;
   border: 1.5px solid rgba(162, 192, 138, 1);
   cursor : pointer;
@@ -131,7 +131,7 @@
 .topBarMyInfo{
   position: absolute;
   width: 120px;
-  margin-top: 386px;
+  margin-top: 316px;
   margin-left: 38px;
   border: 1.5px solid rgba(162, 192, 138, 1);
   cursor : pointer;

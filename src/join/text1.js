@@ -5,7 +5,7 @@ function Text_1(props){
   font-size: 24px;
   font-weight: 800;
   margin-bottom : 10px;
-  margin-top : 40px;
+  margin-top : 25px;
   text-align: left;
   margin-left:auto;
   margin-right:auto;
