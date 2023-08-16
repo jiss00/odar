@@ -39,7 +39,7 @@ const StyledTexts = styled.span`
   height: 57px;
   margin-right:auto;
   margin-left:auto;
-  top:-350px;
+  top:-410px;
   left:0px;
   font-size:16px;
   }

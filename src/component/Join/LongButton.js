@@ -32,7 +32,7 @@ const StyledButton = styled.button`
     margin-right:auto;
     margin-left:auto;
     margin-bottom: 100px;
-    top:-250px;
+    top: 70px;
     left:0px;
    
     }

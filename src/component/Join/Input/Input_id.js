@@ -33,7 +33,7 @@ const StyledInput = styled.input`
       position: relative; 
       margin-right:auto;
       margin-left:auto;
-      top:205px;
+      top:160px;
       left:0px;
       width:440px;
       }
@@ -55,7 +55,7 @@ const Circlediv = styled.div`
     position: relative; 
     margin-left:10px;
     margin-right:auto;
-    top:222px;
+    top:175px;
     left:-170px;
     width: 24px;
     height: 24px;

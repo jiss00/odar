@@ -136,6 +136,8 @@ function Join() {
       }
       else {
         alert(response.data.message);
+        nagivate(-1);
+
       }
     });
   }

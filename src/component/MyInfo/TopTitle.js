@@ -24,7 +24,7 @@ const StyledTopTitle = styled.span`
     height: 20px;
     margin-right:auto;
     margin-left:auto;
-    top:149px;
+    top:80px;
     left:0px;
     font-size: 52px;
     text-align: center;

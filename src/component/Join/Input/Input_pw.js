@@ -39,7 +39,7 @@ const StyledInput = styled.input`
     position: relative; 
     margin-right:auto;
     margin-left:auto;
-    top:310px;
+    top:235px;
     left:0px;
     width:440px;
     }
@@ -62,7 +62,7 @@ const IconWrapper = styled.div`
     position: relative; 
     margin-right:auto;
     margin-left:auto;
-    top:275px;
+    top:200px;
     left:200px;
     }
 `;
@@ -79,7 +79,7 @@ const Circlediv = styled.div`
   left: ${({ left }) => left};
   @media all and (min-width: 1024px){	
     position: relative; 
-    top:302px;
+    top:222px;
     left:-4px;
     margin: 0 10px;
     width: 24px;

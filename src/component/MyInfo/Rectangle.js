@@ -19,7 +19,7 @@ const Rectanglediv = styled.div`
   width: 1008px;
   height: 608px;
   margin: 0px auto;
-  top: 200px;
+  top: 150px;
   left:0px;
   }
 `;
@@ -34,8 +34,9 @@ ${props =>
         box-sizing: border-box;
         position: relative;
         font-family: 'Pretendard';
-        font-weight:600;
-      
+        font-weight:400;
+        font-size: 15px;
+
         width: 290px;
         height: 362px;
         radius: 10px;
@@ -61,7 +62,8 @@ ${props =>
           height: 360px;
           margin-right:auto;
           margin-left:auto;
-          top:-320px;
+          font-size:18px;
+          top:210px;
           left:0px;
           ::placeholder {
             font-size: 18px;

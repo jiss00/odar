@@ -6,7 +6,7 @@ const StyledTitle = styled.input`
     box-sizing: border-box;
     position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
-    font-weight: 600;
+    font-weight: 400;
 
     width: 290px;
     height: 40px;
@@ -17,6 +17,7 @@ const StyledTitle = styled.input`
     justify-content: center; 
     margin: 0px auto;
     text-indent: 0.5em;
+    font-size: 15px;
 
     ::placeholder {
         font-family: "Pretendard";
@@ -31,8 +32,10 @@ const StyledTitle = styled.input`
     height: 50px;
     margin-right:auto;
     margin-left:auto;
-    top:-335px;
+    top:-380px;
     left:0px;
+    font-size: 18px;
+
     ::placeholder {
       font-size: 18px;
     }

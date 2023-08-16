@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Container = styled.div`
 position: relative;
 display: flex;
-margin-bottom: 450px;
+z-index:-1;
 `;
 
 const StyledButton = styled.button`
@@ -16,6 +16,7 @@ const StyledButton = styled.button`
   height: 75px;
   top: 200px;
   margin: 0 auto;
+  margin-bottom:100px;
   gap: 8px;
   padding: 25px 130px;
   border-radius: 10px;
@@ -42,13 +43,13 @@ const StyledButton = styled.button`
   
   @media all and (min-width: 1024px){	
     position: relative; 
-    top: 425px;
+    top: 315px;
     left:0;
     width: 440px;
     height: 66px;
     margin-left:auto;
     margin-right:auto;
-    margin-bottom:30px;
+    margin-bottom:350px;
     }
 `;
 
@@ -81,9 +82,8 @@ const StyledButton = styled.button`
     const isButtonDisabled = !(validEmail && validPassword && validPasswordCheck);
 
     return (
-    <Container onClick={onClick}>        
-      <LongButton disabled={isButtonDisabled}>다 음</LongButton>
-    </Container>
+        
+      <LongButton onClick={onClick} disabled={isButtonDisabled}>다 음</LongButton>
   );
 }
 
