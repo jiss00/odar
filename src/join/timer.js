@@ -15,7 +15,7 @@ color:red;
 font-size: 18px;
 font-weight: 600;
 position:absolute;
-padding-top : 11px;
+padding-top : 15px;
 margin-left : 190px;
 @media screen and (min-width: 1024px) {
     margin-left : 290px;

@@ -209,7 +209,7 @@ function Join() {
               justifyContent: 'center',
               alignItems: 'center',
               position: 'relative', // 상대 위치 설정
-              top: '300px',
+              top: '200px',
               left: '0',
               height: '200px',
               width: '305px',

@@ -71,24 +71,26 @@ const Circlediv = styled.div`
   display: flex;
   box-sizing: border-box;
   position: relative;
-  width: 23px;
-  height: 23px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background-color: ${({ valid }) => (valid ? "#A2C08A" : "#FF0000")};
   top: ${({ top }) => top};
   left: ${({ left }) => left};
   @media all and (min-width: 1024px){	
     position: relative; 
-    top:304px;
+    top:302px;
     left:-4px;
     margin: 0 10px;
+    width: 24px;
+    height: 24px;
   }
   
 `;
 
 // 대소문자 유효성 검사 함수
 function validateUpperCase(str) {
-  return /[A-Z]/.test(str);
+  return /[A-Z]/.test(str)&& !/[ㄱ-ㅎㅏ-ㅣ가-힣\uAC00-\uD7A3]/.test(str);
 }
 
 // 숫자 유효성 검사 함수
@@ -101,6 +103,11 @@ function validateSpecialCharacter(str) {
   return /[!@#$%^&*(),.?":{}|<>]/.test(str);
 }
 
+//글자 수 유효성 검사 함수
+function validateLength(str) {
+  return /^[A-Za-z\uAC00-\uD7A3ㄱ-ㅎㅏ-ㅣ가-힣0-9!@#$%^&*(),.?":{}|<>]{8,12}$/.test(str);
+}
+
 function Input_pw(props) {
   const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
 
@@ -109,6 +116,7 @@ function Input_pw(props) {
   const [validUpperCase, setValidUpperCase] = useState(false); // 대소문자 유효성 검사 결과
   const [validNumber, setValidNumber] = useState(false); // 숫자 유효성 검사 결과
   const [validSpecialCharacter, setValidSpecialCharacter] = useState(false); // 특수문자 유효성 검사 결과
+  const [validLength, setValidLength] = useState(false); // 특수문자 유효성 검사 결과
 
   const handleClick = () => {
     setPasswordVisible(!isPasswordVisible);
@@ -119,12 +127,14 @@ function Input_pw(props) {
     const isValid1 =validateUpperCase(password);
     const isValid2 =validateNumber(password);
     const isValid3 =validateSpecialCharacter(password);
+    const isValid4 =validateLength(password);
 
-    const isValidPassword = isValid1 && isValid2 && isValid3;
+    const isValidPassword = isValid1 && isValid2 && isValid3 && isValid4;
 
     setValidUpperCase(isValid1);
     setValidNumber(isValid2);
     setValidSpecialCharacter(isValid3);
+    setValidLength(isValid4);
 
     // 비밀번호와 유효성 검사 결과를 객체로 묶어서 한 번에 전달
     onChange({ password, isValidPassword });
@@ -141,11 +151,13 @@ function Input_pw(props) {
 
       <JoinContainer1>
         <Text_small 대소문자>대문자 · 소문자</Text_small>
-        <Circlediv valid={validUpperCase} top="220px" left="0px" />
+        <Circlediv valid={validUpperCase} top="224px" left="-7px" />
         <Text_small 숫자>숫자</Text_small>
-        <Circlediv valid={validNumber} top="220px" left="23px" />
+        <Circlediv valid={validNumber} top="224px" left="5px" />
         <Text_small 특수문자>특수문자</Text_small>   
-        <Circlediv valid={validSpecialCharacter} top="220px" left="50px" />
+        <Circlediv valid={validSpecialCharacter} top="224px" left="17px" />
+        <Text_small 글자수>글자수</Text_small>   
+        <Circlediv valid={validLength} top="224px" left="27px" />
       </JoinContainer1>
 
     </div>

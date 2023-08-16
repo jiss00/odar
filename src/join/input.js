@@ -9,8 +9,11 @@ const StyledInput = styled.input`
   height: 50px;
   padding-top : 5px;
   padding-left: 10px;
-  font-size: 20px;
-  font-weight: 400;
+  font-family: "Pretendard";
+  font-size: 24px;
+  font-weight: 800;
+  text-indent: 0.5em;
+
   outline: none;
   ::placeholder {
     font-family: "Pretendard";

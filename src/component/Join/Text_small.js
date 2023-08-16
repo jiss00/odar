@@ -6,13 +6,15 @@ const StyledText = styled.span`
     box-sizing: border-box;
     position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     text-align: center;
     color: #8E8B8B;
     height: 20px;
-   
+    @media all and (min-width: 1024px){	
+      font-size:16px;
+      }
     ${(props) =>
         props.이메일형식 &&
         css`
@@ -33,7 +35,7 @@ const StyledText = styled.span`
         props.대소문자 &&
         css`
         position:relative;
-        Width: 96px;
+        Width: 89px;
         top: 222px;
         left: -10px;
         @media all and (min-width: 1024px){	
@@ -47,9 +49,9 @@ const StyledText = styled.span`
         props.숫자 &&
         css`
         position:relative;
-        Width: 28px;
+        Width: 27px;
         top: 222px;
-        left: 15px;
+        left: 0px;
         @media all and (min-width: 1024px){	
           position: relative; 
         
@@ -62,9 +64,9 @@ const StyledText = styled.span`
         props.특수문자 &&
         css`
         position: relative; 
-        Width: 56px;
+        Width: 50px;
         top: 222px;
-        left: 40px;
+        left: 12px;
         @media all and (min-width: 1024px){	
           position: relative; 
          
@@ -72,7 +74,22 @@ const StyledText = styled.span`
           left:0px;
           width:60px;
           }
-        `}        
+        `}  
+        ${(props) =>
+          props.글자수 &&
+          css`
+          position: relative; 
+          Width: 40px;
+          top: 222px;
+          left: 24px;
+          @media all and (min-width: 1024px){	
+            position: relative; 
+           
+            top:305px;
+            left:0px;
+            width:50px;
+            }
+          `}       
 `;
 
 function Text_small({ children, ...props } ) {
