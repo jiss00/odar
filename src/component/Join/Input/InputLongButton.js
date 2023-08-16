@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Container = styled.div`
 position: relative;
 display: flex;
-margin-bottom: 30px;
+z-index:-1;
 `;
 
 const StyledButton = styled.button`
@@ -14,8 +14,9 @@ const StyledButton = styled.button`
   position: relative;
   width:335px;
   height: 75px;
-  top: 310px;
+  top: 200px;
   margin: 0 auto;
+  margin-bottom:100px;
   gap: 8px;
   padding: 25px 130px;
   border-radius: 10px;
@@ -28,7 +29,6 @@ const StyledButton = styled.button`
   font-family: "Pretendard";
   font-weight: 800;
   text-align: center;
-  margin-bottom: 30px;
   align-items: center;
   
   /* 버튼이 비활성화된 상태에 대한 스타일 */
@@ -43,13 +43,13 @@ const StyledButton = styled.button`
   
   @media all and (min-width: 1024px){	
     position: relative; 
-    top: 425px;
+    top: 315px;
     left:0;
     width: 440px;
     height: 66px;
     margin-left:auto;
     margin-right:auto;
-    margin-bottom:30px;
+    margin-bottom:350px;
     }
 `;
 
@@ -82,9 +82,8 @@ const StyledButton = styled.button`
     const isButtonDisabled = !(validEmail && validPassword && validPasswordCheck);
 
     return (
-    <Container onClick={onClick}>        
-      <LongButton disabled={isButtonDisabled}>다 음</LongButton>
-    </Container>
+        
+      <LongButton onClick={onClick} disabled={isButtonDisabled}>다 음</LongButton>
   );
 }
 

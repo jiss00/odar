@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Shape = styled.div`
   position:relative;
-  margin-top:90px;
+  margin-top:30px;
   margin-right:auto;
   margin-left:auto;
 

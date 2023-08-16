@@ -121,7 +121,7 @@
 .topBarLogin{
   position: absolute;
   width: 120px;
-  margin-top: 246px;
+  margin-top: 0px;
   left: 38px;
   border: 1.5px solid rgba(162, 192, 138, 1);
   cursor : pointer;

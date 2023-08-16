@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 function Complete(props){
-  const MainDiv =styled.div`
+  const ContentDiv =styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   border : solid #D9D9D9 1px;
@@ -25,7 +25,7 @@ function Complete(props){
     padding-right : 25px;
   }
 `
-const SubDiv = styled.div`
+const TitleDiv = styled.div`
 box-sizing: border-box;
 border-radius: 10px;
 border : solid #D9D9D9 1px;
@@ -42,7 +42,7 @@ z-index:1;
 @media screen and (min-width: 1024px) {
   height : 40px;
   padding-top : 6px;
-  padding-left:5px;
+  padding-left:3px;
   font-size: 17px;
 
 }
@@ -52,8 +52,8 @@ const formatText = (text) => {
 };
   return(
     <div onClick = {props.onClick} className='recruit'>
-      <SubDiv>모집완료</SubDiv>      
-      <MainDiv>{formatText(props.text)}</MainDiv>
+      <TitleDiv>모집완료</TitleDiv>      
+      <ContentDiv>{formatText(props.text)}</ContentDiv>
     </div>
   )
 }

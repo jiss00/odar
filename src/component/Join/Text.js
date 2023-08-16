@@ -5,7 +5,7 @@ const StyledText = styled.span`
     display: flex;
     box-sizing: border-box;
     position: relative; 
-    top:-30px;
+    top: -45px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
     font-size: ${(props) => props.fontSize || "24px"};

@@ -7,7 +7,7 @@ const StyledTopTitle = styled.span`
     position: relative;
     width: 153px;
     height: 20px;
-    top: 88px;
+    top: 40px;
     margin: 0px auto;
     font-family: Pretendard;
     font-size: 32px;
@@ -24,7 +24,7 @@ const StyledTopTitle = styled.span`
     height: 20px;
     margin-right:auto;
     margin-left:auto;
-    top:149px;
+    top:80px;
     left:0px;
     font-size: 52px;
     text-align: center;

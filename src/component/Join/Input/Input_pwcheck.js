@@ -12,10 +12,9 @@ const StyledInput = styled.input`
   border: 2px solid #5B8E31;
   width: 335px;
   height: 50px;
-  top: 280px;
+  top: 182px;
   margin: 0 auto;
   text-indent: 0.5em;
-
   ::placeholder {
     font-family: "Pretendard";
     font-size: 24px;
@@ -26,7 +25,7 @@ const StyledInput = styled.input`
     position: relative; 
     margin-right: auto;
     margin-left: auto;
-    top: 390px;
+    top: 290px;
     left: 0px;
     width: 440px;
   }
@@ -38,7 +37,7 @@ const IconWrapper = styled.div`
   position: relative;
   width: 24px;
   height: 24px;
-  top: 245px;
+  top: 146px;
   left: 140px;
   cursor: pointer;
   margin-right: auto;
@@ -48,7 +47,7 @@ const IconWrapper = styled.div`
     position: relative; 
     margin-right: auto;
     margin-left: auto;
-    top: 355px;
+    top: 255px;
     left: 200px;
   }
 `;

@@ -262,7 +262,7 @@ function RequitmentDetail(){
         <div className="screen_requitment_detail">
             
             <div className="top_">
-                <Top display= 'none' text ='채용 정보'></Top>
+                <Top display= 'none' text ='채용정보'></Top>
             </div>
             <section className="body_1_detail"> 
                 <div className="body_1_title_detail"> 

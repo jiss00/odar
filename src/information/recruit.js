@@ -233,6 +233,13 @@ function Recruit() {
     { text: '거리순', index: 1 },
     { text: '모집현황', index: 2 },
   ];
+
+  //input창 엔터기능 활성화
+  const mouse = (event) =>{
+    if(event.keyCode == 13){
+      onclick();
+    }
+  }
   return (
     <div>
       <Top text='채용정보'></Top>
@@ -250,14 +257,17 @@ function Recruit() {
               />
             ))}
             <div></div>
-            <Search onChange={onChange} onClick={onclick}></Search>
+            <Search onkeyup={mouse} onChange={onChange} onClick={onclick}></Search>
           </Sort1>
           <div className="main1">
             {(() => {
               if (status === 'search') {
                 return renderSearchData.map((data, index) => (
                   data.active_status === 1 ? (
-                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                    <div className='recruit'>
+                      <div className="title">모집중</div>
+                      <div className="recruiting">{data.title}</div> 
+                    </div>
                   ) : (
                     <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   )

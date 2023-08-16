@@ -27,11 +27,11 @@ function Withdrawal(){
   
 
     return(
+      
         <>
-        <div>
         <Back></Back>
         <TopTitle left={140}>회원탈퇴</TopTitle>
-        <Rectangle></Rectangle>
+        <Rectangle active={false}></Rectangle>
         <Texts fontsize={15} width={274} height={144} top={-345}>
         회원을 탈퇴하시겠습니까?<br/><br/>
         탈퇴할 경우 현재 아이디는 재사용 및 복구가 불가능합니다.
@@ -44,8 +44,8 @@ function Withdrawal(){
         validPassword={validPassword}
         id={id}
         password={password}/>
-        </div>
         </>
+        
     )
 }
 

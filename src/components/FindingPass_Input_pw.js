@@ -22,13 +22,15 @@ const StyledText = styled.span`
     box-sizing: border-box;
     position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 20px;
     text-align: center;
     color: #8E8B8B;
     height: 20px;
-   
+    @media all and (min-width: 1024px){	
+      font-size:16px;
+      }
     ${(props) =>
         props.이메일형식 &&
         css`
@@ -49,8 +51,8 @@ const StyledText = styled.span`
         props.대소문자 &&
         css`
         position:relative;
-        Width: 96px;
-        top: 0px;
+        Width: 89px;
+        top: -1px;
         left: -10px;
         @media all and (min-width: 1024px){	
           position: relative; 
@@ -63,9 +65,9 @@ const StyledText = styled.span`
         props.숫자 &&
         css`
         position:relative;
-        Width: 28px;
-        top: 0px;
-        left: 15px;
+        Width: 27px;
+        top: -1px;
+        left: 0px;
         @media all and (min-width: 1024px){	
           position: relative; 
         
@@ -78,17 +80,32 @@ const StyledText = styled.span`
         props.특수문자 &&
         css`
         position: relative; 
-        Width: 56px;
-        top: 0px;
-        left: 40px;
+        Width: 50px;
+        top: -1px;
+        left: 12px;
         @media all and (min-width: 1024px){	
           position: relative; 
          
           top:0px;
           left:0px;
-          width:60px;
+          width:57px;
           }
-        `}        
+        `}     
+        ${(props) =>
+          props.글자수 &&
+          css`
+          position: relative; 
+          Width: 40px;
+          top: -1px;
+          left: 24px;
+          @media all and (min-width: 1024px){	
+            position: relative; 
+           
+            top:0px;
+            left:0px;
+            width:44px;
+            }
+          `}    
 `;
 
 function Text_small({ children, ...props } ) {
@@ -155,24 +172,26 @@ const Circlediv = styled.div`
   display: flex;
   box-sizing: border-box;
   position: relative;
-  width: 23px;
-  height: 23px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background-color: ${({ valid }) => (valid ? "#A2C08A" : "#FF0000")};
   top: ${({ top }) => top};
   left: ${({ left }) => left};
   @media all and (min-width: 1024px){	
     position: relative; 
-    top:0px;
+    top:-3px;
     left:0;
     margin: 0 10px;
+    width: 24px;
+    height: 24px;
   }
   
 `;
 
 // 대소문자 유효성 검사 함수
 function validateUpperCase(str) {
-  return /[A-Z]/.test(str);
+  return /[A-Z]/.test(str)&& !/[ㄱ-ㅎㅏ-ㅣ가-힣\uAC00-\uD7A3]/.test(str);
 }
 
 // 숫자 유효성 검사 함수
@@ -184,6 +203,10 @@ function validateNumber(str) {
 function validateSpecialCharacter(str) {
   return /[!@#$%^&*(),.?":{}|<>]/.test(str);
 }
+//글자 수 유효성 검사 함수
+function validateLength(str) {
+  return /^[A-Za-z\uAC00-\uD7A3ㄱ-ㅎㅏ-ㅣ가-힣0-9!@#$%^&*(),.?":{}|<>]{8,12}$/.test(str);
+}
 
 function  FindingPass_Input_pw(props) {
   const { onChange, ...otherProps } = props; // props에서 onChange를 추출하여 나머지 props를 otherProps로 받음
@@ -192,6 +215,7 @@ function  FindingPass_Input_pw(props) {
   const [validUpperCase, setValidUpperCase] = useState(false); // 대소문자 유효성 검사 결과
   const [validNumber, setValidNumber] = useState(false); // 숫자 유효성 검사 결과
   const [validSpecialCharacter, setValidSpecialCharacter] = useState(false); // 특수문자 유효성 검사 결과
+  const [validLength, setValidLength] = useState(false); // 특수문자 유효성 검사 결과
 
   const handleClick = () => {
     setPasswordVisible(!isPasswordVisible);
@@ -202,15 +226,15 @@ function  FindingPass_Input_pw(props) {
     const isValid1 =validateUpperCase(password);
     const isValid2 =validateNumber(password);
     const isValid3 =validateSpecialCharacter(password);
+    const isValid4 =validateLength(password);
 
-    const isValidPassword = isValid1 && isValid2 && isValid3;
+    const isValidPassword = isValid1 && isValid2 && isValid3 && isValid4;
 
     setValidUpperCase(isValid1);
     setValidNumber(isValid2);
     setValidSpecialCharacter(isValid3);
+    setValidLength(isValid4);
 
-       // 부모 컴포넌트로 변경된 값을 전달하는 부분
-    
       // 비밀번호와 유효성 검사 결과를 객체로 묶어서 한 번에 전달
       onChange({ password, isValidPassword });
 
@@ -225,11 +249,13 @@ function  FindingPass_Input_pw(props) {
 
       <JoinContainer1>
         <Text_small 대소문자>대문자 · 소문자</Text_small>
-        <Circlediv valid={validUpperCase} top="0px" left="0px" />
+        <Circlediv valid={validUpperCase} top="0px" left="-7px" />
         <Text_small 숫자>숫자</Text_small>
-        <Circlediv valid={validNumber} top="0px" left="23px" />
+        <Circlediv valid={validNumber} top="0px" left="5px" />
         <Text_small 특수문자>특수문자</Text_small>   
-        <Circlediv valid={validSpecialCharacter} top="0px" left="50px" />
+        <Circlediv valid={validSpecialCharacter} top="0px" left="17px" />
+        <Text_small 글자수>글자수</Text_small>   
+        <Circlediv valid={validLength} top="0px" left="27px" />
       </JoinContainer1>
 
     </div>
