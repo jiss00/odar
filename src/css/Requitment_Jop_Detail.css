@@ -400,6 +400,7 @@
         /* 원래 스타일은 유지하고 위에 추가된 스타일만 적용하도록 하기 위해 !important 사용 */
        
         height: 430px;
+        min-height: 430px;
         padding: 40px 25px;
         margin-bottom: 20px;
 
