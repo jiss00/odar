@@ -314,7 +314,7 @@ function FindingPass(props){
             setTime(180); set_body_pass_visibility("hidden"); set_modal_text('id가 유효한지 확인중입니다...'); setModal(true); checkModal(); }} >인증</button>
         </section>
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
-        {/* 인증버튼. */}
+        {/* 인증버튼.  */}
         <section className='input_section2_pass'>
           <input onChange={saveCertificationNumber} className="id_input_pass" type="text"  placeholder="000000" maxLength={6} ></input>
           {modal === true ? <Timer time={time}></Timer> : <></>}
