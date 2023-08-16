@@ -9,7 +9,7 @@ const ImageWrapper = styled.div`
   position: relative;
   width: 90px;
   height: 90px;
-  top: -350px;
+  top: -400px;
   background-color: rgba(204, 204, 204, 0.3);
   border-radius: 1000px;
   margin: 0 auto; /* 가로 중앙 정렬 */
@@ -21,7 +21,7 @@ const ImageWrapper = styled.div`
     max-width: 110px; /* 최대 너비를 110px로 제한 */
     height: 100%;
     max-height: 110px;
-    top: -375px;
+    top: -435px;
     left: 0;
   }
 `;
@@ -69,7 +69,7 @@ const ButtonWrapper = styled.div`
   max-width: 76px; /* 최대 너비를 110px로 제한 */
   height: 100%;
   max-height: 26px;
-  top:-610px; 
+  top:-660px; 
 
   @media all and (min-width: 1024px) {
     position: relative;
@@ -78,7 +78,7 @@ const ButtonWrapper = styled.div`
     max-width: 106px; /* 최대 너비를 110px로 제한 */
     height: 100%;
     max-height: 31px;
-    top: -350px;
+    top: -415px;
     left: 0;
   }
 `;
@@ -136,7 +136,7 @@ function ProfileImage() {
   };
 
   return (
-    <div>
+    <>
       <ImageWrapper>
         <StyledImage id="profile-image" src={imageUrl} alt="프로필 이미지" />
       </ImageWrapper>
@@ -148,7 +148,7 @@ function ProfileImage() {
 
         <input type="file" accept="image/*" ref={inputRef} onChange={twitSubmit} style={{ display: 'none' }} />
       </ButtonWrapper>
-    </div>
+    </>
   );
 }
 

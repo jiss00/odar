@@ -7,6 +7,15 @@ import { useNavigate } from 'react-router-dom';
 const Container = styled.div`
   display: flex;
   margin: 0 auto;
+  position:relative;
+  top:-255px;
+`;
+
+const Containerv2 = styled.div`
+  display: flex;
+  margin: 0 auto;
+  position:relative;
+  top:-200px;
 `;
 
 const StyledButton = styled.button`
@@ -15,7 +24,7 @@ const StyledButton = styled.button`
   position: relative;
   width:310px;
   height: 66px;
-  top: -160px;
+  top: 0px;
   gap: 8px;
   padding: 25px 110px;
   border-radius: 10px;
@@ -30,6 +39,7 @@ const StyledButton = styled.button`
   text-align: center;
   margin-right:auto;
   margin-left:auto;
+  margin-bottom:30px;
   
   @media all and (min-width: 1024px){	
     position: relative; 
@@ -37,8 +47,8 @@ const StyledButton = styled.button`
     height: 66px;
     margin-right:auto;
     margin-left:auto;
-    margin-bottom: 100px;
-    top:-150px;
+    margin-bottom: 50px;
+    top:10px;
    
     }
 `;
@@ -74,7 +84,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:5px;
-    top:-388px;
+    top:-163px;
     left: 8px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -91,7 +101,7 @@ const StyledTexts = styled.span`
   height: 20px;
   margin-left:auto;
   margin-right:10px;
-  top:-405px;
+  top:-190px;
   left:0px;
   font-size:20px;
   }
@@ -110,7 +120,7 @@ const Styledtime = styled.div`
   border-radius: 20px;
   border: 0.8px solid #5B8E31;
   background-color: #FFFFFF;
-  top:-130px;
+  top:10px;
   left:2px;
 
   /* Add styles for the input element */
@@ -177,7 +187,7 @@ const StyledTilde = styled.span`
   line-height: 20px;
   font-weight: 400;
   color: #5B8E31;
-  top:-125px;
+  top:15px;
   left:2px;
   margin-left:17px;
   margin-right:17px;
@@ -197,7 +207,7 @@ const TimeWrapper = styled.div`
     position: relative;
     width: 200px; 
     height: 40px;
-    top: -265px;
+    top: -180px;
     margin-left:15px;
     margin-right:auto;
     display: flex; 
@@ -206,7 +216,7 @@ const TimeWrapper = styled.div`
     position: relative;
     width: 358px; 
     height: 40px;
-    top: -250px;
+    top: -37px;
     left: -140px;
     margin-left:50px;
     margin-right:auto;
@@ -386,7 +396,7 @@ function ModifyLongButton() {
   };
 
   return (
-    <div>
+    <>
     <Container>
     <Texts>희망시간</Texts>
     <TimeWrapper>
@@ -395,13 +405,12 @@ function ModifyLongButton() {
       <Time left={257} onChange={sendEndTimes} />
     </TimeWrapper>
     </Container>
-    
-    <Container>
-    <LongButton onClick={handleApplyClick}>
+    <Containerv2>
+        <LongButton onClick={handleApplyClick}>
           적 용
-        </LongButton>
-    </Container>
-    </div>
+       </LongButton>
+    </Containerv2>
+    </>    
   );
 }
 

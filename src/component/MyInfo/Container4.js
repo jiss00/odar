@@ -5,6 +5,11 @@ import { sendNotificationStatusToAPI } from './ModifyLongButton';
 const Container = styled.div`
 display: flex;
 margin: 0 auto;
+position:relative;
+top:-290px;
+@media all and (min-width: 1024px){	
+  top:-290px;
+}
 `;
 
 // Texts 컴포넌트 
@@ -17,7 +22,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:48px;
-    top:-240px;
+    top:10px;
     left:0px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -34,7 +39,7 @@ const StyledTexts = styled.span`
       height: 20px;
       margin-left:auto;
       margin-right:10px;
-      top:-250px;
+      top:10px;
       left:-130px;
       font-size:20px;
       }     
@@ -64,14 +69,14 @@ const ButtonContainer = styled.div`
   border-radius: 50px;
   background-color: transparent;
   cursor: pointer;
-  top: -250px;
+  top: 2px;
   margin-left:30px;
   margin-right:auto;
   @media all and (min-width: 1024px) {
     position: relative;
     max-width: 67px;
     max-height: 33px;
-    top: -260px;
+    top: -3px;
     left:120px;
     margin-left:10px;
     margin-right:auto;

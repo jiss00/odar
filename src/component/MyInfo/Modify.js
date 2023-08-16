@@ -18,7 +18,7 @@ import ModifyLongButton from './ModifyLongButton';
 function Modify(){
     return(
         <>
-        <div>
+        
         <Back></Back>{/*뒤로가기*/}
         <TopTitle left={119}>내 정보 수정</TopTitle>
         <Rectangle></Rectangle>
@@ -38,7 +38,6 @@ function Modify(){
 
         <ModifyLongButton></ModifyLongButton>{/*적용버튼*/}
     
-        </div>
         </>
     )
 }

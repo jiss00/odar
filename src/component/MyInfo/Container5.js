@@ -8,6 +8,11 @@ import Container6 from './Container6';
 const Container = styled.div`
 display: flex;
 margin: 0 auto;
+position:relative;
+top:-277px;
+@media all and (min-width: 1024px){	
+  top:-290px;
+}
 `;
 
 // Texts 컴포넌트 
@@ -20,7 +25,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:48px;
-    top:-218px;
+    top:9px;
     left:0px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -37,7 +42,7 @@ const StyledTexts = styled.span`
       height: 20px;
       margin-left:auto;
       margin-right:10px;
-      top:-225px;
+      top:9px;
       left:-130px;
       font-size:20px;
       }  
@@ -60,12 +65,11 @@ const ButtonContainer = styled.div`
   position: relative;
   width: 50.42px;
   height: 25px;
-  left: 0px;
   border: 5px solid #A2C08A;
   border-radius: 50px;
   background-color: transparent;
   cursor: pointer;
-  top: -228px;
+  top: 0px;
   margin-left:30px;
   margin-right:auto;
   z-index:1;
@@ -73,7 +77,7 @@ const ButtonContainer = styled.div`
     position: relative;
     max-width: 67px;
     max-height: 33px;
-    top: -235px;
+    top: 3px;
     left:120px;
     margin-left:10px;
     margin-right:auto;
