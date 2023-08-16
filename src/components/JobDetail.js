@@ -268,7 +268,7 @@ function JobDetail(){
     return(
         <div className="screen_requitment_detail">
             <div  className="top_">
-                <Top display = 'none' text ='취업 지원'></Top>
+                <Top display = 'none' text ='취업지원'></Top>
             </div>
             
             <section className="body_1_detail"> 
