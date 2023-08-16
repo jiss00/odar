@@ -205,7 +205,7 @@
     width: 330px;
     height: 340px;
     min-height: 100px;
-
+    
     /* 스크롤이 필요한 경우만 스크롤이 나타나도록 설정 */
     overflow-y: auto;
     /* 원래 스타일은 유지하고 위에 추가된 스타일만 적용하도록 하기 위해 !important 사용 */
