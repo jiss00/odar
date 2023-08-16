@@ -8,7 +8,7 @@ const StyledButton = styled.button`
   position: relative;
   width: 310px;
   height: 66px;
-  top: -300px;
+  top: 0px;
   gap: 8px;
   padding: 23px 100px;
   border-radius: 10px;
@@ -23,6 +23,7 @@ const StyledButton = styled.button`
   text-align: center;
   margin: 0px auto;
   justify-content: center; 
+  margin-bottom:30px;
 
   @media all and (min-width: 1024px){	
     position: relative; 

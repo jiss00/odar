@@ -104,12 +104,12 @@ function Withdrawal_Input_Pw(props) {
   };
   
     return (
-        <div style={{ position: "relative" }}>
-            <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
+      <>
+              <StyledInput {...props} type={isPasswordVisible ? "text" : "password"} onChange={handleInputChange} />
             <IconWrapper onClick={handleClick}>
                 <Icon>{isPasswordVisible ? <PiEye size={24} /> : <PiEyeClosed size={24} />}</Icon>
             </IconWrapper>
-        </div>
+            </>
     );
 }
 

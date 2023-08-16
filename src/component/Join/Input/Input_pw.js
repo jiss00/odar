@@ -24,7 +24,7 @@ const StyledInput = styled.input`
   border: 2px solid #5B8E31;
   width: 335px;
   height: 50px;
-  top: 220px;
+  top: 150px;
   margin:0 auto;
   z-index:1;
   text-indent: 0.5em;
@@ -51,7 +51,7 @@ const IconWrapper = styled.div`
     position: relative; 
     width: 24px;
     height: 24px;
-    top: 185px;
+    top: 114px;
     left: 140px;
     cursor: pointer;
     margin-right:auto;
@@ -151,13 +151,13 @@ function Input_pw(props) {
 
       <JoinContainer1>
         <Text_small 대소문자>대문자 · 소문자</Text_small>
-        <Circlediv valid={validUpperCase} top="224px" left="-7px" />
+        <Circlediv valid={validUpperCase} top="141px" left="-7px" />
         <Text_small 숫자>숫자</Text_small>
-        <Circlediv valid={validNumber} top="224px" left="5px" />
+        <Circlediv valid={validNumber} top="141px" left="5px" />
         <Text_small 특수문자>특수문자</Text_small>   
-        <Circlediv valid={validSpecialCharacter} top="224px" left="17px" />
+        <Circlediv valid={validSpecialCharacter} top="141px" left="17px" />
         <Text_small 글자수>글자수</Text_small>   
-        <Circlediv valid={validLength} top="224px" left="27px" />
+        <Circlediv valid={validLength} top="141px" left="27px" />
       </JoinContainer1>
 
     </div>

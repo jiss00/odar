@@ -12,7 +12,7 @@ const StyledInput = styled.input`
   border: 2px solid #5B8E31;
   width: 335px;
   height: 50px;
-  top: 280px;
+  top: 182px;
   margin: 0 auto;
   text-indent: 0.5em;
 
@@ -38,7 +38,7 @@ const IconWrapper = styled.div`
   position: relative;
   width: 24px;
   height: 24px;
-  top: 245px;
+  top: 146px;
   left: 140px;
   cursor: pointer;
   margin-right: auto;

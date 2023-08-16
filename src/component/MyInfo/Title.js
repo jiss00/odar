@@ -6,20 +6,23 @@ const StyledTitle = styled.input`
     box-sizing: border-box;
     position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
+    font-weight: 600;
+
     width: 290px;
     height: 40px;
-    top: -330px;
+    top: -400px;
     radius: 10px;
     border-radius: 10px;
     border: 3px solid #A2C08A;
     justify-content: center; 
     margin: 0px auto;
+    text-indent: 0.5em;
 
     ::placeholder {
         font-family: "Pretendard";
         font-size: 15px;
         color: #D9D9D9;
-        font-weight: 400;
+        font-weight: 600;
       }
      
   @media all and (min-width: 1024px){	

@@ -5,9 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ButtonContainer = styled.div`
+   display: flex;
+  position:relative;
+  margin: -150px auto;
+  margin-bottom: 50px;
+  @media all and (min-width: 1024px) {
   display: flex;
+  position:relative;
+  top:0px;
   margin: 0 auto;
-`;
+  }
+  `;
 
 const StyledButton = styled.button`
   display: flex;
@@ -15,8 +23,7 @@ const StyledButton = styled.button`
   position: relative;
   width: 150px;
   height: 66px;
-  top: -101px;
-  left: ${props => (props.primary ? "40px" : "199px")};
+  top: 0px;
   gap: 8px;
   border-radius: 10px;
   font-size: 24px;
@@ -28,10 +35,10 @@ const StyledButton = styled.button`
   font-family: "Pretendard";
   font-weight: 800;
   text-align: center;
-  left:${props => (props.primary ? "-10px" : "10px")};
+  left:${props => (props.primary ? "-5px" : "5px")};
   margin-left:${props => (props.primary ? "auto" : "0")};
   margin-right:${props => (props.primary ? "0" : "auto")};
-  margin-bottom: 100px;
+  margin-bottom: -20px;
   ${({ disabled }) =>
   disabled &&
   `
@@ -47,7 +54,7 @@ const StyledButton = styled.button`
     max-width: 495px;
     height: 66px;
     top: 50px;
-    left:${props => (props.primary ? "-10px" : "10px")};
+    left:${props => (props.primary ? "-7px" : "7px")};
     margin-left:${props => (props.primary ? "auto" : "0")};
     margin-right:${props => (props.primary ? "0" : "auto")};
     margin-bottom: 100px;
@@ -126,10 +133,12 @@ function ButtonGroup({ validEmail, validPassword, id, password }) {
   
   
   return (
+    <>
     <ButtonContainer>
       <OButton  disabled={isButtonDisabled} onClick={handleConfirm}>확인</OButton>
       <XButton>취소</XButton>
     </ButtonContainer>
+    </>
   );
 }
 

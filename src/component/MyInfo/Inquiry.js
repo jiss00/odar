@@ -105,13 +105,13 @@ function Inquiry(){
         <div>
         <Back></Back>
         <TopTitle >문의하기</TopTitle>
-        <Rectangle></Rectangle>
-        <Texts fontsize={14} width={274} height={68} top={-350}> 
+        <Rectangle placeholder="내용" active={true} onChange = {saveTextBox}>                
+        </Rectangle>
+        <Texts fontsize={14} width={274} height={68} top={-420}> 
         오다르를 이용해주셔서 감사합니다. <br/><br/>
         서비스 사용과 관련해서 문의사항 또는 불편한 점이 
         있다면 아래 작성해 주세요.</Texts>
         <Title type="text" placeholder="제목을 입력해주세요." onChange = {saveTitle}></Title>
-        <TextBox placeholder="내용" onChange = {saveTextBox}></TextBox>
         <span style = {TextStyle} onClick={() => {inputValue();  EmailToQuestion(); }}> 
             <LongButton 문의하기={longButton_state} >문의하기</LongButton>
         </span>

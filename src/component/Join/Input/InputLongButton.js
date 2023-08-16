@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Container = styled.div`
 position: relative;
 display: flex;
-margin-bottom: 30px;
+margin-bottom: 450px;
 `;
 
 const StyledButton = styled.button`
@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   position: relative;
   width:335px;
   height: 75px;
-  top: 310px;
+  top: 200px;
   margin: 0 auto;
   gap: 8px;
   padding: 25px 130px;
@@ -28,7 +28,6 @@ const StyledButton = styled.button`
   font-family: "Pretendard";
   font-weight: 800;
   text-align: center;
-  margin-bottom: 30px;
   align-items: center;
   
   /* 버튼이 비활성화된 상태에 대한 스타일 */

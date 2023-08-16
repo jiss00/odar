@@ -19,7 +19,7 @@ const StyledText = styled.span`
         props.이메일형식 &&
         css`
         Width: 74px;
-        top: 156px;
+        top: 115px;
         left: -10px;
         
         @media all and (min-width: 1024px){	
@@ -36,7 +36,7 @@ const StyledText = styled.span`
         css`
         position:relative;
         Width: 89px;
-        top: 222px;
+        top: 140px;
         left: -10px;
         @media all and (min-width: 1024px){	
           position: relative; 
@@ -50,7 +50,7 @@ const StyledText = styled.span`
         css`
         position:relative;
         Width: 27px;
-        top: 222px;
+        top: 140px;
         left: 0px;
         @media all and (min-width: 1024px){	
           position: relative; 
@@ -65,7 +65,7 @@ const StyledText = styled.span`
         css`
         position: relative; 
         Width: 50px;
-        top: 222px;
+        top: 140px;
         left: 12px;
         @media all and (min-width: 1024px){	
           position: relative; 
@@ -80,7 +80,7 @@ const StyledText = styled.span`
           css`
           position: relative; 
           Width: 40px;
-          top: 222px;
+          top: 140px;
           left: 24px;
           @media all and (min-width: 1024px){	
             position: relative; 

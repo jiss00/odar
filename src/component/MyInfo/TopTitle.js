@@ -7,7 +7,7 @@ const StyledTopTitle = styled.span`
     position: relative;
     width: 153px;
     height: 20px;
-    top: 88px;
+    top: 40px;
     margin: 0px auto;
     font-family: Pretendard;
     font-size: 32px;
