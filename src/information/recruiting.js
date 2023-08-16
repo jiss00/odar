@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 function Recruiting(props){
-  const MainDiv =styled.div`
+  const ContentDiv =styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   border : solid #D9D9D9 1px;
@@ -22,7 +22,7 @@ function Recruiting(props){
     font-size: 18px;
   }
   `
-  const SubDiv = styled.div`
+  const TitleDiv = styled.div`
   box-sizing: border-box;
   border-radius: 10px;
   border : solid #D9D9D9 1px;
@@ -47,8 +47,8 @@ function Recruiting(props){
 
   return(
     <div onClick = {props.onClick} className='recruit'>
-      <SubDiv>모집중</SubDiv>
-      <MainDiv>{props.text}</MainDiv>
+      <TitleDiv>모집중</TitleDiv>
+      <ContentDiv>{props.text}</ContentDiv>
     </div>
   )
 }
