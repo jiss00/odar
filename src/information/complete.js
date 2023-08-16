@@ -42,7 +42,7 @@ z-index:1;
 @media screen and (min-width: 1024px) {
   height : 40px;
   padding-top : 6px;
-  padding-left:5px;
+  padding-left:3px;
   font-size: 17px;
 
 }

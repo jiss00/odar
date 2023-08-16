@@ -44,7 +44,7 @@
   place-items: center;
   position: absolute;
   left:50%;
-  transform: translate( -57%);
+  transform: translate( -50%);
   @media screen and (min-width: 1024px){
     margin-top:60px;
     }
@@ -57,7 +57,7 @@
   @media screen and (min-width: 1024px){
   margin-left: 0%;
   display: grid;
-  grid-template-columns: 60px 600px;
+  grid-template-columns: 54px 600px;
   }
 }
 .sort_1{
