@@ -335,7 +335,6 @@ function FindingPass(props){
       </div>
 
     
-
       <button 
           disabled={validEmail && validPassword && validPasswordCheck ? false : true}
           className="btn_all_pass"
