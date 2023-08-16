@@ -285,7 +285,7 @@ function FindingPass(props){
     }, [time]);
     return (
       <div>
-        <div className='timer'>
+        <div className='timer_pass'>
           <span>{parseInt(time / 60)}</span>
           <span> : </span>
           <span>{getSeconds(time)}</span>
@@ -315,9 +315,8 @@ function FindingPass(props){
         </section>
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
         {/* 인증버튼. */}
-        <section className='input_section2'>
+        <section className='input_section2_pass'>
           <input onChange={saveCertificationNumber} className="id_input_pass" type="text"  placeholder="000000" maxLength={6} ></input>
-          <span></span>
           {modal === true ? <Timer time={time}></Timer> : <></>}
           <button disabled={ !btn_yes || !isCheckModal} onClick={() => {BtnSuccess(); } } className={ btn_yes && isCheckModal? 'btn_all_pass_yes' : 'btn_all_pass'} type="submit">완료</button>
         </section>
