@@ -264,7 +264,7 @@ function Recruit() {
               if (status === 'search') {
                 return renderSearchData.map((data, index) => (
                   data.active_status === 1 ? (
-                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
+                   <div>{data.text}</div> 
                   ) : (
                     <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   )
