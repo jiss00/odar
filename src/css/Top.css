@@ -244,7 +244,7 @@ z-index: 1;
 
 .topBarLogin{
   width: 150px;
-  top: 448px;
+  margin-top: 446px;
   left: 131px;
   border: 2px solid rgba(162, 192, 138, 1);
   cursor : pointer;

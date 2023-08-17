@@ -264,10 +264,7 @@ function Recruit() {
               if (status === 'search') {
                 return renderSearchData.map((data, index) => (
                   data.active_status === 1 ? (
-                    <div className='recruit'>
-                      <div className="title">모집중</div>
-                      <div className="recruiting">{data.title}</div> 
-                    </div>
+                    <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   ) : (
                     <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   )
