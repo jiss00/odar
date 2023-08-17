@@ -272,7 +272,7 @@ function FindingPass(props){
       const timer = setInterval(() => {
         setTime((prev) => prev - 1);
       }, 1000);
-      
+      /*
       if (time === 0) {
         clearInterval(timer);
         handleTimerEnd();
@@ -280,7 +280,7 @@ function FindingPass(props){
         setModal(false);
         set_body_pass_visibility("hidden"); //숨기기
       }
-    
+    */
       return () => clearInterval(timer);
     }, [time]);
     return (
@@ -324,10 +324,10 @@ function FindingPass(props){
       </div>
 
       <div className = "body_pass_pass" style={{visibility: `${body_pass_visibility}`}}>
-        <div className="findingpass__pw__box"><Text width="110px">새 비밀번호</Text></div>
+        <div className="findingpass__pw__box"><Text finding={true} width="110px">새 비밀번호</Text></div>
           <FindingPass_Input_pw type="password" placeholder=" 비밀번호를 입력해주세요." onChange={handlePasswordChange} />
 
-        <div className="findingpass__pwcheck__box"><Text width="156px">새 비밀번호 확인</Text></div>
+        <div className="findingpass__pwcheck__box"><Text finding={true} width="156px">새 비밀번호 확인</Text></div>
           <FindingPass_Input_pwcheck type="password" placeholder=" 비밀번호를 확인해주세요." onChange={handlePasswordCheckChange}  />
       </div>
 

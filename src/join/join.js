@@ -132,6 +132,7 @@ function Join() {
       }
     ).then(function (response) {
       if (response.data.isSuccess) {
+        alert(response.data.result);
         nagivate('/');
       }
       else {
