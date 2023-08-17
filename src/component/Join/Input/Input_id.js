@@ -19,7 +19,7 @@ const StyledInput = styled.input`
     border: 2px solid #5B8E31;
     width: 335px;
     height: 50px;
-    top: 130px;
+    top: 100px;
     margin:0 auto;
     z-index:1;
     text-indent: 0.5em;
@@ -33,7 +33,7 @@ const StyledInput = styled.input`
       position: relative; 
       margin-right:auto;
       margin-left:auto;
-      top:205px;
+      top:160px;
       left:0px;
       width:440px;
       }
@@ -48,14 +48,14 @@ const Circlediv = styled.div`
   background-color: ${({ valid }) => (valid ? "#A2C08A" : "#FF0000")};
   margin-left:10px;
   margin-right:auto;
-  top:157px;
+  top:115px;
   left: -20px;
   
   @media all and (min-width: 1024px){	
     position: relative; 
     margin-left:10px;
     margin-right:auto;
-    top:222px;
+    top:175px;
     left:-170px;
     width: 24px;
     height: 24px;

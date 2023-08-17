@@ -5,7 +5,7 @@ const StyledTexts = styled.span`
     box-sizing: border-box;
     position: relative; 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
-    font-weight: 400;
+    font-weight: 600;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
@@ -39,7 +39,7 @@ const StyledTexts = styled.span`
   height: 57px;
   margin-right:auto;
   margin-left:auto;
-  top:-350px;
+  top:-410px;
   left:0px;
   font-size:16px;
   }

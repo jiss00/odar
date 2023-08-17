@@ -130,7 +130,7 @@ function FindingID() {
     }, [time]);
     return (
       <div>
-        <div className='timer'>
+        <div className='timer_id'>
           <span>{parseInt(time / 60)}</span>
           <span> : </span>
           <span>{getSeconds(time)}</span>
@@ -285,9 +285,12 @@ useEffect(() => {
           <button disabled={btn_all_state < 1} className={btn_all_state >= 1 ? 'btn_all_yes' : 'btn_all'} type="submit" onClick={() => { checkModal(); phone_send_api();}} >인증</button>
         </section>
         <section className='input_section2'>
-          <input onChange={saveCertificationNumber} className="input_all" type="text" id="certification_number" placeholder="000000" maxLength={6} ></input>
-          <span></span>
-          {modal === true ? <Timer time={time}></Timer> : <></>}
+          <span>
+            <input onChange={saveCertificationNumber} className="input_all" type="text" id="certification_number" placeholder="000000" maxLength={6} ></input>
+            {modal === true ? <Timer time={time}></Timer> : <></>}
+          </span>
+
+          
           <button disabled={btn_all_state < 2} onClick={() => {BtnSuccess(); } } className={btn_all_state >= 2 ? 'btn_all_yes' : 'btn_all'} type="submit">완료</button>
         </section>
         {modal === true ? <Modal text={modal_text}></Modal> : <></>}

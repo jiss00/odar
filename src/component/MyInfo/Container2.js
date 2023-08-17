@@ -6,6 +6,11 @@ import { sendSelectedDaysToAPI } from './ModifyLongButton';
 const Container = styled.div`
 display: flex;
 margin: 0 auto;
+position:relative;
+top:-325px;
+@media all and (min-width: 1024px){	
+  top:-355px;
+  }
 `;
 
 // Texts 컴포넌트 
@@ -18,7 +23,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:5px;
-    top:-275px;
+    top:12px;
     left:3px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -35,7 +40,7 @@ const StyledTexts = styled.span`
   height: 20px;
   margin-left:auto;
   margin-right:10px;
-  top:-300px;
+  top:px;
   left:0px;
   font-size:20px;
   }
@@ -104,7 +109,7 @@ const DayWrapper = styled.div`
    position: relative;
     width: 200px; 
     height: 40px;
-    top: -280px;
+    top:6px;
     margin-left:5px;
     margin-right:auto;
     display: flex; 
@@ -113,7 +118,7 @@ const DayWrapper = styled.div`
     position: relative;
     width: 358px; 
     height: 40px;
-    top: -300px;
+    top: 10px;
     left: -140px;
     margin-left:50px;
     margin-right:auto;

@@ -6,6 +6,12 @@ import { sendRegionsToAPI } from './ModifyLongButton';
 const Containerfor6 = styled.div`
 display: flex;
 margin: 0 auto;
+position:relative;
+top:60px;
+left:-300px;
+@media all and (min-width: 1024px){	
+  top:85px;
+}
 `;
 
 // Texts 컴포넌트 
@@ -17,8 +23,8 @@ const Texts2 = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:5px;
-    top: 70px;
-    left:-205px;
+    top: 6px;
+    left:97px;
     white-space:nowrap;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -34,8 +40,8 @@ const Texts2 = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:10px;
-    top: 85px;
-    left:-426px;
+    top: 0px;
+    left:-125px;
     font-size:20px;
     }
   
@@ -44,6 +50,7 @@ const Texts2 = styled.span`
 
 // Texts 컴포넌트 
 const Texts3 = styled.span`
+
     display: flex;
     box-sizing: border-box;
     position: relative; 
@@ -51,8 +58,8 @@ const Texts3 = styled.span`
     font-weight: 400;
     line-height: 16.8px;
     color: #000000;
-    top: 70px;
-    left:-170px;
+    top: 6px;
+    left:170px;
     margin-right:auto;
     white-space:nowrap;
     overflow-x: auto;
@@ -68,8 +75,8 @@ const Texts3 = styled.span`
   height: 20px;
   margin-left:10px;
   margin-right:auto;
-  top:85px;
-  left:-310px;
+  top:3px;
+  left:30px;
   font-size:20px;
   color: #5C5C5C;
 

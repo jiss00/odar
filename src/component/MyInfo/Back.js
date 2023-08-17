@@ -9,7 +9,7 @@ const StyledBack = styled.img`
   position: relative;
   width: 25px;
   height: 25px;
-  top: 67px;
+  top: 25px;
   left:-135px;
   margin: 0px auto;
   cursor : pointer;

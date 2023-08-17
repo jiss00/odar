@@ -6,6 +6,11 @@ import { handleSelectedValue } from './ModifyLongButton';
 const Container = styled.div`
 display: flex;
 margin: 0 auto;
+position:relative;
+top:-335px;
+@media all and (min-width: 1024px){	
+  top:-365px;
+}
 `;
 
 // Texts 컴포넌트 
@@ -18,7 +23,7 @@ const StyledTexts = styled.span`
     height: 20px;
     margin-left:auto;
     margin-right:5px;
-    top:-285px;
+    top:6px;
     left:0px;
 
     font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
@@ -35,7 +40,7 @@ const StyledTexts = styled.span`
   height: 20px;
   margin-left:auto;
   margin-right:10px;
-  top:-310px;
+  top:15px;
   left:0px;
   font-size:20px;
   }
@@ -88,7 +93,7 @@ const MenuBarWrapper = styled.div`
   position: relative;
     width: 188px; 
     height: 30px;
-    top: -293px;
+    top: 0px;
     left: 0;
   
     margin-left:10px;
@@ -98,7 +103,7 @@ const MenuBarWrapper = styled.div`
     position: relative;
     width: 358px; 
     height: 40px;
-    top: -320px;
+    top: 0px;
     left: 0;
     margin-left:50px;
     margin-right:auto;
