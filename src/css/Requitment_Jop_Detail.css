@@ -257,6 +257,8 @@
     border: 3px;
     background-color: #EDF1D5;
     border: 3px solid #A2C08A;
+    cursor: pointer;
+
 }
 
 /* 전화기 모양 없음*/
@@ -280,7 +282,7 @@
     line-height: 20px;
     letter-spacing: 0em;
     text-align: center;
-
+    cursor: pointer;
 
 }
 

@@ -66,6 +66,7 @@
     border: 0px;
     /* 배경 투명도 0 */
     background-color: rgba(0,0,0,0);
+    cursor: pointer;
 }
 
 
