@@ -1,5 +1,6 @@
 import '../../App';
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from "react-router-dom";
 import Rectangle from './Rectangle';
 import Line from './Line';
@@ -15,10 +16,15 @@ import Container4 from './Container4';
 import Container5 from './Container5';
 import ModifyLongButton from './ModifyLongButton';
 
+const Container = styled.div`
+  height: 750px;
+  margin-bottom: 10px; /* 여백을 10px로 설정 */
+`;
+
 function Modify(){
     return(
         <>
-        
+        <Container>
         <Back></Back>{/*뒤로가기*/}
         <TopTitle left={119}>내 정보 수정</TopTitle>
         <Rectangle></Rectangle>
@@ -37,7 +43,7 @@ function Modify(){
         <Line3></Line3>
 
         <ModifyLongButton></ModifyLongButton>{/*적용버튼*/}
-    
+        </Container>
         </>
     )
 }
