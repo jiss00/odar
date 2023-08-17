@@ -24,8 +24,7 @@ import Inquiry from './component/MyInfo/Inquiry';
 import Withdrawal from './component/MyInfo/Withdrawal';
 import Modify from './component/MyInfo/Modify';
 import Alarm from "./information/alarm";
-import Recruitmentinfo from './component/Main/Recruitmentinfo';
-
+import Error from "./information/error";
 import Test from './components/test';
 
 function App(){
@@ -48,7 +47,7 @@ function App(){
         <Route path="/withdrawal" element={<Withdrawal/>}/> {/*회원탈퇴*/}
         <Route path="/modify" element={<Modify/>}/> {/*내 정보 수정*/}
         <Route path="/alarm" element={<Alarm/>}/> {/*알림창*/}
-        <Route path="*" element={<div>404 error : url이 잘못 입력되었습니다.</div>}/> {/*404 에러 페이지*/ }
+        <Route path="*" element={<Error/>}/> {/*404 에러 페이지*/ }
         <Route path="/test/:jobPostingId" element={<Test></Test>}/> {/*테스트 페이지*/}
       </Routes>
     </Router>
