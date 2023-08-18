@@ -41,7 +41,7 @@ function MyPage(){
     const goLogout = async () => {
         try {
             const token = localStorage.getItem('accessToken');
-            console.log(token);
+            // console.log(token);
           
             const response = await axios.post('https://arthurcha.shop/app/users/logout', 
             {},
@@ -72,6 +72,18 @@ function MyPage(){
         navigate('/withdrawal');
     }
 
+// --------------로그인 돼있는지 확인하기------------//
+    const IsLogin=()=>{
+        const userToken = localStorage.getItem('accessToken');
+        if (userToken === null){
+            alert("로그인 후 이용가능한 서비스입니다.");
+            goMain();
+        }
+    }
+
+    useEffect(() =>{
+        IsLogin();
+    },[]);
     // -------------------------------------------//
     const [name, setName] = useState('이름'); //사용자명
     const [age, setAge] = useState('나이'); //나이
@@ -83,6 +95,8 @@ function MyPage(){
 
     // ------------------------------------------------//
     const userToken = localStorage.getItem('accessToken'); //토큰
+    
+
 
     //get
     const fetchDataFromBackend = () =>{
@@ -98,10 +112,10 @@ function MyPage(){
             })
         .then( (response) => { //성공시
             
-            console.log(response.data);
+            // console.log(response.data);
             if (response.data['isSuccess']){
-                console.log('get성공');
-                console.log(response.data.result);
+                // console.log('get성공');
+                // console.log(response.data.result);
                 const backendData = response.data['result'];
                 
                 // 백엔드에 내용이 있다면, 백엔드에서 받아온 내용으로 업그레이드 해준다.
