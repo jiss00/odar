@@ -104,6 +104,7 @@ function FindingPass(props){
   }
 
 
+
   const [email,setEmail] = useState('');
   const [changeEmail, setChangeEmail] = useState('')
   // id 입력받는거 얻는거
@@ -115,6 +116,9 @@ function FindingPass(props){
     // console.log(isValid);
     
   }
+
+  useEffect(() => { validateEmail();},[email]);
+
 
   // ---------------------------------------
   
