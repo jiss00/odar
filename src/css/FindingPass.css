@@ -145,7 +145,7 @@
     background-color: rgba(162, 192, 138, 1);
     width: 73px;
     height: 50px;
-    
+    white-space: nowrap;
     border-radius: 10px;
     border: 0px;
     font-family: Pretendard;
@@ -290,7 +290,7 @@
 
   /*  아이디, 인풋, 인증 아이디부분 전체*/
   .body_id_pass{
-    width:440px;
+    width:450px;
     height: 160px;
     margin-top:90px;
     margin-bottom: 10px;
@@ -320,8 +320,18 @@
   
   /* 인증버튼 */
   .btn_all_pass{
-    width:70px;
+    width:80px;
     height:50px;
+    font-size:22px;
+    white-space: nowrap;
+  }
+
+    /* 인증버튼 */
+  .btn_all_pass_yes{
+    width:80px;
+    height:50px;
+    font-size:22px;
+    white-space: nowrap;
   }
 
   /* 아이디 인증이 완료되었습니다! */
