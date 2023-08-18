@@ -4,9 +4,14 @@
   align-items: center; /* 세로 축 가운데 정렬 */
 }
 
-.Loginitem_exit {
-  top: 170px;
-  right: 40px;
+.LoginItem_exit {
+  position: absolute;
+  top: 40px;
+  left : 35px;
+  width: 35px;
+  height: 35px;
+  z-index: 1;
+  cursor : pointer;
 }
 
 .statebar {
@@ -179,9 +184,13 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
       align-items: center; /* 세로 축 가운데 정렬 */
     }
 
-    .Loginitem_exit {
-      top: 140px;
-      right: 400px;
+    .LoginItem_exit {
+      z-index: 1;
+      top: 120px;
+      left : 100px;
+      width: 50px;
+      height: 50px;
+      cursor : pointer;
     }
 
     .statebar{
