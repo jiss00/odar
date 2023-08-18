@@ -8,6 +8,7 @@ function Auth({verification,complete,...props}){
   cursor: pointer;
   font-size: 21px;
   font-weight: 1000;
+  color:black;
   background-color: #A2C08A;
   border-radius: 15px;
   text-align: center;
