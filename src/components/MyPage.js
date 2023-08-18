@@ -1,20 +1,20 @@
 
+// import imagetest from './imageTest.jpg';
+import imagetest from './grandFather.png';
 import styled , {css} from 'styled-components';
 import {useState} from 'react';
 import { useEffect } from 'react';
 import StyledSection from './StyledSection';
 import StyledHr from '../css/StyledHr';
 import StyledSpan from './StyledSpan';
-import grandFather from './grandFather.png';
-import axios from 'axios'
-import "../css/MyPage.css"
+import axios from 'axios';
+import "../css/MyPage.css";
 
 import { Routes, Route, Link, useNavigate, Outlet } from 'react-router-dom';
 
 
 function MyPage(){
     // ------------------이동하는 메소드 --------------//
-
     let navigate = useNavigate();
 
     // 메인으로
@@ -79,7 +79,7 @@ function MyPage(){
     const [region, setRegion] = useState('00동'); // 00동
     const [desire_start_time, set_desire_start_time] = useState('0'); //희망 시작시간
     const [desire_end_time, set_desire_end_time] = useState('0');
-    const [profile_img, set_profile_img] = useState(grandFather); //프로필이미지
+    const [profile_img, set_profile_img] = useState(imagetest); //프로필이미지
 
     // ------------------------------------------------//
     const userToken = localStorage.getItem('accessToken'); //토큰
@@ -102,7 +102,6 @@ function MyPage(){
             if (response.data['isSuccess']){
                 console.log('get성공');
                 console.log(response.data.result);
-                
                 const backendData = response.data['result'];
                 
                 // 백엔드에 내용이 있다면, 백엔드에서 받아온 내용으로 업그레이드 해준다.
@@ -117,8 +116,14 @@ function MyPage(){
                         setRegion(backendData.region[key]); //사는곳
                     }
                 }
+                
                 // 변수명을 이용해 속성에 접근하려면 대괄호 표기법을 사용해야 합니다. 
-                if(backendData.userInfo.profile_img != "https://arthurcha.shop/app/image")  set_profile_img(backendData.userInfo.profile_img);
+                if((backendData.userInfo.profile_img != null) )
+                {
+                    set_profile_img(backendData.userInfo.profile_img);
+                }else{
+                    set_profile_img(imagetest);
+                }
                 if(backendData.userInfo.desire_start_time !=null)   set_desire_start_time(backendData.userInfo.desire_start_time); //시작시간
                 if(backendData.userInfo.desire_end_time !=null)   set_desire_end_time(backendData.userInfo.desire_end_time); //끝시간
 
@@ -157,7 +162,7 @@ function MyPage(){
             </section>
             <section className = "body_1">
                 <div className = "item_profile_1">
-                    <img className = "item_image" alt="Grandfather" src={profile_img}/>
+                    <img className = "item_image"  src={profile_img} alt='image' />
                     <span className = "item_name">
                         {name}
                     </span>
