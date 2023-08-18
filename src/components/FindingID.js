@@ -91,7 +91,7 @@ function FindingID() {
       // console.log("성공함");
       // console.log(response.data['result']['code']); //인증번호
       set_certification_code(response.data['result']['code']); //인증번호 설정하기 (state)
-      console.log("이전 인증번호",certification_code);
+      // console.log("이전 인증번호",certification_code);
     })
     .catch((error)=>{
       console.log(error.response.data); // 에러 출력
@@ -99,7 +99,7 @@ function FindingID() {
   }
   // 인증번호가 변경될때마다 실행함.
   useEffect( () => {
-    console.log("현재 인증번호",certification_code);
+    // console.log("현재 인증번호",certification_code);
   },[certification_code]);
 
 
@@ -216,17 +216,17 @@ function FindingID() {
     const url = `https://arthurcha.shop/app/users/email`;
 
 
-    console.log('id post하자');
-    console.log(phone_number_state);
+    // console.log('id post하자');
+    // console.log(phone_number_state);
     axios.post(url, phoneData )
     .then( (response) => {
-        console.log(response);
-        console.log(response.data.isSuccess);
+        // console.log(response);
+        // console.log(response.data.isSuccess);
         if (response.data.isSuccess === true){
-          console.log('isSuccess 성공');
+          // console.log('isSuccess 성공');
           // 인증성공!
           if(response.data.code == 200){
-            console.log('isSuccess 200 성공');
+            // console.log('isSuccess 200 성공');
             console.log('id:'+response.data.result.email);
             setemail(response.data.result.email); //이메일 업데이트
             set_modal_text(`인증이 완료되었습니다!🎉 \n 아이디는 ${email}입니다.`);

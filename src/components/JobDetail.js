@@ -83,7 +83,7 @@ function JobDetail(){
         axios.get(url)
         .then( (response) => {
 
-            console.log(response.data);
+            // console.log(response.data);
             if(response.data['isSuccess']){
                 const dataFromBackend = {
                     recruitment : (response.data['result']['active_status'] == 1 ? '모집중' : '모집완료'), // 모집중, 모집완료
@@ -111,7 +111,7 @@ function JobDetail(){
 
             }
             else{
-                console.log(response);
+                // console.log(response);
                 // 오류코드 알려주고, 뒤로가기
                 alert('▶오류'+response.data.code+'\n'+response.data.message);
                 // goBack();
@@ -149,11 +149,11 @@ function JobDetail(){
             if (response.data['isSuccess']){
                 // 이미 지원함
                 if (response.data.result === true){
-                    console.log("이미 지원함");
+                    console.log("이미 지원하였습니다.");
                     set_apply_state(1); // 지원내역 상태변경
                 }
                 else{
-                    console.log("지원하지 않았음");
+                    console.log("지원하지 않았습니다.");
                     set_apply_state(0);
                 }
                 
@@ -170,7 +170,7 @@ function JobDetail(){
     }
 
     useEffect(()=>{
-        console.log("맨 처음 렌더링 될때 한 번만 실행 : 지원상태 업데이트");
+        // console.log("맨 처음 렌더링 될때 한 번만 실행 : 지원상태 업데이트");
         StartApplyToUpdate();
     },[]);
 
@@ -198,13 +198,13 @@ function JobDetail(){
         .then( (response) => { //성공시
             if (response.data['isSuccess']){
                 alert("지원이 완료되었습니다.");
-                console.log("post 성공, ID: "+ job_edu_id);
+                // console.log("post 성공, ID: "+ job_edu_id);
                 set_apply_state(1); // 지원내역 상태변경
-                console.log(response.data);
+                // console.log(response.data);
                 openLink(); // 링크 열기
             }
             else{
-                console.log(response.data);
+                // console.log(response.data);
                 console.log('▶오류'+response.data.code+'\n'+response.data.message);
                 alert(response.data.message);
                 openLink(); //링크열기
@@ -223,6 +223,36 @@ function JobDetail(){
     // 전화 걸기 기능
     const callPhone = (phone) => {
         window.location.href = `tel:${phone}`;
+        
+        const url = `https://arthurcha.shop/app/jobApply`
+        // console.log('get하자');
+        // 토큰 받아오기
+        const userToken = localStorage.getItem('accessToken');
+
+        axios.post(url, 
+            {
+                "jobEduId" : job_edu_id,
+            },    
+            {
+                headers : {
+                'Authorization': `Bearer ${userToken}`, //토큰추가
+                },
+                
+            })
+        .then( (response) => { //성공시
+            if (response.data['isSuccess']){
+                alert("지원이 완료되었습니다.");
+                set_apply_state(1); // 지원내역 상태변경
+
+            }
+            else{
+                // console.log(response.data);
+                console.log('▶오류'+response.data.code+'\n'+response.data.message);
+            }
+        } )
+        .catch((error)=>{
+            console.error('Error fetching data:', error);
+        });
     };
 
     // --------휴대번호에 따른 전화번호 모양 띄우기 기능----------------//
@@ -249,7 +279,7 @@ function JobDetail(){
     //--------------지원하기 버튼 클릭 시 기능----------------//
 
     const openLink = () => {
-        console.log('지원하기 클릭');
+        // console.log('지원하기 클릭');
         window.open(url, '_blank');
         // 여기에 이동하고자 하는 URL을 넣어주세요.
         // 이미 지원했다면(state:true)
@@ -321,6 +351,7 @@ function JobDetail(){
                 <button className={`btn_apply ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => {
                     if (localStorage.getItem('accessToken')){ //만약, 로그인 되어 있다면 백엔드 호출
                         ApplyToBackend();
+                        
                     }
                     else{ openLink(); //로그인 아니면, 그냥 open Link
                     }
