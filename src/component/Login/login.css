@@ -125,6 +125,7 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
   margin: 0 auto;
   margin-top: 30px;
   display:block;
+  cursor:pointer;
   
   }
   
@@ -139,6 +140,7 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
   box-sizing: border-box;
   font-weight: 800;
   color: rgba(217, 217, 217, 1);
+  cursor: pointer;
   }
   
   .bar{
@@ -155,6 +157,7 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
   box-sizing: border-box;
   font-weight: 800;
   color: rgba(217, 217, 217, 1);
+  cursor: pointer;
   }
   
   .SignUp{
@@ -163,7 +166,7 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
   box-sizing: border-box;
   font-weight: 800;
   color: rgba(91, 142, 49, 1);
-  
+  cursor: pointer;
   }
 
   .errorMessage{
