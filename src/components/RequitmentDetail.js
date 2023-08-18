@@ -80,7 +80,7 @@ function RequitmentDetail(){
         axios.get(url)
         .then( (response) => { //성공시
             
-            console.log(response.data);
+            // console.log(response.data);
             if (response.data['isSuccess']){
                 const dataFromBackend = {
                     recruitment : (response.data['result']['active_status'] == 1 ? '모집중' : '모집완료'), // 모집중, 모집완료
@@ -137,20 +137,20 @@ function RequitmentDetail(){
         })
         .then( (response) => { // 서버연결 성공시
             if (response.data['isSuccess']){
-                console.log(response.data);
+                // console.log(response.data);
                 // 이미 지원함
                 if (response.data.result === true){
-                    console.log("이미 지원함");
+                    console.log("이미 지원 완료했습니다.");
                     set_apply_state(1); // 지원내역 상태변경
                 }
                 else{
-                    console.log("지원하지 않았음");
+                    console.log("지원하지 않았습니다.");
                     set_apply_state(0);
                 }
                 
             }
             else{
-                console.log(response.data);
+                // console.log(response.data);
                 console.log('▶isSuccess오류'+'\n'+response.data.message);
             }
         } )
@@ -161,7 +161,7 @@ function RequitmentDetail(){
     }
 
     useEffect(()=>{
-        console.log("맨 처음 렌더링 될때 한 번만 실행 : 지원상태 업데이트");
+        // console.log("맨 처음 렌더링 될때 한 번만 실행 : 지원상태 업데이트");
         StartApplyToUpdate();
     },[]);
 
@@ -187,14 +187,14 @@ function RequitmentDetail(){
         .then( (response) => { //성공시
             if (response.data['isSuccess']){
                 alert("지원이 완료되었습니다.");
-                console.log("post 성공, ID: "+ jobPostingId);
-                console.log(apply_state);
-                console.log(response.data);
+                // console.log("post 성공, ID: "+ jobPostingId);
+                // console.log(apply_state);
+                // console.log(response.data);
                 set_apply_state(1); //지원상태 : 1
                 openLink();
             }
             else{
-                console.log(response.data);
+                // console.log(response.data);
                 console.log('▶오류'+response.data.code+'\n'+response.data.message);
                 alert(response.data.message);
                 openLink();
@@ -213,6 +213,38 @@ function RequitmentDetail(){
     // 전화 걸기 기능
     const callPhone = (phone) => {
         window.location.href = `tel:${phone}`;
+        const url = `https://arthurcha.shop/app/jobApply`
+        // console.log('get하자');
+        // 토큰 받아오기
+        const userToken = localStorage.getItem('accessToken');
+
+        axios.post(url, 
+            {
+                'jobPostingId' : jobPostingId,
+            },    
+            {
+                headers : {
+                'Authorization': `Bearer ${userToken}`, //토큰추가
+                },
+                
+            })
+        .then( (response) => { //성공시
+            if (response.data['isSuccess']){
+                alert("지원이 완료되었습니다.");
+                set_apply_state(1); //지원상태 : 1
+            }
+            else{
+                // console.log(response.data);
+                console.log('▶오류'+response.data.code+'\n'+response.data.message);
+                alert(response.data.message);
+            }
+        } )
+        .catch((error)=>{
+            console.error('Error fetching data:', error);
+        });
+
+        
+
     };
 
 
@@ -239,7 +271,7 @@ function RequitmentDetail(){
 
 
     const openLink = () => {
-        console.log('지원하기 클릭');
+        // console.log('지원하기 클릭');
         window.open(url, '_blank');
         // 여기에 이동하고자 하는 URL을 넣어주세요.
         // 이미 지원했다면(state:true)
@@ -305,7 +337,7 @@ function RequitmentDetail(){
             </section>
             <section className='footer_detail'> 
                 {/* 전화 걸기 */}
-                <button className={`btn_call ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => callPhone(phone)}>
+                <button className={`btn_call ${btn_apply_state === 0 ? '' : 'no_call'}`} onClick={() => {callPhone(phone); }}>
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12.3937 8.72661L9.809 10.5814C10.1483 11.5175 10.6257 12.4179 11.231 13.2637C11.8611 14.1036 12.6191 14.8778 13.4876 15.5684L16.8349 14.7435C18.7101 14.2811 20.7572 14.756 22.0043 15.9434L23.9107 17.7582C24.6826 18.4868 25.0696 19.427 24.9897 20.3799C24.9098 21.3327 24.3692 22.2232 23.4826 22.8627C20.3728 25.1325 15.5847 25.8999 11.9999 23.6476C8.84928 21.6635 6.18349 19.2313 4.13642 16.4734C2.08486 13.7284 0.711882 10.6936 0.0921691 7.53422C-0.595416 3.97957 2.65811 1.13485 6.71487 0.164943C9.13391 -0.415 11.7155 0.579903 12.6031 2.43472L13.6501 4.62201C14.3377 6.06187 13.8439 7.68671 12.3937 8.72661Z" fill="#5B8E31"/>
                         </svg>    
