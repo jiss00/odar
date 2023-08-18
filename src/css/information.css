@@ -337,11 +337,16 @@
   }
 }
 .scroll-container {
-  padding-top: 5px;
-  max-height: 37px; /* 스크롤 컨테이너의 최대 높이 */
-  overflow-y: auto; /* 세로 스크롤바 표시 여부 결정 */
-}
 
+  max-height: 35px; /* 스크롤 컨테이너의 최대 높이 */
+  overflow-y: auto; /* 세로 스크롤바 표시 여부 결정 */
+  @media screen and (min-width: 1024px){
+    padding-top: 4px;
+    }
+}
+.scroll-container::-webkit-scrollbar {
+  display: none; /* 스크롤바 숨김 */
+}
 /* 스크롤바의 모양 */
 .detail_text::-webkit-scrollbar {
   width: 8px; /* 스크롤바의 너비 */
@@ -350,11 +355,13 @@
 /* 스크롤바의 track */
 .detail_text::-webkit-scrollbar-track {
   background: #f1f1f1;
+
 }
 
 /* 스크롤바의 thumb */
 .detail_text::-webkit-scrollbar-thumb {
   background: #888;
+
 }
 
 /* 스크롤바 위에 커서를 올렸을 때 thumb의 모양 */
