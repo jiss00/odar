@@ -296,7 +296,7 @@
   /* 아이디 찾기 바디 */
   .body{
 
-    width: 440px;
+    width: 450px;
     height: 400px;
     margin-top:40px;
 
@@ -319,7 +319,21 @@
     width: 350px;
 
   }
-  
+
+  .btn_all {
+    width:80px;
+    height:50px;
+    font-size:22px;
+    white-space: nowrap;
+  }
+/* 인증, 완료 성공 버튼 */
+  .btn_all_yes{
+    width:80px;
+    height:50px;
+    font-size:22px;
+    white-space: nowrap;
+    
+  }
 
 
 
