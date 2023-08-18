@@ -52,8 +52,8 @@ const Div = styled.div`
       return '430px';
     }
   }};
-    top : 970px;
-
+    top : 960px;
+    padding-bottom:30px;
   }
 `;
 function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, setSearchPage, setPage, totalSearchPages }) {
@@ -158,6 +158,7 @@ function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, 
       <div onClick={onPrevClick}>{'<'}</div>
       {renderPageNumbers()}
       <div onClick={onNextClick}>{'>'}</div>
+      
     </Div>
   );
 }
