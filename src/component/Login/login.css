@@ -3,6 +3,12 @@
   justify-content: center; /* 가로 축 가운데 정렬 */
   align-items: center; /* 세로 축 가운데 정렬 */
 }
+
+.Loginitem_exit {
+  top: 170px;
+  right: 40px;
+}
+
 .statebar {
   position: absolute;
   display: flex;
@@ -162,12 +168,20 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
     color: red;
     margin-left:5px;
   }
+  .Logindiv{
+    position: absolute;
+  }
 
   @media (min-width: 1024px) {
     .page {
       display: flex;
       justify-content: center; /* 가로 축 가운데 정렬 */
       align-items: center; /* 세로 축 가운데 정렬 */
+    }
+
+    .Loginitem_exit {
+      top: 140px;
+      right: 400px;
     }
 
     .statebar{
@@ -300,5 +314,10 @@ input.input:not(:placeholder-shown) ~ .sign .statebar .statebar_inner {
       margin-bottom: 10px;
       font-size: 20px;
       
+    }
+    .Logindiv{
+      top: 800px;
+      width: 300px;
+      height: 48px;
     }
   }

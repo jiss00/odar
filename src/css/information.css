@@ -331,3 +331,9 @@
     top : 100px;
   }
 }
+
+.main_div{
+  @media screen and (min-width: 1024px){
+  height: 500px;
+  }
+}
