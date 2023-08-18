@@ -33,6 +33,7 @@ function FindingID() {
   // 버튼_인증_완료
   const [btn_all_state, set_btn_all_state] = useState(0);
 
+  //(작은) 완료 클릭 후 인증이 완료 된지 안된지 결과.
   const [btn_success_state, set_btn_success_state] = useState(false);
 
   const [modal, setModal] = useState(false); // 상태를 만듬.
@@ -47,7 +48,9 @@ function FindingID() {
   // ------------------api 변수------------------//
   const [email, setemail] = useState(''); //이메일
 
-
+//  //----------------------timer변수-------------------------------//
+  // 타이머 보이게 안보이게
+  const [timerModal, setTimerModal] = useState(false); //visible
 
   // 모달 글자
   const Modal = function ({ text }) {
@@ -60,7 +63,11 @@ function FindingID() {
   }
 
   const checkModal = function () {
+    // (작은) 인증 완료된지 여부 false
+    set_btn_success_state(false);
+
     setTime(180);
+    setTimerModal(true);
     setModal(true);
     set_modal_text('해당 번호로 인증번호가 전송되었습니다!');
 
@@ -107,8 +114,24 @@ function FindingID() {
   }
   // Timer 컴포넌트에서 사용할 상태
   const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
-  const Timer = ({ time }) => {
 
+  
+  // 만약 인증 완료 됐으면, 시간 안보이게하고 시계도 초 9999999로 변경
+  const IsTimerVisible = () => {
+    // 만약 인증이 됐다면,
+    if(btn_success_state){
+      setTimerModal(false); //타이머 숨기기
+      setTime(99999); //남은 시간 오래 잡기
+    }else{
+      setTimerModal(true);
+      // (작은)완료 버튼 false이면,
+    }
+  }
+
+  useEffect(()=>{ IsTimerVisible();}, [btn_success_state]);
+
+  const Timer = ({ time }) => {
+  
     // Timer 컴포넌트에서 사용할 함수
     const handleTimerEnd = () => {
       console.log("타이머종료");
@@ -124,8 +147,11 @@ function FindingID() {
         clearInterval(timer);
         handleTimerEnd();
         alert('시간경과');
+        setTimerModal(false);
         setModal(false);
       }
+    
+    
       return () => clearInterval(timer);
     }, [time]);
     return (
@@ -191,13 +217,14 @@ function FindingID() {
 
 
     console.log('id post하자');
-    console.log(phone_number_state)
+    console.log(phone_number_state);
     axios.post(url, phoneData )
     .then( (response) => {
         console.log(response);
         console.log(response.data.isSuccess);
         if (response.data.isSuccess === true){
           console.log('isSuccess 성공');
+          // 인증성공!
           if(response.data.code == 200){
             console.log('isSuccess 200 성공');
             console.log('id:'+response.data.result.email);
@@ -287,7 +314,8 @@ useEffect(() => {
         <section className='input_section2'>
           <span>
             <input onChange={saveCertificationNumber} className="input_all" type="text" id="certification_number" placeholder="000000" maxLength={6} ></input>
-            {modal === true ? <Timer time={time}></Timer> : <></>}
+            {(modal === true && timerModal=== true) ? <Timer time={time}></Timer> : <></>}
+            
           </span>
 
           

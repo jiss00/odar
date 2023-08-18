@@ -49,6 +49,11 @@ function FindingPass(props){
 
   // --------------------------인증번호--------------------------------------//
 
+  //  //----------------------timer변수-------------------------------//
+  // 타이머 보이게 안보이게
+  const [timerModal, setTimerModal] = useState(false); //visible
+
+
 // 인증번호 입력 받기
   const saveCertificationNumber = event => {
     set_certification_number(event.target.value);
@@ -77,6 +82,7 @@ function FindingPass(props){
     if (certification_code === certification_number_state) {
       // console.log("인증성공!");
       setModal(true);
+      setTimerModal(false); //타이머 안보이게하기
       set_modal_text(`인증이 완료되었습니다!🎉\n 새 비밀번호를 입력해주세요.`);
       // console.log("제일 밑 완료활성화, 인증번호 맞음/  현재 state %d", btn_all_state);
       // 비밀번호, 새 비밀번호 보이게 하기
@@ -166,7 +172,7 @@ function FindingPass(props){
   const checkModal = () =>{
     const phoneData =  { "email" : email  };
     const url = `https://arthurcha.shop/app/users/check-email`;
-
+    
 
     console.log('id post하자');
     axios.post(url, phoneData )
@@ -179,6 +185,7 @@ function FindingPass(props){
             // console.log('200번대 성공');
             setValidEmail(true);//인증완료시 버튼 33%채워짐.
             setModal(true); //모달 보이게하기
+            setTimerModal(true); //타이머 보이게하기
             setIsCheckModal(true); //인증보내기 성공으로 상태 변경.!!
             set_certification_code(response.data.result.code);
             set_modal_text('인증번호가 발송되었습니다. \n이메일을 확인해주세요.');
@@ -187,6 +194,7 @@ function FindingPass(props){
           console.log('▶[오류] 코드:'+response.data.code+'\n'+response.data.message);
           setValidEmail(false);//인증완료시 버튼 33%채워짐.
           setModal(true); //모달 보이게하기
+          setTimerModal(false); //타이머 보이게하기
           set_modal_text('아이디를 다시 확인해주세요.');
           setIsCheckModal(false); // 인증번호보내기 실패
           }
@@ -196,6 +204,7 @@ function FindingPass(props){
           setValidEmail(false);//인증완료시 버튼 33%채워짐.
           setModal(true); //모달 보이게하기
           set_modal_text('아이디를 다시 확인해주세요.');
+          setTimerModal(false); //타이머 보이게하기
           setIsCheckModal(false); // 인증번호보내기 실패
         }
         // setJopDetail(response.recruitment, response.title, response.money, response.time, response.introduction);
@@ -204,6 +213,7 @@ function FindingPass(props){
       console.error('▶서버오류'+ error);
       setValidEmail(false);//인증완료시 버튼 33%채워짐.
       setModal(true); //모달 보이게하기
+      setTimerModal(false); //타이머 보이게하기
       set_modal_text('아이디를 다시 확인해주세요.');
       setIsCheckModal(false); // 인증번호보내기 실패
         // console.log(); // 에러 출력
@@ -262,6 +272,8 @@ function FindingPass(props){
   }
   // Timer 컴포넌트에서 사용할 상태
   const [time, setTime] = useState(180); // 남은 시간 (단위: 초)
+
+
   const Timer = ({ time }) => {
 
     // Timer 컴포넌트에서 사용할 함수
@@ -273,18 +285,20 @@ function FindingPass(props){
     };
     useEffect(() => {
       setModal(true);
+      setTimerModal(true);
       const timer = setInterval(() => {
         setTime((prev) => prev - 1);
       }, 1000);
-      /*
-      if (time === 0) {
+      
+      if (time === 0 ) {
         clearInterval(timer);
         handleTimerEnd();
         alert('시간경과');
         setModal(false);
+        setTimerModal(false);
         set_body_pass_visibility("hidden"); //숨기기
       }
-    */
+    
       return () => clearInterval(timer);
     }, [time]);
     return (
@@ -315,13 +329,13 @@ function FindingPass(props){
         <section className='input_section1_pass'>
           <input className="id_input_pass" onChange={handleInputChange} type="text" id="" placeholder="oooo@oooo" ></input>
           <button className= {validEmail === false ? "btn_all_pass" : "btn_all_pass_yes"} disabled ={!validEmail} type="submit"  onClick={() => { 
-            setTime(180); set_body_pass_visibility("hidden"); set_modal_text('id가 유효한지 확인중입니다...'); setModal(true); checkModal(); }} >인증</button>
+            setTime(180); set_body_pass_visibility("hidden"); set_modal_text('id가 유효한지 확인중입니다...'); setModal(true); setTimerModal(true); checkModal(); }} >인증</button>
         </section>
         {/* {}를 쓰면 js 코드 쓸 수 있다. */}
         {/* 인증버튼. */}
         <section className='input_section2_pass'>
           <input onChange={saveCertificationNumber} className="id_input_pass" type="text"  placeholder="000000" maxLength={6} ></input>
-          {modal === true ? <Timer time={time}></Timer> : <></>}
+          {timerModal === true ? <Timer time={time}></Timer> : <></>}
           <button disabled={ !btn_yes || !isCheckModal} onClick={() => {BtnSuccess(); } } className={ btn_yes && isCheckModal? 'btn_all_pass_yes' : 'btn_all_pass'} type="submit">완료</button>
         </section>
         {modal === true ? <Modal></Modal> : <></>}
@@ -338,7 +352,7 @@ function FindingPass(props){
     
 
       <button 
-          disabled={validEmail && validPassword && validPasswordCheck ? false : true}
+          disabled={ validEmail && validPassword && validPasswordCheck ? false : true}
           className="btn_all_pass"
           id="btn_success_pass"
           style={{
