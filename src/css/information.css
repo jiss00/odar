@@ -44,10 +44,8 @@
   place-items: center;
   position: absolute;
   left:50%;
-  transform: translate( -50%);
-  @media screen and (min-width: 1024px){
-    margin-top:60px;
-    }
+  transform: translate( -50%,-4%);
+  
 }
 .main_alarm{
   display: grid;
@@ -84,6 +82,7 @@
   font-size: 15px;
   display: flex;
   justify-content: center;
+  
   @media screen and (min-width: 1024px){
   font-size:18px;
   }
@@ -336,4 +335,28 @@
   @media screen and (min-width: 1024px){
   height: 500px;
   }
+}
+.scroll-container {
+  max-height: 37px; /* 스크롤 컨테이너의 최대 높이 */
+  overflow-y: auto; /* 세로 스크롤바 표시 여부 결정 */
+}
+
+/* 스크롤바의 모양 */
+.detail_text::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+/* 스크롤바의 track */
+.detail_text::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* 스크롤바의 thumb */
+.detail_text::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* 스크롤바 위에 커서를 올렸을 때 thumb의 모양 */
+.detail_text::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

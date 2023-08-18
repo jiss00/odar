@@ -1,4 +1,11 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@font-face {
+    font-family: 'Pretendard';
+    src:url('../fonts/Pretendard-Regular.otf') format('otf'),
+        url('../fonts/Pretendard-Regular.woff2') format('woff2'),
+        url('../fonts/Pretendard-Regular.ttf') format('ttf');
+    /* 이런식으로 weight를 지정해서 사용할 수도 있다!
+    font-weight: 400; */
+} 
 
 /* 스크롤바 스타일 설정 */
 /* 모든 브라우저에서 스크롤바를 배경에 보이지 않게 설정 */

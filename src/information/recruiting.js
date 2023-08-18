@@ -40,9 +40,9 @@ function Recruiting(props){
   z-index:1;
   @media screen and (min-width: 1024px) {
     height : 40px;
-    padding-top : 7px;
+    padding-top : 8px;
     font-size: 17px;
-    padding-left:10px;
+    padding-left:9px;
 
   }
 `

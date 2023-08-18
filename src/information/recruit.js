@@ -242,7 +242,7 @@ function Recruit() {
   }
   return (
     <div>
-      <Top text='채용정보'></Top>
+      <Top text='채용 정보'></Top>
       {dataList.length === 0 ? (
         <></>) :
         (<div>
