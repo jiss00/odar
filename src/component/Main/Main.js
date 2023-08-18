@@ -20,6 +20,7 @@ export default function Main(){
                 <div className='titleWrap'>오다르</div>
                 <div className="main_employment" onClick={goToRecruit}>채용 정보</div>
                 <div className="main_Recruitment" onClick={goToEmployment}>취업 지원</div>
+                <div className="main_div"></div>
             </div>
             <MainTop></MainTop>
         </div>

@@ -51,6 +51,11 @@
     font-weight: 800;
     text-align: center;
     cursor: pointer;
+    
+}
+
+.main_div{
+    margin-top: 1px;
 }
 
 @media (min-width: 1024px) {
@@ -78,4 +83,11 @@
         top: 583px;
         font-size: 36px;
     }
+    .main_div{
+        position: absolute;
+        top: 850px;
+        width: 300px;
+        height: 48px;
+    }
+
 }
