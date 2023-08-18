@@ -186,7 +186,7 @@ useEffect(() => {
   ];
   return (
     <div>
-      <Top text='취업지원'></Top>
+      <Top text='취업 지원'></Top>
       {dataList.length === 0 ? (
         <></>) :
         (<div>
