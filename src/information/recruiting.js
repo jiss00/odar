@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 function Recruiting(props){
   const ContentDiv =styled.div`
+  font-family: "Pretendard";
   box-sizing: border-box;
   border-radius: 10px;
   border : solid #D9D9D9 1px;
@@ -23,6 +24,7 @@ function Recruiting(props){
   }
   `
   const TitleDiv = styled.div`
+  font-family: "Pretendard";
   box-sizing: border-box;
   border-radius: 10px;
   border : solid #D9D9D9 1px;
