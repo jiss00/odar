@@ -110,7 +110,7 @@ export default function Login() {
                     {errorMessage && <div className="errorMessage">{errorMessage}</div>}
                 </div>
                 <div>
-                    <button className='bottomButton' style={{ background: username && password ? '#5B8E31' :  '#A2C08A' }} disabled={isButtonDisabled} onClick={goToHome}>
+                    <button className='bottomButton' style={{ background: username && password ? '#5B8E31' :  '#A2C08A', color: username && password ? 'black' : '#5C5C5C' }} disabled={isButtonDisabled} onClick={goToHome}>
                         로그인
                     </button>
                 </div>
