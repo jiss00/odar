@@ -18,7 +18,7 @@ function Sort(props){
   padding-left:10px;
   @media screen and (min-width: 1024px){
     font-size:18px;
-    padding-top:5px;
+    padding-top:7px;
     width : 104px;
     height : 40px; 
   } 

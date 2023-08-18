@@ -123,8 +123,8 @@ const Styledtime = styled.div`
   top:10px;
   left:2px;
 
-  /* Add styles for the input element */
-  input {
+
+  input{
     left:2px;
     font-family: 'Pretendard';
     position: absolute;
@@ -134,7 +134,7 @@ const Styledtime = styled.div`
     outline: none;
     border-radius: 20px;
     font-size: 17px;
-    text-indent: 1em;
+    text-indent: 0.8em;
     color: #5B8E31;
   }
 
@@ -151,7 +151,7 @@ const Styledtime = styled.div`
 
       input {
         font-size: 20px;
-        text-indent: 4em;
+        text-indent: 3.5em;
       }
     }
 `;
@@ -226,6 +226,19 @@ const TimeWrapper = styled.div`
 const TimeInput = styled.input`
     width: 80%; 
     height: 80%;
+
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Other browsers */
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+
+    @media all and (min-width: 1024px) {
+
+    }
 `
 
   // 희망시간

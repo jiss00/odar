@@ -59,7 +59,7 @@ const Texts3 = styled.span`
     line-height: 16.8px;
     color: #000000;
     top: 6px;
-    left:170px;
+    left:123px;
     margin-right:auto;
     white-space:nowrap;
     overflow-x: auto;

@@ -62,6 +62,10 @@ export default function Login() {
         Navigate("/join");
     };
 
+    const goMain = () => {
+        Navigate('/');
+    }
+
     const isButtonDisabled = !(username && password);
 
     return (
@@ -69,6 +73,10 @@ export default function Login() {
             <div className='statebar'>
                 <span className='statebar_inner' style={{ width: username && password ? '100%' : username || password ? '50%' : '0' }}></span>
             </div>
+
+            <div onClick = {goMain} className = "Loginitem_exit"> 
+                </div>
+
             <div className='titleWrap_login'>
                 오다르
             </div>
@@ -112,6 +120,7 @@ export default function Login() {
                     <div className='SignUp' onClick={goToJoin}>회원가입</div>
                 </div>
             </div>
+            <div className='Logindiv'></div>
         </div>
     );
 }

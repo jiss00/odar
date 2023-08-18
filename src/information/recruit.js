@@ -297,7 +297,7 @@ function Recruit() {
           </div>
         </div>)}
       <Footer setRecruitPage={setRecruitPage} totalpage={totalpage} setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
-
+      <div className="main_div"></div>
     </div>
   )
 }
