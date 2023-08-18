@@ -4,8 +4,8 @@ const StyledTexts = styled.span`
     display: flex;
     box-sizing: border-box;
     position: relative; 
-    font-family: 'Pretendard'; /* 폰트를 Pretendard로 설정 */
-    font-weight: 600;
+    font-family: 'Pretendard';
+    font-weight: 400;
     line-height: 16.8px;
     color: #000000;
     white-space: pre-line;
@@ -39,17 +39,21 @@ const StyledTexts = styled.span`
   height: 57px;
   margin-right:auto;
   margin-left:auto;
-  top:-410px;
   left:0px;
-  font-size:16px;
+  font-size:20px;
+  line-height: 24px; 
+  top: ${props => (props.inquiry ? "-420px" : "-350px")}; /* Different values based on inquiry prop */
+  left: 0px;
+  font-size: 20px;
+
   }
 
         
 `;
 
-function Texts({fontsize,width, height, top, left, children}) {
+function Texts({fontsize,width, height, top, left, inquiry, children}) {
     return (
-        <StyledTexts fontsize={fontsize} width={width} height={height} top={top} left={left}>
+        <StyledTexts fontsize={fontsize} width={width} height={height} top={top} left={left} inquiry={inquiry}>
             {children}
         </StyledTexts>
     );
