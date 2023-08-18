@@ -317,10 +317,13 @@
 /* ----------------------------------------------------반응형 웹-------------------------------------------------- */
 /* 모니터 기준 */
 @media (min-width: 1024px) {
+
+/* 전체 화면 */
+
     /* 탑바 */
     .top_{
-        height: 250px;
-        min-height: 250px;
+        height: 220px;
+        min-height: 220px;
     }
 
 
@@ -409,7 +412,7 @@
         /* 원래 스타일은 유지하고 위에 추가된 스타일만 적용하도록 하기 위해 !important 사용 */
        
         height: 430px;
-        min-height: 430px;
+        min-height: 380px;
         padding: 40px 25px;
         margin-bottom: 20px;
 
@@ -424,9 +427,13 @@
 
     /* --------------전확 모양, 지원하기-------------- */
     .footer_detail{
+        box-sizing: border-box;
         width: 1008px;
-        height: 60px;
+        padding-bottom: 30px;
+        min-height: 100px;
         display: flex;
+        margin-bottom : 50px;
+
 
 
     }
