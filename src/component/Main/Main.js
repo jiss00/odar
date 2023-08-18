@@ -1,17 +1,42 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import './main.css';
 import MainTop from "../../information/MainTop"
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Main(){
     const Navigate = useNavigate();
+    
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const userToken = localStorage.getItem('accessToken');
+
+    useEffect(() => {
+    
+        if (userToken) {
+            setLoggedIn(true);
+        } else {
+            setLoggedIn(false);
+        }
+    }, []);
 
     const goToRecruit = () => {
-        Navigate("/recruit")
+        if (loggedIn){
+            Navigate("/recruit");
+        }
+        else{
+            Navigate("/recruit");
+            alert("로그인을 하셔야 지원하기에 추가가 가능합니다.");
+        }  
     }
 
     const goToEmployment = () => {
-        Navigate("/employment")
+        if (loggedIn){
+            Navigate("/employment");
+        }
+        else {
+            Navigate("/recruit");
+            alert("로그인을 하셔야 지원하기에 추가가 가능합니다.");
+        }
     }
 
     return(
