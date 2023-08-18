@@ -6,6 +6,7 @@ function Auth({verification,complete,...props}){
   width: 80px;
   height: 50px;
   cursor: pointer;
+  color:black;
   font-size: 21px;
   font-weight: 1000;
   color:black;
