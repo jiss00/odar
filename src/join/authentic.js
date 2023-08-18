@@ -3,11 +3,11 @@ import { useState } from 'react';
 function Auth({verification,complete,...props}){
   const Auth =styled.button`
   box-sizing: border-box;
-  width: 70px;
+  width: 80px;
   height: 50px;
   cursor: pointer;
-  font-size: 22px;
-  font-weight: 800;
+  font-size: 21px;
+  font-weight: 1000;
   background-color: #A2C08A;
   border-radius: 15px;
   text-align: center;
