@@ -123,8 +123,11 @@ const Styledtime = styled.div`
   top:10px;
   left:2px;
 
-  /* Add styles for the input element */
-  input {
+
+  input{
+    -moz-appearance: textfield;
+    appearance: textfield;
+
     left:2px;
     font-family: 'Pretendard';
     position: absolute;
@@ -226,6 +229,19 @@ const TimeWrapper = styled.div`
 const TimeInput = styled.input`
     width: 80%; 
     height: 80%;
+
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Other browsers */
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        appearance: none;
+        margin: 0;
+    }
+
+    @media all and (min-width: 1024px) {
+
+    }
 `
 
   // 희망시간
