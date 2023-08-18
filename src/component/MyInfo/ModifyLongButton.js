@@ -125,9 +125,6 @@ const Styledtime = styled.div`
 
 
   input{
-    -moz-appearance: textfield;
-    appearance: textfield;
-
     left:2px;
     font-family: 'Pretendard';
     position: absolute;
@@ -137,7 +134,7 @@ const Styledtime = styled.div`
     outline: none;
     border-radius: 20px;
     font-size: 17px;
-    text-indent: 1em;
+    text-indent: 0.8em;
     color: #5B8E31;
   }
 
@@ -154,7 +151,7 @@ const Styledtime = styled.div`
 
       input {
         font-size: 20px;
-        text-indent: 4em;
+        text-indent: 3.5em;
       }
     }
 `;
