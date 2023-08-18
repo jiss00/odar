@@ -41,7 +41,6 @@ function Top(props) {
             alert("로그아웃 되었습니다.");
             goToHome();
         } else {
-            alert("로그인 후 이용가능한 서비스입니다.");
             goToLogin();
         }
     };

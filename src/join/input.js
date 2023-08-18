@@ -37,14 +37,20 @@ function validateName(name) {
 }
 
 {/*년도는 숫자로만 이루어져있으며 4글자여야함. */}
-function validateBirth1(birth) {
+function validateBirthYear(birth) {
   const regex = /^[0-9]{4}$/;
   return regex.test(birth);
 }
 
-{/*월과 일은 숫자로만 이루어져있으며 2글자여야함. */}
-function validateBirth(birth) {
-  const regex = /^[0-9]{2}$/;
+{/*월은 1~12여야함. */}
+function validateBirthMonth(birth) {
+  const regex =  /^(0?[1-9]|1[0-2])$/; 
+  return regex.test(birth);
+}
+
+{/*일은 1~31여야함. */}
+function validateBirthDay(birth) {
+  const regex = /^(0?[1-9]|[12][0-9]|3[01])$/;
   return regex.test(birth);
 }
 
@@ -74,29 +80,43 @@ function Input(props) {
         isValid = validateName(inputValue);
         setIsValid(isValid);
         onChange(isValid,inputValue);
-
         break;
       case "handleBirthChange1":
-        isValid = validateBirth1(inputValue);
+        if(inputValue.length>4){
+          event.target.value = inputValue.substr(0,4);
+        }
+        isValid = validateBirthYear(inputValue);
         setIsValid(isValid);
         onChange(isValid,inputValue);
         break;
       case "handleBirthChange2":
-        isValid = validateBirth(inputValue);
+        if(inputValue.length>2){
+          event.target.value = inputValue.substr(0,2);
+        }
+        isValid = validateBirthMonth(inputValue);
         setIsValid(isValid);
         onChange(isValid,inputValue);
         break;
       case "handleBirthChange3":
-        isValid = validateBirth(inputValue);
+        if(inputValue.length>2){
+          event.target.value = inputValue.substr(0,2);
+        }
+        isValid = validateBirthDay(inputValue);
         setIsValid(isValid);
         onChange(isValid,inputValue);
         break;
       case "handleVerificationChange":
+        if(inputValue.length>13){
+          event.target.value = inputValue.substr(0,13);
+        }
         isValid = validatePhoneNumber(inputValue);
         setIsValid(isValid);
         onChange(isValid,inputValue);
         break;
       case "handleCompleteChange":
+        if(inputValue.length>6){
+          event.target.value = inputValue.substr(0,6);
+        }
         isValid = validateVerificationCode(inputValue);
         setIsValid(isValid);
         onChange(isValid,inputValue);
