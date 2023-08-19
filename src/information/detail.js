@@ -192,6 +192,7 @@ function Detail() {
             ></Bar>)
           )
       }
+      <div style={{height:'30px'}}></div>
       <div className='confirm'>
         <div className='confirm_text'>지원내역을 지우시겠습니까?</div>
         <div className='corfirm_grid'>
