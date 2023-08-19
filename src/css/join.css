@@ -73,10 +73,8 @@
   grid-template-columns: 250px 0px 70px;
   grid-gap: 10px;
   margin-top : 15px;
-  margin-left:auto;
-  margin-right:auto;
-  
   @media screen and (min-width: 1024px){
+  margin-left: 233px;
   width: 440px;
   display: grid;
   grid-template-columns: 350px 0px 70px;
@@ -92,7 +90,7 @@
   display: grid;
   grid-template-columns: 140px 34px 77px 34px 77px 34px;
   grid-gap: 10px;
-  margin-left:26%;
+  margin-left:235px;
   }
 }
 .name{
