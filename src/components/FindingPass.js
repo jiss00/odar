@@ -174,10 +174,10 @@ function FindingPass(props){
     const url = `https://arthurcha.shop/app/users/check-email`;
     
 
-    console.log('id post하자');
+    // console.log('id post하자');
     axios.post(url, phoneData )
     .then( (response) => {
-        console.log(response);
+        // console.log(response);
         // console.log(response.data.isSuccess);
         if (response.data.isSuccess === true){
           // console.log('isSuccess 성공');

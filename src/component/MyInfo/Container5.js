@@ -42,7 +42,7 @@ const StyledTexts = styled.span`
       height: 20px;
       margin-left:auto;
       margin-right:10px;
-      top:9px;
+      top:12px;
       left:-130px;
       font-size:20px;
       }  

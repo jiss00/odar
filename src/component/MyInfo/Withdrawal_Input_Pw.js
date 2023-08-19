@@ -29,7 +29,7 @@ const StyledInput = styled.input`
         width: 360px;
         height: 50px;
         margin: 0px auto;
-        top: -100px;
+        top: -130px;
         left:0px;
         }
       
@@ -47,7 +47,7 @@ const IconWrapper = styled.div`
     @media all and (min-width: 1024px){	
         position: relative; 
         margin: 0px auto;
-        top: -135px;
+        top: -167px;
         left:150px;
         }
 `;

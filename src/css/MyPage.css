@@ -115,7 +115,7 @@
 
 /* 이미지 */
 .item_image{
-    
+
     width: 90px;
     height: 90px;
     padding: 5px;
@@ -423,7 +423,7 @@
     }
     
     .body_2{
-        
+        min-height: 180px;
     }
 
     /* 가방, 희망 직종 */
