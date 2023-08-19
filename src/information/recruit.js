@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import { useNavigate } from 'react-router-dom'
 import Recruiting from './recruiting';
 import Complete from './complete';
@@ -180,7 +180,6 @@ function Recruit() {
     // 위치 권한을 지원하지 않는 브라우저
     console.log("이 브라우저는 위치 권한을 지원하지 않습니다.");
     setLocation(false);
-
   }
 
   const onclick = (e) => {
@@ -216,8 +215,11 @@ function Recruit() {
       setRecruitPage(1);
     }
     else if(index ===1){
+      if(localStorage.getItem('accessToken')===null){
+        alert('로그인 후, 내 내정보 수정에서 위치정보를 등록해주세요');
+      }
       if(location === false){
-        alert('위치정보를 등록해주세요.')
+        alert('내 정보 수정에서 위치정보를 등록해주세요.')
       }
       else{
         setStatus('distance');

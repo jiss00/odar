@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext,useContext } from "react";
 import styled,{css}  from "styled-components";
 import { sendLocationStatusToAPI } from './ModifyLongButton';
 import { sendRegionsToAPI } from './ModifyLongButton';
@@ -105,7 +105,6 @@ function AgreeButton({ top }) {
   const [region1, setRegion1] = useState('');
   const [region2, setRegion2] = useState('');
   const [region3, setRegion3] = useState('');
-
   const handleClick = () => {
     setClicked(!clicked);
     if (!clicked) {
