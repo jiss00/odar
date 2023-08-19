@@ -32,11 +32,11 @@
 .main1{
   position: absolute;
   left:50%;
-  transform: translate(-72%, -50%);
-  margin-top: 365px;
+  transform: translate( -71%,0);
+  top : 140px;
   @media screen and (min-width: 1024px){
-    margin-top: 465px;
-    transform: translate( -69%,-50%);
+    top : 340px;
+    transform: translate( -68%,0);
   }
 }
 .main_detail{
