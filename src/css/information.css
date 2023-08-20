@@ -23,7 +23,7 @@
   grid-template-columns : 72px  72px 72px  87px 40px;
   @media screen and (min-width: 1024px){
     transform: translate(-50%, -50%);
-    top : 300px;
+    top : 230px;
     grid-template-columns : 98px 98px 98px 540px 30px;
     grid-gap : 10px;
   }
@@ -35,7 +35,7 @@
   transform: translate( -71%,0);
   top : 140px;
   @media screen and (min-width: 1024px){
-    top : 340px;
+    top : 270px;
     transform: translate( -68%,0);
   }
 }

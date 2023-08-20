@@ -52,7 +52,7 @@ const Div = styled.div`
       return '430px';
     }
   }};
-    top : 960px;
+    top : 910px;
     padding-bottom:30px;
   }
 `;

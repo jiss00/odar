@@ -20,7 +20,7 @@ display: grid;
 grid-template-columns : 70px 70px 70px 70px 20px 40px;
 @media screen and (min-width: 1024px){
   transform: translate(-50%, -50%);
-  top : 300px;
+  top : 230px;
   grid-template-columns : 96px 96px 96px 96px 460px 30px;
   grid-gap : 5px;
 }
