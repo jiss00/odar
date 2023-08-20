@@ -319,11 +319,15 @@
 @media (min-width: 1024px) {
 
 /* 전체 화면 */
+/* 전체 화면 */
+    .screen_requitment_detail{
 
+        height: 100vh;
+    }
     /* 탑바 */
     .top_{
-        height: 220px;
-        min-height: 220px;
+        height: 100px;
+        min-height: 120px;
     }
 
 
@@ -363,7 +367,7 @@
 
     /* 선 */
     .body_1_hr_detail{
-        width: 980px;
+        width: 950px;
 
 
     }
@@ -412,7 +416,7 @@
         /* 원래 스타일은 유지하고 위에 추가된 스타일만 적용하도록 하기 위해 !important 사용 */
        
         height: 430px;
-        min-height: 380px;
+        min-height: 400px;
         padding: 40px 25px;
         margin-bottom: 20px;
 
@@ -429,10 +433,10 @@
     .footer_detail{
         box-sizing: border-box;
         width: 1008px;
-        padding-bottom: 30px;
-        min-height: 100px;
+        padding-bottom: 70px;
+        min-height: 140px;
         display: flex;
-        margin-bottom : 50px;
+        
 
 
 
