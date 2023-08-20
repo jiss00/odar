@@ -20,12 +20,12 @@
   margin:0 auto;
   top:115px;
   display: grid; 
-  grid-template-columns : 87px  87px  130px 40px;
+  grid-template-columns : 72px  72px 72px  87px 40px;
   @media screen and (min-width: 1024px){
     transform: translate(-50%, -50%);
     top : 300px;
-    grid-template-columns : 98px 98px 620px 30px;
-    grid-gap : 20px;
+    grid-template-columns : 98px 98px 98px 540px 30px;
+    grid-gap : 10px;
   }
 }
 
@@ -71,10 +71,7 @@
 .sort_1{
   width:98px;
   display: grid;
-  grid-template-columns: 62px 20px;
   @media screen and (min-width: 1024px){
-    grid-template-columns: 73px 25px;
-
     }
 }
 .footer_1{
@@ -367,4 +364,50 @@
 /* 스크롤바 위에 커서를 올렸을 때 thumb의 모양 */
 .detail_text::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+.option_1_none{
+  display:none
+}
+.option_1{
+  display: grid;
+  grid-template-columns: 150px 150px;
+  font-size: 26px;
+  font-weight: 550;
+  width: 300px;
+  height:100px;
+  background-color: white;
+  border-radius: 15px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top : 300px;
+  z-index: 1;
+  border-radius: 10px;
+  border : 1px solid #5B8E31;
+}
+
+.option_2{
+  width: 150px;
+  border-radius: 10px 0px 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #5B8E31;
+}
+
+.option_3{
+  width: 149px;
+  border-left: 1px solid #5B8E31;
+  border-radius: 0px 10px 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.option_2:hover{
+  background-color: #EDF1D5;
+  cursor: pointer;
+}
+.option_3:hover{
+  background-color: #EDF1D5;
+  cursor: pointer;
 }

@@ -51,7 +51,7 @@
   outline: none;
 
   @media screen and (min-width: 1024px){
-    width: 910px;
+    width: 905px;
     height: 40px;
     z-index: 2;
     }

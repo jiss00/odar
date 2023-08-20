@@ -54,10 +54,32 @@ function Employment() {
       fetchData();
     }
   }, [page, status]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+
+
+  //오래된 순 정렬
+  useEffect(() => {
+    if (status === 'employment_1') {
+      const fetchData = async () => {
+        try {
+          const url = 'https://arthurcha.shop/app/jobEdu';
+          const response = await axios.get(url, {
+            params: { page: 7 - page }, // 동적으로 변경되는 검색어
+          });
+          setDataList(response.data.result.result); // 데이터를 업데이트하여 다시 렌더링
+          setStatus('employment_1');
+          setTotalPage(response.data.result.totalPage);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+
+      fetchData();
+    }
+  }, [page, status]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
   //정렬 관련 기능들
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
-  const [distanceData,setDistanceData] = useState([]); //거리순 가까운 공고들 저장
+  const [distanceData, setDistanceData] = useState([]); //거리순 가까운 공고들 저장
   const renderDistance = distanceData.slice(0, renderCount);
 
   useEffect(() => {
@@ -92,23 +114,25 @@ function Employment() {
 
   //검색 결과 api
   useEffect(() => {
-    if(status === 'search'){
-    const search_infromation = async () => {
-      try {
-        const response = await axios.get('https://arthurcha.shop/app/jobEdu/search', {
-          params: {
-            keyword: inputValue,
-            page: searchPage
-          },
-        });
-        setSearchData(response.data.result.result);
-        setTotalPages(response.data.result.totalCount < 11 ? 1 : Math.ceil(response.data.result.totalCount / 11)); // 검색 결과에 따라 totalPages 업데이트
+    if (status === 'search') {
+      const search_infromation = async () => {
+        try {
+          const response = await axios.get('https://arthurcha.shop/app/jobEdu/search', {
+            params: {
+              keyword: inputValue,
+              page: searchPage
+            },
+          });
+          setSearchData(response.data.result.result);
+          setTotalPages(response.data.result.totalCount < 11 ? 1 : Math.ceil(response.data.result.totalCount / 11)); // 검색 결과에 따라 totalPages 업데이트
 
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    search_infromation();}
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      search_infromation();
+      setActiveSort(0);
+    }
   }, [inputValue, searchPage]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
 
   //검색한 정보들 가져오기
@@ -119,32 +143,32 @@ function Employment() {
   console.log(dataList);
 
 
-//거리순으로 가까운 공고들 불러오는 api
-useEffect(() => {
-  if (status === 'distance') {
-    const fetchData = async () => {
-      try {
-        const url = 'https://arthurcha.shop/app/jobPosting/region';
-        const response = await axios.get(url, {
-          params: {
-          },
-          // 동적으로 변경되는 검색어
-        });
-        setRecruitData(response.data.result);
-        console.log('모집중 결과 값:', response.data.result); // 데이터 확인
-        setStatus('distance');
-        setTotalPages(1);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
-  }
-}, [recruitPage, status]);
+  //거리순으로 가까운 공고들 불러오는 api
+  useEffect(() => {
+    if (status === 'distance') {
+      const fetchData = async () => {
+        try {
+          const url = 'https://arthurcha.shop/app/jobPosting/region';
+          const response = await axios.get(url, {
+            params: {
+            },
+            // 동적으로 변경되는 검색어
+          });
+          setRecruitData(response.data.result);
+          console.log('모집중 결과 값:', response.data.result); // 데이터 확인
+          setStatus('distance');
+          setTotalPages(1);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      };
+      fetchData();
+    }
+  }, [recruitPage, status]);
 
 
 
-  
+
   const onChange = (e) => {
     setChangeValue(e.target.value);
   }
@@ -160,6 +184,8 @@ useEffect(() => {
         setCurrent(1);
         setInputValue(chageValue);
         setStatus('search');
+        input[0].style.display = 'none';
+
       }
     }
     else {
@@ -169,10 +195,14 @@ useEffect(() => {
   const [activeSort, setActiveSort] = useState(0);
   const handleSortClick = (index) => {
     setActiveSort(index);
-    if (index === 1) {
+    if (index === 2) {
       setStatus('recruiting');
       setCurrent(1);
       setRecruitPage(1);
+    } else if (index === 1) {
+      setStatus('employment_1');
+      setCurrent(1);
+      setPage(1);
     }
     else if (index === 0) {
       setStatus('employment');
@@ -181,9 +211,17 @@ useEffect(() => {
     }
   };
   const sortItems = [
-    { text: '최근순', index: 0 },
-    { text: '모집현황', index: 1 }
+    { text: '최근 순', index: 0 },
+    { text: '오래된 순', index: 1 },
+    { text: '모집현황', index: 2 }
   ];
+
+  //input창 엔터기능 활성화
+  const mouse = (event) => {
+    if (event.keyCode === 13) {
+      onclick();
+    }
+  }
   return (
     <div>
       <Top text='취업 지원'></Top>
@@ -201,7 +239,7 @@ useEffect(() => {
               />
             ))}
             <div></div>
-            <Search onChange={onChange} onClick={onclick}></Search>
+            <Search onkeyup={mouse} onChange={onChange} onClick={onclick}></Search>
           </div>
           <div className="main1">
             {(() => {
@@ -214,7 +252,7 @@ useEffect(() => {
                   )
                 ));
               }
-              else if(status ==='distance'){
+              else if (status === 'distance') {
                 return renderDistance.map((data, index) => (
                   data.active_status === 1 ? (
                     <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
@@ -232,7 +270,7 @@ useEffect(() => {
                   data.active_status === 1 ? (
                     <Recruiting onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                   ) : (
-                    <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title}/>
+                    <Complete onClick={() => handleRecruitingClick(data.job_edu_id)} key={index} text={data.title} />
                   )
                 ));
               }

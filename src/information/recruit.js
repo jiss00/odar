@@ -1,4 +1,4 @@
-import { useEffect, useState,useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom'
 import Recruiting from './recruiting';
 import Complete from './complete';
@@ -10,19 +10,19 @@ import Top from './Top';
 import axios from 'axios';
 import styled from 'styled-components';
 
-const Sort1 =styled.div`
+const Sort1 = styled.div`
 position: absolute;
 left:50%;
 transform: translate(-48%, -50%);
 margin:0 auto;
 top:115px;
 display: grid; 
-grid-template-columns : 84px 84px 84px 50px 40px;
+grid-template-columns : 70px 70px 70px 70px 20px 40px;
 @media screen and (min-width: 1024px){
   transform: translate(-50%, -50%);
   top : 300px;
-  grid-template-columns : 98px 98px 98px 502px 30px;
-  grid-gap : 20px;
+  grid-template-columns : 96px 96px 96px 96px 460px 30px;
+  grid-gap : 5px;
 }
 `
 function Recruit() {
@@ -45,7 +45,7 @@ function Recruit() {
   const [totalSearchPages, setTotalPages] = useState(0);
   const [totalpage, setTotalPage] = useState();
 
-  //채용정보 api
+  //채용정보 api(최근순)
   useEffect(() => {
     if (status === 'recruit') {
 
@@ -68,12 +68,33 @@ function Recruit() {
     }
   }, [page, status]);
 
+//채용정보 api(마감순)
+useEffect(() => {
+  if (status === 'recruit_1') {
 
+    const fetchData = async () => {
+      try {
+        const url = 'https://arthurcha.shop/app/jobPosting';
+        const response = await axios.get(url, {
+          params: { page: 41-page },
+          // 동적으로 변경되는 검색어
+        });
+        setDataList(response.data.result.result);
+        console.log('dataList 결과 값:', response.data.result); // 데이터 확인
+        setStatus('recruit_1');
+        setTotalPage(response.data.result.totalPage);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }
+}, [page, status]);
   //정렬 관련 기능들
   const [number, setNumber] = useState();
   const [recruitData, setRecruitData] = useState([]);
   const [recruitPage, setRecruitPage] = useState('1'); //채용정보 footbar 페이지
-  const [distanceData,setDistanceData] = useState([]); //거리순 가까운 공고들 저장
+  const [distanceData, setDistanceData] = useState([]); //거리순 가까운 공고들 저장
 
   //모집중인 api 호출
   useEffect(() => {
@@ -106,22 +127,24 @@ function Recruit() {
   //검색 결과 api
   useEffect(() => {
     if (status === 'search') {
-    const search_infromation = async () => {
-      try {
-        const response = await axios.get('https://arthurcha.shop/app/jobPosting/search', {
-          params: {
-            keyword: inputValue,
-            page: searchPage
-          },
-        });
-        setSearchData(response.data.result.result);
-        setTotalPages(response.data.result.totalCount < 11 ? 1 : Math.ceil(response.data.result.totalCount / 11)); // 검색 결과에 따라 totalPages 업데이트
+      const search_infromation = async () => {
+        try {
+          const response = await axios.get('https://arthurcha.shop/app/jobPosting/search', {
+            params: {
+              keyword: inputValue,
+              page: searchPage
+            },
+          });
+          setSearchData(response.data.result.result);
+          setTotalPages(response.data.result.totalCount < 11 ? 1 : Math.ceil(response.data.result.totalCount / 11)); // 검색 결과에 따라 totalPages 업데이트
+        } catch (error) {
+        }
+      };
+      search_infromation();
+      setActiveSort(0);
 
-      } catch (error) {
-      }
-    };
-    search_infromation();}
-  }, [status,inputValue, searchPage]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
+    }
+  }, [status, inputValue, searchPage]); // 빈 배열을 넣어 마운트될 때 한 번만 호출하도록 설정
 
   //검색한 정보들 가져오기
   useEffect(() => {
@@ -137,30 +160,31 @@ function Recruit() {
 
   useEffect(() => {
     if (status === 'distance') {
-    const search_information = async () => {
-      const userToken = localStorage.getItem('accessToken');
-      try {
-        const response = await axios.get('https://arthurcha.shop/app/jobPosting/region', {
-          headers: {
-            Authorization: `Bearer ${userToken}`, // Authorization 헤더에 토큰 추가
-          },
-        });
-        setDistanceData(response.data.result);
-        console.log('거리순 결과 값:', response.data.result); // 데이터 확인
-        setStatus('distance');
-        setTotalPages(1);
-      } catch (error) {
-        // 오류 처리
-      }
-    };
-    search_information();}
+      const search_information = async () => {
+        const userToken = localStorage.getItem('accessToken');
+        try {
+          const response = await axios.get('https://arthurcha.shop/app/jobPosting/region', {
+            headers: {
+              Authorization: `Bearer ${userToken}`, // Authorization 헤더에 토큰 추가
+            },
+          });
+          setDistanceData(response.data.result);
+          console.log('거리순 결과 값:', response.data.result); // 데이터 확인
+          setStatus('distance');
+          setTotalPages(1);
+        } catch (error) {
+          // 오류 처리
+        }
+      };
+      search_information();
+    }
   }, [recruitPage, status]);
 
   //--------------------위치정보 등록했는지 안했는지 판별하기------------------------
-  const [location,setLocation] = useState(false);
+  const [location, setLocation] = useState(false);
   if ("geolocation" in navigator) {
     // 위치 권한을 지원하는 브라우저인지 확인
-  
+
     navigator.permissions.query({ name: 'geolocation' }).then(permissionStatus => {
       if (permissionStatus.state === 'granted') {
         // 위치 권한이 허용되었을 때 실행할 코드
@@ -207,41 +231,64 @@ function Recruit() {
 
 
   const [activeSort, setActiveSort] = useState(0);
+  const [isGrid,setGrid] = useState(false);
   const handleSortClick = (index) => {
     setActiveSort(index);
-    if (index === 2) {
+    if (index === 3) {
       setStatus('recruiting');
       setCurrent(1);
       setRecruitPage(1);
     }
-    else if(index ===1){
-      if(localStorage.getItem('accessToken')===null){
+    else if (index === 2) {
+      if (localStorage.getItem('accessToken') === null) {
         alert('로그인 후, 내 내정보 수정에서 위치정보를 등록해주세요');
       }
-      if(location === false){
+      if (location === false) {
         alert('내 정보 수정에서 위치정보를 등록해주세요.')
       }
-      else{
+      else {
         setStatus('distance');
         setCurrent(1);
       }
     }
-    else if(index===0){
+    else if (index === 0) {
       setStatus('recruit');
       setCurrent(1);
       setPage(1);
-
+    }
+    else if (index === 1) {
+      setStatus('recruit_1');
+      setCurrent(1);
+      setPage(1);
     }
   };
+
+
+  /*
+  const option_2=()=>{
+    setStatus('recruit');
+    setCurrent(1);
+    setPage(1);
+    setGrid(false);
+  }
+  const option_3=()=>{
+    setStatus('recruit_1');
+    setCurrent(1);
+    setPage(1);
+    setGrid(false);
+  }*/
+
+
   const sortItems = [
-    { text: '최근순', index: 0 },
-    { text: '거리순', index: 1 },
-    { text: '모집현황', index: 2 },
+    { text: '최근 순', index: 0 },
+    { text: '오래된 순', index: 1 },
+    { text: '거리순', index: 2 },
+    { text: '모집현황', index: 3 }
   ];
 
   //input창 엔터기능 활성화
-  const mouse = (event) =>{
-    if(event.keyCode == 13){
+  const mouse = (event) => {
+    if (event.keyCode === 13) {
       onclick();
     }
   }
@@ -275,7 +322,7 @@ function Recruit() {
                   )
                 ));
               }
-              else if(status ==='distance'){
+              else if (status === 'distance') {
                 return distanceData.map((data, index) => (
                   data.active_status === 1 ? (
                     <Recruiting onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
@@ -297,12 +344,18 @@ function Recruit() {
                     <Complete onClick={() => handleRecruitingClick(data.job_posting_id)} key={index} text={data.title} />
                   )
                 ));
-                }
+              }
             })()}
           </div>
         </div>)}
       <Footer setRecruitPage={setRecruitPage} totalpage={totalpage} setCurrent={setCurrent} current={current} totalSearchPages={totalSearchPages} status={status} page={page} setSearchPage={setSearchPage} setPage={setPage}></Footer>
-      <div className="main_div"></div>
+      {/*
+      <div className={isGrid ? "option_1" : "option_1_none"}>
+        <div onClick={option_2} className="option_2">최근 순</div>
+        <div onClick={option_3} className="option_3">마감 순</div>
+      </div>
+          <div className="main_div"></div>*/}
+
     </div>
   )
 }

@@ -34,7 +34,7 @@ export default function Main(){
             Navigate("/employment");
         }
         else {
-            Navigate("/recruit");
+            Navigate("/employment");
             alert("로그인을 하셔야 지원하기에 추가가 가능합니다.");
         }
     }

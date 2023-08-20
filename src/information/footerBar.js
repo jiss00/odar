@@ -64,17 +64,24 @@ function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, 
     if (status === 'recruit') {
       setDisplayPage(5);
       setTotalPages(totalpage);
-    } else if (status === 'search') {
+    } else if (status === 'recruit_1') {
+      setDisplayPage(5);
+      setTotalPages(totalpage - 1);
+    } else if (status === 'employment_1') {
+      setDisplayPage(5);
+      setTotalPages(totalpage - 1);
+    }
+    else if (status === 'search') {
       setTotalPages(totalSearchPages);
       setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
     } else if (status === 'recruiting') {
       setTotalPages(totalSearchPages);
       setDisplayPage(totalSearchPages < 5 ? totalSearchPages : 5);
-    }else if(status ==='distance'){
+    } else if (status === 'distance') {
       setTotalPages(1);
       setDisplayPage(1);
     }
-     else {
+    else {
       setDisplayPage(5);
       setTotalPages(totalpage);
     }
@@ -82,7 +89,12 @@ function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, 
   const onClick = async (pageNumber) => {
     if (status === 'recruit') {
       setPage(pageNumber);
-    } else if (status === 'search') {
+    } else if (status === 'recruit_1') {
+      setPage(pageNumber);
+    } else if (status === 'employment_1') {
+      setPage(pageNumber);
+    }
+    else if (status === 'search') {
       setSearchPage(pageNumber);
     }
     else if (status === 'recruiting') {
@@ -101,7 +113,12 @@ function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, 
 
       if (status === 'recruit') {
         setPage((prev) => Math.max(prev - displayPages, 1));
-      } else if (status === 'search') {
+      } else if (status === 'recruit_1') {
+        setPage((prev) => Math.max(prev - displayPages, 1));
+      } else if (status === 'employment_1') {
+        setPage((prev) => Math.max(prev - displayPages, 1));
+      }
+      else if (status === 'search') {
         setSearchPage((prev) => Math.max(prev - displayPages, 1));
       } else if (status === 'recruiting') {
         setRecruitPage((prev) => Math.max(prev - displayPages, 1));
@@ -118,7 +135,12 @@ function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, 
       setCurrent((prev) => Math.min(prev + displayPages, totalPages));
       if (status === 'recruit') {
         setPage((prev) => Math.min(prev + displayPages, totalPages));
-      } else if (status === 'search') {
+      } else if (status === 'recruit_1') {
+        setPage((prev) => Math.min(prev + displayPages, totalPages));
+      } else if (status === 'employment_1') {
+        setPage((prev) => Math.min(prev + displayPages, totalPages));
+      }
+      else if (status === 'search') {
         setSearchPage((prev) => Math.min(prev + displayPages, totalPages));
       } else if (status === 'recruiting') {
         setRecruitPage((prev) => Math.min(prev + displayPages, totalPages));
@@ -158,7 +180,7 @@ function Footer({ setRecruitPage, totalpage, current, setCurrent, status, page, 
       <div onClick={onPrevClick}>{'<'}</div>
       {renderPageNumbers()}
       <div onClick={onNextClick}>{'>'}</div>
-      
+
     </Div>
   );
 }

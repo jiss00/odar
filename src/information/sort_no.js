@@ -7,20 +7,19 @@ function Sort(props){
   const Div = styled.div`
   box-sizing: border-box;
   padding-top : 4px;
-  width : 70px;
+  width : 85px;
   height : 28px;
   color: ${active ? '#5B8E31' : 'black'}; // 클릭된 경우 색 변경, 아닌 경우 일반 색상
-  font-weight: ${active ? '800' : '500'};
+  font-weight: ${active ? '800' : '400'};
   font-size: 15px;
   border-radius : 20px;
   border : solid #5B8E31 1px;
   cursor: pointer;
-  display:flex;
-  justify-content: center;  
+  padding-left:10px;
   @media screen and (min-width: 1024px){
-    font-size:19px;
-    padding-top:6px;
-    width : 90px;
+    font-size:18px;
+    padding-top:7px;
+    width : 104px;
     height : 40px; 
   } 
   `  
