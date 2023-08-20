@@ -169,6 +169,7 @@ function Recruit() {
       } else if (permissionStatus.state === 'prompt') {
         // 위치 권한을 묻는 팝업이 나타나기 전 상태
         console.log("위치 권한을 요청 중입니다.");
+        setLocation(true);
       } else {
         // 위치 권한이 거부되었을 때 실행할 코드
         console.log("위치 권한이 거부되었습니다.");
@@ -178,6 +179,8 @@ function Recruit() {
   } else {
     // 위치 권한을 지원하지 않는 브라우저
     console.log("이 브라우저는 위치 권한을 지원하지 않습니다.");
+    setLocation(false);
+
   }
 
   const onclick = (e) => {

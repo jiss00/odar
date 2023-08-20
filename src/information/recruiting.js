@@ -19,7 +19,7 @@ function Recruiting(props){
     width : 840px;
     height : 40px;
     padding-left : 30px;
-    padding-top : 7px;
+    padding-top : 9px;
     font-size: 18px;
   }
   `
@@ -40,7 +40,7 @@ function Recruiting(props){
   z-index:1;
   @media screen and (min-width: 1024px) {
     height : 40px;
-    padding-top : 8px;
+    padding-top : 9px;
     font-size: 17px;
     padding-left:9px;
 

@@ -3,9 +3,13 @@ import styled from "styled-components";
 import { PiEyeClosed,PiEye } from "react-icons/pi"; 
 
 const StyledInput = styled.input`
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
     font-family: "Pretendard";
-    position:relative;
-    width: 100%;
+    top:0px;
+    width: 335px;
+    height:50px;
     outline: none;
     border: none;
     font-size: 24px;
@@ -14,12 +18,13 @@ const StyledInput = styled.input`
     letter-spacing: 0px;
     background-color: transparent;
     text-indent: 0.5em;
-    top:5px;
-
+    margin:0 auto;
+    
     &&&::placeholder {
         font-family: "Pretendard";
         font-size: 20px;
         font-weight: 700;
+        line-height: 20px;
         color: rgba(217, 217, 217, 1);
         text-indent: 0.5em;
     }
@@ -30,23 +35,23 @@ const StyledInput = styled.input`
         margin-left:auto;
         left:0px;
         width:440px;
-        top:10px;
         }
 `;
 
 const IconWrapper = styled.div`
     display: flex;
     box-sizing: border-box;
-    position: relative; 
+    position: absolute; 
     width: 24px;
     height: 24px;
-    top: -30px;
+    top: 13px;
+    left:270px;
     cursor: pointer;
     margin-right:15px;
     margin-left:auto;
     @media all and (min-width: 1024px){	
-        position: relative; 
-        top:-17px;
+        position: absolute; 
+        left: 400px;
         }
 `;
 function Input_pwcheck(props) {

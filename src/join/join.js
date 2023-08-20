@@ -250,13 +250,13 @@ function Join() {
         <Text1 text='휴대폰번호' />
         <div className='phone_number'>
           <Input placeholder="010-0000-0000" w_width='350px' width='250px' type="handleVerificationChange" onChange={handleVerificationChange} />
-          <Auth verification={verification} func={onclick} text='인증' />
+          <Auth phone={phone} usrName={usrName} year={year} month={month} day={day} func={onclick} text='인증' />
         </div>
         <div className='phone_number'>
           <Input placeholder="000000" w_width='350px' width='250px' type="handleCompleteChange" onChange={handleCompleteChange} />
           {modal === true ? <Timer modal={modal} setModal={setModal}></Timer> : <></>}
 
-          <Auth complete={complete} func={confirm} text='완료' />
+          <Auth phone={phone} usrName={usrName} year={year} month={month} day={day} func={confirm} text='완료' />
         </div>
         {/*
         <div style={{ height: '50px' }}>

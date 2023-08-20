@@ -13,6 +13,7 @@ const StyledButton = styled.button`
   display:flex;
   box-sizing: border-box;
   position: relative;
+  cursor : pointer;
   width:335px;
   height: 66px;
   top: 0px;
