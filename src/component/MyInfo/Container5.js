@@ -112,7 +112,7 @@ function AgreeButton({ top }) {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            console.log("사용자 위치 정보:", position.coords.latitude, position.coords.longitude);
+            // console.log("사용자 위치 정보:", position.coords.latitude, position.coords.longitude);
             sendLocationStatusToAPI(1);
 
             const REST_API_KEY = 'fc2cb1fdd5ecbf98c49c7b6541e05f74';

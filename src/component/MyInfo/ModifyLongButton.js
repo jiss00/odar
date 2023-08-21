@@ -309,43 +309,43 @@ const sendEndTimes = (endTime) => {
   
   // 직군 정보 1
   export function handleSelectedValue(selectedValue) {
-    console.log('사용자가 선택한 직군 번호:', selectedValue);
+    // console.log('사용자가 선택한 직군 번호:', selectedValue);
     ValueData = selectedValue;
   }
   
   // 요일 정보 2
   export function sendSelectedDaysToAPI(selectedDays) {
-    console.log('선택한 요일 리스트:', selectedDays);
+    // console.log('선택한 요일 리스트:', selectedDays);
     DaysData = selectedDays;
   }
   
   // 알림 정보 4
   export function sendNotificationStatusToAPI(status) {
-    if (status === 1) {
-      console.log('알림 권한 허용');
-    } else if (status === 0) {
-      console.log('알림 권한 거부');
-    } else {
-      console.log('알 수 없는 결과');
-    }
+    // if (status === 1) {
+    //   console.log('알림 권한 허용');
+    // } else if (status === 0) {
+    //   console.log('알림 권한 거부');
+    // } else {
+    //   console.log('알 수 없는 결과');
+    // }
     NotificationData = status;
   }
   
   // 위치 정보 5
   export function sendLocationStatusToAPI(status) {
-    if (status === 1) {
-      console.log('위치 정보 가져오기 성공');
-    } else if (status === 0) {
-      console.log('위치 정보 가져오기 실패');
-    } else {
-      console.log('알 수 없는 상태');
-    }
+    // if (status === 1) {
+    //   console.log('위치 정보 가져오기 성공');
+    // } else if (status === 0) {
+    //   console.log('위치 정보 가져오기 실패');
+    // } else {
+    //   console.log('알 수 없는 상태');
+    // }
     LocationData = status;
   }
   
   // 지역 정보 6
   export function sendRegionsToAPI(region1, region2, region3) {
-    console.log('받은 지역 정보:', region1, region2, region3);
+    // console.log('받은 지역 정보:', region1, region2, region3);
     RegionsData1 = region1;
     RegionsData2 = region2;
     RegionsData3 = region3;
@@ -378,7 +378,7 @@ function SendUserInfo() {
     job_id: ValueData,
   };
 
-  console.log(data);
+  // console.log(data);
 
   axios.patch('https://arthurcha.shop/app/users/edit', data, {
     headers: {
@@ -386,7 +386,7 @@ function SendUserInfo() {
     }
   })
   .then(response => {
-    console.log('API 응답:', response.data);
+    // console.log('API 응답:', response.data);
   })
   .catch(error => {
     console.error('API 오류:', error);
