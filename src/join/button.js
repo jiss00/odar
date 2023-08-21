@@ -31,6 +31,7 @@ const StyledButton = styled.button`
   font-weight: 800;
   text-align: center;
   margin-bottom: 30px;
+  cursor: pointer;
 
   /* 버튼이 비활성화된 상태에 대한 스타일 */
   ${({ disabled }) =>
