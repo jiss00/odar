@@ -17,7 +17,8 @@ transform: translate(-48%, -50%);
 margin:0 auto;
 top:115px;
 display: grid; 
-grid-template-columns : 70px 70px 70px 70px 20px 40px;
+grid-template-columns : 67px 67px 67px 67px 20px 40px;
+grid-gap:4px;
 @media screen and (min-width: 1024px){
   transform: translate(-50%, -50%);
   top : 230px;

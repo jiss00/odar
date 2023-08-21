@@ -7,7 +7,7 @@ function Sort(props){
   const Div = styled.div`
   box-sizing: border-box;
   padding-top : 4px;
-  width : 70px;
+  width : 68px;
   height : 28px;
   color: ${active ? '#5B8E31' : 'black'}; // 클릭된 경우 색 변경, 아닌 경우 일반 색상
   font-weight: ${active ? '800' : '500'};
