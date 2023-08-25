@@ -8,7 +8,7 @@
 
 <div align="center"> 
   
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FO-dar&count_bg=%23A2C08A&title_bg=%235B8E31&icon=&icon_color=%23E7E7E7&title=O-dar&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FO-dar%2FO-dar-Web&count_bg=%23A2C08A&title_bg=%235B8E31&icon=&icon_color=%23E7E7E7&title=O-dar+Frontend&edge_flat=false)](https://hits.seeyoufarm.com)
 
 <hr/>
 </div>
