@@ -1,6 +1,6 @@
 ## 오다르 프론트엔드
 ```
-![image](https://github.com/jiss00/odar/assets/90140865/394586b2-7c0b-4ee0-8128-9c0cc5044f45)
+![image](https://github.com/O-dar/O-dar-Web/assets/96537605/f42da920-9489-4686-a023-ec781f0f5bbe)
 
 🍀 시니어 맞춤 구인구직 웹 서비스
 ✅ UMC 4th MasterCourse  
